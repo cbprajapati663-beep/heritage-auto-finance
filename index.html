@@ -720,6 +720,10 @@
                 <input type="text" id="custName" placeholder="E.g. Rahul Patel" required>
             </div>
             <div class="form-group">
+    <label>Mobile Number</label>
+    <input type="tel" id="custPhone" placeholder="E.g. 9876543210" required>
+</div>
+            <div class="form-group">
                 <label>What are you looking for?</label>
                 <select id="custService">
                     <option value="New Car Loan">New Car Loan</option>
@@ -814,18 +818,31 @@
         });
 
         // --- 4. WhatsApp Redirect Logic ---
-        function sendToWhatsApp() {
-            var name = document.getElementById('custName').value;
-            var service = document.getElementById('custService').value;
-            
-            if(name.trim() === "") {
-                alert("Please enter your name.");
-                return;
-            }
-            var message = "Hello Heritage Auto Finance,\n\nMy name is *" + name + "*.\nI am interested in *" + service + "*.\n\nPlease call me back to discuss further details.";
-            var whatsappUrl = "https://wa.me/917600211085?text=" + encodeURIComponent(message);
-            window.open(whatsappUrl, '_blank');
-        }
+function sendToWhatsApp() {
+    var name = document.getElementById('custName').value;
+    var phone = document.getElementById('custPhone') ? document.getElementById('custPhone').value : '';
+    var service = document.getElementById('custService').value;
+
+    if (name.trim() === "") {
+        alert("Please enter your name.");
+        return;
+    }
+
+    // 1. HubSpot Lead Push
+    var _hsq = window._hsq = window._hsq || [];
+    _hsq.push(["identify", {
+        firstname: name,
+        mobilephone: phone
+    }]);
+    _hsq.push(['trackCustomBehavioralEvent', {
+        name: "lead_callback_form_submitted"
+    }]);
+
+    // 2. Open WhatsApp Chat
+    var message = "Hello Heritage Auto Finance,\n\nMy name is *" + name + "*.\nContact: *" + phone + "*\nI am interested in *" + service + "*.\n\nPlease call me back to discuss further details.";
+    var whatsappUrl = "https://wa.me/917600211085?text=" + encodeURIComponent(message);
+    window.open(whatsappUrl, '_blank');
+}
 
         // --- 5. Live EMI Calculator Logic ---
         function calculateEMI() {
