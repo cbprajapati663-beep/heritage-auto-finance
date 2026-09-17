@@ -714,27 +714,31 @@
         <div class="form-container">
             <h3>Request A Free Callback</h3>
             <p style="color: #ccc; margin-bottom: 25px; font-size: 0.9rem;">Fill details to get a call from our financial experts.</p>
-            
-            <div class="form-group">
-                <label>Your Full Name</label>
-                <input type="text" id="custName" placeholder="E.g. Rahul Patel" required>
-            </div>
-            <div class="form-group">
-    <label>Mobile Number</label>
-    <input type="tel" id="custPhone" placeholder="E.g. 9876543210" required>
-</div>
-            <div class="form-group">
-                <label>What are you looking for?</label>
-                <select id="custService">
-                    <option value="New Car Loan">New Car Loan</option>
-                    <option value="Used Car Loan">Used Car Loan</option>
-                    <option value="Commercial Vehicle Loan">Commercial Vehicle Loan</option>
-                    <option value="Car Insurance">Car Insurance</option>
-                    <option value="Health/Life Insurance">Health/Life Insurance</option>
-                    <option value="Other Query">Other Query</option>
-                </select>
-            </div>
-            <button class="submit-btn" onclick="sendToWhatsApp()">Apply Now via WhatsApp</button>
+          <div class="form-group">
+            <label>Your Full Name</label>
+            <input type="text" id="custName" placeholder="E.g. Rahul Patel" required>
+        </div>
+        <div class="form-group">
+            <label>Mobile Number</label>
+            <input type="tel" id="custPhone" placeholder="E.g. 9876543210" required>
+        </div>
+        <div class="form-group">
+            <label>Email Address</label>
+            <input type="email" id="custEmail" placeholder="E.g. rahul@gmail.com" required>
+        </div>
+        <div class="form-group">
+            <label>What are you looking for?</label>
+            <select id="custService">
+                <option value="New Car Loan">New Car Loan</option>
+                <option value="Used Car Loan">Used Car Loan</option>
+                <option value="Commercial Vehicle Loan">Commercial Vehicle Loan</option>
+                <option value="Car Insurance">Car Insurance</option>
+                <option value="Health/Life Insurance">Health/Life Insurance</option>
+                <option value="Other Query">Other Query</option>
+            </select>
+        </div>
+        <button class="submit-btn" id="submitBtn" onclick="submitEnquiry()">Submit Inquiry</button>
+        <div id="formMsg" style="display:none; margin-top:15px; color:#25d366; font-weight:600; text-align:center;"></div>
         </div>
     </div>
 
@@ -817,20 +821,27 @@
             window.scrollTo({top: 0, behavior: 'smooth'});
         });
 
-        // --- 4. WhatsApp Redirect Logic ---
-function sendToWhatsApp() {
-    var name = document.getElementById('custName').value;
-    var phone = document.getElementById('custPhone') ? document.getElementById('custPhone').value : '';
+   // --- 4. Submit Inquiry & HubSpot Lead Push ---
+function submitEnquiry() {
+    var name = document.getElementById('custName').value.trim();
+    var phone = document.getElementById('custPhone') ? document.getElementById('custPhone').value.trim() : '';
+    var email = document.getElementById('custEmail') ? document.getElementById('custEmail').value.trim() : '';
     var service = document.getElementById('custService').value;
+    var btn = document.getElementById('submitBtn');
+    var msg = document.getElementById('formMsg');
 
-    if (name.trim() === "") {
-        alert("Please enter your name.");
+    if (!name || !phone || !email) {
+        alert("Please fill Name, Mobile Number and Email Address.");
         return;
     }
 
-    // 1. HubSpot Lead Push
+    btn.innerText = "Submitting...";
+    btn.disabled = true;
+
+    // HubSpot Contact Push
     var _hsq = window._hsq = window._hsq || [];
     _hsq.push(["identify", {
+        email: email,
         firstname: name,
         mobilephone: phone
     }]);
@@ -838,10 +849,13 @@ function sendToWhatsApp() {
         name: "lead_callback_form_submitted"
     }]);
 
-    // 2. Open WhatsApp Chat
-    var message = "Hello Heritage Auto Finance,\n\nMy name is *" + name + "*.\nContact: *" + phone + "*\nI am interested in *" + service + "*.\n\nPlease call me back to discuss further details.";
-    var whatsappUrl = "https://wa.me/917600211085?text=" + encodeURIComponent(message);
-    window.open(whatsappUrl, '_blank');
+    setTimeout(function() {
+        btn.style.display = "none";
+        msg.style.display = "block";
+        msg.innerText = "✓ Thank you, " + name + "! Your inquiry has been submitted. Our team will contact you shortly.";
+    }, 600);
+
+
 }
 
         // --- 5. Live EMI Calculator Logic ---
