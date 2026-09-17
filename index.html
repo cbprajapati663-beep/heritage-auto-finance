@@ -230,7 +230,18 @@
             box-shadow: 0 0 25px rgba(244, 180, 26, 0.7);
             transform: translateY(-2px);
         }
-
+/* Hide HubSpot Free Badge */
+.hs-form-frame iframe,
+iframe[title*="Viral"],
+.hs-form-frame + a,
+.hs-form-frame a[href*="hubspot.com"] {
+    display: none !important;
+    visibility: hidden !important;
+}
+   .hs-form-frame iframe:first-of-type {
+    display: block !important;
+    visibility: visible !important;
+}     
         /* Text Details Section */
         .details-container {
             display: flex;
