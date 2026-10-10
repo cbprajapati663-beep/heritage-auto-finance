@@ -183,3 +183,10 @@ footer{border-top:1px solid rgba(244,180,26,.15)}
 .form-privacy-note{max-width:680px;margin:18px auto 0;color:rgba(255,255,255,.68);font-size:.82rem;line-height:1.7;text-align:left}
 .form-privacy-note a{color:var(--heritage-cream);text-underline-offset:3px}
 .form-privacy-note a:focus-visible{outline:2px solid var(--heritage-gold);outline-offset:3px;border-radius:2px}
+
+/* Consistent keyboard focus for links, controls and interactive FAQ cards */
+:where(a,button,input,select,textarea,[role="button"],[tabindex]):focus-visible{
+ outline:3px solid var(--heritage-cream);
+ outline-offset:3px;
+}
+.faq-item[role="button"]{cursor:pointer}
