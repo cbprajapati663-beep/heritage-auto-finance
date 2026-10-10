@@ -29,6 +29,8 @@ assert.equal((html.match(/class="faq-item" role="button" tabindex="0"/g) || []).
 assert.match(html, /href="styles\.css"/i, "HTML must load the external stylesheet");
 assert.match(html, /href="premium\.css"/i, "HTML must load premium refinement styles");
 assert.match(html, /privacy-policy\.html/, "Privacy policy must be linked from the homepage");
+assert.match(html, /form-privacy-note/, "Callback form must show a privacy and sensitive-data notice");
+assert.match(html, /Do not submit Aadhaar, PAN, bank account details/i, "Initial enquiry form must warn against sharing sensitive documents");
 assert.match(html, /terms\.html/, "Terms must be linked from the homepage");
 assert.ok(existsSync("privacy-policy.html"), "Privacy policy page must exist");
 assert.ok(existsSync("terms.html"), "Terms page must exist");
