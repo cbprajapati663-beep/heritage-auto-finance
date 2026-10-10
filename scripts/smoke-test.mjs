@@ -71,8 +71,8 @@ for (const id of ["principalSummary", "interestSummary", "totalSummary", "emiWha
 }
 assert.match(js, /totalRepayment\s*=\s*safeEmi\s*\*\s*months/, "EMI summary should calculate total repayment from EMI and tenure");
 assert.match(js, /encodeURIComponent\(message\)/, "EMI WhatsApp message should URL-encode the estimate");
-assert.match(html, /class="mobile-action-call"[^>]+href="tel:\+917600211085"/, "Mobile quick actions should include a working call link");
-assert.match(html, /class="mobile-action-whatsapp"[^>]+href="https:\/\/wa\.me\/917600211085[^"]*"[^>]+target="_blank" rel="noopener noreferrer"/, "Mobile WhatsApp link should safely open in a new tab");
+assert.match(html, /href="tel:\+917600211085"[^>]*class="mobile-action-call"/, "Mobile quick actions should include a working call link");
+assert.match(html, /href="https:\/\/wa\.me\/917600211085[^"]*"[^>]*class="mobile-action-whatsapp"[^>]*target="_blank" rel="noopener noreferrer"/, "Mobile WhatsApp link should safely open in a new tab");
 assert.match(html, /class="mobile-action-callback"[^>]+href="#contact"/, "Mobile quick actions should include the callback form shortcut");
 assert.match(js, /function calculateEMI\s*\(/, "EMI calculator handler must exist");
 assert.match(js, /function calculateEligibility\s*\(/, "Affordability calculator handler must exist");
