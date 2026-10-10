@@ -34,6 +34,9 @@ assert.match(html, /Do not submit Aadhaar, PAN, bank account details/i, "Initial
 assert.match(html, /terms\.html/, "Terms must be linked from the homepage");
 assert.ok(existsSync("privacy-policy.html"), "Privacy policy page must exist");
 assert.ok(existsSync("terms.html"), "Terms page must exist");
+assert.match(readFileSync("privacy-policy.html", "utf8"), /rel="canonical" href="https:\/\/heritageautofinance\.netlify\.app\/privacy-policy\.html"/i, "Privacy policy canonical must use the production domain");
+assert.match(readFileSync("terms.html", "utf8"), /rel="canonical" href="https:\/\/heritageautofinance\.netlify\.app\/terms\.html"/i, "Terms canonical must use the production domain");
+
 assert.match(premium, /\.legal-page/, "Legal pages must use the shared premium layout");
 assert.match(html, /src="app\.js"/i, "HTML must load the external JavaScript");
 assert.ok(existsSync("styles.css"), "styles.css must exist");
