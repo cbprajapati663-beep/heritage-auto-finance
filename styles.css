@@ -223,22 +223,9 @@
             box-shadow: 0 0 25px rgba(244, 180, 26, 0.7);
             transform: translateY(-2px);
         }
-/* Hide HubSpot Free Badge */
-.hs-form-frame iframe,
-iframe[title*="Viral"],
-.hs-form-frame + a,
-.hs-form-frame a[href*="hubspot.com"] {
-    display: none !important;
-    visibility: hidden !important;
-}
-   .hs-form-frame iframe:first-of-type {
-    display: block !important;
-    visibility: visible !important;
-}    
-        .hs-form-frame {
-    max-height: 390px !important;
-    overflow: hidden !important;
-}
+/* HubSpot form: allow the full embedded form to render and scroll naturally. */
+.hs-form-frame { width: 100%; min-height: 260px; overflow: visible; }
+
         /* Text Details Section */
         .details-container {
             display: flex;
@@ -285,7 +272,7 @@ iframe[title*="Viral"],
         /* Image Grid (Posters) */
         .poster-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
             gap: 30px;
             max-width: 1300px;
             margin: 0 auto 60px;
@@ -528,4 +515,42 @@ html { scroll-behavior: smooth; }
   .stat-item { min-width: 140px; }
   .float-wa { width: 54px; height: 54px; right: 16px; bottom: 16px; font-size: 30px; }
   .back-to-top { right: 20px; bottom: 82px; }
+}
+
+/* Production fixes: layout, form, keyboard access, and mobile behavior */
+*, *::before, *::after { box-sizing: border-box; }
+body { min-width: 320px; }
+main, section { scroll-margin-top: 100px; }
+nav { gap: 18px; }
+.nav-links { display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end; gap: 10px 18px; }
+.nav-links a { margin-left: 0; }
+.nav-logo { width: auto; max-width: min(45vw, 220px); object-fit: contain; }
+.hero-banner .main-poster { display: block; width: 100%; max-width: 1100px; height: auto; margin: 0 auto 22px; }
+.poster-grid { grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); }
+.poster-item { min-width: 0; }
+.poster-item img { display: block; }
+.hs-form-frame { max-width: 100%; }
+.calculator-note { color: #bdb6c8; font-size: .85rem; line-height: 1.6; margin: 16px 0 0; }
+button, a, input { -webkit-tap-highlight-color: transparent; }
+a:focus-visible, button:focus-visible, input:focus-visible { outline: 3px solid #f4b41a; outline-offset: 3px; }
+.faq-question { user-select: none; }
+.faq-answer { overflow-wrap: anywhere; }
+@media (max-width: 768px) {
+  nav { padding: 12px 16px; flex-wrap: wrap; }
+  .nav-links { display: flex; width: 100%; justify-content: center; gap: 8px 14px; }
+  .nav-links a { font-size: .72rem; letter-spacing: .4px; }
+  .hero-banner { margin-top: 20px; }
+  .secure-badge { max-width: 100%; font-size: .75rem; text-align: center; }
+  .stats-bar { margin: 24px 16px; padding: 16px 8px; }
+  .stat-item { min-width: 130px; }
+  .stat-item h3 { font-size: clamp(1.25rem, 5vw, 2rem); }
+  .poster-grid { padding: 0 16px; gap: 18px; }
+  .calc-card, .form-container { padding: 22px 16px; }
+  .emi-result h2 { font-size: clamp(1.8rem, 8vw, 2.8rem); }
+  .contact-btn { font-size: 1.3rem; padding: 12px 22px; }
+  .lead-form-section { background-attachment: scroll; padding: 48px 14px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+  .reveal { opacity: 1; transform: none; }
 }
