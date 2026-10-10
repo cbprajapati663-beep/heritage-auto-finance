@@ -3,7 +3,8 @@ import { readFileSync, existsSync } from "node:fs";
 
 const html = readFileSync("index.html", "utf8");
 const css = readFileSync("styles.css", "utf8");
-const js = readFileSync("app.js", "utf8");\nconst premium = readFileSync("premium.css", "utf8");
+const js = readFileSync("app.js", "utf8");
+const premium = readFileSync("premium.css", "utf8");\nconst premium = readFileSync("premium.css", "utf8");
 
 assert.match(html, /<title>[^<]+<\/title>/i, "Page title should exist");
 assert.match(html, /name="description"/i, "SEO description should exist");
@@ -24,6 +25,12 @@ assert.doesNotMatch(html, /5,000\+|24\/7/, "Unverified claims must not appear");
 assert.match(html, /subject to the relevant lender or insurer/, "Finance disclaimer should exist");
 assert.equal((html.match(/class="faq-item" role="button" tabindex="0"/g) || []).length, 4, "All FAQ items should be keyboard accessible");
 assert.match(html, /href="styles\.css"/i, "HTML must load the external stylesheet");
+assert.match(html, /href="premium\.css"/i, "HTML must load premium refinement styles");
+assert.match(html, /privacy-policy\.html/, "Privacy policy must be linked from the homepage");
+assert.match(html, /terms\.html/, "Terms must be linked from the homepage");
+assert.ok(existsSync("privacy-policy.html"), "Privacy policy page must exist");
+assert.ok(existsSync("terms.html"), "Terms page must exist");
+assert.match(premium, /\.legal-page/, "Legal pages must use the shared premium layout");
 assert.match(html, /src="app\.js"/i, "HTML must load the external JavaScript");
 assert.ok(existsSync("styles.css"), "styles.css must exist");
 assert.ok(existsSync("app.js"), "app.js must exist");
