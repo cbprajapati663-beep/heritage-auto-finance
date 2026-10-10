@@ -10,7 +10,7 @@ assert.match(html, /name="description"/i, "SEO description should exist");
 assert.match(html, /hero-cta-primary/, "Primary callback CTA should exist");
 assert.match(html, /hero-trust-points/, "Service highlights should exist");
 assert.equal((html.match(/class="main-poster"/g) || []).length, 1, "Hero should show only one main poster");
-assert.match(html, /enquiry and documentation guidance/i, "Commercial finance copy must describe assistance accurately");
+assert.match(html, /documentation guidance dete hain/i, "Commercial finance copy must describe assistance accurately");
 assert.doesNotMatch(html, /finance provide karte hain/i, "Avoid implying Heritage directly lends money");
 assert.match(html, /id="scrollProgress"/, "Scroll progress indicator should exist");
 assert.doesNotMatch(html, /5,000\+|24\/7/, "Unverified claims must not appear");
