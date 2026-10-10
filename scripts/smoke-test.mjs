@@ -13,6 +13,11 @@ assert.equal((html.match(/class="main-poster"/g) || []).length, 1, "Hero should 
 assert.equal((html.match(/loading="lazy" decoding="async"/g) || []).length, 8, "Poster images should load lazily to reduce initial page work");
 assert.match(html, /fetchpriority="high"/, "Hero poster should be prioritized");
 assert.match(html, /documentation guidance dete hain/i, "Commercial finance copy must describe assistance accurately");
+assert.match(html, /Hum used car finance ke liye enquiry aur documentation guidance dete hain/i, "Used-car FAQ must describe assistance rather than imply direct lending");
+assert.doesNotMatch(html, /Humari used car finance scheme ke tahat/i, "Avoid implying Heritage runs its own lending scheme");
+for (const id of ["loanAmount", "interestRate", "loanTenure", "monthlyIncome"]) {
+  assert.match(html, new RegExp(`id="${id}" aria-label="[^"]+"`), `${id} slider should have an accessible name`);
+}
 assert.doesNotMatch(html, /finance provide karte hain/i, "Avoid implying Heritage directly lends money");
 assert.match(html, /id="scrollProgress"/, "Scroll progress indicator should exist");
 assert.doesNotMatch(html, /5,000\+|24\/7/, "Unverified claims must not appear");
@@ -38,6 +43,7 @@ for (const match of html.matchAll(/href="#([^"]+)"/g)) {
 }
 
 assert.match(css, /@media\s*\(max-width:\s*768px\)/, "Mobile layout rules should exist");
+assert.match(css, /@media\s*\(prefers-reduced-motion:\s*reduce\)/, "Reduced-motion preferences should be respected");
 assert.equal((css.match(/\/\* Premium conversion-focused polish \*\//g) || []).length, 1, "Premium CSS rules should not be duplicated");
 assert.match(css, /\.hs-form-frame\s*\{[^}]*overflow:\s*visible/s, "Embedded lead form must not be clipped");
 assert.match(js, /function calculateEMI\s*\(/, "EMI calculator handler must exist");
