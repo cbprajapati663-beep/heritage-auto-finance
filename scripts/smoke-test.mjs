@@ -114,3 +114,17 @@ assert.equal((html.match(/aria-controls="faq-answer-\d+"/g) || []).length, 4, "E
 assert.equal((html.match(/class="faq-answer" id="faq-answer-\d+" role="region"/g) || []).length, 4, "FAQ answers should expose named regions to assistive technology");
 
 assert.match(premium, /:where\(a,button,input,select,textarea,\[role="button"\],\[tabindex\]\):focus-visible/, "Interactive controls should have a consistent visible keyboard focus indicator");
+
+
+// Keep sitemap entries aligned with real, tracked site pages and production URLs.
+const sitemapLocations = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map(match => match[1]);
+assert.ok(sitemapLocations.length >= 3, "Sitemap should list the homepage and legal pages");
+assert.equal(new Set(sitemapLocations).size, sitemapLocations.length, "Sitemap URLs should not be duplicated");
+for (const url of sitemapLocations) {
+  assert.match(url, /^https:\/\/heritageautofinance\.netlify\.app\//, "Sitemap entries must use the canonical production host");
+  const pathname = new URL(url).pathname;
+  const localPage = pathname === "/" ? "index.html" : pathname.slice(1);
+  assert.ok(existsSync(localPage), `Sitemap entry must point to a tracked page: ${url}`);
+}
+assert.match(notFound, /name="viewport"/, "Custom 404 page should be responsive on mobile");
+assert.match(notFound, /rel="noopener noreferrer"/, "External 404 links should use safe target attributes");
