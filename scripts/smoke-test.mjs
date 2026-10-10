@@ -65,5 +65,11 @@ assert.match(js, /IntersectionObserver/, "Scroll reveal should use IntersectionO
 assert.match(js, /updateScrollProgress/, "Scroll progress behavior should exist");
 assert.doesNotMatch(js, /Your inquiry has been submitted\./, "Do not claim a lead was submitted without confirmed form success");
 
+
+const notFound = readFileSync("404.html", "utf8");
+assert.match(notFound, /<title>Page Not Found \| Heritage Auto Finance<\/title>/, "Custom 404 page should have a clear title");
+assert.match(notFound, /href="\.\/"[^>]*>Go to homepage|href="\.\/"[^>]*>← Back to homepage/, "Custom 404 page should link home");
+assert.match(notFound, /wa\.me\/917600211085/, "Custom 404 page should provide a WhatsApp help path");
+
 console.log("Website smoke tests passed.");
 console.log(`Checked ${ids.length} HTML ids, local asset references, navigation targets, responsive CSS, form visibility, and core JavaScript handlers.`);
