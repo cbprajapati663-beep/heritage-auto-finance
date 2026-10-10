@@ -494,8 +494,7 @@
         /* Mobile Responsive */
         @media (max-width: 768px) {
             .poster-grid { grid-template-columns: 1fr; }
-            .nav-links { display: none; }
-            .section-title { font-size: 2.2rem; }
+.section-title { font-size: 2.2rem; }
             .calc-card, .form-container { padding: 22px; }
             .typing-container { font-size: 1.5rem; }
         }
