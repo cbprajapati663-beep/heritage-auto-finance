@@ -6,6 +6,9 @@
     <title>Heritage Auto Finance | Vehicle Loans & Insurance Assistance in Gujarat</title>
     <meta name="description" content="Explore new and used car finance, commercial vehicle finance, refinance and insurance assistance with Heritage Auto Finance in Mehsana, Gujarat.">
     <meta name="theme-color" content="#090510">
+    <meta name="robots" content="index, follow">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_IN">
     <meta property="og:title" content="Heritage Auto Finance">
     <meta property="og:description" content="Vehicle finance and insurance assistance across Mehsana and North Gujarat.">
     <link rel="stylesheet" href="styles.css">
@@ -13,7 +16,7 @@
 <body>
 
     <!-- Back to Top Button -->
-    <a href="#" class="back-to-top" id="backToTop" title="Go to top">▲</a>
+    <a href="#" class="back-to-top" id="backToTop" title="Go to top" aria-label="Back to top">▲</a>
 
     <!-- Floating WhatsApp Button -->
     <a href="https://wa.me/917600211085?text=Hello Heritage Auto Finance, I want to know more about your services." class="float-wa" target="_blank" rel="noopener noreferrer" aria-label="Contact Heritage Auto Finance on WhatsApp">
@@ -23,7 +26,8 @@
     </a>
 
     <!-- Sticky Navigation -->
-    <nav>
+    <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+    <nav aria-label="Main navigation">
         <img src="logo.png" alt="Heritage Auto Finance" class="nav-logo" width="180" height="60" decoding="async">
         <div class="nav-links">
             <a href="#services">Our Edge</a>
@@ -37,7 +41,7 @@
     <div class="hero-banner reveal active">
         <div class="secure-badge">Vehicle Finance & Insurance Assistance</div>
         <div class="typing-container">
-            We Finance Your <br><span class="typed-text"></span>
+            We Help You Explore <br><span class="typed-text"></span>
         </div>
         <img src="03.png" alt="Dream It. Drive It. Finance It." class="main-poster" loading="eager">
         <img src="01.png" alt="All Your Vehicle Needs, One Trusted Partner" class="main-poster" loading="lazy">
@@ -69,23 +73,23 @@
                 <h3>🚗 Vehicle Finance</h3>
                 <ul>
                     <li><strong>New & Used Cars:</strong> Guidance on available lender options.</li>
-                    <li><strong>Commercial Vehicles:</strong> Expand your business fleet easily.</li>
-                    <li><strong>Refinance:</strong> Get maximum value against your car.</li>
+                    <li><strong>Commercial Vehicles:</strong> Explore finance options for business vehicles.</li>
+                    <li><strong>Refinance:</strong> Check whether refinancing may suit your needs.</li>
                 </ul>
             </div>
             <div class="detail-box">
-                <h3>🛡️ Complete Protection</h3>
+                <h3>🛡️ Motor Insurance Assistance</h3>
                 <ul>
-                    <li><strong>Health & Life:</strong> Secure your family's tomorrow, today.</li>
+                    <li><strong>Motor Insurance:</strong> Explore cover options for your vehicle.</li>
                     <li><strong>Motor Insurance:</strong> Comprehensive cover for all vehicles.</li>
-                    <li><strong>Easy Claims:</strong> End-to-end support when you need it.</li>
+                    <li><strong>Policy Guidance:</strong> Understand coverage and renewal requirements.</li>
                 </ul>
             </div>
             <div class="detail-box">
                 <h3>⭐ The Heritage Promise</h3>
                 <ul>
                     <li><strong>Documentation Guidance:</strong> Understand the documents commonly required.</li>
-                    <li><strong>Transparent:</strong> No hidden charges, 100% clarity.</li>
+                    <li><strong>Clear Guidance:</strong> Understand lender terms and applicable charges.</li>
                     <li><strong>Expert Guidance:</strong> We are with you at every step.</li>
                 </ul>
             </div>
@@ -191,19 +195,19 @@
         <p class="section-subtitle">Aapke sawal, hamare jawab</p>
         
         <div class="faq-section">
-            <div class="faq-item" role="button" tabindex="0" onclick="toggleFaq(this)">
+            <div class="faq-item" role="button" tabindex="0" aria-expanded="false" onclick="toggleFaq(this)">
                 <div class="faq-question">Purani gaadi (Used Car) par kitna loan mil sakta hai? <span>▼</span></div>
                 <div class="faq-answer">Humari used car finance scheme ke tahat, gaadi ki valuation ke hisaab se aapko maximum loan amount mil sakta hai. Ye aapki credit history aur gaadi ki condition par nirbhar karta hai.</div>
             </div>
-            <div class="faq-item" onclick="toggleFaq(this)">
+            <div class="faq-item" role="button" tabindex="0" aria-expanded="false" onclick="toggleFaq(this)">
                 <div class="faq-question">Loan approval mein kitna samay lagta hai? <span>▼</span></div>
                 <div class="faq-answer">Processing times vary by lender and application. Complete documents can help the lender review your application, but approval is not guaranteed.</div>
             </div>
-            <div class="faq-item" onclick="toggleFaq(this)">
+            <div class="faq-item" role="button" tabindex="0" aria-expanded="false" onclick="toggleFaq(this)">
                 <div class="faq-question">Kya aap commercial vehicles (Jaise Truck/Bus) ko finance karte hain? <span>▼</span></div>
                 <div class="faq-answer">Haan bilkul, hum chote tempo se lekar bade trucks aur buses tak, har tarah ke light aur heavy commercial vehicles par finance provide karte hain.</div>
             </div>
-            <div class="faq-item" onclick="toggleFaq(this)">
+            <div class="faq-item" role="button" tabindex="0" aria-expanded="false" onclick="toggleFaq(this)">
                 <div class="faq-question">Cashless Health Insurance ka kya faida hai? <span>▼</span></div>
                 <div class="faq-answer">Cashless health insurance ke sath, kisi bhi medical emergency mein aapko cash arrange karne ki chinta nahi hoti. Bill seedha insurance company dwara network hospital ko pay kiya jata hai.</div>
             </div>
@@ -225,6 +229,7 @@
         <h2 style="color: #f4b41a; font-size: 2.2rem; margin-bottom: 15px; font-family: 'Great Vibes', cursive;">Trusted Today, Together Tomorrow.</h2>
         <a href="tel:7600211085" class="contact-btn">📞 7600211085</a>
         <p class="service-area">📍 <strong>Serving:</strong> Mehsana, Gujarat & North Gujarat</p>
+        <p class="site-disclaimer">Heritage Auto Finance provides enquiry and documentation assistance. Loan eligibility, interest rates, sanction, disbursal and insurance coverage are subject to the relevant lender or insurer's terms and approval.</p>
         <p style="color: #555; font-size: 0.85rem; margin-top: 30px; letter-spacing: 1px;">&copy; 2026 HERITAGE AUTO FINANCE. ALL RIGHTS RESERVED.</p>
     </footer>
 
