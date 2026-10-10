@@ -147,3 +147,16 @@ footer{border-top:1px solid rgba(244,180,26,.15)}
  .service-journey {grid-template-columns:1fr;gap:12px;margin:22px auto 30px}
  .journey-step {padding:20px}
 }
+
+
+/* Premium EMI repayment breakdown and next step */
+.emi-breakdown {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:18px 0 14px;text-align:left}
+.emi-breakdown > div {padding:13px 14px;border-radius:13px;border:1px solid rgba(244,180,26,.2);background:rgba(255,255,255,.035);min-width:0}
+.emi-breakdown span,.emi-breakdown strong {display:block}
+.emi-breakdown span {font-size:.77rem;line-height:1.4;color:rgba(255,255,255,.66)}
+.emi-breakdown strong {margin-top:7px;color:#f4b41a;font-size:1rem;overflow-wrap:anywhere}
+.emi-whatsapp-cta {display:flex;align-items:center;justify-content:center;gap:10px;width:100%;box-sizing:border-box;padding:14px 18px;border-radius:13px;background:#f4b41a;color:#170f20;font-weight:800;text-decoration:none;transition:transform .2s ease,filter .2s ease}
+.emi-whatsapp-cta:hover {transform:translateY(-2px);filter:brightness(1.05)}
+.emi-whatsapp-cta:focus-visible {outline:3px solid #fff;outline-offset:3px}
+@media(max-width:640px) {.emi-breakdown {grid-template-columns:1fr;gap:8px}.emi-breakdown>div{display:flex;align-items:center;justify-content:space-between;gap:12px}.emi-breakdown strong{margin-top:0;text-align:right}}
+@media(prefers-reduced-motion:reduce){.emi-whatsapp-cta{transition:none}}
