@@ -118,6 +118,16 @@
   }
 
   function init() {
+    const progressBar = document.getElementById("scrollProgress");
+    const updateScrollProgress = () => {
+      if (!progressBar) return;
+      const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = scrollable > 0 ? (window.scrollY / scrollable) * 100 : 0;
+      progressBar.style.width = Math.min(100, Math.max(0, progress)) + "%";
+    };
+    window.addEventListener("scroll", updateScrollProgress, { passive: true });
+    updateScrollProgress();
+
     const backToTop = document.getElementById("backToTop");
     if (backToTop) {
       const updateTopButton = () => backToTop.classList.toggle("show", window.scrollY > 300);
