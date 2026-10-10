@@ -77,10 +77,26 @@
     const amountLabel = document.getElementById("amountLabel");
     const rateLabel = document.getElementById("rateLabel");
     const tenureLabel = document.getElementById("tenureLabel");
+    const safeEmi = Number.isFinite(emi) ? emi : 0;
     if (amountLabel) amountLabel.textContent = formatINR(principal);
     if (rateLabel) rateLabel.textContent = annualRate + " %";
     if (tenureLabel) tenureLabel.textContent = months + " Months";
-    resultEl.textContent = formatINR(Number.isFinite(emi) ? emi : 0);
+    resultEl.textContent = formatINR(safeEmi);
+
+    const totalRepayment = safeEmi * months;
+    const principalSummary = document.getElementById("principalSummary");
+    const interestSummary = document.getElementById("interestSummary");
+    const totalSummary = document.getElementById("totalSummary");
+    if (principalSummary) principalSummary.textContent = formatINR(principal);
+    if (interestSummary) interestSummary.textContent = formatINR(Math.max(0, totalRepayment - principal));
+    if (totalSummary) totalSummary.textContent = formatINR(totalRepayment);
+    const whatsappLink = document.getElementById("emiWhatsApp");
+    if (whatsappLink) {
+      const message = "Hello Heritage Auto Finance, please help me understand vehicle finance options. Estimated loan amount: " +
+        formatINR(principal) + ", interest rate: " + annualRate + "% p.a., tenure: " + months +
+        " months, estimated EMI: " + formatINR(safeEmi) + ". I understand this is only an illustration, not a loan offer or approval.";
+      whatsappLink.href = "https://wa.me/917600211085?text=" + encodeURIComponent(message);
+    }
   }
 
   function calculateEligibility() {
