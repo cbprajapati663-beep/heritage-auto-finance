@@ -9,6 +9,9 @@ assert.match(html, /<title>[^<]+<\/title>/i, "Page title should exist");
 assert.match(html, /name="description"/i, "SEO description should exist");
 assert.match(html, /hero-cta-primary/, "Primary callback CTA should exist");
 assert.match(html, /hero-trust-points/, "Service highlights should exist");
+assert.equal((html.match(/class="main-poster"/g) || []).length, 1, "Hero should show only one main poster");
+assert.match(html, /enquiry and documentation guidance/i, "Commercial finance copy must describe assistance accurately");
+assert.doesNotMatch(html, /finance provide karte hain/i, "Avoid implying Heritage directly lends money");
 assert.match(html, /id="scrollProgress"/, "Scroll progress indicator should exist");
 assert.doesNotMatch(html, /5,000\+|24\/7/, "Unverified claims must not appear");
 assert.match(html, /subject to the relevant lender or insurer/, "Finance disclaimer should exist");
@@ -33,6 +36,7 @@ for (const match of html.matchAll(/href="#([^"]+)"/g)) {
 }
 
 assert.match(css, /@media\s*\(max-width:\s*768px\)/, "Mobile layout rules should exist");
+assert.equal((css.match(/\/\* Premium conversion-focused polish \*\//g) || []).length, 1, "Premium CSS rules should not be duplicated");
 assert.match(css, /\.hs-form-frame\s*\{[^}]*overflow:\s*visible/s, "Embedded lead form must not be clipped");
 assert.match(js, /function calculateEMI\s*\(/, "EMI calculator handler must exist");
 assert.match(js, /function calculateEligibility\s*\(/, "Affordability calculator handler must exist");
