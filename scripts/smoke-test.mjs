@@ -112,3 +112,5 @@ console.log(`Checked ${ids.length} HTML ids, local asset references, navigation 
 
 assert.equal((html.match(/aria-controls="faq-answer-\d+"/g) || []).length, 4, "Each FAQ trigger should reference its answer region");
 assert.equal((html.match(/class="faq-answer" id="faq-answer-\d+" role="region"/g) || []).length, 4, "FAQ answers should expose named regions to assistive technology");
+
+assert.match(premium, /:where\(a,button,input,select,textarea,\[role="button"\],\[tabindex\]\):focus-visible/, "Interactive controls should have a consistent visible keyboard focus indicator");
