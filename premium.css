@@ -160,3 +160,20 @@ footer{border-top:1px solid rgba(244,180,26,.15)}
 .emi-whatsapp-cta:focus-visible {outline:3px solid #fff;outline-offset:3px}
 @media(max-width:640px) {.emi-breakdown {grid-template-columns:1fr;gap:8px}.emi-breakdown>div{display:flex;align-items:center;justify-content:space-between;gap:12px}.emi-breakdown strong{margin-top:0;text-align:right}}
 @media(prefers-reduced-motion:reduce){.emi-whatsapp-cta{transition:none}}
+
+
+/* Service-specific enquiry paths */
+.enquiry-paths {width:min(1120px,calc(100% - 36px));margin:28px auto 54px;padding:12px 0}
+.enquiry-path-grid {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:24px;text-align:left}
+.enquiry-path {display:flex;flex-direction:column;align-items:flex-start;min-height:190px;padding:22px;border:1px solid rgba(244,180,26,.2);border-radius:18px;background:linear-gradient(145deg,rgba(255,255,255,.055),rgba(255,255,255,.018));text-decoration:none;color:#fff;transition:transform .2s ease,border-color .2s ease,background .2s ease}
+.enquiry-path:hover {transform:translateY(-3px);border-color:rgba(244,180,26,.65);background:linear-gradient(145deg,rgba(244,180,26,.09),rgba(255,255,255,.025))}
+.enquiry-path:focus-visible {outline:3px solid #f4b41a;outline-offset:3px}
+.enquiry-path>span {display:grid;place-items:center;width:42px;height:42px;border-radius:13px;background:rgba(244,180,26,.12);font-size:1.2rem}
+.enquiry-path strong {margin-top:15px;font-size:1.03rem}
+.enquiry-path small {margin-top:6px;color:rgba(255,255,255,.66);line-height:1.5}
+.enquiry-path b {margin-top:auto;padding-top:18px;color:#f4b41a;font-size:.88rem}
+.enquiry-path-general {border-style:dashed}
+.enquiry-path-note {max-width:900px;margin:20px auto 0;text-align:center;color:rgba(255,255,255,.58);font-size:.8rem;line-height:1.65}
+@media(max-width:760px){.enquiry-path-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.enquiry-path{padding:17px;min-height:180px}}
+@media(max-width:440px){.enquiry-path-grid{grid-template-columns:1fr}.enquiry-path{min-height:150px}}
+@media(prefers-reduced-motion:reduce){.enquiry-path{transition:none}}
