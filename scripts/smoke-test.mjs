@@ -4,7 +4,8 @@ import { readFileSync, existsSync } from "node:fs";
 const html = readFileSync("index.html", "utf8");
 const css = readFileSync("styles.css", "utf8");
 const js = readFileSync("app.js", "utf8");
-const premium = readFileSync("premium.css", "utf8");\nconst premium = readFileSync("premium.css", "utf8");
+const premium = readFileSync("premium.css", "utf8");
+const premium = readFileSync("premium.css", "utf8");
 
 assert.match(html, /<title>[^<]+<\/title>/i, "Page title should exist");
 assert.match(html, /name="description"/i, "SEO description should exist");
