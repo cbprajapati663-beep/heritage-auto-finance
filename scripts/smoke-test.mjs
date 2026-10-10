@@ -60,6 +60,12 @@ assert.match(css, /@media\s*\(max-width:\s*768px\)/, "Mobile layout rules should
 assert.match(css, /@media\s*\(prefers-reduced-motion:\s*reduce\)/, "Reduced-motion preferences should be respected");
 assert.equal((css.match(/\/\* Premium conversion-focused polish \*\//g) || []).length, 1, "Premium CSS rules should not be duplicated");
 assert.match(css, /\.hs-form-frame\s*\{[^}]*overflow:\s*visible/s, "Embedded lead form must not be clipped");
+assert.match(html, /id="emiWhatsApp"[^>]+href="https:\/\/wa\.me\/917600211085/i, "EMI estimate should offer a WhatsApp follow-up");
+assert.match(html, /class="enquiry-path-grid"/, "Service-specific enquiry paths should be visible");
+for (const enquiryType of ["new car finance", "used car finance", "commercial vehicle finance", "vehicle refinance", "motor insurance"]) {
+  assert.ok(html.toLowerCase().includes(enquiryType), `A WhatsApp enquiry path should cover: ${enquiryType}`);
+}
+assert.match(html, /Do not send Aadhaar, PAN, bank details/i, "WhatsApp enquiry paths must include a sensitive-data warning");
 assert.match(js, /function calculateEMI\s*\(/, "EMI calculator handler must exist");
 assert.match(js, /function calculateEligibility\s*\(/, "Affordability calculator handler must exist");
 assert.match(js, /function filterPosters\s*\(/, "Poster filter handler must exist");
