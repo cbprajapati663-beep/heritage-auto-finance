@@ -1,9 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-IN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Heritage Auto Finance | Quantum Financial Portal</title>
+    <title>Heritage Auto Finance | Vehicle Loans & Insurance Assistance in Gujarat</title>
+    <meta name="description" content="Explore new and used car finance, commercial vehicle finance, refinance and insurance assistance with Heritage Auto Finance in Mehsana, Gujarat.">
+    <meta name="theme-color" content="#090510">
+    <meta property="og:title" content="Heritage Auto Finance">
+    <meta property="og:description" content="Vehicle finance and insurance assistance across Mehsana and North Gujarat.">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -12,7 +16,7 @@
     <a href="#" class="back-to-top" id="backToTop" title="Go to top">▲</a>
 
     <!-- Floating WhatsApp Button -->
-    <a href="https://wa.me/917600211085?text=Hello Heritage Auto Finance, I want to know more about your services." class="float-wa" target="_blank">
+    <a href="https://wa.me/917600211085?text=Hello Heritage Auto Finance, I want to know more about your services." class="float-wa" target="_blank" rel="noopener noreferrer" aria-label="Contact Heritage Auto Finance on WhatsApp">
         <svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" fill="currentColor" viewBox="0 0 16 16">
           <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
         </svg>
@@ -20,7 +24,7 @@
 
     <!-- Sticky Navigation -->
     <nav>
-        <img src="logo.png" alt="Heritage Auto Finance" class="nav-logo">
+        <img src="logo.png" alt="Heritage Auto Finance" class="nav-logo" width="180" height="60" decoding="async">
         <div class="nav-links">
             <a href="#services">Our Edge</a>
             <a href="#portfolio">Posters</a>
@@ -31,12 +35,12 @@
 
     <!-- Main Hero Banner with Typing Effect -->
     <div class="hero-banner reveal active">
-        <div class="secure-badge">🔒 256-Bit Encrypted • Instant Approvals</div>
+        <div class="secure-badge">Vehicle Finance & Insurance Assistance</div>
         <div class="typing-container">
             We Finance Your <br><span class="typed-text"></span>
         </div>
-        <img src="03.png" alt="Dream It. Drive It. Finance It." class="main-poster">
-        <img src="01.png" alt="All Your Vehicle Needs, One Trusted Partner" class="main-poster">
+        <img src="03.png" alt="Dream It. Drive It. Finance It." class="main-poster" loading="eager">
+        <img src="01.png" alt="All Your Vehicle Needs, One Trusted Partner" class="main-poster" loading="lazy">
     </div>
 
     <!-- Live Stats Bar -->
@@ -116,7 +120,7 @@
     <!-- Financial Tools Section -->
     <div id="tools" class="tools-wrapper reveal">
         <h2 class="section-title" style="margin-top: 0;">Financial Calculators</h2>
-        <p class="section-subtitle">Plan your loan & check eligibility instantly</p>
+        <p class="section-subtitle">Estimate monthly repayments and explore a preliminary affordability illustration</p>
         
         <!-- EMI Calculator Card -->
         <div class="calc-card">
@@ -144,14 +148,14 @@
 
         <!-- Loan Eligibility AI Checker Card -->
         <div class="calc-card">
-            <h3 style="color: #f4b41a; font-family: 'Playfair Display', serif; margin-top: 0; font-size: 1.5rem; margin-bottom: 25px;">Instant Loan Eligibility Checker</h3>
+            <h3 style="color: #f4b41a; font-family: 'Playfair Display', serif; margin-top: 0; font-size: 1.5rem; margin-bottom: 25px;">Indicative Loan Affordability</h3>
             <div class="emi-input-group">
                 <label><span>Monthly Income (₹)</span> <span id="incomeLabel" style="color:#f4b41a; font-weight:bold;">₹ 40,000</span></label>
                 <input type="range" id="monthlyIncome" min="15000" max="300000" step="5000" value="40000" oninput="calculateEligibility()">
             </div>
 
             <div class="emi-result">
-                <h4>Estimated Eligible Loan Amount</h4>
+                <h4>Illustrative Loan Amount (not an approval)</h4>
                 <h2 id="eligibleResult">₹ 12,00,000</h2>
             </div>
         </div>
@@ -160,7 +164,7 @@
     <!-- Happy Customers (Testimonials) -->
     <div class="reveal">
         <h2 class="section-title">Happy Customers</h2>
-        <p class="section-subtitle">Trusted by thousands across Gujarat</p>
+        <p class="section-subtitle">Illustrative testimonials shown in the current design; replace with verified customer reviews before publishing.</p>
         
         <div class="testimonials-container">
             <div class="review-card">
