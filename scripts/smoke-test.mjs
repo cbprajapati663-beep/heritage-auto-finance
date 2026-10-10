@@ -7,6 +7,12 @@ const js = readFileSync("app.js", "utf8");
 
 assert.match(html, /<title>[^<]+<\/title>/i, "Page title should exist");
 assert.match(html, /name="description"/i, "SEO description should exist");
+assert.match(html, /hero-cta-primary/, "Primary callback CTA should exist");
+assert.match(html, /hero-trust-points/, "Service highlights should exist");
+assert.match(html, /id="scrollProgress"/, "Scroll progress indicator should exist");
+assert.doesNotMatch(html, /5,000\+|24\/7/, "Unverified claims must not appear");
+assert.match(html, /subject to the relevant lender or insurer/, "Finance disclaimer should exist");
+assert.equal((html.match(/class="faq-item" role="button" tabindex="0"/g) || []).length, 4, "All FAQ items should be keyboard accessible");
 assert.match(html, /href="styles\.css"/i, "HTML must load the external stylesheet");
 assert.match(html, /src="app\.js"/i, "HTML must load the external JavaScript");
 assert.ok(existsSync("styles.css"), "styles.css must exist");
@@ -33,6 +39,7 @@ assert.match(js, /function calculateEligibility\s*\(/, "Affordability calculator
 assert.match(js, /function filterPosters\s*\(/, "Poster filter handler must exist");
 assert.match(js, /function toggleFaq\s*\(/, "FAQ handler must exist");
 assert.match(js, /IntersectionObserver/, "Scroll reveal should use IntersectionObserver");
+assert.match(js, /updateScrollProgress/, "Scroll progress behavior should exist");
 assert.doesNotMatch(js, /Your inquiry has been submitted\./, "Do not claim a lead was submitted without confirmed form success");
 
 console.log("Website smoke tests passed.");
