@@ -109,3 +109,6 @@ assert.match(notFound, /wa\.me\/917600211085/, "Custom 404 page should provide a
 
 console.log("Website smoke tests passed.");
 console.log(`Checked ${ids.length} HTML ids, local asset references, navigation targets, responsive CSS, favicon and SEO assets, form visibility, and core JavaScript handlers.`);
+
+assert.equal((html.match(/aria-controls="faq-answer-\d+"/g) || []).length, 4, "Each FAQ trigger should reference its answer region");
+assert.equal((html.match(/class="faq-answer" id="faq-answer-\d+" role="region"/g) || []).length, 4, "FAQ answers should expose named regions to assistive technology");
