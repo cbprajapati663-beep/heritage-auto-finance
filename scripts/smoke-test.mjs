@@ -73,7 +73,7 @@ assert.match(js, /totalRepayment\s*=\s*safeEmi\s*\*\s*months/, "EMI summary shou
 assert.match(js, /encodeURIComponent\(message\)/, "EMI WhatsApp message should URL-encode the estimate");
 assert.match(html, /href="tel:\+917600211085"[^>]*class="mobile-action-call"/, "Mobile quick actions should include a working call link");
 assert.match(html, /href="https:\/\/wa\.me\/917600211085[^"]*"[^>]*class="mobile-action-whatsapp"[^>]*target="_blank" rel="noopener noreferrer"/, "Mobile WhatsApp link should safely open in a new tab");
-assert.match(html, /class="mobile-action-callback"[^>]+href="#contact"/, "Mobile quick actions should include the callback form shortcut");
+assert.match(html, /href="#contact"[^>]*class="mobile-action-callback"/, "Mobile quick actions should include the callback form shortcut");
 assert.match(js, /function calculateEMI\s*\(/, "EMI calculator handler must exist");
 assert.match(js, /function calculateEligibility\s*\(/, "Affordability calculator handler must exist");
 assert.match(js, /function filterPosters\s*\(/, "Poster filter handler must exist");
