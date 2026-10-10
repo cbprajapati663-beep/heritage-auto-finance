@@ -8,6 +8,8 @@ const premium = readFileSync("premium.css", "utf8");
 
 assert.match(html, /<title>[^<]+<\/title>/i, "Page title should exist");
 assert.match(html, /name="description"/i, "SEO description should exist");
+assert.match(html, /rel="canonical" href="https:\/\/heritageautofinance\.netlify\.app\//i, "Canonical URL should use the production Netlify domain");
+assert.match(html, /property="og:url" content="https:\/\/heritageautofinance\.netlify\.app\//i, "Social preview URL should use the production domain");
 assert.match(html, /hero-cta-primary/, "Primary callback CTA should exist");
 assert.match(html, /hero-trust-points/, "Service highlights should exist");
 assert.equal((html.match(/class="main-poster"/g) || []).length, 1, "Hero should show only one main poster");
