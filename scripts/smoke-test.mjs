@@ -66,10 +66,26 @@ assert.match(js, /updateScrollProgress/, "Scroll progress behavior should exist"
 assert.doesNotMatch(js, /Your inquiry has been submitted\./, "Do not claim a lead was submitted without confirmed form success");
 
 
+const favicon = readFileSync("favicon.svg", "utf8");
+assert.match(favicon, /<svg[\s>]/i, "Branded favicon must be a valid SVG document");
+for (const page of ["index.html", "404.html", "privacy-policy.html", "terms.html"]) {
+  const pageHtml = readFileSync(page, "utf8");
+  assert.match(pageHtml, /rel="icon"[^>]+href="favicon\.svg"/i, `${page} should load the branded favicon`);
+}
+assert.ok(existsSync("robots.txt"), "Robots instructions must exist");
+assert.ok(existsSync("sitemap.xml"), "XML sitemap must exist");
+const robots = readFileSync("robots.txt", "utf8");
+const sitemap = readFileSync("sitemap.xml", "utf8");
+assert.match(robots, /Sitemap:\s*https:\/\/heritageautofinance\.netlify\.app\/sitemap\.xml/i, "Robots file must advertise the production sitemap");
+assert.match(sitemap, /<urlset[\s>]/i, "Sitemap must contain a URL set");
+assert.match(sitemap, /https:\/\/heritageautofinance\.netlify\.app\//i, "Sitemap must list the production homepage");
+assert.match(sitemap, /privacy-policy\.html/i, "Sitemap must include the privacy policy");
+assert.match(sitemap, /terms\.html/i, "Sitemap must include the terms page");
+
 const notFound = readFileSync("404.html", "utf8");
 assert.match(notFound, /<title>Page Not Found \| Heritage Auto Finance<\/title>/, "Custom 404 page should have a clear title");
 assert.match(notFound, /href="\.\/"[^>]*>Go to homepage|href="\.\/"[^>]*>← Back to homepage/, "Custom 404 page should link home");
 assert.match(notFound, /wa\.me\/917600211085/, "Custom 404 page should provide a WhatsApp help path");
 
 console.log("Website smoke tests passed.");
-console.log(`Checked ${ids.length} HTML ids, local asset references, navigation targets, responsive CSS, form visibility, and core JavaScript handlers.`);
+console.log(`Checked ${ids.length} HTML ids, local asset references, navigation targets, responsive CSS, favicon and SEO assets, form visibility, and core JavaScript handlers.`);
