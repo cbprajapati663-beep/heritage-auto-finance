@@ -1,157 +1,170 @@
-// --- 1. Typing Effect Logic ---
-        const textArray = ["Dream Car!", "Commercial Fleet!", "Family's Health!", "Business Future!"];
-        let textIndex = 0;
-        let charIndex = 0;
-        const typingSpeed = 100;
-        const erasingSpeed = 50;
-        const newTextDelay = 2000;
-        const typedTextSpan = document.querySelector(".typed-text");
+/* Heritage Auto Finance - site interactions */
+(function () {
+  "use strict";
 
-        function type() {
-            if (charIndex < textArray[textIndex].length) {
-                typedTextSpan.textContent += textArray[textIndex].charAt(charIndex);
-                charIndex++;
-                setTimeout(type, typingSpeed);
-            } else {
-                setTimeout(erase, newTextDelay);
-            }
+  const textArray = ["Dream Car!", "Commercial Fleet!", "Family Protection!", "Business Growth!"];
+  let textIndex = 0;
+  let charIndex = 0;
+  let typingTimer = null;
+  const typingSpeed = 95;
+  const erasingSpeed = 45;
+  const pauseAfterWord = 1600;
+
+  const formatINR = value => "₹ " + Math.round(Number(value) || 0).toLocaleString("en-IN");
+
+  function typeNext() {
+    const target = document.querySelector(".typed-text");
+    if (!target || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      if (target) target.textContent = textArray[0];
+      return;
+    }
+    const word = textArray[textIndex];
+    if (charIndex < word.length) {
+      target.textContent = word.slice(0, ++charIndex);
+      typingTimer = window.setTimeout(typeNext, typingSpeed);
+    } else {
+      typingTimer = window.setTimeout(eraseNext, pauseAfterWord);
+    }
+  }
+
+  function eraseNext() {
+    const target = document.querySelector(".typed-text");
+    if (!target) return;
+    if (charIndex > 0) {
+      target.textContent = textArray[textIndex].slice(0, --charIndex);
+      typingTimer = window.setTimeout(eraseNext, erasingSpeed);
+    } else {
+      textIndex = (textIndex + 1) % textArray.length;
+      typingTimer = window.setTimeout(typeNext, 250);
+    }
+  }
+
+  function filterPosters(category, evt) {
+    const selected = ["all", "loans", "insurance"].includes(category) ? category : "all";
+    document.querySelectorAll(".poster-item").forEach(item => {
+      const visible = selected === "all" || item.classList.contains(selected);
+      item.classList.toggle("show", visible);
+      item.setAttribute("aria-hidden", String(!visible));
+    });
+    document.querySelectorAll(".tab-btn").forEach(button => {
+      const active = button.dataset.category === selected ||
+        (!button.dataset.category && button.getAttribute("onclick")?.includes("'" + selected + "'"));
+      button.classList.toggle("active", active);
+      button.setAttribute("aria-pressed", String(active));
+    });
+    if (evt && evt.currentTarget) {
+      document.querySelectorAll(".tab-btn").forEach(button => button.classList.toggle("active", button === evt.currentTarget));
+      evt.currentTarget.setAttribute("aria-pressed", "true");
+    }
+  }
+
+  function calculateEMI() {
+    const amountEl = document.getElementById("loanAmount");
+    const rateEl = document.getElementById("interestRate");
+    const tenureEl = document.getElementById("loanTenure");
+    const resultEl = document.getElementById("emiResult");
+    if (!amountEl || !rateEl || !tenureEl || !resultEl) return;
+
+    const principal = Math.max(0, Number(amountEl.value));
+    const annualRate = Math.max(0, Number(rateEl.value));
+    const months = Math.max(1, Number(tenureEl.value));
+    const monthlyRate = annualRate / 1200;
+    const emi = monthlyRate === 0
+      ? principal / months
+      : principal * monthlyRate * Math.pow(1 + monthlyRate, months) /
+        (Math.pow(1 + monthlyRate, months) - 1);
+
+    const amountLabel = document.getElementById("amountLabel");
+    const rateLabel = document.getElementById("rateLabel");
+    const tenureLabel = document.getElementById("tenureLabel");
+    if (amountLabel) amountLabel.textContent = formatINR(principal);
+    if (rateLabel) rateLabel.textContent = annualRate + " %";
+    if (tenureLabel) tenureLabel.textContent = months + " Months";
+    resultEl.textContent = formatINR(Number.isFinite(emi) ? emi : 0);
+  }
+
+  function calculateEligibility() {
+    const incomeEl = document.getElementById("monthlyIncome");
+    const resultEl = document.getElementById("eligibleResult");
+    if (!incomeEl || !resultEl) return;
+    const income = Math.max(0, Number(incomeEl.value));
+    const label = document.getElementById("incomeLabel");
+    if (label) label.textContent = formatINR(income);
+    // Clearly an illustrative multiplier, not lender eligibility or approval.
+    resultEl.textContent = formatINR(income * 30);
+  }
+
+  function toggleFaq(item) {
+    if (!item) return;
+    const isOpen = item.classList.toggle("active");
+    item.setAttribute("aria-expanded", String(isOpen));
+  }
+
+  function initReveal() {
+    const elements = document.querySelectorAll(".reveal");
+    if (!("IntersectionObserver" in window) || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      elements.forEach(element => element.classList.add("active"));
+      return;
+    }
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("active");
+          observer.unobserve(entry.target);
         }
-        function erase() {
-            if (charIndex > 0) {
-                typedTextSpan.textContent = textArray[textIndex].substring(0, charIndex - 1);
-                charIndex--;
-                setTimeout(erase, erasingSpeed);
-            } else {
-                textIndex++;
-                if (textIndex >= textArray.length) textIndex = 0;
-                setTimeout(type, typingSpeed + 1100);
-            }
-        }
-        document.addEventListener("DOMContentLoaded", function() {
-            if(textArray.length) setTimeout(type, newTextDelay + 250);
-            filterPosters('all');
-        });
+      });
+    }, { rootMargin: "0px 0px 80px 0px", threshold: 0.01 });
+    elements.forEach(element => observer.observe(element));
+  }
 
-        // --- 2. Filter Posters Tabs Logic ---
-        function filterPosters(category, evt) {
-            let items = document.querySelectorAll('.poster-item');
-            let buttons = document.querySelectorAll('.tab-btn');
-            
-            buttons.forEach(btn => btn.classList.remove('active'));
-            if (evt && evt.target) evt.target.classList.add('active');
-
-            items.forEach(item => {
-                if(category === 'all') {
-                    item.classList.add('show');
-                } else {
-                    if(item.classList.contains(category)) {
-                        item.classList.add('show');
-                    } else {
-                        item.classList.remove('show');
-                    }
-                }
-            });
-        }
-
-        // --- 3. Back to Top Button Logic ---
-        var backToTopBtn = document.getElementById("backToTop");
-        window.addEventListener("scroll", function() {
-            if (window.pageYOffset > 300) {
-                backToTopBtn.classList.add("show");
-            } else {
-                backToTopBtn.classList.remove("show");
-            }
-        });
-        backToTopBtn.addEventListener("click", function(e) {
-            e.preventDefault();
-            window.scrollTo({top: 0, behavior: 'smooth'});
-        });
-
-   // --- 4. Submit Inquiry & HubSpot Lead Push ---
-function submitEnquiry() {
-    var name = document.getElementById('custName').value.trim();
-    var phone = document.getElementById('custPhone') ? document.getElementById('custPhone').value.trim() : '';
-    var email = document.getElementById('custEmail') ? document.getElementById('custEmail').value.trim() : '';
-    var service = document.getElementById('custService').value;
-    var btn = document.getElementById('submitBtn');
-    var msg = document.getElementById('formMsg');
-
-    if (!name || !phone || !email) {
-        alert("Please fill Name, Mobile Number and Email Address.");
-        return;
+  function init() {
+    const backToTop = document.getElementById("backToTop");
+    if (backToTop) {
+      const updateTopButton = () => backToTop.classList.toggle("show", window.scrollY > 300);
+      window.addEventListener("scroll", updateTopButton, { passive: true });
+      updateTopButton();
+      backToTop.addEventListener("click", event => {
+        event.preventDefault();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
     }
 
-    btn.innerText = "Submitting...";
-    btn.disabled = true;
+    document.querySelectorAll(".tab-btn").forEach((button, index) => {
+      const categories = ["all", "loans", "insurance"];
+      button.dataset.category = categories[index] || "all";
+      button.setAttribute("aria-pressed", String(index === 0));
+      button.addEventListener("click", event => filterPosters(button.dataset.category, event));
+    });
+    filterPosters("all");
 
-    // HubSpot Contact Push
-    var _hsq = window._hsq = window._hsq || [];
-    _hsq.push(["identify", {
-        email: email,
-        firstname: name,
-        mobilephone: phone
-    }]);
-    _hsq.push(['trackCustomBehavioralEvent', {
-        name: "lead_callback_form_submitted"
-    }]);
-
-    setTimeout(function() {
-        btn.style.display = "none";
-        msg.style.display = "block";
-        msg.innerText = "✓ Thank you, " + name + "! Your inquiry has been submitted. Our team will contact you shortly.";
-    }, 600);
-
-
-}
-
-        // --- 5. Live EMI Calculator Logic ---
-        function calculateEMI() {
-            let p = parseFloat(document.getElementById('loanAmount').value);
-            let r = parseFloat(document.getElementById('interestRate').value);
-            let n = parseFloat(document.getElementById('loanTenure').value);
-
-            document.getElementById('amountLabel').innerText = "₹ " + p.toLocaleString('en-IN');
-            document.getElementById('rateLabel').innerText = r + " %";
-            document.getElementById('tenureLabel').innerText = n + " Months";
-
-            let rMonthly = r / 12 / 100; 
-            let emi = (p * rMonthly * Math.pow(1 + rMonthly, n)) / (Math.pow(1 + rMonthly, n) - 1);
-            
-            if(!isNaN(emi) && emi != Infinity) {
-                document.getElementById('emiResult').innerText = "₹ " + Math.round(emi).toLocaleString('en-IN');
-            } else {
-                document.getElementById('emiResult').innerText = "₹ 0";
-            }
+    document.querySelectorAll(".faq-item").forEach(item => {
+      item.setAttribute("aria-expanded", String(item.classList.contains("active")));
+      item.addEventListener("keydown", event => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          toggleFaq(item);
         }
-        calculateEMI();
+      });
+    });
 
-        // --- 6. Instant Loan Eligibility Checker Logic ---
-        function calculateEligibility() {
-            let income = parseFloat(document.getElementById('monthlyIncome').value);
-            document.getElementById('incomeLabel').innerText = "₹ " + income.toLocaleString('en-IN');
-            
-            let eligibleAmount = income * 30;
-            document.getElementById('eligibleResult').innerText = "₹ " + eligibleAmount.toLocaleString('en-IN');
-        }
-        calculateEligibility();
+    ["loanAmount", "interestRate", "loanTenure"].forEach(id => {
+      const element = document.getElementById(id);
+      if (element) element.addEventListener("input", calculateEMI);
+    });
+    const income = document.getElementById("monthlyIncome");
+    if (income) income.addEventListener("input", calculateEligibility);
+    calculateEMI();
+    calculateEligibility();
+    initReveal();
 
-        // --- 7. Scroll Reveal Animation Logic ---
-        function reveal() {
-            var reveals = document.querySelectorAll(".reveal");
-            for (var i = 0; i < reveals.length; i++) {
-                var windowHeight = window.innerHeight;
-                var elementTop = reveals[i].getBoundingClientRect().top;
-                var elementVisible = 80;
-                
-                if (elementTop < windowHeight - elementVisible) {
-                    reveals[i].classList.add("active");
-                }
-            }
-        }
-        window.addEventListener("scroll", reveal);
-        reveal();
+    if (textArray.length) typeNext();
+  }
 
-        // --- 8. FAQ Accordion Logic ---
-        function toggleFaq(element) {
-            element.classList.toggle("active");
-        }
+  // Keep the existing inline handlers compatible with the separated script.
+  window.filterPosters = filterPosters;
+  window.calculateEMI = calculateEMI;
+  window.calculateEligibility = calculateEligibility;
+  window.toggleFaq = toggleFaq;
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init, { once: true });
+  else init();
+})();
