@@ -25,7 +25,7 @@ assert.doesNotMatch(html, /finance provide karte hain/i, "Avoid implying Heritag
 assert.match(html, /id="scrollProgress"/, "Scroll progress indicator should exist");
 assert.doesNotMatch(html, /5,000\+|24\/7/, "Unverified claims must not appear");
 assert.match(html, /subject to the relevant lender or insurer/, "Finance disclaimer should exist");
-assert.equal((html.match(/class="faq-item" role="button" tabindex="0"/g) || []).length, 4, "All FAQ items should be keyboard accessible");
+assert.equal((html.match(/class="faq-item" role="button" tabindex="0" aria-expanded="false" aria-controls="faq-answer-\d+"/g) || []).length, 4, "All FAQ items should be keyboard accessible and linked to their answers");
 assert.match(html, /href="styles\.css"/i, "HTML must load the external stylesheet");
 assert.match(html, /href="premium\.css"/i, "HTML must load premium refinement styles");
 assert.match(html, /privacy-policy\.html/, "Privacy policy must be linked from the homepage");
