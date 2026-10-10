@@ -66,6 +66,14 @@ for (const enquiryType of ["new car finance", "used car finance", "commercial ve
   assert.ok(html.toLowerCase().includes(enquiryType), `A WhatsApp enquiry path should cover: ${enquiryType}`);
 }
 assert.match(html, /Do not send Aadhaar, PAN, bank details/i, "WhatsApp enquiry paths must include a sensitive-data warning");
+for (const id of ["principalSummary", "interestSummary", "totalSummary", "emiWhatsApp"]) {
+  assert.match(html, new RegExp(`id="${id}"`), `EMI summary must include #${id}`);
+}
+assert.match(js, /totalRepayment\s*=\s*safeEmi\s*\*\s*months/, "EMI summary should calculate total repayment from EMI and tenure");
+assert.match(js, /encodeURIComponent\(message\)/, "EMI WhatsApp message should URL-encode the estimate");
+assert.match(html, /class="mobile-action-call"[^>]+href="tel:\+917600211085"/, "Mobile quick actions should include a working call link");
+assert.match(html, /class="mobile-action-whatsapp"[^>]+href="https:\/\/wa\.me\/917600211085[^"]*"[^>]+target="_blank" rel="noopener noreferrer"/, "Mobile WhatsApp link should safely open in a new tab");
+assert.match(html, /class="mobile-action-callback"[^>]+href="#contact"/, "Mobile quick actions should include the callback form shortcut");
 assert.match(js, /function calculateEMI\s*\(/, "EMI calculator handler must exist");
 assert.match(js, /function calculateEligibility\s*\(/, "Affordability calculator handler must exist");
 assert.match(js, /function filterPosters\s*\(/, "Poster filter handler must exist");
