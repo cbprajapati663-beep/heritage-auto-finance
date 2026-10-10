@@ -1,0 +1,55 @@
+/* Heritage Auto Finance — premium visual refinement */
+:root{color-scheme:dark;--heritage-gold:#f4b41a;--heritage-cream:#fff0c7;--heritage-ink:#090510;--heritage-panel:rgba(22,12,35,.82);--heritage-line:rgba(244,180,26,.24)}
+html{scroll-padding-top:100px}
+body{line-height:1.65;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased}
+nav{background:rgba(8,5,16,.94);border-bottom-color:var(--heritage-line);box-shadow:0 8px 28px rgba(0,0,0,.22)}
+.nav-links a{padding:8px 2px;color:#f5f1f8;transition:color .2s ease}
+.nav-links a:hover{color:var(--heritage-gold)}
+.hero-banner{padding:clamp(36px,6vw,78px) 18px 32px}
+.secure-badge{border:1px solid var(--heritage-line);background:rgba(244,180,26,.08);border-radius:999px;padding:9px 16px;letter-spacing:.08em}
+.typing-container{line-height:1.25;text-wrap:balance}
+.hero-supporting{max-width:700px}
+.hero-cta{min-width:190px}
+.hero-cta-primary{box-shadow:0 8px 28px rgba(244,180,26,.2)}
+.stats-bar{max-width:1180px;margin:28px auto 72px;padding:22px clamp(16px,3vw,36px);border:1px solid var(--heritage-line);border-radius:20px;background:linear-gradient(135deg,rgba(255,255,255,.035),rgba(244,180,26,.035));}
+.stat-item{text-align:center}
+.stat-item h3{letter-spacing:.02em}
+.section-title{letter-spacing:-.025em;text-wrap:balance}
+.section-subtitle{max-width:720px;margin:0 auto 36px;padding:0 16px;line-height:1.8;color:#bcb3c9}
+.details-container{gap:22px}
+.detail-box{border:1px solid var(--heritage-line);border-radius:20px;background:linear-gradient(145deg,rgba(35,17,55,.82),rgba(9,5,16,.9));}
+.detail-box h3{line-height:1.4}
+.poster-grid{gap:24px}
+.poster-item img{background:#12091d;border-color:var(--heritage-line);box-shadow:0 12px 36px rgba(0,0,0,.36)}
+.filter-tabs{margin-bottom:26px}
+.tab-btn{border-radius:999px;min-height:42px;padding:10px 18px}
+.tab-btn:focus-visible,.hero-cta:focus-visible,.float-wa:focus-visible,.back-to-top:focus-visible{outline-color:var(--heritage-cream)}
+.calc-card{border-color:var(--heritage-line);background:linear-gradient(145deg,rgba(31,13,49,.94),rgba(10,5,18,.96));box-shadow:0 18px 55px rgba(0,0,0,.24)}
+.emi-input-group label{gap:16px;line-height:1.5}
+.emi-result{border-style:solid;border-color:rgba(244,180,26,.38);background:rgba(0,0,0,.28)}
+.calculator-note{max-width:650px;margin-inline:auto}
+.review-card{border-color:var(--heritage-line);background:linear-gradient(145deg,rgba(255,255,255,.045),rgba(18,8,30,.8))}
+.review-card p{font-style:normal;line-height:1.75}
+.faq-item{border-color:var(--heritage-line);background:rgba(255,255,255,.025)}
+.faq-question{gap:18px;line-height:1.55}
+.faq-question span{flex:0 0 auto}
+.lead-form-section{background-image:linear-gradient(130deg,rgba(5,3,10,.97),rgba(24,8,42,.91)),url('03.png')}
+.form-container{border-color:var(--heritage-line);box-shadow:0 18px 60px rgba(0,0,0,.42)}
+.hs-form-frame{width:100%;min-width:0;overflow:visible}
+footer{border-top:1px solid rgba(244,180,26,.15)}
+.site-disclaimer{max-width:760px}
+.float-wa{box-shadow:0 8px 28px rgba(37,211,102,.32)}
+@media(max-width:768px){
+ .hero-banner{padding:34px 12px 22px}
+ .stats-bar{margin:24px 14px 52px;gap:8px}
+ .stat-item{padding:8px 4px}
+ .stat-item p{font-size:.82rem}
+ .detail-box{margin-inline:14px}
+ .testimonials-container{padding-inline:16px;scroll-snap-type:x mandatory}
+ .review-card{scroll-snap-align:start}
+ .form-container{border-radius:18px}
+}
+@media(prefers-reduced-motion:reduce){
+ .float-wa{animation:none}
+ .hero-cta:hover,.detail-box:hover,.poster-item img:hover{transform:none}
+}
