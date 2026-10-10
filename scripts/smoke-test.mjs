@@ -63,6 +63,8 @@ assert.match(css, /\.hs-form-frame\s*\{[^}]*overflow:\s*visible/s, "Embedded lea
 assert.match(html, /id="emiWhatsApp"[^>]+href="https:\/\/wa\.me\/917600211085/i, "EMI estimate should offer a WhatsApp follow-up");
 assert.match(html, /class="enquiry-path-grid"/, "Service-specific enquiry paths should be visible");
 assert.match(html, /This simplified illustration multiplies monthly income by 30\. It is not a lender eligibility calculation/i, "Affordability illustration must explain its simplified formula and limits");
+assert.match(html, /id="emiResult" aria-live="polite" aria-atomic="true"/, "EMI result updates should be announced to assistive technology");
+assert.match(html, /id="eligibleResult" aria-live="polite" aria-atomic="true"/, "Affordability result updates should be announced to assistive technology");
 for (const enquiryType of ["new car finance", "used car finance", "commercial vehicle finance", "vehicle refinance", "motor insurance"]) {
   assert.ok(html.toLowerCase().includes(enquiryType), `A WhatsApp enquiry path should cover: ${enquiryType}`);
 }
