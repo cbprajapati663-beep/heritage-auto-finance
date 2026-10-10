@@ -137,17 +137,17 @@
             <h3 style="color: #f4b41a; font-family: 'Playfair Display', serif; margin-top: 0; font-size: 1.5rem; margin-bottom: 25px;">Loan EMI Calculator</h3>
             <div class="emi-input-group">
                 <label><span>Loan Amount (₹)</span> <span id="amountLabel" style="color:#f4b41a; font-weight:bold;">₹ 5,00,000</span></label>
-                <input type="range" id="loanAmount" min="50000" max="5000000" step="50000" value="500000" oninput="calculateEMI()">
+                <input type="range" id="loanAmount" aria-label="Loan amount in rupees" min="50000" max="5000000" step="50000" value="500000" oninput="calculateEMI()">
             </div>
             
             <div class="emi-input-group">
                 <label><span>Interest Rate (% P.A.)</span> <span id="rateLabel" style="color:#f4b41a; font-weight:bold;">8.5 %</span></label>
-                <input type="range" id="interestRate" min="5" max="20" step="0.5" value="8.5" oninput="calculateEMI()">
+                <input type="range" id="interestRate" aria-label="Annual interest rate percentage" min="5" max="20" step="0.5" value="8.5" oninput="calculateEMI()">
             </div>
             
             <div class="emi-input-group">
                 <label><span>Loan Tenure (Months)</span> <span id="tenureLabel" style="color:#f4b41a; font-weight:bold;">60 Months</span></label>
-                <input type="range" id="loanTenure" min="12" max="84" step="12" value="60" oninput="calculateEMI()">
+                <input type="range" id="loanTenure" aria-label="Loan tenure in months" min="12" max="84" step="12" value="60" oninput="calculateEMI()">
             </div>
 
             <div class="emi-result">
@@ -162,7 +162,7 @@
             <h3 style="color: #f4b41a; font-family: 'Playfair Display', serif; margin-top: 0; font-size: 1.5rem; margin-bottom: 25px;">Indicative Loan Affordability</h3>
             <div class="emi-input-group">
                 <label><span>Monthly Income (₹)</span> <span id="incomeLabel" style="color:#f4b41a; font-weight:bold;">₹ 40,000</span></label>
-                <input type="range" id="monthlyIncome" min="15000" max="300000" step="5000" value="40000" oninput="calculateEligibility()">
+                <input type="range" id="monthlyIncome" aria-label="Monthly income in rupees" min="15000" max="300000" step="5000" value="40000" oninput="calculateEligibility()">
             </div>
 
             <div class="emi-result">
@@ -203,7 +203,7 @@
         <div class="faq-section">
             <div class="faq-item" role="button" tabindex="0" aria-expanded="false" onclick="toggleFaq(this)">
                 <div class="faq-question">Purani gaadi (Used Car) par kitna loan mil sakta hai? <span>▼</span></div>
-                <div class="faq-answer">Humari used car finance scheme ke tahat, gaadi ki valuation ke hisaab se aapko maximum loan amount mil sakta hai. Ye aapki credit history aur gaadi ki condition par nirbhar karta hai.</div>
+                <div class="faq-answer">Hum used car finance ke liye enquiry aur documentation guidance dete hain. Loan amount gaadi ki valuation, documents, credit profile aur lender ke assessment par depend karta hai; approval guaranteed nahi hai.</div>
             </div>
             <div class="faq-item" role="button" tabindex="0" aria-expanded="false" onclick="toggleFaq(this)">
                 <div class="faq-question">Loan approval mein kitna samay lagta hai? <span>▼</span></div>
