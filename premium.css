@@ -864,3 +864,77 @@ nav .nav-brand:focus-visible{outline:2px solid var(--heritage-cream);outline-off
  .hero-visual-note{max-width:100%;margin:12px 0 0}
  .hero-actions .hero-cta{min-width:0;flex:1 1 160px}
 }
+
+
+/* Reference-matched cinematic landing composition — October 2026 */
+@media (min-width: 901px) {
+  nav { min-height: 100px; padding: 12px clamp(22px,5.5vw,92px); gap: 24px; }
+  .nav-brand { flex: 0 0 auto; gap: 14px; }
+  .nav-logo { width: 200px; height: 72px; object-fit: contain; }
+  .nav-brand-copy strong { font-size: clamp(1.2rem,1.55vw,1.75rem); letter-spacing: .015em; }
+  .nav-brand-copy small { font-size: .83rem; }
+  .nav-links { gap: clamp(18px,2.3vw,36px); align-items:center; }
+  .nav-links a { font-size: .9rem; white-space:nowrap; }
+  .premium-trust-strip { width:100%; max-width:none; margin:0 auto 0; border-radius:0; border-left:0; border-right:0; padding-inline:clamp(24px,7vw,116px); }
+  .hero-banner {
+    position:relative; isolation:isolate; overflow:hidden;
+    width:100%; max-width:none; min-height:510px; margin:0 auto;
+    padding:42px clamp(44px,5.6vw,94px) 30px;
+    grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);
+    gap:20px; border:0; border-radius:0;
+    background:
+      linear-gradient(90deg,rgba(5,7,19,.99) 0%,rgba(6,7,21,.96) 32%,rgba(7,7,20,.72) 47%,rgba(8,5,17,.08) 73%,rgba(8,5,17,.02) 100%),
+      radial-gradient(ellipse at 70% 45%,rgba(107,44,148,.3),transparent 48%),
+      linear-gradient(120deg,#070916,#160b29 68%,#070916);
+    box-shadow:none;
+  }
+  .hero-banner:after {
+    content:""; position:absolute; inset:0; z-index:-1; pointer-events:none;
+    background:linear-gradient(0deg,rgba(5,7,18,.76),transparent 25%,transparent 75%,rgba(5,7,18,.2));
+  }
+  .hero-copy { max-width:680px; align-self:center; }
+  .hero-banner .secure-badge { border-color:rgba(198,89,255,.65); box-shadow:0 0 18px rgba(174,65,232,.15); }
+  .hero-banner .typing-container { max-width:12ch; font-size:clamp(3.5rem,5.15vw,5.8rem); line-height:.99; margin:16px 0 20px; }
+  .hero-banner .hero-supporting { max-width:590px; font-size:clamp(1.02rem,1.25vw,1.22rem); line-height:1.62; }
+  .hero-banner .hero-actions { margin-top:24px; gap:16px; }
+  .hero-banner .hero-cta { min-height:60px; padding:16px 26px; font-size:1rem; }
+  .hero-banner .hero-cta-primary { box-shadow:0 0 28px rgba(244,180,26,.24); }
+  .hero-banner .hero-trust-points { gap:9px; margin-top:24px; }
+  .hero-banner .hero-trust-points span { padding:8px 12px; border-color:rgba(244,180,26,.36); background:rgba(4,7,18,.66); font-size:.78rem; }
+  .hero-visual { min-height:450px; align-self:stretch; display:flex; align-items:center; justify-content:center; }
+  .hero-visual-glow { inset:8% -7% 0; filter:blur(42px); background:radial-gradient(ellipse,rgba(116,41,177,.38),transparent 68%); }
+  .hero-banner .main-poster {
+    width:calc(100% + 70px); max-width:none; height:auto; max-height:none;
+    aspect-ratio:16/10; object-fit:cover; object-position:center;
+    border:0; border-radius:0; background:transparent; box-shadow:none;
+    mix-blend-mode:screen; transform:translateX(12px) scale(1.04);
+    -webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 14%,#000 100%);
+    mask-image:linear-gradient(90deg,transparent 0%,#000 14%,#000 100%);
+  }
+  .hero-visual:before { display:none; }
+  .hero-visual-note { position:absolute; left:auto; right:10px; bottom:6px; margin:0; }
+  .premium-service-cards { width:calc(100% - 112px); max-width:1500px; margin:0 auto 20px; gap:14px; }
+  .premium-service-card { min-height:112px; padding:15px 18px; }
+  .premium-service-card strong { font-size:.95rem; }
+  .premium-service-card small { font-size:.73rem; }
+  .premium-contact-ribbon { margin:0; padding:18px clamp(36px,5.7vw,96px); }
+}
+@media (min-width:681px) and (max-width:900px) {
+  nav { padding:12px 20px; }
+  .nav-logo { width:112px; }
+  .nav-brand-copy strong { font-size:1rem; }
+  .nav-brand-copy small { font-size:.7rem; }
+  .nav-links { gap:12px; }
+  .hero-banner { width:100%; margin:0; border-radius:0; padding:32px 24px; }
+}
+@media (max-width:680px) {
+  nav { padding:10px 12px; gap:8px; }
+  .nav-logo { width:76px; height:44px; }
+  .nav-brand { gap:7px; }
+  .nav-brand-copy strong { font-size:.76rem; line-height:1.2; }
+  .nav-brand-copy small { font-size:.59rem; line-height:1.3; }
+  .premium-trust-strip { width:calc(100% - 16px); margin:10px auto 0; border-radius:14px; }
+  .hero-banner { background:radial-gradient(ellipse at 75% 64%,rgba(101,36,139,.23),transparent 46%),linear-gradient(145deg,#070916,#10091e); }
+  .hero-banner .main-poster { mix-blend-mode:normal; -webkit-mask-image:none; mask-image:none; object-fit:contain; background:rgba(7,7,17,.35); }
+  .premium-service-cards { margin-top:4px; }
+}
