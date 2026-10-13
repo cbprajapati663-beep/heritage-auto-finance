@@ -1462,3 +1462,107 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   .premium-service-showcase .premium-service-card { min-height:0 !important; }
   .premium-service-showcase .service-card-photo { height:205px !important; flex-basis:205px !important; }
 }
+
+
+/* Reference finish: full-bleed vehicle photo with floating title, gold icon and readable feature overlay. */
+.service-gem-icon {
+  width:21px !important;
+  height:21px !important;
+  flex:0 0 21px !important;
+  filter:drop-shadow(0 0 5px rgba(255,196,67,.45)) !important;
+}
+.premium-service-showcase .service-card-icon svg {
+  width:70% !important;
+  height:70% !important;
+  display:block !important;
+  overflow:visible !important;
+  color:#ffda70 !important;
+  filter:drop-shadow(0 0 5px rgba(255,194,56,.38)) !important;
+}
+.premium-service-showcase .premium-service-card {
+  min-height:478px !important;
+  padding:0 0 13px !important;
+  justify-content:flex-end !important;
+  background:#080a17 !important;
+}
+.premium-service-showcase .premium-service-card::after {
+  top:auto !important;
+  bottom:0 !important;
+  height:4px !important;
+}
+.premium-service-showcase .service-card-photo {
+  position:absolute !important;
+  inset:0 !important;
+  z-index:0 !important;
+  width:100% !important;
+  height:100% !important;
+  flex:0 0 100% !important;
+  object-fit:cover !important;
+  object-position:center 52% !important;
+  opacity:1 !important;
+  -webkit-mask-image:none !important;
+  mask-image:none !important;
+  filter:saturate(1.12) contrast(1.08) brightness(.78) !important;
+  transition:transform .45s ease,filter .45s ease !important;
+}
+.premium-service-showcase .premium-service-card:nth-child(1) .service-card-photo { object-position:center 55% !important; }
+.premium-service-showcase .premium-service-card:nth-child(2) .service-card-photo { object-position:center 54% !important; }
+.premium-service-showcase .premium-service-card:nth-child(3) .service-card-photo { object-position:center 57% !important; }
+.premium-service-showcase .premium-service-card:nth-child(4) .service-card-photo { object-position:center 55% !important; }
+.premium-service-showcase .premium-service-card:nth-child(5) .service-card-photo { object-position:center 56% !important; }
+.premium-service-showcase .service-card-top {
+  position:relative !important;
+  z-index:2 !important;
+  flex:0 0 auto !important;
+  align-items:center !important;
+  min-height:116px !important;
+  padding:20px 13px 12px !important;
+  background:linear-gradient(180deg,rgba(7,8,19,.94) 0%,rgba(7,8,19,.72) 70%,transparent 100%) !important;
+}
+.premium-service-showcase .service-card-icon {
+  flex-basis:65px !important;
+  width:65px !important;
+  height:65px !important;
+  border-width:2px !important;
+  background:radial-gradient(circle at 35% 25%,rgba(255,222,126,.23),rgba(8,9,21,.88) 72%) !important;
+  box-shadow:0 0 17px rgba(255,201,75,.18),inset 0 0 12px rgba(255,214,111,.1) !important;
+}
+.premium-service-showcase .service-card-top strong {
+  font-size:clamp(1rem,1.35vw,1.42rem) !important;
+  text-shadow:0 2px 7px rgba(0,0,0,.9) !important;
+}
+.premium-service-showcase .service-card-features {
+  position:relative !important;
+  z-index:2 !important;
+  margin-top:auto !important;
+  padding:13px 13px 15px !important;
+  gap:10px !important;
+  background:linear-gradient(180deg,rgba(7,8,19,.48),rgba(7,8,19,.96) 18%,rgba(7,8,19,.98) 100%) !important;
+}
+.premium-service-showcase .service-card-features small {
+  font-size:clamp(.68rem,.78vw,.83rem) !important;
+  text-shadow:0 1px 3px #000 !important;
+}
+.premium-service-showcase .service-card-features small::first-letter {
+  color:#ffd45c !important;
+}
+.premium-service-showcase .service-card-action {
+  z-index:2 !important;
+  margin-top:0 !important;
+  background:linear-gradient(100deg,rgba(102,54,29,.78),rgba(12,10,23,.98) 55%,rgba(35,17,48,.98)) !important;
+  border-color:#ffcf55 !important;
+  box-shadow:inset 0 1px rgba(255,255,255,.17),0 0 15px rgba(255,190,53,.16) !important;
+}
+.premium-service-showcase .premium-service-card:hover .service-card-photo {
+  transform:scale(1.055) !important;
+  filter:saturate(1.18) contrast(1.1) brightness(.86) !important;
+}
+@media(max-width:1200px) {
+  .premium-service-showcase .service-card-top { min-height:105px !important; }
+  .premium-service-showcase .service-card-icon { flex-basis:54px !important; width:54px !important; height:54px !important; }
+}
+@media(max-width:760px) {
+  .premium-service-showcase .service-card-top { min-height:90px !important; padding:13px 9px 8px !important; }
+  .premium-service-showcase .service-card-icon { flex-basis:42px !important; width:42px !important; height:42px !important; }
+  .premium-service-showcase .service-card-features { gap:7px !important; padding:10px 9px 12px !important; }
+}
