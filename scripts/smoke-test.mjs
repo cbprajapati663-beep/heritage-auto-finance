@@ -27,7 +27,7 @@ assert.equal((html.match(/class="premium-service-card"/g) || []).length, 5, "All
 assert.match(premium, /\.premium-service-cards/, "Premium service cards should have dedicated responsive styling");
 assert.match(reference, /grid-template-columns:repeat\(5,minmax\(0,1fr\)\)/, "Desktop reference layout should show five photographic service cards in a row");
 assert.match(html, /class="[^"]*reference-hero-title[^"]*"/, "Hero headline should be stable and match the reference instead of typing animation");
-assert.match(html, /class="hero-highlight">Dream Car!/, "Hero should keep the full Dream Car headline visible");
+assert.match(html, /class="hero-highlight">Dreams Forward/, "Hero should keep the approved Dreams Forward headline visible");
 assert.match(html, /class="hero-benefit-plate"/, "Hero should include the four-item premium benefits plate");
 assert.match(reference, /\.hero-benefit-plate/, "Reference benefit plate should be styled for desktop and mobile");
 assert.match(html, /hero-cta-primary/, "Primary callback CTA should exist");
