@@ -13,6 +13,9 @@ assert.match(html, /property="og:url" content="https:\/\/heritageautofinance\.ne
 assert.match(html, /class="nav-brand"/, "Navigation should include the branded logo and wordmark lockup");
 assert.match(html, /HERITAGE AUTO FINANCE/, "Navigation should display the full business name beside the logo");
 assert.match(html, /Your Trusted Vehicle Finance Partner/, "Navigation should display the brand tagline");
+assert.match(html, /class="premium-service-cards"/, "Premium service shortcut cards should appear below the hero");
+assert.equal((html.match(/class="premium-service-card"/g) || []).length, 5, "All five core service shortcut cards should be present");
+assert.match(premium, /\.premium-service-cards/, "Premium service cards should have dedicated responsive styling");
 assert.match(html, /hero-cta-primary/, "Primary callback CTA should exist");
 assert.match(html, /hero-trust-points/, "Service highlights should exist");
 assert.equal((html.match(/class="main-poster"/g) || []).length, 1, "Hero should show only one main poster");
