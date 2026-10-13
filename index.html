@@ -21,6 +21,7 @@
     <meta name="twitter:title" content="Heritage Auto Finance">
     <meta name="twitter:description" content="Vehicle finance enquiry assistance, refinance guidance and motor insurance assistance in North Gujarat.">
     <meta name="twitter:image" content="https://heritageautofinance.netlify.app/03.png">
+    <meta property="og:image:alt" content="Heritage Auto Finance vehicle finance and insurance assistance">
     <link rel="canonical" href="https://heritageautofinance.netlify.app/">
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"FinancialService","name":"Heritage Auto Finance","url":"https://heritageautofinance.netlify.app/","telephone":"+91-7600211085","areaServed":["Mehsana","North Gujarat"],"description":"Vehicle finance enquiry assistance, refinance guidance and motor insurance assistance."}</script>
     <script type="application/ld+json">
@@ -129,6 +130,7 @@
     </div>
 
     <!-- Extracted Details Section -->
+    <main id="main-content">
     <div id="services" class="reveal">
         <h2 class="section-title">Why Choose Heritage?</h2>
         <p class="section-subtitle">Premium Services Tailored For Your Growth</p>
@@ -177,7 +179,7 @@
             <button class="tab-btn" onclick="filterPosters('insurance', event)">Insurance Plans</button>
         </div>
         
-        <div class="poster-grid">
+        <div class="poster-grid" aria-live="polite" aria-label="Service posters">
             <div class="poster-item reveal loans"><img src="09.png" alt="New Car Finance" loading="lazy" decoding="async"></div>
             <div class="poster-item reveal loans"><img src="10.png" alt="Commercial Vehicle Finance" loading="lazy" decoding="async"></div>
             <div class="poster-item reveal loans"><img src="07.png" alt="Loan Against Car" loading="lazy" decoding="async"></div>
@@ -271,19 +273,19 @@
         <p class="section-subtitle">Aapke sawal, hamare jawab</p>
         
         <div class="faq-section">
-            <div class="faq-item" role="button" tabindex="0" aria-expanded="false" aria-controls="faq-answer-1" onclick="toggleFaq(this)">
+            <div class="faq-item" role="button" tabindex="0" aria-expanded="false" aria-controls="faq-answer-1">
                 <div class="faq-question">Purani gaadi (Used Car) par kitna loan mil sakta hai? <span>▼</span></div>
                 <div class="faq-answer" id="faq-answer-1" role="region" aria-label="Purani gaadi (Used Car) par kitna loan mil sakta hai?">Hum used car finance ke liye enquiry aur documentation guidance dete hain. Loan amount gaadi ki valuation, documents, credit profile aur lender ke assessment par depend karta hai; approval guaranteed nahi hai.</div>
             </div>
-            <div class="faq-item" role="button" tabindex="0" aria-expanded="false" aria-controls="faq-answer-2" onclick="toggleFaq(this)">
+            <div class="faq-item" role="button" tabindex="0" aria-expanded="false" aria-controls="faq-answer-2">
                 <div class="faq-question">Loan approval mein kitna samay lagta hai? <span>▼</span></div>
                 <div class="faq-answer" id="faq-answer-2" role="region" aria-label="Loan approval mein kitna samay lagta hai?">Processing times vary by lender and application. Complete documents can help the lender review your application, but approval is not guaranteed.</div>
             </div>
-            <div class="faq-item" role="button" tabindex="0" aria-expanded="false" aria-controls="faq-answer-3" onclick="toggleFaq(this)">
+            <div class="faq-item" role="button" tabindex="0" aria-expanded="false" aria-controls="faq-answer-3">
                 <div class="faq-question">Kya aap commercial vehicles (Jaise Truck/Bus) ko finance karte hain? <span>▼</span></div>
                 <div class="faq-answer" id="faq-answer-3" role="region" aria-label="Kya aap commercial vehicles (Jaise Truck/Bus) ko finance karte hain?">Hum chhote tempo se lekar trucks aur buses tak, commercial vehicle finance options ke liye enquiry aur documentation guidance dete hain. Final decision lender ke assessment par depend karta hai.</div>
             </div>
-            <div class="faq-item" role="button" tabindex="0" aria-expanded="false" aria-controls="faq-answer-4" onclick="toggleFaq(this)">
+            <div class="faq-item" role="button" tabindex="0" aria-expanded="false" aria-controls="faq-answer-4">
                 <div class="faq-question">Motor insurance mein kya check karna chahiye? <span>▼</span></div>
                 <div class="faq-answer" id="faq-answer-4" role="region" aria-label="Motor insurance mein kya check karna chahiye?">Policy ka coverage, exclusions, deductible, insured declared value, add-ons aur renewal date dhyan se check karein. Exact benefits insurer aur policy terms par depend karte hain.</div>
             </div>
@@ -315,6 +317,8 @@
           <p class="form-privacy-note">We use the details you submit to respond to your enquiry. Please review our <a href="privacy-policy.html">Privacy Policy</a>. Do not submit Aadhaar, PAN, bank account details or other sensitive documents through this initial enquiry form.</p>
         </div>
     </div>
+
+    </main>
 
     <!-- Footer -->
     <footer>
