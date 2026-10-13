@@ -65,9 +65,9 @@
     const resultEl = document.getElementById("emiResult");
     if (!amountEl || !rateEl || !tenureEl || !resultEl) return;
 
-    const principal = Math.max(0, Number(amountEl.value));
-    const annualRate = Math.max(0, Number(rateEl.value));
-    const months = Math.max(1, Number(tenureEl.value));
+    const principal = Math.max(0, Number(amountEl.value) || 0);
+    const annualRate = Math.max(0, Number(rateEl.value) || 0);
+    const months = Math.max(1, Number(tenureEl.value) || 1);
     const monthlyRate = annualRate / 1200;
     const emi = monthlyRate === 0
       ? principal / months
@@ -103,7 +103,7 @@
     const incomeEl = document.getElementById("monthlyIncome");
     const resultEl = document.getElementById("eligibleResult");
     if (!incomeEl || !resultEl) return;
-    const income = Math.max(0, Number(incomeEl.value));
+    const income = Math.max(0, Number(incomeEl.value) || 0);
     const label = document.getElementById("incomeLabel");
     if (label) label.textContent = formatINR(income);
     // Clearly an illustrative multiplier, not lender eligibility or approval.
@@ -157,14 +157,17 @@
 
     document.querySelectorAll(".tab-btn").forEach((button, index) => {
       const categories = ["all", "loans", "insurance"];
-      button.dataset.category = categories[index] || "all";
-      button.setAttribute("aria-pressed", String(index === 0));
+      if (!button.dataset.category) button.dataset.category = categories[index] || "all";
+      button.setAttribute("aria-pressed", String(button.dataset.category === "all"));
       button.addEventListener("click", event => filterPosters(button.dataset.category, event));
     });
     filterPosters("all");
 
     document.querySelectorAll(".faq-item").forEach(item => {
       item.setAttribute("aria-expanded", String(item.classList.contains("active")));
+      item.addEventListener("click", event => {
+        if (!event.target.closest("a,button,input,select,textarea")) toggleFaq(item);
+      });
       item.addEventListener("keydown", event => {
         if (event.key === "Enter" || event.key === " ") {
           event.preventDefault();
