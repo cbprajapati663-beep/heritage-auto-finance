@@ -791,7 +791,7 @@ nav .nav-brand:focus-visible{outline:2px solid var(--heritage-cream);outline-off
  .hero-banner .hero-trust-points{gap:7px;margin-top:19px}
  .hero-banner .hero-trust-points span{font-size:.66rem;padding:6px 9px}
  .hero-visual{min-height:0;padding-bottom:30px}
- .hero-banner .main-poster{max-width:100%;max-height:none;aspect-ratio:4/5;object-fit:cover;border-radius:18px;transform:none}
+ .hero-banner .main-poster{max-width:100%;max-height:none;aspect-ratio:4/3;object-fit:contain;object-position:center;border-radius:18px;transform:none}
  .hero-visual-note{left:5px;bottom:0;padding:10px 12px}
  .premium-service-cards{width:calc(100% - 24px);grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-bottom:24px}
  .premium-service-card{min-height:84px;padding:11px 9px;gap:8px}
