@@ -300,3 +300,63 @@ nav {
   .hero-banner .reference-hero-title { overflow:visible !important; height:auto !important; }
   .premium-service-cards { margin-top:0 !important; }
 }
+
+
+/* Branded showroom treatment: add a restrained illuminated Heritage sign over the hero photo. */
+.hero-visual { isolation:isolate !important; }
+.showroom-brand-mark {
+  position:absolute !important;
+  z-index:3 !important;
+  top:clamp(18px,2.4vw,36px) !important;
+  right:clamp(18px,2.4vw,36px) !important;
+  display:flex !important;
+  align-items:center !important;
+  gap:12px !important;
+  padding:13px 17px 12px 13px !important;
+  border:1px solid rgba(248,197,78,.78) !important;
+  border-radius:4px !important;
+  background:linear-gradient(120deg,rgba(8,8,18,.94),rgba(28,10,43,.84)) !important;
+  box-shadow:0 0 0 3px rgba(248,197,78,.07),0 0 28px rgba(153,61,220,.35),0 12px 30px rgba(0,0,0,.32) !important;
+  color:#fffaf0 !important;
+  transform:perspective(600px) rotateY(-5deg) !important;
+  pointer-events:none !important;
+}
+.showroom-brand-emblem {
+  display:grid !important;
+  place-items:center !important;
+  width:38px !important;
+  height:38px !important;
+  border:1px solid #f8c54e !important;
+  border-radius:50% !important;
+  color:#f8c54e !important;
+  font-family:Georgia,"Times New Roman",serif !important;
+  font-size:1.55rem !important;
+  line-height:1 !important;
+  text-shadow:0 0 12px rgba(248,197,78,.48) !important;
+}
+.showroom-brand-mark > span:last-child { display:flex !important; flex-direction:column !important; gap:3px !important; }
+.showroom-brand-mark strong {
+  color:#fffaf0 !important;
+  font-size:clamp(.75rem,1vw,1rem) !important;
+  font-weight:800 !important;
+  letter-spacing:.18em !important;
+  line-height:1 !important;
+  white-space:nowrap !important;
+}
+.showroom-brand-mark small {
+  color:#f8c54e !important;
+  font-size:clamp(.52rem,.66vw,.68rem) !important;
+  font-weight:700 !important;
+  letter-spacing:.29em !important;
+  line-height:1.2 !important;
+  white-space:nowrap !important;
+}
+@media(max-width:760px) {
+  .showroom-brand-mark { top:12px !important; right:12px !important; gap:8px !important; padding:9px 11px 9px 9px !important; transform:none !important; }
+  .showroom-brand-emblem { width:30px !important; height:30px !important; font-size:1.2rem !important; }
+  .showroom-brand-mark strong { font-size:.7rem !important; }
+  .showroom-brand-mark small { font-size:.48rem !important; letter-spacing:.2em !important; }
+}
+@media(max-width:420px) {
+  .showroom-brand-mark { transform:scale(.9) !important; transform-origin:top right !important; }
+}
