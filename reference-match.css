@@ -360,3 +360,143 @@ nav {
 @media(max-width:420px) {
   .showroom-brand-mark { transform:scale(.9) !important; transform-origin:top right !important; }
 }
+
+
+/* Prompt-driven luxury finish: stronger showroom illusion, metallic gold controls and refined glass surfaces. */
+:root {
+  --heritage-gold:#f6c653;
+  --heritage-gold-soft:#ffe8a0;
+  --heritage-purple:#8b35c8;
+}
+body {
+  background:
+    radial-gradient(ellipse at 76% 24%,rgba(101,35,148,.14),transparent 34%),
+    radial-gradient(ellipse at 8% 5%,rgba(214,156,38,.06),transparent 25%),
+    #06070c !important;
+}
+nav {
+  background:rgba(6,7,12,.94) !important;
+  border-bottom:1px solid rgba(255,215,0,.16) !important;
+  backdrop-filter:blur(18px) saturate(135%) !important;
+}
+.nav-brand-copy strong {
+  background:linear-gradient(100deg,#fff0b4 0%,#f6c653 45%,#b87912 100%) !important;
+  -webkit-background-clip:text !important;
+  background-clip:text !important;
+  color:transparent !important;
+  text-shadow:0 0 22px rgba(246,198,83,.08) !important;
+}
+.nav-callback, .hero-cta-primary {
+  background:linear-gradient(110deg,#ffe8a0 0%,#f6c653 44%,#bd7d12 100%) !important;
+  color:#17100a !important;
+  border:1px solid rgba(255,239,180,.7) !important;
+  box-shadow:0 8px 26px rgba(196,137,23,.2),inset 0 1px rgba(255,255,255,.55) !important;
+  transition:transform .22s ease,box-shadow .22s ease,filter .22s ease !important;
+}
+.nav-callback:hover, .hero-cta-primary:hover {
+  transform:translateY(-2px) !important;
+  filter:brightness(1.06) !important;
+  box-shadow:0 12px 34px rgba(196,137,23,.32),0 0 24px rgba(246,198,83,.13) !important;
+}
+.hero-banner {
+  background:
+    radial-gradient(ellipse at 80% 45%,rgba(121,39,174,.2),transparent 45%),
+    radial-gradient(ellipse at 2% 90%,rgba(246,198,83,.055),transparent 35%),
+    linear-gradient(110deg,#06070c 0%,#0a0914 52%,#12091c 100%) !important;
+}
+.hero-visual {
+  isolation:isolate !important;
+  background:#090713 !important;
+  box-shadow:inset 0 0 0 1px rgba(255,215,0,.16),-22px 0 72px rgba(105,31,156,.13) !important;
+}
+.hero-visual::before {
+  content:"" !important;
+  position:absolute !important;
+  z-index:2 !important;
+  inset:0 !important;
+  pointer-events:none !important;
+  background:
+    linear-gradient(90deg,rgba(7,7,15,.36) 0%,transparent 35%,rgba(8,5,15,.12) 75%,rgba(8,5,15,.48) 100%),
+    linear-gradient(0deg,rgba(7,6,13,.56) 0%,transparent 34%,rgba(11,6,20,.2) 100%) !important;
+}
+.hero-visual::after {
+  content:"" !important;
+  position:absolute !important;
+  z-index:2 !important;
+  pointer-events:none !important;
+  left:9%;right:5%;top:8%;height:1px !important;
+  background:linear-gradient(90deg,transparent,rgba(255,218,125,.72),rgba(179,92,255,.52),transparent) !important;
+  box-shadow:0 0 20px rgba(246,198,83,.36),0 0 36px rgba(137,47,205,.24) !important;
+}
+.showroom-brand-mark {
+  z-index:4 !important;
+  padding:12px 18px !important;
+  border:1px solid rgba(255,215,0,.48) !important;
+  border-radius:10px !important;
+  background:linear-gradient(115deg,rgba(7,7,16,.9),rgba(31,12,45,.78)) !important;
+  box-shadow:0 0 0 1px rgba(255,255,255,.035),0 0 26px rgba(156,59,222,.24),inset 0 1px rgba(255,255,255,.09) !important;
+  backdrop-filter:blur(12px) !important;
+}
+.showroom-brand-mark strong {
+  color:#ffe6a0 !important;
+  text-shadow:0 0 12px rgba(246,198,83,.5) !important;
+  letter-spacing:.13em !important;
+}
+.showroom-brand-mark small {
+  color:#fff !important;
+  letter-spacing:.24em !important;
+}
+.showroom-brand-emblem {
+  color:#ffe6a0 !important;
+  border-color:rgba(255,215,0,.78) !important;
+  box-shadow:0 0 16px rgba(246,198,83,.22),inset 0 0 12px rgba(246,198,83,.1) !important;
+}
+.hero-visual-note {
+  z-index:4 !important;
+  border:1px solid rgba(255,215,0,.26) !important;
+  border-radius:12px !important;
+  background:rgba(7,7,15,.72) !important;
+  box-shadow:0 12px 34px rgba(0,0,0,.3) !important;
+  backdrop-filter:blur(12px) !important;
+}
+.hero-benefit-plate {
+  z-index:5 !important;
+  background:linear-gradient(115deg,rgba(7,7,15,.94),rgba(26,10,39,.9)) !important;
+  border-color:rgba(255,218,125,.8) !important;
+  box-shadow:0 0 0 1px rgba(255,255,255,.045),0 0 32px rgba(129,42,177,.25),0 18px 44px rgba(0,0,0,.48),inset 0 1px rgba(255,255,255,.1) !important;
+  backdrop-filter:blur(18px) !important;
+}
+.premium-service-card {
+  border:1px solid rgba(255,215,0,.24) !important;
+  box-shadow:0 12px 30px rgba(0,0,0,.36),inset 0 1px rgba(255,255,255,.07) !important;
+  transition:transform .24s ease,border-color .24s ease,box-shadow .24s ease !important;
+}
+.premium-service-card:hover {
+  transform:translateY(-4px) !important;
+  border-color:rgba(255,215,0,.62) !important;
+  box-shadow:0 18px 38px rgba(0,0,0,.42),0 0 24px rgba(130,42,178,.14) !important;
+}
+.service-card-arrow {
+  border:1px solid rgba(255,215,0,.58) !important;
+  background:linear-gradient(135deg,#ffe8a0,#c58a1b) !important;
+  color:#16100a !important;
+  box-shadow:0 4px 18px rgba(246,198,83,.2) !important;
+}
+.premium-contact-ribbon {
+  background:linear-gradient(105deg,rgba(8,10,19,.98),rgba(20,9,31,.98)) !important;
+  border-top:1px solid rgba(255,215,0,.17) !important;
+  border-bottom:1px solid rgba(255,255,255,.07) !important;
+}
+.ribbon-call {
+  background:linear-gradient(110deg,#6f20a3,#3c1261) !important;
+  border:1px solid rgba(195,118,255,.45) !important;
+  box-shadow:0 8px 28px rgba(94,28,138,.24),inset 0 1px rgba(255,255,255,.1) !important;
+}
+@media(max-width:760px) {
+  .showroom-brand-mark { top:14px !important; right:12px !important; left:auto !important; transform:scale(.82); transform-origin:top right; }
+  .hero-visual::after { top:5% !important; }
+  .hero-benefit-plate { z-index:5 !important; }
+}
+@media(prefers-reduced-motion:reduce) {
+  .nav-callback,.hero-cta-primary,.premium-service-card { transition:none !important; }
+}
