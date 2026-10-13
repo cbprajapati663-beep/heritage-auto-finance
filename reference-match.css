@@ -831,3 +831,126 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
     transform:none !important;
   }
 }
+
+
+/* Reference-matched compact luxury service tiles: text left, vehicle image right. */
+.premium-service-cards {
+  gap: clamp(12px, 1.25vw, 20px) !important;
+  align-items: stretch !important;
+}
+.premium-service-card {
+  position: relative !important;
+  display: flex !important;
+  align-items: center !important;
+  min-height: 132px !important;
+  height: 132px !important;
+  padding: 0 !important;
+  border-radius: 15px !important;
+  overflow: hidden !important;
+  isolation: isolate !important;
+  background:
+    radial-gradient(ellipse at 100% 100%, rgba(101,31,147,.28), transparent 62%),
+    linear-gradient(135deg, #0b0d1b 0%, #100d20 65%, #160b22 100%) !important;
+  border: 1px solid rgba(153,89,192,.3) !important;
+  box-shadow: inset 0 1px rgba(255,255,255,.055), 0 10px 24px rgba(0,0,0,.28) !important;
+  transform-style: preserve-3d !important;
+}
+.premium-service-card::before {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: -1 !important;
+  pointer-events: none !important;
+  background: linear-gradient(135deg, rgba(139,53,200,.13), transparent 36%, rgba(246,198,83,.04)) !important;
+}
+.premium-service-card .service-card-photo {
+  position: absolute !important;
+  z-index: -1 !important;
+  inset: auto -3% 0 auto !important;
+  width: 70% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  opacity: .98 !important;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, rgba(0,0,0,.18) 13%, #000 42%) !important;
+  mask-image: linear-gradient(90deg, transparent 0%, rgba(0,0,0,.18) 13%, #000 42%) !important;
+  transition: transform .42s cubic-bezier(.2,.75,.25,1), filter .3s ease !important;
+  filter: saturate(.9) contrast(1.06) !important;
+}
+.premium-service-card .service-card-shade {
+  z-index: 0 !important;
+  background: linear-gradient(90deg, #0a0c18 0%, rgba(10,12,24,.97) 26%, rgba(10,12,24,.64) 49%, rgba(10,12,24,.04) 100%) !important;
+}
+.premium-service-card .service-card-copy {
+  z-index: 2 !important;
+  align-self: stretch !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  max-width: 62% !important;
+  width: 62% !important;
+  padding: 14px 0 14px 17px !important;
+}
+.premium-service-card .service-card-copy strong {
+  color: #fffaf2 !important;
+  font-size: clamp(.8rem, .95vw, 1.02rem) !important;
+  line-height: 1.22 !important;
+  text-wrap: balance !important;
+  text-shadow: 0 2px 10px rgba(0,0,0,.7) !important;
+}
+.premium-service-card .service-card-copy small {
+  margin-top: 4px !important;
+  color: #f6c653 !important;
+  font-size: clamp(.63rem, .7vw, .74rem) !important;
+  line-height: 1.25 !important;
+}
+.premium-service-card .service-card-arrow {
+  position: absolute !important;
+  z-index: 3 !important;
+  right: 9px !important;
+  bottom: 8px !important;
+  display: grid !important;
+  place-items: center !important;
+  width: 30px !important;
+  height: 30px !important;
+  border-radius: 50% !important;
+  border: 1px solid rgba(255,215,0,.88) !important;
+  background: linear-gradient(145deg, #171324, #090b14) !important;
+  color: #ffe08a !important;
+  font-size: 1.15rem !important;
+  box-shadow: 0 0 0 3px rgba(8,9,17,.65), 0 0 18px rgba(246,198,83,.14) !important;
+}
+.premium-service-card:hover {
+  transform: translateY(-4px) perspective(700px) rotateX(1deg) !important;
+  border-color: rgba(246,198,83,.68) !important;
+  box-shadow: inset 0 1px rgba(255,255,255,.08), 0 18px 34px rgba(0,0,0,.42), 0 0 20px rgba(139,53,200,.15) !important;
+}
+.premium-service-card:hover .service-card-photo {
+  transform: scale(1.07) translateX(-2px) !important;
+  filter: saturate(1.08) contrast(1.08) !important;
+}
+@media (min-width: 1101px) {
+  .premium-service-cards { margin-top: -112px !important; }
+  .premium-service-card { min-height: 132px !important; height: 132px !important; }
+}
+@media (max-width: 1100px) and (min-width: 761px) {
+  .premium-service-cards { grid-template-columns: repeat(3, minmax(0,1fr)) !important; }
+  .premium-service-card { height: 132px !important; }
+}
+@media (max-width: 760px) {
+  .premium-service-cards { grid-template-columns: repeat(2, minmax(0,1fr)) !important; }
+  .premium-service-card { min-height: 142px !important; height: 142px !important; }
+  .premium-service-card .service-card-photo { width: 76% !important; }
+  .premium-service-card .service-card-copy { max-width: 68% !important; width: 68% !important; padding-left: 11px !important; }
+  .premium-service-card .service-card-copy strong { font-size: .82rem !important; }
+  .premium-service-card .service-card-copy small { font-size: .64rem !important; }
+}
+@media (max-width: 420px) {
+  .premium-service-cards { gap: 8px !important; padding-inline: 10px !important; }
+  .premium-service-card { height: 126px !important; min-height: 126px !important; }
+  .premium-service-card .service-card-copy { padding-left: 9px !important; }
+  .premium-service-card .service-card-arrow { width: 26px !important; height: 26px !important; right: 6px !important; bottom: 6px !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .premium-service-card, .premium-service-card .service-card-photo { transition: none !important; }
+}
