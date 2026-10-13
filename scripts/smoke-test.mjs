@@ -166,4 +166,4 @@ assert.match(html, /href="reference-match\.css"/i, "Reference-matched stylesheet
 assert.match(html, /images\.unsplash\.com\/photo-1683778547049-8d969766b441/, "Hero should use the selected photographic SUV asset instead of the illustrated SVG");
 assert.match(html, /alt="Black luxury SUV photographed at night/i, "Photographic hero must have descriptive alternative text");
 assert.match(referenceCss, /grid-template-columns:minmax\(0,\.92fr\) minmax\(0,1\.08fr\)/, "Desktop hero should prioritize copy on the left and photography on the right");
-assert.match(referenceCss, /@media \(max-width:760px\)/, "Reference styling must include a mobile layout");
+assert.match(referenceCss, /@media\s*\(max-width:\s*760px\)/, "Reference styling must include a mobile layout");
