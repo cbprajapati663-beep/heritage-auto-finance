@@ -660,3 +660,104 @@ h1,h2,h3,.hero-banner .typing-container,.nav-brand-copy strong,.service-card-cop
 .hero-banner .typing-container { font-weight:700 !important; letter-spacing:-.045em !important; }
 .nav-brand-copy strong { font-weight:700 !important; }
 .service-card-copy strong { font-weight:700 !important; }
+
+
+/* October refinement: deepen the luxury finish while keeping the existing site structure and controls intact. */
+:root {
+  color-scheme: dark;
+  --heritage-gold-bright: #ffe8a6;
+  --heritage-gold: #e8b84d;
+  --heritage-purple: #8c45c7;
+}
+body {
+  background:
+    radial-gradient(ellipse at 78% 17%, rgba(91,35,132,.16), transparent 34%),
+    radial-gradient(ellipse at 12% 58%, rgba(74,31,111,.11), transparent 35%),
+    #06070c !important;
+}
+.hero-banner {
+  isolation:isolate !important;
+  position:relative !important;
+}
+.hero-banner::before {
+  content:"" !important;
+  position:absolute !important;
+  width:min(46vw,620px) !important;
+  height:min(46vw,620px) !important;
+  right:20% !important;
+  top:4% !important;
+  border-radius:50% !important;
+  background:radial-gradient(circle,rgba(118,47,167,.12),rgba(118,47,167,0) 68%) !important;
+  pointer-events:none !important;
+  z-index:-1 !important;
+}
+.hero-banner .hero-highlight {
+  color:transparent !important;
+  background:linear-gradient(105deg,#fff0bd 0%,#f4cb69 28%,#c88b29 54%,#ffe8a5 77%,#d39b38 100%) !important;
+  -webkit-background-clip:text !important;
+  background-clip:text !important;
+  text-shadow:0 8px 32px rgba(214,164,65,.08) !important;
+}
+.hero-banner .hero-supporting {
+  max-width:54ch !important;
+  color:rgba(241,237,247,.78) !important;
+  line-height:1.78 !important;
+}
+.hero-banner .secure-badge {
+  letter-spacing:.045em !important;
+  backdrop-filter:blur(12px) !important;
+}
+.hero-visual {
+  background:#0b0912 !important;
+  isolation:isolate !important;
+}
+.hero-visual .main-poster {
+  filter:saturate(.92) contrast(1.04) !important;
+}
+.showroom-brand-mark {
+  backdrop-filter:blur(16px) saturate(1.15) !important;
+  background:linear-gradient(135deg,rgba(9,8,16,.82),rgba(25,12,34,.68)) !important;
+  border-color:rgba(255,220,139,.38) !important;
+  box-shadow:0 12px 38px rgba(0,0,0,.3),0 0 28px rgba(170,86,221,.12),inset 0 1px rgba(255,255,255,.1) !important;
+}
+.hero-visual-note {
+  backdrop-filter:blur(12px) !important;
+  border-color:rgba(255,215,0,.28) !important;
+  background:linear-gradient(120deg,rgba(8,7,14,.88),rgba(25,11,35,.72)) !important;
+}
+.hero-benefit-plate {
+  backdrop-filter:blur(14px) !important;
+  background:linear-gradient(145deg,rgba(9,8,16,.88),rgba(23,11,32,.8)) !important;
+  border-color:rgba(255,215,0,.28) !important;
+}
+.premium-service-card {
+  isolation:isolate !important;
+  background-color:#100c17 !important;
+  box-shadow:0 12px 30px rgba(0,0,0,.22),inset 0 1px rgba(255,255,255,.04) !important;
+}
+.premium-service-card .service-card-copy strong {
+  color:#fff7e7 !important;
+  text-shadow:0 2px 16px rgba(0,0,0,.48) !important;
+}
+.premium-service-card .service-card-copy small {
+  color:rgba(255,249,238,.76) !important;
+}
+.premium-contact-ribbon {
+  background:linear-gradient(105deg,rgba(19,12,26,.96),rgba(10,10,17,.98)) !important;
+  border-color:rgba(255,215,0,.22) !important;
+  box-shadow:0 18px 48px rgba(0,0,0,.24),inset 0 1px rgba(255,255,255,.045) !important;
+}
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+  outline:2px solid #ffe08a !important;
+  outline-offset:4px !important;
+}
+@media(max-width:760px) {
+  .hero-banner::before { width:90vw !important;height:90vw !important;right:-18vw !important;top:12% !important; }
+  .hero-banner .hero-supporting { line-height:1.68 !important; }
+  .hero-banner .hero-highlight { text-shadow:0 4px 20px rgba(214,164,65,.1) !important; }
+  .premium-service-card { min-height:190px !important; }
+  .premium-contact-ribbon { gap:10px !important; }
+}
+@media(prefers-reduced-motion:reduce) {
+  *,*::before,*::after { scroll-behavior:auto !important; animation-duration:.01ms !important; animation-iteration-count:1 !important; transition-duration:.01ms !important; }
+}
