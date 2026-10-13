@@ -1706,3 +1706,86 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 @media(max-width:420px) {
   .premium-service-showcase .premium-service-card { min-height:500px !important; height:500px !important; }
 }
+
+
+/* Final reference proportions: five landscape showroom cards, not oversized portrait panels. */
+.premium-service-showcase {
+  padding:28px clamp(18px,1.45vw,30px) 32px !important;
+}
+.service-showcase-heading {
+  margin-bottom:20px !important;
+}
+.premium-service-showcase .premium-service-cards {
+  grid-template-columns:repeat(5,minmax(0,1fr)) !important;
+  gap:clamp(10px,1.05vw,20px) !important;
+}
+.premium-service-showcase .premium-service-card {
+  height:476px !important;
+  min-height:476px !important;
+  border-radius:17px !important;
+  border:1px solid rgba(233,187,91,.8) !important;
+  box-shadow:inset 0 0 0 1px rgba(150,65,209,.22),0 12px 30px rgba(0,0,0,.4) !important;
+}
+.premium-service-showcase .premium-service-card .service-card-photo {
+  inset:0 !important;
+  width:100% !important;
+  height:100% !important;
+  min-height:100% !important;
+  object-fit:cover !important;
+  object-position:center 57% !important;
+  filter:saturate(1.13) contrast(1.1) brightness(.88) !important;
+}
+.premium-service-showcase .premium-service-card::before {
+  background:linear-gradient(180deg,rgba(5,6,17,.82) 0%,rgba(5,6,17,.5) 19%,rgba(5,6,17,.04) 39%,rgba(5,6,17,.05) 53%,rgba(5,6,17,.68) 72%,rgba(5,6,17,.97) 100%) !important;
+}
+.premium-service-showcase .service-card-top {
+  min-height:108px !important;
+  padding:17px 12px 10px !important;
+  gap:10px !important;
+}
+.premium-service-showcase .service-card-icon {
+  flex:0 0 58px !important;
+  width:58px !important;
+  height:58px !important;
+}
+.premium-service-showcase .service-card-top strong {
+  font-size:clamp(.98rem,1.3vw,1.35rem) !important;
+}
+.premium-service-showcase .service-card-features {
+  gap:9px !important;
+  padding:12px 12px 14px !important;
+  background:linear-gradient(180deg,rgba(5,6,17,0),rgba(5,6,17,.78) 30%,rgba(5,6,17,.96) 100%) !important;
+}
+.premium-service-showcase .service-card-features small {
+  font-size:clamp(.64rem,.77vw,.82rem) !important;
+}
+.premium-service-showcase .service-card-action {
+  min-height:48px !important;
+  margin:0 12px !important;
+  padding-left:15px !important;
+  font-size:clamp(.8rem,.92vw,.98rem) !important;
+}
+.premium-service-showcase .service-card-action b {
+  flex:0 0 36px !important;
+  width:36px !important;
+  height:36px !important;
+}
+@media(max-width:1200px) {
+  .premium-service-showcase .premium-service-cards { grid-template-columns:repeat(3,minmax(0,1fr)) !important; }
+  .premium-service-showcase .premium-service-card { height:460px !important; min-height:460px !important; }
+}
+@media(max-width:760px) {
+  .premium-service-showcase .premium-service-cards { grid-template-columns:repeat(2,minmax(0,1fr)) !important; }
+  .premium-service-showcase .premium-service-card { height:440px !important; min-height:440px !important; }
+  .premium-service-showcase .service-card-top { min-height:90px !important; padding:12px 8px 8px !important; gap:7px !important; }
+  .premium-service-showcase .service-card-icon { flex:0 0 42px !important; width:42px !important; height:42px !important; }
+  .premium-service-showcase .service-card-top strong { font-size:clamp(.8rem,2.7vw,1rem) !important; }
+  .premium-service-showcase .service-card-features { padding:10px 8px 11px !important; gap:7px !important; }
+  .premium-service-showcase .service-card-features small { font-size:.65rem !important; }
+  .premium-service-showcase .service-card-action { min-height:40px !important; margin:0 7px !important; padding-left:9px !important; font-size:.74rem !important; }
+  .premium-service-showcase .service-card-action b { flex:0 0 29px !important; width:29px !important; height:29px !important; }
+}
+@media(max-width:420px) {
+  .premium-service-showcase .premium-service-cards { grid-template-columns:1fr !important; }
+  .premium-service-showcase .premium-service-card { height:450px !important; min-height:450px !important; }
+}
