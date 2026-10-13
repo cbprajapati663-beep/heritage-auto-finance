@@ -116,3 +116,65 @@ footer .site-disclaimer{max-width:850px!important;margin:18px auto!important;fon
 
 /* Public brand token alias used by automated design checks and future theme updates. */
 :root{--heritage-gold:var(--r-gold)}
+
+
+/* DISTINCT UI PASS — editorial ivory / forest / terracotta. Keep all existing page behavior. */
+:root{
+  --r-night:#f7f5ef!important;
+  --r-panel:#ffffff!important;
+  --r-purple:#e9eee7!important;
+  --r-gold:#b85c38!important;
+  --r-gold2:#93452b!important;
+  --r-white:#182b25!important;
+  --r-muted:#596960!important;
+}
+html,body{background:#f7f5ef!important;color:#182b25!important}
+body{font-family:Inter,Arial,sans-serif!important}
+header,.site-header,.main-header,.navbar{background:rgba(247,245,239,.96)!important;color:#182b25!important;border-bottom:1px solid #d9dfd5!important;box-shadow:0 5px 24px #243d2d0a!important}
+.nav-brand-copy strong,.nav-brand-copy small,.nav-links a{color:#182b25!important}
+.nav-callback,.hero-cta-primary,.ribbon-call,.ribbon-whatsapp{background:#214b3a!important;color:#fff!important;border-color:#214b3a!important;border-radius:4px!important}
+.trust-strip.premium-trust-strip{background:#e8eee7!important;border-color:#d5ded4!important;color:#214b3a!important}
+.premium-trust-strip strong,.premium-trust-strip small{color:#214b3a!important}
+.hero-banner{background:#f7f5ef!important;color:#182b25!important;min-height:unset!important;padding:clamp(34px,5vw,76px) clamp(20px,5vw,84px)!important;gap:clamp(28px,4vw,64px)!important}
+.hero-copy{color:#182b25!important;max-width:620px!important}
+.secure-badge{background:#e7ede5!important;border:1px solid #cad8ca!important;color:#28513e!important;border-radius:3px!important;letter-spacing:.08em!important;text-transform:uppercase!important}
+.reference-hero-title,.hero-banner h1{font-family:"Playfair Display",Georgia,serif!important;font-weight:600!important;letter-spacing:-.045em!important;line-height:.99!important;color:#182b25!important;font-size:clamp(3.1rem,6.3vw,6rem)!important}
+.hero-title-white{color:#182b25!important}
+.hero-highlight{color:#b85c38!important}
+.hero-supporting,.hero-microcopy{color:#596960!important;max-width:52ch!important}
+.hero-cta{border-radius:4px!important;box-shadow:none!important}
+.hero-cta-secondary{background:transparent!important;border:1px solid #aebbb0!important;color:#214b3a!important}
+.hero-trust-points span{color:#375c49!important}
+.hero-visual{border-radius:4px!important;background:#e8e5dc!important;box-shadow:18px 18px 0 #d9e3d6!important;overflow:hidden!important}
+.hero-visual:before,.hero-visual-glow{opacity:.12!important}
+.main-poster{border-radius:4px!important;filter:saturate(.82)!important}
+.showroom-brand-mark{background:#f7f5efed!important;color:#214b3a!important;border:1px solid #d7ded3!important;border-radius:3px!important}
+.showroom-brand-mark strong,.showroom-brand-mark small{color:#214b3a!important}
+.hero-visual-note,.hero-benefit-plate{background:#214b3af0!important;color:#fff!important;border-radius:3px!important}
+.premium-service-showcase{background:#f7f5ef!important;color:#182b25!important;padding:clamp(40px,6vw,84px) clamp(20px,5vw,84px)!important}
+.service-showcase-heading h2,.service-showcase-heading h3{font-family:"Playfair Display",Georgia,serif!important;color:#182b25!important;font-size:clamp(2rem,4vw,3.7rem)!important;letter-spacing:-.035em!important}
+.service-showcase-eyebrow{color:#b85c38!important;letter-spacing:.16em!important}
+.premium-service-cards{gap:14px!important}
+.premium-service-card{background:#fff!important;border:1px solid #dfe4db!important;border-radius:4px!important;box-shadow:none!important;color:#182b25!important;overflow:hidden!important;transition:transform .2s ease,border-color .2s ease!important}
+.premium-service-card:hover{transform:translateY(-5px)!important;border-color:#b85c38!important;box-shadow:0 14px 32px #182b2510!important}
+.service-card-top{color:#214b3a!important}
+.service-card-top strong,.service-card-top em{color:#214b3a!important}
+.service-card-photo{filter:saturate(.78)!important}
+.service-card-features small{color:#596960!important}
+.service-card-action{color:#b85c38!important;border-top:1px solid #e6e9e2!important}
+.premium-contact-ribbon{background:#e8eee7!important;border:1px solid #d4dfd2!important;border-radius:4px!important;color:#214b3a!important}
+.ribbon-fact strong,.ribbon-fact small,.ribbon-call small{color:#214b3a!important}
+.stats-bar{background:#214b3a!important;color:#fff!important}
+.stats-bar *{color:#fff!important}
+section:not(.hero-banner):not(.premium-service-showcase):not(.premium-contact-ribbon){scroll-margin-top:90px}
+input,select,textarea{border-radius:4px!important}
+button,.btn{border-radius:4px!important}
+footer{background:#182b25!important;color:#f7f5ef!important}
+footer a,footer p,footer small{color:#e3e9e0!important}
+@media(max-width:760px){
+ .hero-banner{padding:30px 18px!important;gap:28px!important}
+ .reference-hero-title,.hero-banner h1{font-size:clamp(2.7rem,12vw,4.3rem)!important}
+ .hero-visual{box-shadow:8px 8px 0 #d9e3d6!important}
+ .premium-service-showcase{padding:38px 18px!important}
+ .premium-service-cards{grid-template-columns:1fr!important}
+}
