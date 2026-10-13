@@ -499,3 +499,66 @@ a:focus-visible,button:focus-visible,input:focus-visible,[role="button"]:focus-v
   .hero-cta,.detail-box,.review-card,.poster-item,.enquiry-path,.main-poster,.float-wa{transition:none!important;animation:none!important}
   .reveal{opacity:1;transform:none;transition:none}
 }
+
+
+/* Premium editorial hero — desktop split layout with a calm, clear mobile stack */
+.hero-banner{
+  position:relative;isolation:isolate;display:grid;grid-template-columns:minmax(0,1.02fr) minmax(300px,.88fr);
+  align-items:center;gap:clamp(28px,5vw,76px);width:min(1240px,calc(100% - 48px));
+  max-width:1240px;margin:clamp(30px,5vw,64px) auto clamp(42px,6vw,76px);
+  padding:clamp(28px,4vw,58px);text-align:left;border:1px solid rgba(244,180,26,.2);
+  border-radius:30px;background:radial-gradient(ellipse at 90% 12%,rgba(105,57,137,.18),transparent 42%),
+  linear-gradient(135deg,rgba(22,12,35,.96),rgba(8,5,16,.98) 70%);
+  box-shadow:0 28px 90px rgba(0,0,0,.34);overflow:hidden
+}
+.hero-banner:before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:linear-gradient(110deg,transparent 48%,rgba(244,180,26,.035) 100%)}
+.hero-copy{position:relative;z-index:1;min-width:0}
+.hero-banner .secure-badge{margin:0 0 24px;box-shadow:none;font-size:.72rem;line-height:1.4}
+.hero-banner .typing-container{font-size:clamp(2.7rem,4.4vw,4.65rem);line-height:1.08;letter-spacing:-.045em;margin:0 0 22px;text-wrap:balance}
+.hero-banner .typed-text{color:var(--heritage-gold)}
+.hero-banner .hero-supporting{max-width:540px;margin:0;color:#c9c1d2;font-size:1.02rem;line-height:1.85}
+.hero-banner .hero-actions{justify-content:flex-start;margin:28px 0 20px;padding:0}
+.hero-banner .hero-cta{width:auto;max-width:none;min-width:0;padding:14px 22px}
+.hero-banner .hero-trust-points{justify-content:flex-start;gap:8px;margin:22px 0 0;padding:0}
+.hero-banner .hero-trust-points span{font-size:.72rem;padding:7px 11px}
+.hero-microcopy{display:flex;align-items:flex-start;gap:9px;margin:20px 0 0;color:#aaa0b7;font-size:.76rem;line-height:1.65}
+.hero-microcopy>span{display:inline-grid;place-items:center;flex:0 0 19px;height:19px;border-radius:50%;background:rgba(244,180,26,.14);color:var(--heritage-cream);font-weight:700}
+.hero-visual{position:relative;min-width:0;display:flex;align-items:center;justify-content:center;isolation:isolate}
+.hero-visual-glow{position:absolute;z-index:-1;width:82%;aspect-ratio:1;border-radius:50%;background:rgba(244,180,26,.12);filter:blur(65px)}
+.hero-banner .main-poster{display:block;width:100%;max-width:510px;max-height:540px;aspect-ratio:4/5;object-fit:contain;object-position:center;
+  margin:0;border:1px solid rgba(244,180,26,.25);border-radius:22px;box-shadow:0 26px 70px rgba(0,0,0,.38);background:rgba(5,3,10,.35)}
+.hero-visual-note{position:absolute;left:-18px;bottom:24px;display:flex;align-items:center;gap:12px;max-width:calc(100% - 10px);
+  padding:14px 17px;border:1px solid rgba(244,180,26,.25);border-radius:16px;background:rgba(12,7,20,.94);
+  box-shadow:0 14px 38px rgba(0,0,0,.32);backdrop-filter:blur(16px)}
+.hero-note-mark{display:grid;place-items:center;width:38px;height:38px;flex:0 0 38px;border-radius:12px;
+  background:linear-gradient(135deg,#ffe5a0,#d99409);color:#1a1100;font-family:'Playfair Display',serif;font-weight:700;font-size:1.2rem}
+.hero-visual-note strong,.hero-visual-note small{display:block}
+.hero-visual-note strong{font-size:.78rem;color:#fff;line-height:1.4}
+.hero-visual-note small{font-size:.68rem;color:#b9afc5;margin-top:3px}
+@media(max-width:900px){
+ .hero-banner{grid-template-columns:minmax(0,1fr) minmax(250px,.8fr);gap:26px;width:calc(100% - 32px);padding:28px}
+ .hero-banner .typing-container{font-size:clamp(2.4rem,5vw,3.5rem)}
+ .hero-banner .hero-cta{padding:13px 16px;font-size:.82rem}
+ .hero-banner .hero-trust-points span{font-size:.67rem}
+ .hero-visual-note{left:-10px;bottom:16px}
+}
+@media(max-width:680px){
+ .hero-banner{display:flex;flex-direction:column;align-items:stretch;gap:26px;width:calc(100% - 28px);margin:22px auto 42px;padding:24px 18px 18px;text-align:left;border-radius:24px}
+ .hero-banner .secure-badge{align-self:flex-start;margin-bottom:18px;font-size:.62rem}
+ .hero-banner .typing-container{font-size:clamp(2.45rem,10.6vw,3.5rem);line-height:1.06;margin-bottom:16px}
+ .hero-banner .hero-supporting{font-size:.94rem;line-height:1.75}
+ .hero-banner .hero-actions{display:grid;grid-template-columns:1fr;margin:22px 0 16px;gap:10px}
+ .hero-banner .hero-cta{width:100%;box-sizing:border-box;min-height:50px;font-size:.9rem}
+ .hero-banner .hero-trust-points{justify-content:flex-start;margin-top:18px;gap:8px}
+ .hero-banner .hero-trust-points span{font-size:.69rem}
+ .hero-banner .main-poster{width:100%;max-width:430px;max-height:none;aspect-ratio:4/5;object-fit:contain;border-radius:17px;margin-inline:auto}
+ .hero-visual{width:100%;padding:0 0 28px}
+ .hero-visual-note{left:4px;bottom:0;padding:11px 13px}
+ .hero-visual-note strong{font-size:.72rem}
+ .hero-visual-note small{font-size:.62rem}
+ .hero-microcopy{font-size:.72rem;margin-top:16px}
+}
+@media(prefers-reduced-motion:reduce){
+ .hero-banner:before{display:none}
+}
