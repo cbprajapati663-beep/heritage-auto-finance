@@ -146,3 +146,25 @@ nav {
 @media(prefers-reduced-motion:reduce) {
   .service-card-photo { transition:none !important; }
 }
+
+
+/* Match the reference's overlapping service-card row and tighter hero-to-ribbon rhythm. */
+@media (min-width:1101px) {
+  .premium-service-cards {
+    position:relative !important;
+    z-index:5 !important;
+    margin-top:-96px !important;
+    padding-top:0 !important;
+    padding-bottom:20px !important;
+  }
+  .premium-service-card {
+    min-height:116px !important;
+    border-color:rgba(244,180,26,.3) !important;
+    background:#090b16 !important;
+    box-shadow:0 10px 24px rgba(0,0,0,.3) !important;
+  }
+  .premium-contact-ribbon { position:relative !important; z-index:6 !important; }
+}
+@media (min-width:761px) and (max-width:1100px) {
+  .premium-service-cards { margin-top:0 !important; }
+}
