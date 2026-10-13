@@ -246,3 +246,9 @@ footer { padding-bottom: max(36px, env(safe-area-inset-bottom, 0px)); }
 @media (forced-colors: active) {
   .tab-btn[aria-pressed="true"], .hero-cta, .enquiry-path { border: 1px solid ButtonText; }
 }
+
+
+/* Semantic heading and keyboard skip-link refinements */
+.typing-container { margin-block: 0; font-weight: 700; }
+.skip-link { position: absolute; z-index: 10000; top: 8px; left: 8px; padding: 10px 14px; color: #090510; background: #fff0c7; border: 2px solid #f4b41a; border-radius: 8px; transform: translateY(-160%); }
+.skip-link:focus { transform: translateY(0); }
