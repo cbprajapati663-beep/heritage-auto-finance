@@ -817,3 +817,50 @@ nav .nav-brand:focus-visible{outline:2px solid var(--heritage-cream);outline-off
 @media(min-width:681px) and (max-width:1100px){
   .hero-banner .main-poster{aspect-ratio:4/3;object-fit:cover;object-position:center 48%}
 }
+
+
+/* October 2026 hero refinement: wider cinematic composition */
+.hero-banner{
+  width:min(1320px,calc(100% - 48px));
+  margin:20px auto 30px;
+  padding:clamp(30px,4vw,58px) clamp(22px,3vw,44px);
+  display:grid;
+  grid-template-columns:minmax(0,.94fr) minmax(0,1.06fr);
+  align-items:center;
+  gap:clamp(24px,3.5vw,54px);
+  border:1px solid rgba(244,180,26,.2);
+  border-radius:28px;
+  background:radial-gradient(ellipse at 78% 45%,rgba(94,35,127,.18),transparent 43%),linear-gradient(135deg,rgba(8,5,17,.98),rgba(18,8,32,.97));
+  box-shadow:0 26px 80px rgba(0,0,0,.24);
+}
+.hero-copy{min-width:0;position:relative;z-index:1}
+.hero-banner .typing-container{
+  font-size:clamp(2.8rem,5.1vw,5.35rem);
+  line-height:1.03;
+  letter-spacing:-.045em;
+  margin:24px 0 18px;
+  max-width:10ch;
+}
+.hero-banner .hero-supporting{font-size:clamp(1rem,1.25vw,1.15rem);line-height:1.75;max-width:38rem}
+.hero-visual{position:relative;min-width:0;isolation:isolate}
+.hero-visual-glow{position:absolute;inset:5% -2%;z-index:-1;border-radius:30px;background:radial-gradient(ellipse,rgba(125,55,171,.32),transparent 68%);filter:blur(22px)}
+.hero-banner .main-poster{
+  display:block;width:100%;max-width:none;height:auto;aspect-ratio:16/10;object-fit:cover;
+  margin:0;border:1px solid rgba(244,180,26,.34);border-radius:24px;
+  box-shadow:0 22px 54px rgba(0,0,0,.42);
+}
+.hero-visual-note{position:relative;width:max-content;max-width:calc(100% - 28px);margin:-26px 0 0 -18px;z-index:2}
+.hero-actions{gap:12px;flex-wrap:wrap}
+.hero-trust-points{gap:8px}
+@media(max-width:900px){
+ .hero-banner{width:min(100% - 28px,760px);grid-template-columns:1fr;gap:26px;padding:30px 22px}
+ .hero-banner .typing-container{font-size:clamp(2.8rem,8vw,4.5rem);max-width:12ch}
+ .hero-visual-note{margin:-20px 0 0 12px}
+}
+@media(max-width:520px){
+ .hero-banner{width:calc(100% - 20px);margin:12px auto 24px;padding:24px 15px;border-radius:20px}
+ .hero-banner .typing-container{font-size:clamp(2.5rem,12vw,3.7rem);line-height:1.04}
+ .hero-banner .main-poster{aspect-ratio:4/3;border-radius:16px}
+ .hero-visual-note{max-width:100%;margin:12px 0 0}
+ .hero-actions .hero-cta{min-width:0;flex:1 1 160px}
+}
