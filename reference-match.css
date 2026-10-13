@@ -1616,3 +1616,93 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 @media(max-width:1200px) {
   .premium-service-showcase .premium-service-card .service-card-photo { height:100% !important; }
 }
+
+
+/* Screenshot-led correction v3: taller reference proportions, no bright horizon bands, larger car/truck subject. */
+.premium-service-showcase .premium-service-cards {
+  gap:clamp(12px,1.1vw,20px) !important;
+  align-items:stretch !important;
+}
+.premium-service-showcase .premium-service-card {
+  min-height:590px !important;
+  height:590px !important;
+  border-radius:19px !important;
+  border:1px solid rgba(226,177,86,.72) !important;
+  box-shadow:inset 0 0 0 1px rgba(162,75,216,.22),0 14px 34px rgba(0,0,0,.42) !important;
+}
+.premium-service-showcase .premium-service-card .service-card-photo {
+  position:absolute !important;
+  inset:0 !important;
+  width:100% !important;
+  height:100% !important;
+  max-height:none !important;
+  min-height:100% !important;
+  object-fit:cover !important;
+  object-position:center 58% !important;
+  filter:saturate(1.12) contrast(1.1) brightness(.76) !important;
+  opacity:1 !important;
+  -webkit-mask-image:none !important;
+  mask-image:none !important;
+}
+.premium-service-showcase .premium-service-card:nth-child(1) .service-card-photo { object-position:center 65% !important; }
+.premium-service-showcase .premium-service-card:nth-child(2) .service-card-photo { object-position:center 63% !important; }
+.premium-service-showcase .premium-service-card:nth-child(3) .service-card-photo { object-position:center 64% !important; }
+.premium-service-showcase .premium-service-card:nth-child(4) .service-card-photo { object-position:center 62% !important; }
+.premium-service-showcase .premium-service-card:nth-child(5) .service-card-photo { object-position:center 64% !important; }
+.premium-service-showcase .premium-service-card::before {
+  z-index:1 !important;
+  background:linear-gradient(180deg,rgba(5,6,17,.76) 0%,rgba(5,6,17,.35) 24%,rgba(5,6,17,.06) 43%,rgba(5,6,17,.22) 58%,rgba(5,6,17,.88) 79%,rgba(5,6,17,.98) 100%) !important;
+}
+.premium-service-showcase .service-card-top {
+  min-height:125px !important;
+  padding:21px 16px 14px !important;
+  background:linear-gradient(180deg,rgba(5,6,17,.82),rgba(5,6,17,.25) 82%,transparent) !important;
+}
+.premium-service-showcase .service-card-icon {
+  flex-basis:68px !important;
+  width:68px !important;
+  height:68px !important;
+}
+.premium-service-showcase .service-card-top strong {
+  font-size:clamp(1.05rem,1.35vw,1.48rem) !important;
+  line-height:1.16 !important;
+}
+.premium-service-showcase .service-card-features {
+  gap:12px !important;
+  padding:18px 16px 18px !important;
+  background:linear-gradient(180deg,rgba(5,6,17,.04),rgba(5,6,17,.72) 25%,rgba(5,6,17,.94) 100%) !important;
+}
+.premium-service-showcase .service-card-features small {
+  font-size:clamp(.72rem,.82vw,.88rem) !important;
+  line-height:1.35 !important;
+}
+.premium-service-showcase .service-card-action {
+  margin:0 15px !important;
+  min-height:54px !important;
+  padding-left:20px !important;
+  font-size:clamp(.9rem,1vw,1.04rem) !important;
+}
+.premium-service-showcase .service-card-action b {
+  flex-basis:40px !important;
+  width:40px !important;
+  height:40px !important;
+}
+.premium-service-showcase .premium-service-card:hover .service-card-photo {
+  filter:saturate(1.16) contrast(1.12) brightness(.84) !important;
+}
+@media(max-width:1200px) {
+  .premium-service-showcase .premium-service-card { min-height:520px !important; height:520px !important; }
+  .premium-service-showcase .service-card-top { min-height:110px !important; }
+}
+@media(max-width:760px) {
+  .premium-service-showcase .premium-service-card { min-height:490px !important; height:490px !important; }
+  .premium-service-showcase .service-card-top { min-height:95px !important; padding:14px 10px 8px !important; }
+  .premium-service-showcase .service-card-icon { flex-basis:45px !important; width:45px !important; height:45px !important; }
+  .premium-service-showcase .service-card-features { gap:8px !important; padding:12px 10px !important; }
+  .premium-service-showcase .service-card-features small { font-size:.7rem !important; }
+  .premium-service-showcase .service-card-action { margin:0 9px !important; min-height:42px !important; padding-left:11px !important; }
+  .premium-service-showcase .service-card-action b { flex-basis:30px !important; width:30px !important; height:30px !important; }
+}
+@media(max-width:420px) {
+  .premium-service-showcase .premium-service-card { min-height:500px !important; height:500px !important; }
+}
