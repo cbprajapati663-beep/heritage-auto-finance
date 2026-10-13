@@ -138,7 +138,7 @@ assert.ok(sitemapLocations.length >= 3, "Sitemap should list the homepage and le
 assert.equal(new Set(sitemapLocations).size, sitemapLocations.length, "Sitemap URLs should not be duplicated");
 for (const url of sitemapLocations) {
   assert.match(url, /^https:\/\/cbprajapati663-beep\.github\.io\/heritage-auto-finance\//, "Sitemap entries must use the canonical live GitHub Pages host");
-  const pathname = new URL(url).pathname;
+  const pathname = new URL(url).pathname.replace(/^\/heritage-auto-finance\/?/, "/");
   const localPage = pathname === "/" ? "index.html" : pathname.slice(1);
   assert.ok(existsSync(localPage), `Sitemap entry must point to a tracked page: ${url}`);
 }
