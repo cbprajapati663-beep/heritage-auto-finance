@@ -167,8 +167,8 @@ assert.match(html, /href="https:\/\/wa\.me\/917600211085/, "Homepage must provid
 const referenceCss = readFileSync("reference-match.css", "utf8");
 assert.ok(existsSync("reference-match.css"), "Reference-matched homepage stylesheet must exist");
 assert.match(html, /href="reference-match\.css"/i, "Reference-matched stylesheet must be loaded after the existing styles");
-assert.match(html, /images\.unsplash\.com\/photo-1683778547049-8d969766b441/, "Hero should use the selected photographic SUV asset instead of the illustrated SVG");
-assert.match(html, /alt="Black luxury SUV photographed at night/i, "Photographic hero must have descriptive alternative text");
+assert.match(html, /images\.unsplash\.com\/photo-1769641241120-f0dd8669b12d/, "Hero should use the selected photographic SUV asset instead of the illustrated SVG");
+assert.match(html, /alt="Luxury SUV in a dark, purple-lit garage/i, "Photographic hero must have descriptive alternative text");
 assert.match(referenceCss, /grid-template-columns:minmax\(0,\.92fr\) minmax\(0,1\.08fr\)/, "Desktop hero should prioritize copy on the left and photography on the right");
 assert.match(referenceCss, /@media\s*\(max-width:\s*760px\)/, "Reference styling must include a mobile layout");
 
