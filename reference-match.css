@@ -646,3 +646,17 @@ nav .nav-links > a:not(.nav-callback):hover {
   .nav-callback,.premium-service-card { transition:none !important; }
   .nav-callback:hover,.premium-service-card:hover { transform:none !important; }
 }
+
+
+/* Typography application: use the loaded display serif for luxury headlines and Inter for UI copy. */
+body, nav, .nav-links, .trust-strip, .hero-supporting, .hero-actions, .hero-trust-points,
+.premium-service-card, .premium-contact-ribbon, .stats-bar, input, select, textarea, button {
+  font-family:"Inter",Arial,sans-serif !important;
+}
+h1,h2,h3,.hero-banner .typing-container,.nav-brand-copy strong,.service-card-copy strong,
+.hero-visual-note strong,.hero-benefit-plate small {
+  font-family:"Playfair Display",Georgia,serif !important;
+}
+.hero-banner .typing-container { font-weight:700 !important; letter-spacing:-.045em !important; }
+.nav-brand-copy strong { font-weight:700 !important; }
+.service-card-copy strong { font-weight:700 !important; }
