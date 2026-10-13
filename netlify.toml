@@ -1,0 +1,5 @@
+# Temporary launch hold: keep Netlify from publishing unfinished changes.
+# Netlify's ignore command skips a build when it exits with code 0.
+# Remove this setting when Heritage Auto Finance is approved for launch.
+[build]
+  ignore = "exit 0"
