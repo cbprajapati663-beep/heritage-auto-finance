@@ -5,6 +5,9 @@ const html = readFileSync("index.html", "utf8");
 const css = readFileSync("styles.css", "utf8");
 const js = readFileSync("app.js", "utf8");
 const premium = readFileSync("premium.css", "utf8");
+const netlify = readFileSync("netlify.toml", "utf8");
+
+assert.match(netlify, /^\[build\][\s\S]*^\s*ignore\s*=\s*"exit 0"\s*$/m, "Netlify builds must remain paused until the site is approved for launch");
 
 assert.match(html, /<title>[^<]+<\/title>/i, "Page title should exist");
 assert.match(html, /name="description"/i, "SEO description should exist");
