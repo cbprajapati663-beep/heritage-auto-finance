@@ -82,10 +82,10 @@ assert.match(js, /function calculateEligibility\s*\(/, "Affordability calculator
 assert.match(js, /function filterPosters\s*\(/, "Poster filter handler must exist");
 assert.match(js, /function toggleFaq\s*\(/, "FAQ handler must exist");
 assert.match(js, /IntersectionObserver/, "Scroll reveal should use IntersectionObserver");
-assert.match(js, /function initHeroParallax\\s*\\(/, "Desktop hero parallax handler should exist");
-assert.match(js, /prefers-reduced-motion:\\s*reduce/, "Hero parallax should respect reduced-motion preferences");
+assert.match(js, /function initHeroParallax\s*\(/, "Desktop hero parallax handler should exist");
+assert.match(js, /prefers-reduced-motion:\s*reduce/, "Hero parallax should respect reduced-motion preferences");
 assert.match(premium, /--hero-rotate-y/, "Hero visual should support pointer-driven 3D tilt");
-assert.match(premium, /min-width:\\s*901px/, "Pointer-driven 3D tilt should be restricted to desktop");
+assert.match(premium, /min-width:\s*901px/, "Pointer-driven 3D tilt should be restricted to desktop");
 
 assert.match(js, /updateScrollProgress/, "Scroll progress behavior should exist");
 assert.doesNotMatch(js, /Your inquiry has been submitted\./, "Do not claim a lead was submitted without confirmed form success");
