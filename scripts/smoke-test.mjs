@@ -5,6 +5,7 @@ const html = readFileSync("index.html", "utf8");
 const css = readFileSync("styles.css", "utf8");
 const js = readFileSync("app.js", "utf8");
 const premium = readFileSync("premium.css", "utf8");
+const reference = readFileSync("reference-match.css", "utf8");
 const netlify = readFileSync("netlify.toml", "utf8");
 
 assert.match(netlify, /^\[build\][\s\S]*^\s*ignore\s*=\s*"exit 0"\s*$/m, "Netlify builds must remain paused until the site is approved for launch");
@@ -24,10 +25,13 @@ assert.match(premium, /aspect-ratio:\s*16\/10/, "Desktop hero visual should use 
 assert.match(html, /class="premium-service-cards"/, "Premium service shortcut cards should appear below the hero");
 assert.equal((html.match(/class="premium-service-card"/g) || []).length, 5, "All five core service shortcut cards should be present");
 assert.match(premium, /\.premium-service-cards/, "Premium service cards should have dedicated responsive styling");
+assert.match(reference, /grid-template-columns:repeat\(5,minmax\(0,1fr\)\)/, "Desktop reference layout should show five photographic service cards in a row");
 assert.match(html, /hero-cta-primary/, "Primary callback CTA should exist");
 assert.match(html, /hero-trust-points/, "Service highlights should exist");
 assert.equal((html.match(/class="main-poster"/g) || []).length, 1, "Hero should show only one main poster");
-assert.equal((html.match(/loading="lazy" decoding="async"/g) || []).length, 8, "Poster images should load lazily to reduce initial page work");
+assert.equal((html.match(/loading="lazy" decoding="async"/g) || []).length, 13, "Service-card and poster images should load lazily to reduce initial page work");
+assert.equal((html.match(/class="service-card-photo"/g) || []).length, 5, "All five premium service cards should include photographic imagery");
+assert.match(readFileSync("reference-match.css", "utf8"), /\.service-card-photo/, "Photographic service cards should have dedicated styling");
 assert.match(html, /fetchpriority="high"/, "Hero poster should be prioritized");
 assert.match(html, /documentation guidance dete hain/i, "Commercial finance copy must describe assistance accurately");
 assert.match(html, /Hum used car finance ke liye enquiry aur documentation guidance dete hain/i, "Used-car FAQ must describe assistance rather than imply direct lending");
