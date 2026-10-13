@@ -161,7 +161,7 @@
   <!-- Visual (right, full-bleed) -->
   <div class="hero-fade relative h-[460px] w-full sm:h-[540px] lg:absolute lg:inset-y-0 lg:right-0 lg:h-auto lg:w-[64%]">
     <!-- Optional exact render: put your hero crop at images/hero.jpg (hides the CSS-built scene when found) -->
-    <img src="images/hero.jpg" alt="Luxury showroom with premium SUV" class="absolute inset-0 h-full w-full object-cover object-left" onload="var b=document.getElementById('heroBuilt'); if(b) b.remove();" onerror="this.remove()" />
+    <!-- Keep the CSS-built showroom scene visible; images/hero.jpg is an incorrect crop for this hero layout. -->
     <div id="heroBuilt" class="absolute inset-0">
     <!-- dusk sky -->
     <div class="absolute inset-0" style="background: linear-gradient(180deg,#120a2e 0%,#2b1458 32%,#5b2a78 52%,#7a3a62 60%,#1a0f2a 72%,#07060d 100%);"></div>
