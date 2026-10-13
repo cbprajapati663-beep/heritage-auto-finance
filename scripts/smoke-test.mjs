@@ -147,3 +147,9 @@ for (const url of sitemapLocations) {
 }
 assert.match(notFound, /name="viewport"/, "Custom 404 page should be responsive on mobile");
 assert.match(notFound, /rel="noopener noreferrer"/, "External 404 links should use safe target attributes");
+
+
+// Verify the HubSpot lead form is configured and its loader is present.
+assert.match(html, /class="hs-form-frame"[^>]*data-region="na2"[^>]*data-form-id="972bc938-8ef1-4b8a-8efc-1641c5dac6bf"[^>]*data-portal-id="247419056"/i, "HubSpot lead form must retain its configured region, form ID and portal ID");
+assert.match(html, /id="hs-script-loader"[^>]+src="\/\/js-na2\.hs-scripts\.com\/247419056\.js"/i, "HubSpot script loader must point to the matching portal");
+assert.match(html, /href="https:\/\/wa\.me\/917600211085/, "Homepage must provide a direct WhatsApp enquiry path");
