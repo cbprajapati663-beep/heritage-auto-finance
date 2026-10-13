@@ -15,7 +15,7 @@ assert.match(html, /HERITAGE AUTO FINANCE/, "Navigation should display the full 
 assert.match(html, /Your Trusted Vehicle Finance Partner/, "Navigation should display the brand tagline");
 assert.match(html, /Trusted Guidance/, "Premium trust strip should appear above the hero");
 assert.match(html, /class="premium-contact-ribbon"/, "Quick WhatsApp and call support ribbon should appear below service cards");
-assert.match(html, /href="tel:\+917600211085"[^>]*class="ribbon-call"/, "Premium contact ribbon should provide a direct call link");
+assert.match(html, /class="ribbon-call" href="tel:\+917600211085"/, "Premium contact ribbon should provide a direct call link");
 assert.match(premium, /\.premium-contact-ribbon/, "Premium contact ribbon should have responsive styling");
 assert.match(html, /class="premium-service-cards"/, "Premium service shortcut cards should appear below the hero");
 assert.equal((html.match(/class="premium-service-card"/g) || []).length, 5, "All five core service shortcut cards should be present");
