@@ -133,6 +133,28 @@
     elements.forEach(element => observer.observe(element));
   }
 
+  function initHeroParallax() {
+    const visual = document.querySelector(".hero-visual");
+    if (!visual || window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
+        !window.matchMedia("(hover: hover) and (pointer: fine) and (min-width: 901px)").matches) return;
+
+    const resetTilt = () => {
+      visual.style.removeProperty("--hero-rotate-x");
+      visual.style.removeProperty("--hero-rotate-y");
+    };
+
+    visual.addEventListener("pointermove", event => {
+      const bounds = visual.getBoundingClientRect();
+      if (!bounds.width || !bounds.height) return;
+      const x = ((event.clientX - bounds.left) / bounds.width - 0.5) * 2;
+      const y = ((event.clientY - bounds.top) / bounds.height - 0.5) * 2;
+      visual.style.setProperty("--hero-rotate-y", (x * 3).toFixed(2) + "deg");
+      visual.style.setProperty("--hero-rotate-x", (y * -2).toFixed(2) + "deg");
+    }, { passive: true });
+
+    visual.addEventListener("pointerleave", resetTilt, { passive: true });
+  }
+
   function init() {
     const progressBar = document.getElementById("scrollProgress");
     const updateScrollProgress = () => {
@@ -185,6 +207,7 @@
     calculateEMI();
     calculateEligibility();
     initReveal();
+    initHeroParallax();
 
     if (textArray.length) typeNext();
   }
