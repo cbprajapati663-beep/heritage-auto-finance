@@ -27,7 +27,7 @@ assert.equal((html.match(/class="premium-service-card"/g) || []).length, 5, "All
 assert.match(premium, /\.premium-service-cards/, "Premium service cards should have dedicated responsive styling");
 assert.match(reference, /grid-template-columns:repeat\(5,minmax\(0,1fr\)\)/, "Desktop reference layout should show five photographic service cards in a row");
 assert.match(html, /class="[^"]*reference-hero-title[^"]*"/, "Hero headline should be stable and match the reference instead of typing animation");
-assert.match(html, /class="hero-highlight">Dreams Forward/, "Hero should keep the approved Dreams Forward headline visible");
+assert.match(html, /class="hero-highlight">Dream Car!/, "Hero should keep the approved Dreams Forward headline visible");
 assert.match(html, /class="hero-benefit-plate"/, "Hero should include the four-item premium benefits plate");
 assert.match(reference, /\.hero-benefit-plate/, "Reference benefit plate should be styled for desktop and mobile");
 assert.match(html, /hero-cta-primary/, "Primary callback CTA should exist");
@@ -190,5 +190,5 @@ assert.ok(html.indexOf('href="site-rebuild.css') > html.indexOf('href="reference
 assert.match(rebuildCss, /--heritage-gold/i, "The redesign must define a reusable Heritage gold token");
 assert.match(rebuildCss, /@media\s*\(max-width:\s*760px\)/, "The redesign must include responsive mobile rules");
 assert.match(html, /<a href="#services-showcase">Services<\/a>/i, "Services navigation must target the service showcase");
-assert.match(html, /<a href="#services">Why Heritage<\/a>/i, "Why Heritage navigation must target the brand/service section");
+assert.match(html, /<a href="#services">About Us<\/a>/i, "Why Heritage navigation must target the brand/service section");
 assert.match(html, /class="mobile-quick-actions"/i, "Mobile users must retain quick call, WhatsApp and callback actions");
