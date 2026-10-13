@@ -168,3 +168,81 @@ nav {
 @media (min-width:761px) and (max-width:1100px) {
   .premium-service-cards { margin-top:0 !important; }
 }
+
+
+/* Reference fidelity pass: fixed two-line serif headline and gold feature podium. */
+.hero-banner .reference-hero-title {
+  font-family: Georgia, "Times New Roman", serif !important;
+  font-size: clamp(3.7rem, 5.5vw, 6.1rem) !important;
+  line-height: .94 !important;
+  letter-spacing: -.055em !important;
+  font-weight: 700 !important;
+  margin: 0 0 22px !important;
+  max-width: 760px !important;
+  text-wrap: initial !important;
+}
+.hero-banner .hero-title-white { color: #fffaf0 !important; }
+.hero-banner .hero-highlight {
+  display: inline-block !important;
+  color: #f8c54e !important;
+  white-space: nowrap !important;
+  text-decoration: underline !important;
+  text-decoration-color: #8c35c7 !important;
+  text-decoration-thickness: 4px !important;
+  text-underline-offset: 8px !important;
+}
+.hero-banner .secure-badge {
+  border: 1px solid rgba(201,75,255,.65) !important;
+  background: linear-gradient(100deg,rgba(104,24,153,.34),rgba(244,180,26,.09)) !important;
+  box-shadow: 0 0 20px rgba(142,47,198,.12) !important;
+  text-transform: uppercase !important;
+}
+.hero-benefit-plate {
+  position:absolute !important;
+  z-index:4 !important;
+  right:clamp(16px,3vw,46px) !important;
+  bottom:18px !important;
+  display:grid !important;
+  grid-template-columns:repeat(4,minmax(76px,1fr)) !important;
+  width:min(460px,88%) !important;
+  padding:14px 10px 12px !important;
+  border:1px solid rgba(255,198,71,.85) !important;
+  border-radius:15px !important;
+  background:linear-gradient(100deg,rgba(8,8,20,.94),rgba(29,11,46,.94)) !important;
+  box-shadow:0 0 0 3px rgba(255,191,54,.08),0 14px 36px rgba(0,0,0,.42) !important;
+  transform:skewX(-5deg) !important;
+}
+.hero-benefit-plate > div {
+  display:flex !important;
+  flex-direction:column !important;
+  align-items:center !important;
+  justify-content:center !important;
+  gap:7px !important;
+  min-width:0 !important;
+  padding:2px 5px !important;
+  border-right:1px solid rgba(255,198,71,.2) !important;
+}
+.hero-benefit-plate > div:last-child { border-right:0 !important; }
+.hero-benefit-plate > div > span {
+  color:#f8c54e !important;
+  font-family:Georgia,serif !important;
+  font-size:clamp(1.5rem,2vw,2.1rem) !important;
+  font-weight:700 !important;
+  line-height:1 !important;
+}
+.hero-benefit-plate small {
+  color:#fff !important;
+  font-size:clamp(.57rem,.72vw,.78rem) !important;
+  line-height:1.2 !important;
+  text-align:center !important;
+  white-space:nowrap !important;
+}
+@media(max-width:1100px) {
+ .hero-banner .reference-hero-title { font-size:clamp(3rem,5.4vw,4.6rem) !important; }
+ .hero-benefit-plate { right:14px !important; bottom:14px !important; }
+}
+@media(max-width:760px) {
+ .hero-banner .reference-hero-title { font-size:clamp(3rem,11vw,4.2rem) !important; line-height:.98 !important; }
+ .hero-benefit-plate { position:relative !important; right:auto !important; bottom:auto !important; width:calc(100% - 24px) !important; margin:-6px auto 14px !important; transform:none !important; }
+ .hero-benefit-plate small { white-space:normal !important; }
+}
