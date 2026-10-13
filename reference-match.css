@@ -2102,3 +2102,52 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   .premium-service-showcase .service-card-top strong { font-size: 22px !important; }
   .premium-service-showcase .service-card-features small { font-size: 13px !important; }
 }
+
+
+/* Fine-detail pass for the luxury showcase photography */
+.premium-service-showcase .premium-service-card {
+  isolation: isolate !important;
+}
+.premium-service-showcase .premium-service-card::before {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 1 !important;
+  pointer-events: none !important;
+  background:
+    linear-gradient(180deg, rgba(12,7,25,.02) 0%, rgba(12,7,25,0) 28%, rgba(9,6,20,.18) 49%, rgba(9,6,20,.93) 78%, rgba(9,6,20,.98) 100%),
+    linear-gradient(125deg, rgba(162,76,217,.13), transparent 32%, transparent 72%, rgba(255,190,58,.10)) !important;
+}
+.premium-service-showcase .service-card-photo {
+  position: relative !important;
+  z-index: 0 !important;
+  filter: saturate(1.18) contrast(1.08) brightness(.94) !important;
+}
+.premium-service-showcase .service-card-top,
+.premium-service-showcase .service-card-features,
+.premium-service-showcase .service-card-action {
+  position: relative !important;
+  z-index: 2 !important;
+}
+.premium-service-showcase .premium-service-card::after {
+  content: "" !important;
+  position: absolute !important;
+  top: 0 !important;
+  right: 0 !important;
+  width: 42px !important;
+  height: 42px !important;
+  border-top: 2px solid rgba(255,213,93,.92) !important;
+  border-right: 2px solid rgba(255,213,93,.92) !important;
+  border-radius: 0 16px 0 0 !important;
+  opacity: .85 !important;
+  pointer-events: none !important;
+  z-index: 3 !important;
+}
+.premium-service-showcase .premium-service-card:nth-child(2n) {
+  background-color: #10091d !important;
+}
+.premium-service-showcase .service-card-icon svg {
+  width: 31px !important;
+  height: 31px !important;
+  filter: drop-shadow(0 0 5px rgba(255,203,76,.28)) !important;
+}
