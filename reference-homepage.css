@@ -165,3 +165,35 @@ body { overflow-x:hidden; }
  #portfolio .poster-grid { grid-template-columns:minmax(0,1fr)!important; }
 }
 
+/* Fix poster gallery visibility: poster cards must not depend on scroll-reveal timing. */
+#portfolio.reveal,
+#portfolio .poster-item.reveal,
+#portfolio .poster-item.reveal.active {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
+  filter: none !important;
+}
+#portfolio .poster-grid { align-items: start !important; }
+#portfolio .poster-item {
+  display: block !important;
+  height: auto !important;
+  min-height: 0 !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  overflow: hidden !important;
+  background: #10091c !important;
+}
+#portfolio .poster-item img {
+  display: block !important;
+  width: 100% !important;
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  object-fit: contain !important;
+  background: #10091c !important;
+}
+#portfolio .poster-item[aria-hidden="false"] { display: block !important; }
+
