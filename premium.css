@@ -638,3 +638,38 @@ a:focus-visible,button:focus-visible,input:focus-visible,[role="button"]:focus-v
 @media(prefers-reduced-motion:reduce){
   .hero-banner .main-poster{transition:none!important}
 }
+
+
+/* Premium brand lockup: wordmark beside the existing logo */
+nav .nav-brand{
+  display:flex;align-items:center;gap:16px;min-width:0;color:inherit;text-decoration:none;
+  padding:5px 0;position:relative
+}
+nav .nav-logo{width:142px;height:60px;object-fit:contain;flex:0 0 auto}
+.nav-brand-copy{display:flex;flex-direction:column;gap:5px;min-width:0;padding-left:16px;border-left:1px solid rgba(244,180,26,.55)}
+.nav-brand-copy strong{
+  color:#f7d27c;font-family:'Playfair Display',Georgia,serif;font-size:clamp(.9rem,1.5vw,1.28rem);
+  letter-spacing:.075em;line-height:1.15;white-space:nowrap;
+  text-shadow:0 0 18px rgba(244,180,26,.15)
+}
+.nav-brand-copy small{color:#c9c0d2;font-size:.68rem;letter-spacing:.035em;line-height:1.35}
+nav .nav-brand:focus-visible{outline:2px solid var(--heritage-cream);outline-offset:5px;border-radius:6px}
+@media(max-width:1000px){
+  nav{padding:13px 22px}
+  nav .nav-logo{width:105px;height:52px}
+  .nav-brand-copy{padding-left:12px}
+  .nav-brand-copy strong{font-size:.9rem;letter-spacing:.04em}
+  .nav-brand-copy small{font-size:.62rem}
+  .nav-links a{margin-left:12px;font-size:.73rem;letter-spacing:.04em}
+}
+@media(max-width:680px){
+  nav{padding:12px 14px;gap:10px;flex-wrap:wrap}
+  nav .nav-brand{gap:8px;max-width:100%}
+  nav .nav-logo{width:76px;height:42px}
+  .nav-brand-copy{padding-left:9px;gap:3px}
+  .nav-brand-copy strong{font-size:clamp(.72rem,3.2vw,.92rem);letter-spacing:.025em}
+  .nav-brand-copy small{font-size:.56rem}
+  nav .nav-links{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;width:100%;margin:0;padding:8px 0 2px}
+  .nav-links a{margin:0;font-size:.67rem;letter-spacing:.035em}
+}
+@media(prefers-reduced-motion:reduce){nav .nav-logo{transition:none}}
