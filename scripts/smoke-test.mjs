@@ -13,7 +13,7 @@ assert.match(html, /property="og:url" content="https:\/\/heritageautofinance\.ne
 assert.match(html, /class="nav-brand"/, "Navigation should include the branded logo and wordmark lockup");
 assert.match(html, /HERITAGE AUTO FINANCE/, "Navigation should display the full business name beside the logo");
 assert.match(html, /Your Trusted Vehicle Finance Partner/, "Navigation should display the brand tagline");
-assert.match(html, /class="premium-trust-strip"/, "Premium trust strip should appear above the hero");
+assert.match(html, /Trusted Guidance/, "Premium trust strip should appear above the hero");
 assert.match(html, /class="premium-contact-ribbon"/, "Quick WhatsApp and call support ribbon should appear below service cards");
 assert.match(html, /href="tel:\+917600211085"[^>]*class="ribbon-call"/, "Premium contact ribbon should provide a direct call link");
 assert.match(premium, /\.premium-contact-ribbon/, "Premium contact ribbon should have responsive styling");
