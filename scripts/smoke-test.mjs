@@ -153,3 +153,13 @@ assert.match(notFound, /rel="noopener noreferrer"/, "External 404 links should u
 assert.match(html, /class="hs-form-frame"[^>]*data-region="na2"[^>]*data-form-id="972bc938-8ef1-4b8a-8efc-1641c5dac6bf"[^>]*data-portal-id="247419056"/i, "HubSpot lead form must retain its configured region, form ID and portal ID");
 assert.match(html, /id="hs-script-loader"[^>]+src="\/\/js-na2\.hs-scripts\.com\/247419056\.js"/i, "HubSpot script loader must point to the matching portal");
 assert.match(html, /href="https:\/\/wa\.me\/917600211085/, "Homepage must provide a direct WhatsApp enquiry path");
+
+
+// Reference-led hero styling must load and use the real photographic hero.
+const referenceCss = readFileSync("reference-match.css", "utf8");
+assert.ok(existsSync("reference-match.css"), "Reference-matched homepage stylesheet must exist");
+assert.match(html, /href="reference-match\.css"/i, "Reference-matched stylesheet must be loaded after the existing styles");
+assert.match(html, /images\.unsplash\.com\/photo-1683778547049-8d969766b441/, "Hero should use the selected photographic SUV asset instead of the illustrated SVG");
+assert.match(html, /alt="Black luxury SUV photographed at night/i, "Photographic hero must have descriptive alternative text");
+assert.match(referenceCss, /grid-template-columns:minmax\(0,\.86fr\) minmax\(0,1\.14fr\)/, "Desktop hero should prioritize copy on the left and photography on the right");
+assert.match(referenceCss, /@media \(max-width:760px\)/, "Reference styling must include a mobile layout");
