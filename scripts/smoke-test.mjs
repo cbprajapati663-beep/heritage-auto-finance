@@ -48,8 +48,8 @@ assert.match(html, /id="scrollProgress"/, "Scroll progress indicator should exis
 assert.doesNotMatch(html, /5,000\+|24\/7/, "Unverified claims must not appear");
 assert.match(html, /subject to the relevant lender or insurer/, "Finance disclaimer should exist");
 assert.equal((html.match(/class="faq-item" role="button" tabindex="0" aria-expanded="false" aria-controls="faq-answer-\d+"/g) || []).length, 4, "All FAQ items should be keyboard accessible and linked to their answers");
-assert.match(html, /href="styles\.css"/i, "HTML must load the external stylesheet");
-assert.match(html, /href="premium\.css"/i, "HTML must load premium refinement styles");
+assert.match(html, /href="styles\.css(?:\?[^"]*)?"/i, "HTML must load the external stylesheet, optionally with a cache version");
+assert.match(html, /href="premium\.css(?:\?[^"]*)?"/i, "HTML must load premium refinement styles, optionally with a cache version");
 assert.match(html, /privacy-policy\.html/, "Privacy policy must be linked from the homepage");
 assert.match(html, /form-privacy-note/, "Callback form must show a privacy and sensitive-data notice");
 assert.match(html, /Do not submit Aadhaar, PAN, bank account details/i, "Initial enquiry form must warn against sharing sensitive documents");
@@ -166,7 +166,7 @@ assert.match(html, /href="https:\/\/wa\.me\/917600211085/, "Homepage must provid
 // Reference-led hero styling must load and use the real photographic hero.
 const referenceCss = readFileSync("reference-match.css", "utf8");
 assert.ok(existsSync("reference-match.css"), "Reference-matched homepage stylesheet must exist");
-assert.match(html, /href="reference-match\.css"/i, "Reference-matched stylesheet must be loaded after the existing styles");
+assert.match(html, /href="reference-match\.css(?:\?[^"]*)?"/i, "Reference-matched stylesheet must be loaded after the existing styles, optionally with a cache version");
 assert.match(html, /images\.unsplash\.com\/photo-1769641241120-f0dd8669b12d/, "Hero should use the selected photographic SUV asset instead of the illustrated SVG");
 assert.match(html, /alt="Luxury SUV in a dark, purple-lit garage/i, "Photographic hero must have descriptive alternative text");
 assert.match(html, /class="showroom-brand-mark"[^>]*aria-label="Heritage Auto Finance premium vehicle finance"/, "Hero photography should carry an accessible Heritage brand treatment");
