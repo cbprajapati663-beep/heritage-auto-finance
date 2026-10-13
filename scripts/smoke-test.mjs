@@ -179,3 +179,16 @@ assert.match(referenceCss, /@media\s*\(max-width:\s*760px\)/, "Reference styling
 
 assert.match(referenceCss, /\.hero-title-white[\s\S]{0,180}display:inline\s*!important/, "Both lines of the approved hero headline must remain visible");
 assert.match(referenceCss, /height:clamp\(590px,40vw,690px\)/, "Desktop hero must retain the taller cinematic first-fold composition");
+
+
+// The active site rebuild layer must load last so it can consistently override
+// legacy overlapping styles without removing existing application behavior.
+const rebuildCss = readFileSync("site-rebuild.css", "utf8");
+assert.ok(existsSync("site-rebuild.css"), "Full-site redesign stylesheet must exist");
+assert.match(html, /href="site-rebuild\.css\?v=\d{8}-\d{4}"/i, "The versioned full-site redesign stylesheet must be loaded");
+assert.ok(html.indexOf('href="site-rebuild.css') > html.indexOf('href="reference-homepage.css'), "The rebuild stylesheet must load after legacy homepage styling");
+assert.match(rebuildCss, /--heritage-gold/i, "The redesign must define a reusable Heritage gold token");
+assert.match(rebuildCss, /@media\s*\(max-width:\s*760px\)/, "The redesign must include responsive mobile rules");
+assert.match(html, /<a href="#services-showcase">Services<\/a>/i, "Services navigation must target the service showcase");
+assert.match(html, /<a href="#services">Why Heritage<\/a>/i, "Why Heritage navigation must target the brand/service section");
+assert.match(html, /class="mobile-quick-actions"/i, "Mobile users must retain quick call, WhatsApp and callback actions");
