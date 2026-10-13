@@ -62,8 +62,7 @@ nav{position:relative!important;top:auto!important;z-index:30!important;min-heig
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}.premium-service-showcase .premium-service-card{transition:none!important}}
 
 /* Reference order: New, Used, Refinance, Commercial, Insurance */
-.premium-service-cards>.premium-service-card:nth-child(3){order:4}
-.premium-service-cards>.premium-service-card:nth-child(4){order:3}
+/* Service cards are ordered directly in index.html; avoid CSS order overrides. */
 
 
 /* Final interaction polish: keyboard focus, tap targets and narrow-screen overflow. */
