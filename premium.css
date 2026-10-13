@@ -605,3 +605,21 @@ a:focus-visible,button:focus-visible,input:focus-visible,[role="button"]:focus-v
   .hero-banner .main-poster,.hero-visual:before,.hero-visual-note,.hero-visual-glow,
   .detail-box,.calc-card,.review-card,.enquiry-path{transform:none!important;transition:none!important}
 }
+
+
+/* Premium finishing pass: sharper hierarchy, tactile controls and visible keyboard focus */
+:where(a,button,input,select,textarea,[tabindex]):focus-visible{outline:3px solid var(--heritage-cream);outline-offset:4px}
+.hero-banner{position:relative;isolation:isolate;overflow:visible}
+.hero-banner:after{content:"";position:absolute;z-index:-1;top:8%;left:-3%;width:46%;height:72%;pointer-events:none;background:radial-gradient(ellipse,rgba(116,39,173,.12),transparent 70%)}
+.hero-copy .secure-badge{display:inline-flex;align-items:center;gap:9px}
+.hero-copy .secure-badge span{color:var(--heritage-gold);text-shadow:0 0 18px rgba(244,180,26,.5)}
+.hero-banner .hero-cta,.contact-btn,.tab-btn{transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease,background-color .22s ease}
+.hero-banner .hero-cta-primary{background:linear-gradient(120deg,#ffe4a0 0%,#f4b41a 48%,#d89100 100%);color:#1a1000;border:1px solid rgba(255,240,199,.55)}
+.hero-banner .hero-cta-primary:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(244,180,26,.27)}
+.hero-banner .hero-cta-secondary:hover{transform:translateY(-3px);border-color:rgba(244,180,26,.65);box-shadow:0 12px 28px rgba(0,0,0,.22)}
+.hero-trust-points span{border:1px solid rgba(244,180,26,.14);background:rgba(255,255,255,.025);border-radius:999px;padding:7px 11px}
+.enquiry-path:focus-visible,.detail-box:focus-within,.review-card:focus-within{outline:2px solid var(--heritage-gold);outline-offset:3px}
+.poster-item img{transition:transform .28s ease,box-shadow .28s ease,border-color .28s ease}
+@media(hover:hover) and (pointer:fine){.poster-item:hover img{transform:translateY(-4px) scale(1.012);box-shadow:0 20px 42px rgba(0,0,0,.42);border-color:rgba(244,180,26,.42)}}
+@media(max-width:680px){.hero-banner:after{left:0;width:100%;height:38%;top:0}.hero-trust-points span{padding:6px 9px}.hero-banner .hero-cta-primary:hover,.hero-banner .hero-cta-secondary:hover{transform:none}}
+@media(prefers-reduced-motion:reduce){.hero-banner .hero-cta,.contact-btn,.tab-btn,.poster-item img{transition:none!important}.hero-banner .hero-cta-primary:hover,.hero-banner .hero-cta-secondary:hover,.poster-item:hover img{transform:none!important}}
