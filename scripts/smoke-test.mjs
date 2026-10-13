@@ -169,6 +169,8 @@ assert.ok(existsSync("reference-match.css"), "Reference-matched homepage stylesh
 assert.match(html, /href="reference-match\.css"/i, "Reference-matched stylesheet must be loaded after the existing styles");
 assert.match(html, /images\.unsplash\.com\/photo-1769641241120-f0dd8669b12d/, "Hero should use the selected photographic SUV asset instead of the illustrated SVG");
 assert.match(html, /alt="Luxury SUV in a dark, purple-lit garage/i, "Photographic hero must have descriptive alternative text");
+assert.match(html, /class="showroom-brand-mark"[^>]*aria-label="Heritage Auto Finance premium vehicle finance"/, "Hero photography should carry an accessible Heritage brand treatment");
+assert.match(referenceCss, /\.showroom-brand-mark[\s\S]{0,240}position:absolute/, "Branded showroom overlay must be positioned over the hero photo");
 assert.match(referenceCss, /grid-template-columns:minmax\(0,\.92fr\) minmax\(0,1\.08fr\)/, "Desktop hero should prioritize copy on the left and photography on the right");
 assert.match(referenceCss, /@media\s*\(max-width:\s*760px\)/, "Reference styling must include a mobile layout");
 
