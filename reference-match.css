@@ -1085,3 +1085,83 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 @media(prefers-reduced-motion:reduce) {
   .premium-service-cards .premium-service-card:hover { transform:none !important; }
 }
+
+
+/* Final reference correction: compact horizontal cards like the supplied desktop screenshot. */
+.premium-service-cards {
+  grid-template-columns:repeat(5,minmax(0,1fr)) !important;
+  gap:clamp(10px,1.15vw,19px) !important;
+  margin-top:-110px !important;
+  position:relative !important;
+  z-index:6 !important;
+}
+.premium-service-cards .premium-service-card {
+  height:116px !important;
+  min-height:116px !important;
+  border-radius:15px !important;
+  border:1px solid rgba(179,112,220,.36) !important;
+  background:linear-gradient(145deg,#0b0d19,#100d20 66%,#180f26) !important;
+  box-shadow:inset 0 1px rgba(255,255,255,.07),0 8px 22px rgba(0,0,0,.38) !important;
+}
+.premium-service-cards .premium-service-card .service-card-photo {
+  width:72% !important;
+  height:100% !important;
+  right:-1% !important;
+  object-fit:cover !important;
+  object-position:center 58% !important;
+  opacity:1 !important;
+  -webkit-mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.18) 16%,rgba(0,0,0,.82) 43%,#000 62%) !important;
+  mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.18) 16%,rgba(0,0,0,.82) 43%,#000 62%) !important;
+  filter:saturate(1.05) contrast(1.08) brightness(.98) !important;
+}
+.premium-service-cards .premium-service-card .service-card-shade {
+  background:linear-gradient(90deg,#090b17 0%,rgba(9,11,23,.98) 27%,rgba(9,11,23,.76) 45%,rgba(9,11,23,.04) 100%) !important;
+}
+.premium-service-cards .premium-service-card .service-card-copy {
+  width:61% !important;
+  max-width:61% !important;
+  padding:12px 0 12px 15px !important;
+}
+.premium-service-cards .premium-service-card .service-card-copy strong {
+  font-family:"Inter",Arial,sans-serif !important;
+  font-size:clamp(.76rem,.95vw,1rem) !important;
+  font-weight:700 !important;
+  line-height:1.22 !important;
+  color:#fffaf3 !important;
+}
+.premium-service-cards .premium-service-card .service-card-copy small {
+  font-size:clamp(.61rem,.67vw,.72rem) !important;
+  color:#f5c653 !important;
+}
+.premium-service-cards .premium-service-card .service-card-arrow {
+  width:29px !important;
+  height:29px !important;
+  right:7px !important;
+  bottom:7px !important;
+  border:2px solid #f4c653 !important;
+  background:#080a14 !important;
+  box-shadow:0 0 0 3px rgba(8,9,17,.72),0 0 14px rgba(246,198,83,.2) !important;
+}
+.premium-service-cards .premium-service-card:nth-child(3) .service-card-photo {
+  object-position:center 55% !important;
+  filter:saturate(.88) contrast(1.1) brightness(.98) !important;
+}
+.premium-service-cards .premium-service-card:nth-child(5) .service-card-photo {
+  object-position:center 57% !important;
+  filter:saturate(.94) contrast(1.08) brightness(.9) !important;
+}
+.premium-service-cards .premium-service-card:hover {
+  transform:translateY(-4px) perspective(700px) rotateX(1deg) !important;
+  border-color:#f5c95e !important;
+  box-shadow:inset 0 1px rgba(255,255,255,.1),0 16px 30px rgba(0,0,0,.44),0 0 18px rgba(132,61,184,.18) !important;
+}
+@media(max-width:1100px) and (min-width:761px) {
+  .premium-service-cards { grid-template-columns:repeat(3,minmax(0,1fr)) !important; margin-top:-60px !important; }
+  .premium-service-cards .premium-service-card { height:126px !important; min-height:126px !important; }
+}
+@media(max-width:760px) {
+  .premium-service-cards { grid-template-columns:repeat(2,minmax(0,1fr)) !important; margin-top:12px !important; }
+  .premium-service-cards .premium-service-card { height:132px !important; min-height:132px !important; }
+  .premium-service-cards .premium-service-card .service-card-photo { width:78% !important; }
+  .premium-service-cards .premium-service-card .service-card-copy { width:66% !important; max-width:66% !important; padding-left:10px !important; }
+}
