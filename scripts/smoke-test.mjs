@@ -171,3 +171,6 @@ assert.match(html, /images\.unsplash\.com\/photo-1683778547049-8d969766b441/, "H
 assert.match(html, /alt="Black luxury SUV photographed at night/i, "Photographic hero must have descriptive alternative text");
 assert.match(referenceCss, /grid-template-columns:minmax\(0,\.92fr\) minmax\(0,1\.08fr\)/, "Desktop hero should prioritize copy on the left and photography on the right");
 assert.match(referenceCss, /@media\s*\(max-width:\s*760px\)/, "Reference styling must include a mobile layout");
+
+assert.match(referenceCss, /\.hero-title-white[\s\S]{0,180}display:inline\s*!important/, "Both lines of the approved hero headline must remain visible");
+assert.match(referenceCss, /height:clamp\(590px,40vw,690px\)/, "Desktop hero must retain the taller cinematic first-fold composition");
