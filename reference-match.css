@@ -1897,3 +1897,89 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   .premium-service-showcase .premium-service-cards { grid-template-columns:1fr !important; }
   .premium-service-showcase .premium-service-card { height:450px !important; min-height:450px !important; }
 }
+
+
+/* Reference-inspired final card finish: luxury violet/gold edge lighting and image-first composition. */
+.premium-service-showcase {
+  background:
+    radial-gradient(ellipse at 0% 12%,rgba(91,35,145,.28),transparent 34%),
+    radial-gradient(ellipse at 100% 92%,rgba(124,67,20,.14),transparent 36%),
+    #070914 !important;
+}
+.premium-service-showcase .service-showcase-heading {
+  margin-bottom:22px !important;
+}
+.premium-service-showcase .service-showcase-eyebrow {
+  position:relative !important;
+  padding:8px 24px !important;
+  border-color:#e9b94d !important;
+  box-shadow:0 0 18px rgba(178,74,225,.18),inset 0 0 14px rgba(177,78,224,.18) !important;
+}
+.premium-service-showcase .premium-service-card {
+  isolation:isolate !important;
+  border:1px solid rgba(237,190,89,.88) !important;
+  background:#080a17 !important;
+  box-shadow:inset 0 0 0 1px rgba(160,64,218,.3),0 12px 30px rgba(0,0,0,.4) !important;
+}
+.premium-service-showcase .premium-service-card::before {
+  z-index:1 !important;
+  background:
+    linear-gradient(180deg,rgba(6,7,20,.9) 0%,rgba(6,7,20,.46) 18%,rgba(6,7,20,.03) 38%,rgba(6,7,20,.08) 54%,rgba(6,7,20,.68) 75%,rgba(6,7,20,.98) 100%),
+    linear-gradient(135deg,rgba(166,69,222,.2),transparent 34%,transparent 68%,rgba(255,193,65,.1)) !important;
+}
+.premium-service-showcase .premium-service-card::after {
+  z-index:4 !important;
+  border:1px solid rgba(244,195,87,.2) !important;
+  background:
+    linear-gradient(135deg,#b95aff 0 2px,transparent 2px 100%) top left/46px 46px no-repeat,
+    linear-gradient(225deg,#f5c85d 0 2px,transparent 2px 100%) top right/46px 46px no-repeat,
+    linear-gradient(45deg,#b95aff 0 2px,transparent 2px 100%) bottom left/46px 46px no-repeat,
+    linear-gradient(315deg,#f5c85d 0 2px,transparent 2px 100%) bottom right/46px 46px no-repeat !important;
+}
+.premium-service-showcase .premium-service-card .service-card-photo {
+  z-index:0 !important;
+  filter:saturate(1.18) contrast(1.1) brightness(.92) !important;
+}
+.premium-service-showcase .service-card-top {
+  z-index:2 !important;
+  background:linear-gradient(180deg,rgba(6,7,20,.9),rgba(6,7,20,.42) 76%,transparent) !important;
+}
+.premium-service-showcase .service-card-icon {
+  border:2px solid #ffdc76 !important;
+  color:#ffdc76 !important;
+  background:radial-gradient(circle at 30% 25%,rgba(255,226,138,.24),rgba(9,9,24,.94) 72%) !important;
+  box-shadow:0 0 20px rgba(255,198,57,.25),inset 0 0 12px rgba(255,218,112,.12) !important;
+}
+.premium-service-showcase .service-card-icon svg {
+  stroke-linecap:round !important;
+  stroke-linejoin:round !important;
+  filter:drop-shadow(0 0 4px rgba(255,203,81,.4)) !important;
+}
+.premium-service-showcase .service-card-features {
+  z-index:2 !important;
+  background:linear-gradient(180deg,rgba(6,7,20,0),rgba(6,7,20,.72) 25%,rgba(6,7,20,.97) 100%) !important;
+}
+.premium-service-showcase .service-card-features small {
+  color:#f8f1e7 !important;
+  font-weight:500 !important;
+}
+.premium-service-showcase .service-card-action {
+  z-index:3 !important;
+  border:1px solid #ffd05a !important;
+  border-radius:999px !important;
+  color:#ffda67 !important;
+  text-align:center !important;
+  justify-content:space-between !important;
+  background:linear-gradient(100deg,rgba(94,46,25,.82),rgba(12,10,24,.98) 55%,rgba(46,18,56,.98)) !important;
+  box-shadow:inset 0 1px rgba(255,255,255,.17),0 0 18px rgba(255,190,53,.19) !important;
+}
+.premium-service-showcase .service-card-action b {
+  border:2px solid #ffca4d !important;
+  color:#ffda67 !important;
+  box-shadow:0 0 14px rgba(255,189,56,.42) !important;
+}
+.premium-service-showcase .premium-service-card:hover {
+  transform:translateY(-5px) perspective(900px) rotateY(-1deg) !important;
+  border-color:#fff0a0 !important;
+  box-shadow:inset 0 0 0 1px rgba(180,76,228,.5),0 20px 38px rgba(0,0,0,.5),0 0 22px rgba(156,66,208,.22) !important;
+}
