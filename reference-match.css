@@ -1010,3 +1010,78 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   .premium-service-cards .premium-service-card .service-card-photo { width:78% !important; }
   .premium-service-cards .premium-service-card .service-card-copy { width:66% !important;max-width:66% !important; }
 }
+
+
+/* Service card composition pass: larger vehicle artwork and showroom-like depth. */
+.premium-service-cards {
+  gap: clamp(12px,1.1vw,18px) !important;
+}
+.premium-service-cards .premium-service-card {
+  height: 176px !important;
+  min-height: 176px !important;
+  border-radius: 17px !important;
+  border-color: rgba(198,145,255,.38) !important;
+  background:
+    radial-gradient(ellipse at 88% 18%,rgba(123,55,171,.22),transparent 48%),
+    linear-gradient(145deg,#0c0d1b 0%,#100d20 60%,#171023 100%) !important;
+  box-shadow: inset 0 1px rgba(255,255,255,.09), inset 0 0 0 1px rgba(255,255,255,.015), 0 14px 28px rgba(0,0,0,.34) !important;
+}
+.premium-service-cards .premium-service-card::after {
+  content: "" !important;
+  position: absolute !important;
+  inset: 1px !important;
+  z-index: 1 !important;
+  pointer-events: none !important;
+  border-radius: 16px !important;
+  background: linear-gradient(135deg,rgba(255,255,255,.055),transparent 34%,transparent 72%,rgba(246,198,83,.055)) !important;
+}
+.premium-service-cards .premium-service-card .service-card-photo {
+  width: 82% !important;
+  height: 100% !important;
+  right: -4% !important;
+  object-position: center 56% !important;
+  -webkit-mask-image: linear-gradient(90deg,transparent 0%,rgba(0,0,0,.08) 18%,rgba(0,0,0,.8) 42%,#000 61%) !important;
+  mask-image: linear-gradient(90deg,transparent 0%,rgba(0,0,0,.08) 18%,rgba(0,0,0,.8) 42%,#000 61%) !important;
+  filter: saturate(1.04) contrast(1.08) brightness(.96) !important;
+}
+.premium-service-cards .premium-service-card .service-card-shade {
+  background: linear-gradient(90deg,#090b17 0%,rgba(9,11,23,.97) 24%,rgba(9,11,23,.75) 42%,rgba(9,11,23,.05) 100%) !important;
+}
+.premium-service-cards .premium-service-card .service-card-copy {
+  width: 64% !important;
+  max-width: 64% !important;
+  padding: 16px 0 16px clamp(13px,1.15vw,19px) !important;
+}
+.premium-service-cards .premium-service-card .service-card-copy strong {
+  font-size: clamp(.82rem,1vw,1.05rem) !important;
+  line-height: 1.24 !important;
+}
+.premium-service-cards .premium-service-card .service-card-copy small {
+  font-size: clamp(.65rem,.72vw,.76rem) !important;
+  line-height: 1.35 !important;
+}
+.premium-service-cards .premium-service-card .service-card-arrow {
+  right: 11px !important;
+  bottom: 11px !important;
+  width: 32px !important;
+  height: 32px !important;
+  transform: translateZ(18px) !important;
+}
+.premium-service-cards .premium-service-card:hover {
+  transform: translateY(-5px) perspective(750px) rotateY(-1deg) rotateX(1.5deg) !important;
+  border-color: rgba(255,214,112,.88) !important;
+  box-shadow: inset 0 1px rgba(255,255,255,.12),0 20px 40px rgba(0,0,0,.48),0 0 22px rgba(246,198,83,.1),0 0 26px rgba(139,53,200,.16) !important;
+}
+@media(max-width:1100px) and (min-width:761px) {
+  .premium-service-cards .premium-service-card { height: 158px !important; min-height: 158px !important; }
+}
+@media(max-width:760px) {
+  .premium-service-cards .premium-service-card { height: 146px !important; min-height: 146px !important; }
+  .premium-service-cards .premium-service-card .service-card-photo { width: 82% !important; }
+}
+@media(max-width:420px) {
+  .premium-service-cards .premium-service-card { height: 132px !important; min-height: 132px !important; }
+}
+@media(prefers-reduced-motion:reduce) {
+  .premium-service-cards .premium-service-card:hover { transform:none !important; }
+}
