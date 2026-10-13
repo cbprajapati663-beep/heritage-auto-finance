@@ -106,3 +106,39 @@ footer,.site-footer{background:#07060e;color:#d6cfe1;border-top:1px solid rgba(2
  .calc-card{padding:20px 16px;border-radius:18px}.emi-input-group label{align-items:flex-start;flex-direction:column}
 }
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+
+
+/* 2026-10-13 visual QA fix: never crop branded poster artwork */
+img{max-width:100%}
+.hero-banner{min-width:0;grid-template-columns:minmax(0,1fr) minmax(0,1fr);overflow:visible}
+.hero-banner>.main-poster{min-width:0;min-height:0;height:auto;max-height:none;aspect-ratio:3/4;object-fit:contain;object-position:center;background:#0b0913;mask-image:none;-webkit-mask-image:none;border-radius:18px;align-self:center;box-shadow:0 18px 46px rgba(0,0,0,.34)}
+.poster-grid{grid-template-columns:repeat(4,minmax(0,1fr));align-items:start;gap:clamp(10px,1.5vw,20px)}
+.poster-item{min-width:0;display:flex;align-items:center;justify-content:center;padding:8px;background:linear-gradient(145deg,#171229,#0b0914)}
+.poster-item img{width:100%;height:auto;aspect-ratio:auto;object-fit:contain;object-position:center;display:block;border-radius:10px}
+#portfolio{overflow:visible}
+#portfolio .filter-tabs{max-width:100%;padding-inline:4px}
+.tools-wrapper{min-width:0}
+.tools-wrapper .calc-card{width:100%;max-width:920px;box-sizing:border-box}
+.tools-wrapper .emi-input-group label{flex-wrap:wrap;overflow-wrap:anywhere}
+.tools-wrapper .emi-input-group label span,.tools-wrapper .emi-input-group label strong{max-width:100%;overflow-wrap:anywhere}
+section,main,article{min-width:0}
+@media(max-width:1000px){
+ .poster-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+ .hero-banner{grid-template-columns:minmax(0,1fr) minmax(0,.9fr);padding:34px 24px;gap:18px}
+ .hero-banner>.main-poster{width:100%;max-width:100%}
+}
+@media(max-width:700px){
+ .hero-banner{grid-template-columns:minmax(0,1fr);gap:14px;padding:26px 16px 20px}
+ .hero-banner>.main-poster{grid-column:1;grid-row:6;width:100%;max-width:100%;height:auto;aspect-ratio:3/4;object-fit:contain;min-height:0}
+ .poster-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+ .poster-item{padding:5px;border-radius:12px}
+ .poster-item img{width:100%;height:auto;aspect-ratio:auto;object-fit:contain}
+ #portfolio{padding-inline:14px}
+ .tools-wrapper .calc-card{padding:18px 14px}
+ .tools-wrapper .emi-input-group label{flex-direction:row;align-items:flex-start}
+}
+@media(max-width:380px){
+ .poster-grid{grid-template-columns:1fr}
+ .poster-item img{max-width:320px;margin-inline:auto}
+ .typing-container{font-size:clamp(2.15rem,11vw,2.7rem)}
+}
