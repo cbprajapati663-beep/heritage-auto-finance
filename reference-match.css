@@ -584,3 +584,34 @@ nav .nav-links > a:not(.nav-callback):hover {
   .premium-trust-strip > div + div { border-left:0 !important; border-top:1px solid rgba(255,255,255,.07) !important; }
   nav .nav-links > a[aria-current="page"] { padding:8px 13px !important; }
 }
+
+
+/* Responsive finishing pass: keep the showroom sign legible without covering the vehicle on narrow screens. */
+.hero-visual { position:relative !important; overflow:hidden !important; border:1px solid rgba(255,215,0,.22) !important; }
+.hero-visual::after {
+  content:"" !important;
+  position:absolute !important;
+  inset:0 !important;
+  z-index:1 !important;
+  pointer-events:none !important;
+  background:linear-gradient(180deg,rgba(5,6,13,.28) 0%,transparent 30%,transparent 62%,rgba(5,6,13,.2) 100%) !important;
+}
+.hero-visual .main-poster { position:relative !important; z-index:0 !important; }
+.showroom-brand-mark { z-index:4 !important; max-width:calc(100% - 28px) !important; }
+.hero-visual-note { z-index:4 !important; }
+.hero-benefit-plate { z-index:4 !important; }
+@media (min-width:761px) {
+  .hero-visual { box-shadow:0 22px 70px rgba(0,0,0,.38),0 0 38px rgba(116,37,164,.16),inset 0 0 0 1px rgba(255,215,0,.08) !important; }
+}
+@media (max-width:760px) {
+  .hero-visual { min-height:340px !important; border-radius:18px !important; }
+  .showroom-brand-mark { top:12px !important; right:12px !important; gap:8px !important; padding:8px 10px !important; }
+  .showroom-brand-emblem { width:30px !important; height:30px !important; font-size:1rem !important; }
+  .showroom-brand-mark strong { font-size:.72rem !important; letter-spacing:.09em !important; }
+  .showroom-brand-mark small { font-size:.54rem !important; letter-spacing:.12em !important; }
+  .hero-visual-note { left:12px !important; bottom:12px !important; max-width:calc(100% - 24px) !important; }
+  .hero-benefit-plate { position:relative !important; z-index:5 !important; }
+}
+@media (prefers-reduced-motion:reduce) {
+  .premium-service-card:hover .service-card-photo { transform:none !important; }
+}
