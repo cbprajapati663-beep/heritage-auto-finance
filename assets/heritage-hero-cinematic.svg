@@ -47,11 +47,5 @@
 <!-- wet-floor reflections -->
 <path d="M355 714Q750 768 1155 710" fill="none" stroke="#9e4ac4" stroke-opacity=".4" stroke-width="20" filter="url(#soft)"/>
 <path d="M400 735L580 750M700 751L850 764M965 740L1100 728" stroke="#e1bb69" stroke-opacity=".18" stroke-width="5"/>
-<!-- subtle brand framing -->
-<path d="M76 86H300M76 86V166M1325 720V800H1245" fill="none" stroke="url(#gold)" stroke-width="2" opacity=".8"/>
-<text x="80" y="230" fill="#f3c766" font-family="Arial,sans-serif" font-size="18" letter-spacing="5">HERITAGE AUTO FINANCE</text>
-<path d="M80 250H300" stroke="url(#gold)" stroke-width="2"/>
-<text x="80" y="305" fill="#fff8e9" font-family="Georgia,serif" font-size="33" font-weight="700">Move forward.</text>
-<text x="80" y="347" fill="#d9cbe8" font-family="Georgia,serif" font-size="28">With confidence.</text>
-<text x="80" y="386" fill="#b4a7c2" font-family="Arial,sans-serif" font-size="13" letter-spacing="2">PERSONAL · COMMERCIAL · REFINANCE</text>
+<!-- Clean image-only composition; homepage copy remains in accessible HTML. -->
 </svg>
