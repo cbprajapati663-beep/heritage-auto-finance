@@ -623,3 +623,18 @@ a:focus-visible,button:focus-visible,input:focus-visible,[role="button"]:focus-v
 @media(hover:hover) and (pointer:fine){.poster-item:hover img{transform:translateY(-4px) scale(1.012);box-shadow:0 20px 42px rgba(0,0,0,.42);border-color:rgba(244,180,26,.42)}}
 @media(max-width:680px){.hero-banner:after{left:0;width:100%;height:38%;top:0}.hero-trust-points span{padding:6px 9px}.hero-banner .hero-cta-primary:hover,.hero-banner .hero-cta-secondary:hover{transform:none}}
 @media(prefers-reduced-motion:reduce){.hero-banner .hero-cta,.contact-btn,.tab-btn,.poster-item img{transition:none!important}.hero-banner .hero-cta-primary:hover,.hero-banner .hero-cta-secondary:hover,.poster-item:hover img{transform:none!important}}
+
+
+/* Pointer-driven hero parallax: desktop only, bounded and motion-aware */
+@media(hover:hover) and (pointer:fine) and (min-width:901px){
+  .hero-banner .main-poster{
+    transition:transform .18s ease-out,box-shadow .28s ease;
+    transform:perspective(1200px) rotateY(calc(-4deg + var(--hero-rotate-y, 0deg))) rotateX(calc(1.5deg + var(--hero-rotate-x, 0deg))) translateZ(12px);
+  }
+  .hero-visual:hover .main-poster{
+    transform:perspective(1200px) rotateY(calc(-4deg + var(--hero-rotate-y, 0deg))) rotateX(calc(1.5deg + var(--hero-rotate-x, 0deg))) translateZ(24px);
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  .hero-banner .main-poster{transition:none!important}
+}
