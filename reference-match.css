@@ -122,3 +122,27 @@ nav {
 @media(prefers-reduced-motion:reduce) {
   .hero-visual { transition:none !important; }
 }
+
+
+/* Service card photos: fill each tile and keep the label legible over the image. */
+.premium-service-card { position:relative !important; overflow:hidden !important; isolation:isolate !important; }
+.service-card-photo {
+  position:absolute !important; inset:0 !important; z-index:-2 !important;
+  display:block !important; width:100% !important; height:100% !important;
+  object-fit:cover !important; object-position:center !important;
+  opacity:.86 !important; transition:transform .35s ease, opacity .25s ease !important;
+}
+.service-card-shade {
+  position:absolute !important; inset:0 !important; z-index:-1 !important;
+  background:linear-gradient(90deg,rgba(5,7,16,.96) 0%,rgba(5,7,16,.74) 45%,rgba(5,7,16,.08) 100%),linear-gradient(0deg,rgba(5,7,16,.72),transparent 70%) !important;
+  pointer-events:none !important;
+}
+.service-card-copy { position:relative !important; z-index:1 !important; max-width:72% !important; }
+.service-card-arrow { position:relative !important; z-index:1 !important; }
+.premium-service-card:hover .service-card-photo { transform:scale(1.06) !important; opacity:1 !important; }
+@media(max-width:760px) {
+  .service-card-copy { max-width:82% !important; }
+}
+@media(prefers-reduced-motion:reduce) {
+  .service-card-photo { transition:none !important; }
+}
