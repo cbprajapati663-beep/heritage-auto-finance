@@ -36,6 +36,9 @@ assert.equal((html.match(/class="main-poster"/g) || []).length, 1, "Hero should 
 assert.equal((html.match(/loading="lazy" decoding="async"/g) || []).length, 13, "Service-card and poster images should load lazily to reduce initial page work");
 assert.equal((html.match(/class="service-card-photo"/g) || []).length, 5, "All five premium service cards should include photographic imagery");
 assert.match(readFileSync("reference-match.css", "utf8"), /\.service-card-photo/, "Photographic service cards should have dedicated styling");
+assert.match(html, /reference-homepage\.css\?v=/, "Reference homepage CSS should use a cache-busting version");
+assert.match(readFileSync("reference-homepage.css", "utf8"), /#portfolio \.poster-item\.reveal\.active[\s\S]*?opacity:\s*1\s*!important/, "Poster gallery reveal state must not hide poster content");
+assert.match(readFileSync("reference-homepage.css", "utf8"), /#portfolio \.poster-item img[\s\S]*?height:\s*auto\s*!important/, "Poster gallery images must retain their natural aspect ratio");
 assert.match(html, /fetchpriority="high"/, "Hero poster should be prioritized");
 assert.match(html, /documentation guidance dete hain/i, "Commercial finance copy must describe assistance accurately");
 assert.match(html, /Hum used car finance ke liye enquiry aur documentation guidance dete hain/i, "Used-car FAQ must describe assistance rather than imply direct lending");
