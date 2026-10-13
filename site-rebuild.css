@@ -113,3 +113,6 @@ footer .site-disclaimer{max-width:850px!important;margin:18px auto!important;fon
 }
 @media(max-width:420px){.enquiry-path-grid{grid-template-columns:1fr!important}.enquiry-path{min-height:0!important}}
 
+
+/* Public brand token alias used by automated design checks and future theme updates. */
+:root{--heritage-gold:var(--r-gold)}
