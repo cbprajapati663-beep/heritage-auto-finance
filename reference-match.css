@@ -954,3 +954,59 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 @media (prefers-reduced-motion: reduce) {
   .premium-service-card, .premium-service-card .service-card-photo { transition: none !important; }
 }
+
+
+/* Final service-tile tuning: stronger vehicle visibility and distinct luxury accents. */
+.premium-service-cards .premium-service-card {
+  background-color:#090b17 !important;
+  border:1px solid rgba(229,177,76,.34) !important;
+  box-shadow:inset 0 1px rgba(255,255,255,.07),0 12px 26px rgba(0,0,0,.3) !important;
+}
+.premium-service-cards .premium-service-card:nth-child(even) {
+  border-color:rgba(157,81,202,.42) !important;
+}
+.premium-service-cards .premium-service-card .service-card-photo {
+  width:74% !important;
+  inset:auto -2% 0 auto !important;
+  object-position:center 58% !important;
+  -webkit-mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.1) 14%,rgba(0,0,0,.88) 39%,#000 58%) !important;
+  mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.1) 14%,rgba(0,0,0,.88) 39%,#000 58%) !important;
+}
+.premium-service-cards .premium-service-card:nth-child(1) .service-card-photo {
+  object-position:center 62% !important;
+  filter:saturate(.96) contrast(1.08) !important;
+}
+.premium-service-cards .premium-service-card:nth-child(2) .service-card-photo {
+  object-position:center 58% !important;
+  filter:saturate(.82) contrast(1.12) brightness(.88) !important;
+}
+.premium-service-cards .premium-service-card:nth-child(3) .service-card-photo {
+  object-position:center 58% !important;
+  filter:saturate(.82) contrast(1.12) brightness(.9) !important;
+}
+.premium-service-cards .premium-service-card:nth-child(4) .service-card-photo {
+  object-position:center 60% !important;
+  filter:saturate(.9) contrast(1.08) !important;
+}
+.premium-service-cards .premium-service-card:nth-child(5) .service-card-photo {
+  object-position:center 58% !important;
+  filter:saturate(.9) contrast(1.08) brightness(.92) !important;
+}
+.premium-service-cards .premium-service-card .service-card-copy {
+  width:60% !important;
+  max-width:60% !important;
+  padding-left:clamp(12px,1.05vw,18px) !important;
+}
+.premium-service-cards .premium-service-card .service-card-arrow {
+  background:linear-gradient(145deg,#20172b,#080a14) !important;
+  border-color:#f5c95e !important;
+  box-shadow:0 0 0 3px rgba(8,9,17,.72),0 0 16px rgba(246,198,83,.22) !important;
+}
+.premium-service-cards .premium-service-card:hover {
+  border-color:#f3c65d !important;
+  box-shadow:inset 0 1px rgba(255,255,255,.1),0 20px 36px rgba(0,0,0,.44),0 0 24px rgba(139,53,200,.18) !important;
+}
+@media(max-width:760px) {
+  .premium-service-cards .premium-service-card .service-card-photo { width:78% !important; }
+  .premium-service-cards .premium-service-card .service-card-copy { width:66% !important;max-width:66% !important; }
+}
