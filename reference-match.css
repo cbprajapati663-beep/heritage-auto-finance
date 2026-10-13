@@ -1566,3 +1566,53 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   .premium-service-showcase .service-card-icon { flex-basis:42px !important; width:42px !important; height:42px !important; }
   .premium-service-showcase .service-card-features { gap:7px !important; padding:10px 9px 12px !important; }
 }
+
+
+/* Fix after visual review: remove the oversized black slab covering most of each photo. */
+.premium-service-showcase .premium-service-card {
+  overflow:hidden !important;
+  background:#080a17 !important;
+}
+.premium-service-showcase .premium-service-card .service-card-photo {
+  position:absolute !important;
+  display:block !important;
+  inset:0 !important;
+  width:100% !important;
+  max-width:none !important;
+  height:100% !important;
+  max-height:none !important;
+  min-height:100% !important;
+  flex:none !important;
+  object-fit:cover !important;
+  object-position:center 50% !important;
+  opacity:1 !important;
+  filter:saturate(1.13) contrast(1.06) brightness(.94) !important;
+  -webkit-mask-image:none !important;
+  mask-image:none !important;
+  z-index:0 !important;
+}
+.premium-service-showcase .premium-service-card::before {
+  z-index:1 !important;
+  background:linear-gradient(180deg,rgba(7,8,19,.7) 0%,rgba(7,8,19,.08) 35%,rgba(7,8,19,.12) 50%,rgba(7,8,19,.82) 76%,rgba(7,8,19,.97) 100%) !important;
+}
+.premium-service-showcase .service-card-top {
+  z-index:2 !important;
+  background:linear-gradient(180deg,rgba(7,8,19,.8),rgba(7,8,19,.38) 72%,transparent) !important;
+}
+.premium-service-showcase .service-card-features {
+  position:relative !important;
+  z-index:2 !important;
+  flex:0 0 auto !important;
+  margin-top:auto !important;
+  background:linear-gradient(180deg,rgba(7,8,19,.08) 0%,rgba(7,8,19,.62) 24%,rgba(7,8,19,.9) 100%) !important;
+}
+.premium-service-showcase .service-card-action {
+  position:relative !important;
+  z-index:3 !important;
+}
+.premium-service-showcase .premium-service-card:hover .service-card-photo {
+  filter:saturate(1.18) contrast(1.08) brightness(1) !important;
+}
+@media(max-width:1200px) {
+  .premium-service-showcase .premium-service-card .service-card-photo { height:100% !important; }
+}
