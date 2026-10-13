@@ -615,3 +615,34 @@ nav .nav-links > a:not(.nav-callback):hover {
 @media (prefers-reduced-motion:reduce) {
   .premium-service-card:hover .service-card-photo { transform:none !important; }
 }
+
+
+/* Final brief alignment: stronger luxury CTA, cleaner card contrast and compact mobile contact flow. */
+.nav-callback {
+  display:inline-flex !important; align-items:center !important; justify-content:center !important;
+  gap:9px !important; padding:13px 21px !important; border-radius:999px !important;
+  color:#17100a !important; font-weight:800 !important; letter-spacing:.055em !important;
+  text-transform:uppercase !important;
+  background:linear-gradient(110deg,#ffe8a5 0%,#f6c653 48%,#b77916 100%) !important;
+  border:1px solid rgba(255,239,185,.72) !important;
+  box-shadow:0 8px 26px rgba(198,135,26,.18),inset 0 1px rgba(255,255,255,.65) !important;
+  transition:transform .2s ease,box-shadow .2s ease,filter .2s ease !important;
+}
+.nav-callback:hover { transform:translateY(-2px) !important; filter:brightness(1.06) !important; box-shadow:0 12px 32px rgba(198,135,26,.28) !important; }
+.premium-service-card::after {
+  content:"" !important; position:absolute !important; inset:0 !important; z-index:-1 !important;
+  pointer-events:none !important;
+  background:linear-gradient(180deg,rgba(4,5,10,.03) 8%,rgba(4,5,10,.18) 35%,rgba(4,5,10,.91) 100%) !important;
+}
+.premium-service-card:hover { border-color:rgba(255,215,0,.5) !important; box-shadow:0 16px 34px rgba(0,0,0,.32),0 0 24px rgba(128,48,180,.13) !important; }
+.service-card-arrow { border:1px solid rgba(255,215,0,.4) !important; background:linear-gradient(145deg,rgba(255,220,135,.97),rgba(183,121,22,.98)) !important; color:#17100a !important; }
+@media(max-width:760px) {
+  .nav-callback { padding:10px 14px !important; font-size:.66rem !important; }
+  .premium-contact-ribbon { border-radius:0 !important; }
+  .premium-contact-ribbon > * { min-width:0 !important; }
+  .premium-contact-ribbon .ribbon-call { justify-content:center !important; }
+}
+@media(prefers-reduced-motion:reduce) {
+  .nav-callback,.premium-service-card { transition:none !important; }
+  .nav-callback:hover,.premium-service-card:hover { transform:none !important; }
+}
