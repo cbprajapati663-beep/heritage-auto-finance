@@ -2,7 +2,7 @@
 (function () {
   "use strict";
 
-  const textArray = ["Dream Car!", "Commercial Fleet!", "Family Protection!", "Business Growth!"];
+  const textArray = ["Dream Car!", "Commercial Fleet!", "Vehicle Refinance!", "Motor Insurance!"];
   let textIndex = 0;
   let charIndex = 0;
   let typingTimer = null;
