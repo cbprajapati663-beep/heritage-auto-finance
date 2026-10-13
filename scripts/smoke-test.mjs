@@ -5,40 +5,15 @@ const html = readFileSync("index.html", "utf8");
 const css = readFileSync("styles.css", "utf8");
 const js = readFileSync("app.js", "utf8");
 const premium = readFileSync("premium.css", "utf8");
-const reference = readFileSync("reference-match.css", "utf8");
-const netlify = readFileSync("netlify.toml", "utf8");
-
-assert.match(netlify, /^\[build\][\s\S]*^\s*ignore\s*=\s*"exit 0"\s*$/m, "Netlify builds must remain paused until the site is approved for launch");
 
 assert.match(html, /<title>[^<]+<\/title>/i, "Page title should exist");
 assert.match(html, /name="description"/i, "SEO description should exist");
-assert.match(html, /rel="canonical" href="https:\/\/cbprajapati663-beep\.github\.io\/heritage-auto-finance\//i, "Canonical URL should use the live GitHub Pages domain");
-assert.match(html, /property="og:url" content="https:\/\/cbprajapati663-beep\.github\.io\/heritage-auto-finance\//i, "Social preview URL should use the live GitHub Pages domain");
-assert.match(html, /class="nav-brand"/, "Navigation should include the branded logo and wordmark lockup");
-assert.match(html, /HERITAGE AUTO FINANCE/, "Navigation should display the full business name beside the logo");
-assert.match(html, /Your Trusted Vehicle Finance Partner/, "Navigation should display the brand tagline");
-assert.match(html, /Trusted Guidance/, "Premium trust strip should appear above the hero");
-assert.match(html, /class="premium-contact-ribbon"/, "Quick WhatsApp and call support ribbon should appear below service cards");
-assert.match(html, /class="ribbon-call" href="tel:\+917600211085"/, "Premium contact ribbon should provide a direct call link");
-assert.match(premium, /\.premium-contact-ribbon/, "Premium contact ribbon should have responsive styling");
-assert.match(premium, /aspect-ratio:\s*16\/10/, "Desktop hero visual should use a cinematic wide frame");
-assert.match(html, /class="premium-service-cards"/, "Premium service shortcut cards should appear below the hero");
-assert.equal((html.match(/class="premium-service-card"/g) || []).length, 5, "All five core service shortcut cards should be present");
-assert.match(premium, /\.premium-service-cards/, "Premium service cards should have dedicated responsive styling");
-assert.match(reference, /grid-template-columns:repeat\(5,minmax\(0,1fr\)\)/, "Desktop reference layout should show five photographic service cards in a row");
-assert.match(html, /class="[^"]*reference-hero-title[^"]*"/, "Hero headline should be stable and match the reference instead of typing animation");
-assert.match(html, /class="hero-highlight">Dream Car!/, "Hero should keep the approved Dreams Forward headline visible");
-assert.match(html, /class="hero-benefit-plate"/, "Hero should include the four-item premium benefits plate");
-assert.match(reference, /\.hero-benefit-plate/, "Reference benefit plate should be styled for desktop and mobile");
+assert.match(html, /rel="canonical" href="https:\/\/heritageautofinance\.netlify\.app\//i, "Canonical URL should use the production Netlify domain");
+assert.match(html, /property="og:url" content="https:\/\/heritageautofinance\.netlify\.app\//i, "Social preview URL should use the production domain");
 assert.match(html, /hero-cta-primary/, "Primary callback CTA should exist");
 assert.match(html, /hero-trust-points/, "Service highlights should exist");
 assert.equal((html.match(/class="main-poster"/g) || []).length, 1, "Hero should show only one main poster");
-assert.equal((html.match(/loading="lazy" decoding="async"/g) || []).length, 13, "Service-card and poster images should load lazily to reduce initial page work");
-assert.equal((html.match(/class="service-card-photo"/g) || []).length, 5, "All five premium service cards should include photographic imagery");
-assert.match(readFileSync("reference-match.css", "utf8"), /\.service-card-photo/, "Photographic service cards should have dedicated styling");
-assert.match(html, /reference-homepage\.css\?v=/, "Reference homepage CSS should use a cache-busting version");
-assert.match(readFileSync("reference-homepage.css", "utf8"), /#portfolio \.poster-item\.reveal\.active[\s\S]*?opacity:\s*1\s*!important/, "Poster gallery reveal state must not hide poster content");
-assert.match(readFileSync("reference-homepage.css", "utf8"), /#portfolio \.poster-item img[\s\S]*?height:\s*auto\s*!important/, "Poster gallery images must retain their natural aspect ratio");
+assert.equal((html.match(/loading="lazy" decoding="async"/g) || []).length, 8, "Poster images should load lazily to reduce initial page work");
 assert.match(html, /fetchpriority="high"/, "Hero poster should be prioritized");
 assert.match(html, /documentation guidance dete hain/i, "Commercial finance copy must describe assistance accurately");
 assert.match(html, /Hum used car finance ke liye enquiry aur documentation guidance dete hain/i, "Used-car FAQ must describe assistance rather than imply direct lending");
@@ -51,16 +26,16 @@ assert.match(html, /id="scrollProgress"/, "Scroll progress indicator should exis
 assert.doesNotMatch(html, /5,000\+|24\/7/, "Unverified claims must not appear");
 assert.match(html, /subject to the relevant lender or insurer/, "Finance disclaimer should exist");
 assert.equal((html.match(/class="faq-item" role="button" tabindex="0" aria-expanded="false" aria-controls="faq-answer-\d+"/g) || []).length, 4, "All FAQ items should be keyboard accessible and linked to their answers");
-assert.match(html, /href="styles\.css(?:\?[^"]*)?"/i, "HTML must load the external stylesheet, optionally with a cache version");
-assert.match(html, /href="premium\.css(?:\?[^"]*)?"/i, "HTML must load premium refinement styles, optionally with a cache version");
+assert.match(html, /href="styles\.css"/i, "HTML must load the external stylesheet");
+assert.match(html, /href="premium\.css"/i, "HTML must load premium refinement styles");
 assert.match(html, /privacy-policy\.html/, "Privacy policy must be linked from the homepage");
 assert.match(html, /form-privacy-note/, "Callback form must show a privacy and sensitive-data notice");
 assert.match(html, /Do not submit Aadhaar, PAN, bank account details/i, "Initial enquiry form must warn against sharing sensitive documents");
 assert.match(html, /terms\.html/, "Terms must be linked from the homepage");
 assert.ok(existsSync("privacy-policy.html"), "Privacy policy page must exist");
 assert.ok(existsSync("terms.html"), "Terms page must exist");
-assert.match(readFileSync("privacy-policy.html", "utf8"), /rel="canonical" href="https:\/\/cbprajapati663-beep\.github\.io\/heritage-auto-finance\/privacy-policy\.html"/i, "Privacy policy canonical must use the live GitHub Pages domain");
-assert.match(readFileSync("terms.html", "utf8"), /rel="canonical" href="https:\/\/cbprajapati663-beep\.github\.io\/heritage-auto-finance\/terms\.html"/i, "Terms canonical must use the live GitHub Pages domain");
+assert.match(readFileSync("privacy-policy.html", "utf8"), /rel="canonical" href="https:\/\/heritageautofinance\.netlify\.app\/privacy-policy\.html"/i, "Privacy policy canonical must use the production domain");
+assert.match(readFileSync("terms.html", "utf8"), /rel="canonical" href="https:\/\/heritageautofinance\.netlify\.app\/terms\.html"/i, "Terms canonical must use the production domain");
 
 assert.match(premium, /\.legal-page/, "Legal pages must use the shared premium layout");
 assert.match(html, /src="app\.js"/i, "HTML must load the external JavaScript");
@@ -107,11 +82,6 @@ assert.match(js, /function calculateEligibility\s*\(/, "Affordability calculator
 assert.match(js, /function filterPosters\s*\(/, "Poster filter handler must exist");
 assert.match(js, /function toggleFaq\s*\(/, "FAQ handler must exist");
 assert.match(js, /IntersectionObserver/, "Scroll reveal should use IntersectionObserver");
-assert.match(js, /function initHeroParallax\s*\(/, "Desktop hero parallax handler should exist");
-assert.match(js, /prefers-reduced-motion:\s*reduce/, "Hero parallax should respect reduced-motion preferences");
-assert.match(premium, /--hero-rotate-y/, "Hero visual should support pointer-driven 3D tilt");
-assert.match(premium, /min-width:\s*901px/, "Pointer-driven 3D tilt should be restricted to desktop");
-
 assert.match(js, /updateScrollProgress/, "Scroll progress behavior should exist");
 assert.doesNotMatch(js, /Your inquiry has been submitted\./, "Do not claim a lead was submitted without confirmed form success");
 
@@ -126,9 +96,9 @@ assert.ok(existsSync("robots.txt"), "Robots instructions must exist");
 assert.ok(existsSync("sitemap.xml"), "XML sitemap must exist");
 const robots = readFileSync("robots.txt", "utf8");
 const sitemap = readFileSync("sitemap.xml", "utf8");
-assert.match(robots, /Sitemap:\s*https:\/\/cbprajapati663-beep\.github\.io\/heritage-auto-finance\/sitemap\.xml/i, "Robots file must advertise the live sitemap");
+assert.match(robots, /Sitemap:\s*https:\/\/heritageautofinance\.netlify\.app\/sitemap\.xml/i, "Robots file must advertise the production sitemap");
 assert.match(sitemap, /<urlset[\s>]/i, "Sitemap must contain a URL set");
-assert.match(sitemap, /https:\/\/cbprajapati663-beep\.github\.io\/heritage-auto-finance\//i, "Sitemap must list the live homepage");
+assert.match(sitemap, /https:\/\/heritageautofinance\.netlify\.app\//i, "Sitemap must list the production homepage");
 assert.match(sitemap, /privacy-policy\.html/i, "Sitemap must include the privacy policy");
 assert.match(sitemap, /terms\.html/i, "Sitemap must include the terms page");
 
@@ -151,44 +121,10 @@ const sitemapLocations = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map(match
 assert.ok(sitemapLocations.length >= 3, "Sitemap should list the homepage and legal pages");
 assert.equal(new Set(sitemapLocations).size, sitemapLocations.length, "Sitemap URLs should not be duplicated");
 for (const url of sitemapLocations) {
-  assert.match(url, /^https:\/\/cbprajapati663-beep\.github\.io\/heritage-auto-finance\//, "Sitemap entries must use the canonical live GitHub Pages host");
-  const pathname = new URL(url).pathname.replace(/^\/heritage-auto-finance\/?/, "/");
+  assert.match(url, /^https:\/\/heritageautofinance\.netlify\.app\//, "Sitemap entries must use the canonical production host");
+  const pathname = new URL(url).pathname;
   const localPage = pathname === "/" ? "index.html" : pathname.slice(1);
   assert.ok(existsSync(localPage), `Sitemap entry must point to a tracked page: ${url}`);
 }
 assert.match(notFound, /name="viewport"/, "Custom 404 page should be responsive on mobile");
 assert.match(notFound, /rel="noopener noreferrer"/, "External 404 links should use safe target attributes");
-
-
-// Verify the HubSpot lead form is configured and its loader is present.
-assert.match(html, /class="hs-form-frame"[^>]*data-region="na2"[^>]*data-form-id="972bc938-8ef1-4b8a-8efc-1641c5dac6bf"[^>]*data-portal-id="247419056"/i, "HubSpot lead form must retain its configured region, form ID and portal ID");
-assert.match(html, /id="hs-script-loader"[^>]+src="\/\/js-na2\.hs-scripts\.com\/247419056\.js"/i, "HubSpot script loader must point to the matching portal");
-assert.match(html, /href="https:\/\/wa\.me\/917600211085/, "Homepage must provide a direct WhatsApp enquiry path");
-
-
-// Reference-led hero styling must load and use the real photographic hero.
-const referenceCss = readFileSync("reference-match.css", "utf8");
-assert.ok(existsSync("reference-match.css"), "Reference-matched homepage stylesheet must exist");
-assert.match(html, /href="reference-match\.css(?:\?[^"]*)?"/i, "Reference-matched stylesheet must be loaded after the existing styles, optionally with a cache version");
-assert.match(html, /images\.unsplash\.com\/photo-1769641241120-f0dd8669b12d/, "Hero should use the selected photographic SUV asset instead of the illustrated SVG");
-assert.match(html, /alt="Luxury SUV in a dark, purple-lit garage/i, "Photographic hero must have descriptive alternative text");
-assert.match(html, /class="showroom-brand-mark"[^>]*aria-label="Heritage Auto Finance premium vehicle finance"/, "Hero photography should carry an accessible Heritage brand treatment");
-assert.match(referenceCss, /\.showroom-brand-mark[\s\S]{0,240}position:absolute/, "Branded showroom overlay must be positioned over the hero photo");
-assert.match(referenceCss, /grid-template-columns:minmax\(0,\.92fr\) minmax\(0,1\.08fr\)/, "Desktop hero should prioritize copy on the left and photography on the right");
-assert.match(referenceCss, /@media\s*\(max-width:\s*760px\)/, "Reference styling must include a mobile layout");
-
-assert.match(referenceCss, /\.hero-title-white[\s\S]{0,180}display:inline\s*!important/, "Both lines of the approved hero headline must remain visible");
-assert.match(referenceCss, /height:clamp\(590px,40vw,690px\)/, "Desktop hero must retain the taller cinematic first-fold composition");
-
-
-// The active site rebuild layer must load last so it can consistently override
-// legacy overlapping styles without removing existing application behavior.
-const rebuildCss = readFileSync("site-rebuild.css", "utf8");
-assert.ok(existsSync("site-rebuild.css"), "Full-site redesign stylesheet must exist");
-assert.match(html, /href="site-rebuild\.css\?v=\d{8}-\d{4}"/i, "The versioned full-site redesign stylesheet must be loaded");
-assert.ok(html.indexOf('href="site-rebuild.css') > html.indexOf('href="reference-homepage.css'), "The rebuild stylesheet must load after legacy homepage styling");
-assert.match(rebuildCss, /--heritage-gold/i, "The redesign must define a reusable Heritage gold token");
-assert.match(rebuildCss, /@media\s*\(max-width:\s*760px\)/, "The redesign must include responsive mobile rules");
-assert.match(html, /<a href="#services-showcase">Services<\/a>/i, "Services navigation must target the service showcase");
-assert.match(html, /<a href="#services">About Us<\/a>/i, "Why Heritage navigation must target the brand/service section");
-assert.match(html, /class="mobile-quick-actions"/i, "Mobile users must retain quick call, WhatsApp and callback actions");

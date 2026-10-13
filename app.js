@@ -2,7 +2,7 @@
 (function () {
   "use strict";
 
-  const textArray = ["Dream Car!", "Commercial Fleet!", "Vehicle Refinance!", "Motor Insurance!"];
+  const textArray = ["Dream Car!", "Commercial Fleet!", "Family Protection!", "Business Growth!"];
   let textIndex = 0;
   let charIndex = 0;
   let typingTimer = null;
@@ -65,9 +65,9 @@
     const resultEl = document.getElementById("emiResult");
     if (!amountEl || !rateEl || !tenureEl || !resultEl) return;
 
-    const principal = Math.max(0, Number(amountEl.value) || 0);
-    const annualRate = Math.max(0, Number(rateEl.value) || 0);
-    const months = Math.max(1, Number(tenureEl.value) || 1);
+    const principal = Math.max(0, Number(amountEl.value));
+    const annualRate = Math.max(0, Number(rateEl.value));
+    const months = Math.max(1, Number(tenureEl.value));
     const monthlyRate = annualRate / 1200;
     const emi = monthlyRate === 0
       ? principal / months
@@ -103,7 +103,7 @@
     const incomeEl = document.getElementById("monthlyIncome");
     const resultEl = document.getElementById("eligibleResult");
     if (!incomeEl || !resultEl) return;
-    const income = Math.max(0, Number(incomeEl.value) || 0);
+    const income = Math.max(0, Number(incomeEl.value));
     const label = document.getElementById("incomeLabel");
     if (label) label.textContent = formatINR(income);
     // Clearly an illustrative multiplier, not lender eligibility or approval.
@@ -133,28 +133,6 @@
     elements.forEach(element => observer.observe(element));
   }
 
-  function initHeroParallax() {
-    const visual = document.querySelector(".hero-visual");
-    if (!visual || window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
-        !window.matchMedia("(hover: hover) and (pointer: fine) and (min-width: 901px)").matches) return;
-
-    const resetTilt = () => {
-      visual.style.removeProperty("--hero-rotate-x");
-      visual.style.removeProperty("--hero-rotate-y");
-    };
-
-    visual.addEventListener("pointermove", event => {
-      const bounds = visual.getBoundingClientRect();
-      if (!bounds.width || !bounds.height) return;
-      const x = ((event.clientX - bounds.left) / bounds.width - 0.5) * 2;
-      const y = ((event.clientY - bounds.top) / bounds.height - 0.5) * 2;
-      visual.style.setProperty("--hero-rotate-y", (x * 3).toFixed(2) + "deg");
-      visual.style.setProperty("--hero-rotate-x", (y * -2).toFixed(2) + "deg");
-    }, { passive: true });
-
-    visual.addEventListener("pointerleave", resetTilt, { passive: true });
-  }
-
   function init() {
     const progressBar = document.getElementById("scrollProgress");
     const updateScrollProgress = () => {
@@ -179,17 +157,14 @@
 
     document.querySelectorAll(".tab-btn").forEach((button, index) => {
       const categories = ["all", "loans", "insurance"];
-      if (!button.dataset.category) button.dataset.category = categories[index] || "all";
-      button.setAttribute("aria-pressed", String(button.dataset.category === "all"));
+      button.dataset.category = categories[index] || "all";
+      button.setAttribute("aria-pressed", String(index === 0));
       button.addEventListener("click", event => filterPosters(button.dataset.category, event));
     });
     filterPosters("all");
 
     document.querySelectorAll(".faq-item").forEach(item => {
       item.setAttribute("aria-expanded", String(item.classList.contains("active")));
-      item.addEventListener("click", event => {
-        if (!event.target.closest("a,button,input,select,textarea")) toggleFaq(item);
-      });
       item.addEventListener("keydown", event => {
         if (event.key === "Enter" || event.key === " ") {
           event.preventDefault();
@@ -207,10 +182,8 @@
     calculateEMI();
     calculateEligibility();
     initReveal();
-    initHeroParallax();
 
-    const heroTitle = document.querySelector(".typed-text");
-    if (heroTitle) heroTitle.textContent = textArray[0];
+    if (textArray.length) typeNext();
   }
 
   // Keep the existing inline handlers compatible with the separated script.
