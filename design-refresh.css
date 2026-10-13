@@ -125,3 +125,57 @@ button:hover,.btn:hover,.submit-btn:hover{transform:translateY(-1px)}
  .premium-contact-ribbon{grid-template-columns:1fr!important}
  .hero-actions .hero-cta{width:100%!important}
 }
+
+
+/* Final dark-purple/gold palette alignment with Heritage's approved poster */
+.premium-service-showcase{
+  background:
+    radial-gradient(ellipse at 8% 0%,rgba(117,35,173,.22),transparent 34%),
+    radial-gradient(ellipse at 94% 18%,rgba(255,190,63,.08),transparent 26%),
+    linear-gradient(180deg,#070a1a 0%,#0b0b20 58%,#080b1b 100%)!important;
+  color:#fff8e8!important;
+  border-top:1px solid rgba(255,202,82,.24)!important;
+  border-bottom:1px solid rgba(255,202,82,.24)!important;
+}
+.premium-service-showcase .service-showcase-eyebrow{color:#ffd45f!important}
+.premium-service-showcase .service-showcase-heading h2{color:#fffaf0!important}
+.premium-service-showcase .service-showcase-heading h2 em{
+  color:#ffcc55!important;
+  background:linear-gradient(100deg,#fff0b0,#ffca52 55%,#f0a51d)!important;
+  background-clip:text!important;-webkit-background-clip:text!important;-webkit-text-fill-color:transparent!important;
+}
+.premium-service-showcase .service-showcase-heading p{color:#c9c5d7!important}
+.premium-service-card{
+  background:linear-gradient(155deg,rgba(21,19,48,.98),rgba(7,11,28,.98))!important;
+  color:#fff8e8!important;
+  border:1px solid rgba(255,202,82,.34)!important;
+  box-shadow:0 12px 28px rgba(0,0,0,.28),inset 0 1px rgba(255,255,255,.035)!important;
+}
+.premium-service-card:before{
+  content:"";position:absolute;z-index:1;inset:0 0 auto;height:3px;
+  background:linear-gradient(90deg,transparent,#a52ee0,#ffcf59,transparent);
+  pointer-events:none;
+}
+.premium-service-card:hover{
+  border-color:rgba(255,207,89,.86)!important;
+  box-shadow:0 18px 34px rgba(0,0,0,.42),0 0 24px rgba(127,40,185,.16)!important;
+}
+.service-card-features,.service-card-features small,.service-card-features li{color:#e1dced!important}
+.service-card-features li:before{color:#130e1c!important;background:linear-gradient(120deg,#ffe38b,#f0ac24)!important}
+.service-card-icon{background:#110d27!important;border-color:#ffce59!important;color:#ffce59!important;box-shadow:0 0 18px rgba(145,42,196,.22)!important}
+.service-card-action{background:linear-gradient(110deg,#ffe18a,#f4b62e)!important;color:#17121b!important}
+.premium-contact-ribbon,.stats-bar{background:linear-gradient(110deg,#050817,#0b0b21 58%,#160a29)!important}
+@media(max-width:700px){
+ .premium-service-showcase{padding:28px 14px 30px!important}
+ .premium-service-cards{grid-template-columns:repeat(1,minmax(0,1fr))!important;gap:14px!important}
+ .premium-service-card{display:grid!important;grid-template-columns:110px minmax(0,1fr)!important;grid-template-rows:auto 1fr auto!important;align-items:start!important;padding:0 0 12px!important}
+ .service-card-photo{grid-column:1/-1!important;width:100%!important;height:165px!important}
+ .service-card-top{position:relative!important;inset:auto!important;grid-column:1/-1!important;grid-row:2!important;padding:12px 14px 0!important}
+ .service-card-top strong{font-size:16px!important;line-height:1.25!important}
+ .service-card-features{grid-column:1/-1!important;padding:10px 16px!important}
+ .service-card-action{grid-column:1/-1!important;margin:0 14px!important}
+}
+@media(prefers-reduced-motion:reduce){
+ html{scroll-behavior:auto!important}
+ *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+}
