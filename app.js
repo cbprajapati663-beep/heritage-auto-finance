@@ -209,7 +209,8 @@
     initReveal();
     initHeroParallax();
 
-    if (textArray.length) typeNext();
+    const heroTitle = document.querySelector(".typed-text");
+    if (heroTitle) heroTitle.textContent = textArray[0];
   }
 
   // Keep the existing inline handlers compatible with the separated script.
