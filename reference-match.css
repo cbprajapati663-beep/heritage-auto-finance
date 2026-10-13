@@ -1418,3 +1418,47 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   .premium-service-showcase .premium-service-card,.premium-service-showcase .service-card-photo { transition:none !important; }
   .premium-service-showcase .premium-service-card:hover,.premium-service-showcase .premium-service-card:hover .service-card-photo { transform:none !important; }
 }
+
+
+/* Vehicle photography emphasis: keep each card image large, sharp and fully legible. */
+.premium-service-showcase .premium-service-card {
+  min-height:478px !important;
+}
+.premium-service-showcase .service-card-photo {
+  height:224px !important;
+  flex-basis:224px !important;
+  object-fit:cover !important;
+  object-position:center center !important;
+  opacity:1 !important;
+  filter:saturate(1.1) contrast(1.06) brightness(1) !important;
+  -webkit-mask-image:linear-gradient(180deg,#000 0%,#000 84%,rgba(0,0,0,.6) 100%) !important;
+  mask-image:linear-gradient(180deg,#000 0%,#000 84%,rgba(0,0,0,.6) 100%) !important;
+}
+.premium-service-showcase .premium-service-card:nth-child(1) .service-card-photo {
+  object-position:center 60% !important;
+}
+.premium-service-showcase .premium-service-card:nth-child(2) .service-card-photo {
+  object-position:center 58% !important;
+}
+.premium-service-showcase .premium-service-card:nth-child(3) .service-card-photo {
+  object-position:center 62% !important;
+}
+.premium-service-showcase .premium-service-card:nth-child(4) .service-card-photo {
+  object-position:center 58% !important;
+}
+.premium-service-showcase .premium-service-card:nth-child(5) .service-card-photo {
+  object-position:center 58% !important;
+  filter:saturate(1.12) contrast(1.07) brightness(.98) !important;
+}
+@media(max-width:1200px) {
+  .premium-service-showcase .premium-service-card { min-height:455px !important; }
+  .premium-service-showcase .service-card-photo { height:204px !important; flex-basis:204px !important; }
+}
+@media(max-width:760px) {
+  .premium-service-showcase .premium-service-card { min-height:420px !important; }
+  .premium-service-showcase .service-card-photo { height:164px !important; flex-basis:164px !important; }
+}
+@media(max-width:420px) {
+  .premium-service-showcase .premium-service-card { min-height:0 !important; }
+  .premium-service-showcase .service-card-photo { height:205px !important; flex-basis:205px !important; }
+}
