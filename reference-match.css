@@ -2151,3 +2151,52 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   height: 31px !important;
   filter: drop-shadow(0 0 5px rgba(255,203,76,.28)) !important;
 }
+
+
+/* UI refinement approved for the service showcase */
+.premium-service-showcase .service-showcase-heading {
+  position: relative !important;
+  max-width: 900px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  text-align: center !important;
+}
+.premium-service-showcase .service-showcase-eyebrow {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 9px !important;
+  padding: 8px 15px !important;
+  border: 1px solid rgba(255,207,92,.48) !important;
+  border-radius: 999px !important;
+  background: linear-gradient(110deg, rgba(255,197,67,.12), rgba(137,56,186,.13)) !important;
+  color: #ffdc78 !important;
+  letter-spacing: .15em !important;
+  font-size: 11px !important;
+  font-weight: 800 !important;
+}
+.premium-service-showcase .service-showcase-heading h2 {
+  margin-top: 15px !important;
+  margin-bottom: 10px !important;
+  font-size: clamp(28px, 3.25vw, 48px) !important;
+  font-weight: 750 !important;
+  color: #fffaf0 !important;
+  text-wrap: balance !important;
+}
+.premium-service-showcase .service-showcase-heading h2 em {
+  color: #f6ca61 !important;
+  font-style: normal !important;
+  text-shadow: 0 0 22px rgba(255,195,70,.13) !important;
+}
+.premium-service-showcase .service-showcase-heading p {
+  max-width: 650px !important;
+  margin: 0 auto !important;
+  color: rgba(246,239,255,.78) !important;
+  font-size: clamp(13px, 1.1vw, 16px) !important;
+  line-height: 1.65 !important;
+}
+@media (max-width: 520px) {
+  .premium-service-showcase .service-showcase-heading { padding: 0 8px !important; }
+  .premium-service-showcase .service-showcase-heading h2 { font-size: 29px !important; }
+  .premium-service-showcase .service-showcase-eyebrow { font-size: 10px !important; }
+}
