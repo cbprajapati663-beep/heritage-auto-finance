@@ -388,3 +388,25 @@ body{overflow-x:clip}
 @media(prefers-reduced-motion:reduce){
  #portfolio .poster-item{transition:none}
 }
+
+
+/* 2026-10-14: quality-of-life upgrade */
+#portfolio .poster-item.reveal{opacity:1;transform:none;visibility:visible}
+#portfolio .poster-item.reveal:not(.show){display:none!important}
+#portfolio .poster-item.reveal.show{display:block!important}
+#portfolio .poster-grid{align-items:start}
+#portfolio .poster-item img{width:100%;height:auto;object-fit:contain}
+#portfolio .filter-tabs{position:relative;z-index:2}
+#portfolio .tab-btn{cursor:pointer;transition:background .18s ease,color .18s ease,border-color .18s ease,transform .18s ease}
+#portfolio .tab-btn:hover{transform:translateY(-1px)}
+#portfolio .tab-btn.active{box-shadow:0 5px 18px rgba(244,196,94,.18)}
+#services .service-journey,#services .details-container{max-width:100%;box-sizing:border-box}
+.tools-wrapper .calc-card{width:100%;box-sizing:border-box}
+.tools-wrapper input[type=range]{max-width:100%;touch-action:pan-y}
+#contact input,#contact textarea,#contact select{max-width:100%;box-sizing:border-box}
+a,button{touch-action:manipulation}
+@media(max-width:700px){
+ #portfolio .filter-tabs{padding:0 4px;gap:8px}
+ #portfolio .tab-btn{padding:9px 13px;min-height:40px;font-size:12px}
+ #portfolio .poster-item.reveal{transition:none}
+}
