@@ -590,3 +590,8 @@ footer{border-top:1px solid var(--sig-line)!important;background:radial-gradient
 @media(prefers-reduced-motion:reduce){
  *,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}
 }
+
+/* Poster-first hero refinement: preserve every word and detail of the supplied artwork. */
+.hero-banner>.main-poster{object-fit:contain;object-position:center;background:linear-gradient(145deg,rgba(24,14,39,.92),rgba(7,6,15,.96));padding:clamp(8px,1vw,14px);mask-image:none;-webkit-mask-image:none;border-color:rgba(244,196,94,.46);box-shadow:0 28px 70px rgba(0,0,0,.42),0 0 34px rgba(139,72,189,.13)}
+@media(max-width:900px){.hero-banner>.main-poster{min-height:0;height:auto;max-height:none;aspect-ratio:4/5;object-fit:contain;mask-image:none;-webkit-mask-image:none}}
+@media(max-width:600px){.hero-banner>.main-poster{padding:8px;border-radius:18px}}
