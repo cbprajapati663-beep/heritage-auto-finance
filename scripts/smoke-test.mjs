@@ -41,6 +41,9 @@ assert.match(premium, /\.legal-page/, "Legal pages must use the shared premium l
 assert.match(html, /src="app\.js"/i, "HTML must load the external JavaScript");
 assert.ok(existsSync("styles.css"), "styles.css must exist");
 assert.ok(existsSync("app.js"), "app.js must exist");
+assert.match(js, /function initPosterPreview\(\)/, "Poster gallery should support a full-screen preview");
+assert.match(js, /dialog\.showModal\(\)/, "Poster preview should open as an accessible dialog");
+assert.match(premium + readFileSync("next-level.css", "utf8"), /poster-preview-dialog/, "Poster preview should have responsive styling");
 
 const ids = [...html.matchAll(/\bid="([^"]+)"/g)].map(match => match[1]);
 const duplicateIds = ids.filter((id, index) => ids.indexOf(id) !== index);
