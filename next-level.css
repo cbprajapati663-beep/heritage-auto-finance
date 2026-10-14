@@ -269,3 +269,20 @@ nav{min-width:0}
  .service-tile-icon{width:28px;height:28px;flex-basis:28px;font-size:14px}
  .service-tile strong{font-size:.66rem}
 }
+
+
+/* Final polish: protect poster artwork edges and improve keyboard/focus states */
+.poster-grid{align-items:start;grid-auto-rows:auto}
+.poster-item{height:auto;min-width:0;overflow:hidden}
+.poster-item img{display:block;width:100%;height:auto;max-height:none;aspect-ratio:auto;object-fit:contain;object-position:center;background:#0b0913}
+.poster-item:focus-within,.poster-item:focus-visible{outline:2px solid var(--nl-gold);outline-offset:3px}
+.service-tile:focus-visible,.tab-btn:focus-visible,.hero-cta:focus-visible{outline:3px solid var(--nl-gold);outline-offset:3px}
+.hero-banner>.main-poster{object-fit:contain;object-position:center;background:#0b0913;mask-image:none;-webkit-mask-image:none}
+@media(max-width:700px){
+ .poster-grid{grid-template-columns:repeat(2,minmax(0,1fr));align-items:start}
+ .poster-item img{width:100%;height:auto;aspect-ratio:auto;object-fit:contain}
+}
+@media(max-width:360px){
+ .poster-grid{grid-template-columns:1fr}
+ .poster-item img{max-width:360px;margin-inline:auto}
+}
