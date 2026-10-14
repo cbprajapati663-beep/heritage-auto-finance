@@ -133,6 +133,54 @@
     elements.forEach(element => observer.observe(element));
   }
 
+  function initPosterPreview() {
+    const gallery = document.querySelector("#portfolio .poster-grid");
+    if (!gallery || document.getElementById("posterPreviewDialog")) return;
+    const dialog = document.createElement("dialog");
+    dialog.id = "posterPreviewDialog";
+    dialog.className = "poster-preview-dialog";
+    dialog.setAttribute("aria-label", "Poster preview");
+    dialog.innerHTML = '<button type="button" class="poster-preview-close" aria-label="Close poster preview">×</button><button type="button" class="poster-preview-prev" aria-label="Previous poster">‹</button><figure><img alt=""><figcaption></figcaption></figure><button type="button" class="poster-preview-next" aria-label="Next poster">›</button>';
+    document.body.appendChild(dialog);
+    const previewImage = dialog.querySelector("img");
+    const caption = dialog.querySelector("figcaption");
+    let currentItems = [];
+    let currentIndex = 0;
+    const show = index => {
+      if (!currentItems.length) return;
+      currentIndex = (index + currentItems.length) % currentItems.length;
+      const source = currentItems[currentIndex].querySelector("img");
+      if (!source) return;
+      previewImage.src = source.currentSrc || source.src;
+      previewImage.alt = source.alt || "Heritage Auto Finance poster";
+      caption.textContent = source.alt || "Heritage Auto Finance";
+      dialog.querySelector(".poster-preview-prev").disabled = currentItems.length < 2;
+      dialog.querySelector(".poster-preview-next").disabled = currentItems.length < 2;
+    };
+    gallery.addEventListener("click", event => {
+      const image = event.target.closest(".poster-item img");
+      if (!image) return;
+      const item = image.closest(".poster-item");
+      if (!item || item.getAttribute("aria-hidden") === "true") return;
+      currentItems = Array.from(gallery.querySelectorAll(".poster-item")).filter(card =>
+        card.getAttribute("aria-hidden") !== "true" && getComputedStyle(card).display !== "none"
+      );
+      currentIndex = currentItems.indexOf(item);
+      show(currentIndex);
+      if (!dialog.open) dialog.showModal();
+    });
+    dialog.querySelector(".poster-preview-close").addEventListener("click", () => dialog.close());
+    dialog.querySelector(".poster-preview-prev").addEventListener("click", () => show(currentIndex - 1));
+    dialog.querySelector(".poster-preview-next").addEventListener("click", () => show(currentIndex + 1));
+    dialog.addEventListener("click", event => {
+      if (event.target === dialog) dialog.close();
+    });
+    dialog.addEventListener("keydown", event => {
+      if (event.key === "ArrowLeft") { event.preventDefault(); show(currentIndex - 1); }
+      if (event.key === "ArrowRight") { event.preventDefault(); show(currentIndex + 1); }
+    });
+  }
+
   function init() {
     const progressBar = document.getElementById("scrollProgress");
     const updateScrollProgress = () => {
@@ -162,6 +210,7 @@
       button.addEventListener("click", event => filterPosters(button.dataset.category, event));
     });
     filterPosters("all");
+    initPosterPreview();
 
     document.querySelectorAll(".faq-item").forEach(item => {
       item.setAttribute("aria-expanded", String(item.classList.contains("active")));
