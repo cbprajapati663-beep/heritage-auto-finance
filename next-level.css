@@ -346,3 +346,45 @@ button,a,input,select,textarea{-webkit-tap-highlight-color:transparent}
 @media(max-width:380px){
  #portfolio .poster-grid{grid-template-columns:1fr}
 }
+
+
+/* 2026-10-14: final premium layout pass */
+:root{--nl-panel:#100d1b;--nl-line:rgba(244,196,94,.2)}
+body{overflow-x:clip}
+.hero-banner{max-width:1440px;margin-inline:auto}
+#services,#portfolio,.tools-wrapper,.enquiry-paths,.lead-form-section,.faq-section{width:min(100% - 32px,1280px);margin-inline:auto}
+#portfolio{padding:clamp(32px,5vw,68px) 0}
+#portfolio .filter-tabs{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin:0 auto 26px}
+#portfolio .tab-btn{min-height:42px;padding:10px 18px}
+#portfolio .poster-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(12px,1.7vw,22px);margin-inline:auto}
+#portfolio .poster-item{border:1px solid rgba(244,196,94,.2);border-radius:15px;background:linear-gradient(145deg,#171127,#0a0811);box-shadow:0 12px 30px rgba(0,0,0,.22);transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease}
+#portfolio .poster-item:hover{transform:translateY(-4px)!important;border-color:rgba(244,196,94,.65);box-shadow:0 18px 38px rgba(0,0,0,.34)}
+#portfolio .poster-item img{border-radius:9px}
+#services .service-journey{width:min(100%,980px);margin:24px auto}
+#services .details-container{width:min(100%,1120px);margin-inline:auto}
+.tools-wrapper{padding-block:clamp(36px,5vw,72px)}
+.tools-wrapper .calc-card{max-width:780px;margin:0 auto 18px}
+.enquiry-path-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.enquiry-path{height:100%;box-sizing:border-box}
+#contact .form-container{width:min(100%,820px);margin-inline:auto}
+.section-title{margin-inline:auto;max-width:100%;line-height:1.15}
+.section-subtitle{margin-inline:auto;max-width:64ch;line-height:1.65}
+@media(max-width:1050px){
+ #services,#portfolio,.tools-wrapper,.enquiry-paths,.lead-form-section,.faq-section{width:min(100% - 28px,900px)}
+ #portfolio .poster-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+ .enquiry-path-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:700px){
+ #services,#portfolio,.tools-wrapper,.enquiry-paths,.lead-form-section,.faq-section{width:calc(100% - 24px)}
+ #portfolio .poster-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+ #portfolio .poster-item{padding:5px;border-radius:12px}
+ .enquiry-path-grid{grid-template-columns:1fr}
+ .tools-wrapper .calc-card{padding:20px 16px}
+ .hero-banner{margin:0 12px;width:calc(100% - 24px);border-radius:0 0 20px 20px}
+}
+@media(max-width:380px){
+ #portfolio .poster-grid{grid-template-columns:1fr}
+}
+@media(prefers-reduced-motion:reduce){
+ #portfolio .poster-item{transition:none}
+}
