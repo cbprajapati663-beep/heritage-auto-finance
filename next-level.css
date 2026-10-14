@@ -534,3 +534,59 @@ a,button{touch-action:manipulation}
  .hero-banner>.typing-container .typed-text{display:block!important}
  .hero-banner>.main-poster{width:min(100%,340px)!important;max-width:340px!important;max-height:none!important;aspect-ratio:3/4!important;margin:8px auto 0!important;transform:none!important}
 }
+
+
+/* === Heritage Signature Experience — poster-led visual overhaul === */
+:root{
+ --sig-ink:#07060d;--sig-panel:#100d1b;--sig-panel2:#171127;
+ --sig-gold:#f6c85f;--sig-gold2:#ffe7a0;--sig-violet:#8f43bb;
+ --sig-line:rgba(246,200,95,.25);
+}
+body{background:#07060d!important}
+main{overflow:clip}
+section{scroll-margin-top:100px}
+section h2,main h2{letter-spacing:-.035em;text-wrap:balance}
+section:not(.hero-banner){position:relative}
+section:not(.hero-banner)::before{content:"";position:absolute;inset:0;pointer-events:none;z-index:0;background:radial-gradient(ellipse at 8% 15%,rgba(110,45,150,.09),transparent 42%)}
+section:not(.hero-banner)>*:not(style){position:relative;z-index:1}
+.hero-banner{width:min(1440px,calc(100% - 48px))!important;margin:28px auto 24px!important;border:1px solid rgba(246,200,95,.24)!important;border-radius:26px!important;box-shadow:0 35px 110px rgba(0,0,0,.48),0 0 70px rgba(105,43,142,.13)!important}
+.hero-banner>.main-poster{padding:7px!important;background:linear-gradient(145deg,rgba(246,200,95,.45),rgba(143,67,187,.32),rgba(246,200,95,.12))!important}
+.hero-banner>.main-poster:hover{box-shadow:0 32px 90px rgba(0,0,0,.6),0 0 0 1px rgba(246,200,95,.4),0 0 55px rgba(143,67,187,.3)!important}
+.hero-actions{gap:12px!important}
+.hero-cta-primary{box-shadow:0 10px 32px rgba(246,200,95,.2)!important}
+.hero-cta-secondary{background:rgba(20,14,32,.72)!important;border:1px solid rgba(164,100,205,.7)!important}
+.hero-trust-points span{border:1px solid rgba(255,255,255,.09)!important;background:rgba(18,14,29,.7)!important;padding:7px 11px!important;border-radius:999px!important}
+.trust-strip{max-width:1180px;margin:0 auto 28px;border:1px solid rgba(255,255,255,.07);border-radius:0 0 16px 16px}
+.service-ribbon,.services-ribbon,.service-cards{gap:14px!important}
+.service-ribbon a,.services-ribbon a,.service-cards>*,.service-card,.why-card,.feature-card{
+ background:linear-gradient(145deg,rgba(27,21,43,.96),rgba(12,10,20,.98))!important;
+ border:1px solid rgba(246,200,95,.16)!important;border-radius:15px!important;
+ box-shadow:0 12px 30px rgba(0,0,0,.18)!important;
+ transition:transform .24s ease,border-color .24s ease,box-shadow .24s ease!important;
+}
+.service-ribbon a:hover,.services-ribbon a:hover,.service-cards>*:hover,.service-card:hover,.why-card:hover,.feature-card:hover{
+ transform:translateY(-4px)!important;border-color:rgba(246,200,95,.52)!important;box-shadow:0 18px 42px rgba(0,0,0,.3),0 0 28px rgba(143,67,187,.1)!important
+}
+.poster-gallery,.poster-grid,.gallery-grid{gap:18px!important}
+.poster-gallery img,.poster-grid img,.gallery-grid img,.poster-card img,.poster-item img{
+ border:1px solid rgba(246,200,95,.28)!important;border-radius:12px!important;
+ box-shadow:0 12px 28px rgba(0,0,0,.35)!important;transition:transform .24s ease,box-shadow .24s ease!important
+}
+.poster-gallery img:hover,.poster-grid img:hover,.gallery-grid img:hover,.poster-card img:hover,.poster-item img:hover{transform:translateY(-5px) scale(1.012)!important;box-shadow:0 22px 42px rgba(0,0,0,.5),0 0 28px rgba(143,67,187,.17)!important}
+button,.btn,.contact-btn,input[type=submit]{transition:transform .2s ease,box-shadow .2s ease!important}
+button:hover,.btn:hover,.contact-btn:hover,input[type=submit]:hover{transform:translateY(-2px)}
+input,select,textarea{background:#0e0b18!important;border:1px solid rgba(246,200,95,.2)!important;color:#fff!important;border-radius:10px!important}
+input:focus,select:focus,textarea:focus{outline:2px solid rgba(143,67,187,.65)!important;outline-offset:2px}
+footer{border-top:1px solid var(--sig-line)!important;background:radial-gradient(ellipse at 50% 0%,rgba(92,35,122,.18),transparent 60%),#080710!important}
+.mobile-quick-actions{backdrop-filter:blur(18px);background:rgba(10,8,17,.9)!important;border:1px solid rgba(246,200,95,.18)!important;box-shadow:0 -8px 35px rgba(0,0,0,.25)!important}
+@media(max-width:700px){
+ .hero-banner{width:100%!important;margin:12px 0 18px!important;border-left:0!important;border-right:0!important;border-radius:0!important}
+ .trust-strip{margin:0 12px 20px;border-radius:14px}
+ .trust-strip>div{padding:9px 6px!important}
+ .trust-strip strong{font-size:.7rem!important}
+ .trust-strip small{font-size:.62rem!important}
+ .hero-banner>.main-poster{width:min(82vw,340px)!important;margin:24px auto 4px!important}
+}
+@media(prefers-reduced-motion:reduce){
+ *,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}
+}
