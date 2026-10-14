@@ -286,3 +286,34 @@ nav{min-width:0}
  .poster-grid{grid-template-columns:1fr}
  .poster-item img{max-width:360px;margin-inline:auto}
 }
+
+
+/* 2026-10-14: premium interaction and spacing refinement */
+:root{scrollbar-gutter:stable}
+#portfolio .section-subtitle{max-width:640px}
+#portfolio .poster-grid{width:min(100%,1420px)}
+.poster-item{position:relative;isolation:isolate}
+.poster-item::after{content:"VIEW POSTER";position:absolute;left:50%;bottom:12px;transform:translate(-50%,8px);padding:7px 11px;border:1px solid rgba(244,196,94,.48);border-radius:999px;background:rgba(8,7,17,.9);color:#ffe8a5;font-size:10px;font-weight:850;letter-spacing:.12em;opacity:0;pointer-events:none;transition:opacity .2s ease,transform .2s ease}
+.poster-item:hover::after{opacity:1;transform:translate(-50%,0)}
+.poster-item img{transition:filter .22s ease}
+.poster-item:hover img{filter:brightness(1.04)}
+.service-tile{height:100%;box-sizing:border-box}
+.hero-banner .hero-actions{align-items:stretch}
+.hero-banner .hero-cta{white-space:normal;text-align:center;line-height:1.25}
+.section-title{text-wrap:balance}
+.section-subtitle{text-wrap:pretty}
+.calc-card,.form-container,.detail-box,.journey-step,.poster-item{box-sizing:border-box}
+button,a,input,select,textarea{-webkit-tap-highlight-color:transparent}
+@media(min-width:1200px){
+ .hero-banner{padding-left:clamp(64px,8vw,140px);padding-right:clamp(64px,8vw,140px);column-gap:clamp(26px,3vw,48px)}
+ .hero-banner>.main-poster{max-width:610px;justify-self:end}
+ .poster-grid{gap:clamp(16px,1.7vw,24px)}
+}
+@media(max-width:700px){
+ .poster-item::after{display:none}
+ .hero-banner .hero-actions .hero-cta{flex:1 1 auto;min-width:min(100%,145px)}
+ .section-title{text-wrap:balance}
+}
+@media(prefers-reduced-motion:reduce){
+ .poster-item::after,.poster-item img,.service-tile{transition:none!important}
+}
