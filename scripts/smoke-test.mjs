@@ -38,7 +38,7 @@ assert.match(readFileSync("privacy-policy.html", "utf8"), /rel="canonical" href=
 assert.match(readFileSync("terms.html", "utf8"), /rel="canonical" href="https:\/\/heritageautofinance\.netlify\.app\/terms\.html"/i, "Terms canonical must use the production domain");
 
 assert.match(premium, /\.legal-page/, "Legal pages must use the shared premium layout");
-assert.match(html, /src="app\.js"/i, "HTML must load the external JavaScript");
+assert.match(html, /src="app\.js(?:\?v=[^"]*)?"/i, "HTML must load the external JavaScript, including an optional cache version");
 assert.ok(existsSync("styles.css"), "styles.css must exist");
 assert.ok(existsSync("app.js"), "app.js must exist");
 assert.match(js, /function initPosterPreview\(\)/, "Poster gallery should support a full-screen preview");
