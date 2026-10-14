@@ -488,3 +488,49 @@ a,button{touch-action:manipulation}
  .hero-banner>.hero-trust-points span{font-size:10px}
 }
 @media(prefers-reduced-motion:reduce){.hero-banner>.hero-actions .hero-cta{transition:none}}
+
+
+/* HERO ART-DIRECTION PASS — cinematic automotive editorial */
+.hero-banner{
+  width:100%;max-width:none;min-height:clamp(600px,56vw,760px)!important;
+  padding:clamp(46px,6.2vw,96px) clamp(22px,7.2vw,112px)!important;
+  grid-template-columns:minmax(0,1.06fr) minmax(0,.94fr)!important;
+  column-gap:clamp(22px,3vw,54px)!important;
+  background:#080711!important;
+}
+.hero-banner:before{
+  background:
+    linear-gradient(90deg,#080711 0%,rgba(8,7,17,.97) 35%,rgba(8,7,17,.55) 66%,rgba(8,7,17,.25) 100%),
+    radial-gradient(ellipse at 78% 45%,rgba(126,57,172,.28),transparent 42%)!important;
+}
+.hero-banner:after{
+  content:"";position:absolute;z-index:0;top:0;right:0;bottom:0;width:58%;
+  background-image:linear-gradient(90deg,#080711 0%,rgba(8,7,17,.52) 34%,rgba(8,7,17,.16) 100%),linear-gradient(0deg,rgba(8,7,17,.6),transparent 35%,rgba(8,7,17,.12)),url("https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1800&q=85");
+  background-size:cover;background-position:center 58%;opacity:.7;pointer-events:none;
+}
+.hero-banner>.secure-badge,.hero-banner>.typing-container,.hero-banner>.hero-supporting,.hero-banner>.hero-actions,.hero-banner>.hero-trust-points{z-index:2}
+.hero-banner>.secure-badge{margin-bottom:8px!important;letter-spacing:.12em!important}
+.hero-banner>.typing-container{max-width:690px!important;margin-top:22px!important;font-size:clamp(3.25rem,6vw,6.1rem)!important;line-height:.98!important;letter-spacing:-.065em!important}
+.hero-banner>.typing-container .typed-text{display:block!important;margin-top:7px;color:#f4c45e!important;text-shadow:0 4px 34px rgba(244,196,94,.22)!important}
+.hero-banner>.hero-supporting{max-width:44ch!important;font-size:clamp(1rem,1.25vw,1.14rem)!important;line-height:1.8!important}
+.hero-banner>.hero-actions .hero-cta{min-height:56px!important;padding:16px 23px!important;border-radius:9px!important}
+.hero-banner>.hero-trust-points{max-width:610px}
+.hero-banner>.main-poster{position:relative;z-index:2;max-width:clamp(250px,30vw,410px)!important;max-height:560px!important;aspect-ratio:3/4!important;justify-self:center!important;align-self:center!important;object-fit:contain!important;background:#100c1a!important;border:1px solid rgba(244,196,94,.55)!important;border-radius:18px!important;box-shadow:0 30px 90px rgba(0,0,0,.58),0 0 0 10px rgba(255,255,255,.025),0 0 70px rgba(139,72,189,.17)!important}
+@media(min-width:1200px){
+ .hero-banner>.main-poster{transform:translateX(12px) rotate(1.2deg)}
+ .hero-banner>.main-poster:hover{transform:translateX(12px) rotate(0deg) translateY(-4px)}
+}
+@media(max-width:1050px) and (min-width:701px){
+ .hero-banner{min-height:560px!important;padding:40px 28px!important;column-gap:22px!important}
+ .hero-banner>.typing-container{font-size:clamp(2.8rem,5.5vw,4.6rem)!important}
+ .hero-banner>.main-poster{max-width:100%!important}
+ .hero-banner:after{width:68%;opacity:.48}
+}
+@media(max-width:700px){
+ .hero-banner{width:100%!important;min-height:0!important;margin:0!important;padding:32px 18px 26px!important;grid-template-columns:minmax(0,1fr)!important;column-gap:0!important;border-radius:0!important}
+ .hero-banner:before{background:linear-gradient(180deg,rgba(8,7,17,.97),rgba(8,7,17,.82) 45%,rgba(8,7,17,.55))!important}
+ .hero-banner:after{top:auto;left:0;width:100%;height:46%;background-position:center;background-image:linear-gradient(0deg,#080711 0%,rgba(8,7,17,.35) 65%,rgba(8,7,17,.1)),url("https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1000&q=80");opacity:.42}
+ .hero-banner>.typing-container{font-size:clamp(2.8rem,11vw,4.1rem)!important;margin-top:18px!important}
+ .hero-banner>.typing-container .typed-text{display:block!important}
+ .hero-banner>.main-poster{width:min(100%,340px)!important;max-width:340px!important;max-height:none!important;aspect-ratio:3/4!important;margin:8px auto 0!important;transform:none!important}
+}
