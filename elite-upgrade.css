@@ -1,0 +1,102 @@
+/* Heritage Auto Finance — refined premium layer
+   Additive overrides only; preserves existing page structure and functionality. */
+:root {
+  --haf-ink: #09070d;
+  --haf-panel: #15111b;
+  --haf-gold: #d7b56d;
+  --haf-gold-bright: #f2d99b;
+  --haf-lilac: #9a82c8;
+  --haf-muted: #c5bdce;
+}
+html { scroll-behavior: smooth; scroll-padding-top: 92px; }
+body {
+  background:
+    radial-gradient(ellipse at 12% 8%, rgba(122, 78, 155, .13), transparent 35%),
+    radial-gradient(ellipse at 88% 24%, rgba(215, 181, 109, .075), transparent 30%),
+    var(--haf-ink);
+}
+::selection { color: #09070d; background: var(--haf-gold-bright); }
+nav {
+  border-bottom: 1px solid rgba(215,181,109,.22);
+  background: rgba(9,7,13,.88);
+  -webkit-backdrop-filter: blur(18px);
+  backdrop-filter: blur(18px);
+}
+nav .nav-links a {
+  transition: color .2s ease, background .2s ease;
+  border-radius: 999px;
+}
+nav .nav-links a:hover, nav .nav-links a:focus-visible {
+  color: var(--haf-gold-bright);
+  background: rgba(215,181,109,.09);
+}
+.nav-logo { filter: drop-shadow(0 4px 18px rgba(215,181,109,.12)); }
+.trust-strip {
+  border-block: 1px solid rgba(215,181,109,.16);
+  background: linear-gradient(100deg, rgba(215,181,109,.055), rgba(154,130,200,.055), rgba(215,181,109,.035));
+}
+.trust-strip strong { color: var(--haf-gold-bright); }
+.secure-badge {
+  border: 1px solid rgba(215,181,109,.45);
+  background: rgba(215,181,109,.08);
+  box-shadow: 0 0 28px rgba(215,181,109,.07);
+}
+.hero-banner {
+  isolation: isolate;
+  position: relative;
+}
+.hero-banner::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 7% 4%;
+  border-radius: 32px;
+  pointer-events: none;
+  background: radial-gradient(ellipse at 50% 30%, rgba(154,130,200,.11), transparent 68%);
+}
+.typed-text {
+  color: var(--haf-gold-bright);
+  text-shadow: 0 0 30px rgba(215,181,109,.18);
+}
+.hero-supporting { color: var(--haf-muted); max-width: 720px; margin-inline: auto; }
+button, .btn, a.button, .cta-button, input[type="submit"] {
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease, background .2s ease;
+}
+button:hover, .btn:hover, a.button:hover, .cta-button:hover, input[type="submit"]:hover {
+  transform: translateY(-2px);
+}
+:where(a, button, input, select, textarea, summary):focus-visible {
+  outline: 2px solid var(--haf-gold-bright);
+  outline-offset: 4px;
+}
+:where(.service-card, .feature-card, .tool-card, .poster-item, .calculator-card, .contact-card) {
+  border-color: rgba(215,181,109,.17);
+  transition: border-color .22s ease, transform .22s ease, box-shadow .22s ease;
+}
+:where(.service-card, .feature-card, .tool-card, .poster-item, .calculator-card, .contact-card):hover {
+  border-color: rgba(215,181,109,.48);
+  box-shadow: 0 16px 40px rgba(0,0,0,.22), 0 0 24px rgba(215,181,109,.045);
+}
+section[id], [id="services"], [id="portfolio"], [id="tools"], [id="contact"] { scroll-margin-top: 100px; }
+.float-wa {
+  box-shadow: 0 8px 28px rgba(37,211,102,.22);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.float-wa:hover { transform: translateY(-3px) scale(1.035); box-shadow: 0 12px 32px rgba(37,211,102,.32); }
+.back-to-top { transition: opacity .2s ease, transform .2s ease; }
+input, select, textarea {
+  color-scheme: dark;
+}
+img { height: auto; }
+@media (max-width: 720px) {
+  html { scroll-padding-top: 78px; }
+  nav { gap: 12px; }
+  .nav-logo { max-width: 148px; }
+  .trust-strip { gap: 12px; }
+  .hero-banner::before { inset: 3% 0; border-radius: 20px; }
+  section[id], [id="services"], [id="portfolio"], [id="tools"], [id="contact"] { scroll-margin-top: 82px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+}
