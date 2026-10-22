@@ -140,3 +140,10 @@ assert.match(attribution, /heritage:enquiry/, "WhatsApp enquiry clicks should em
 assert.match(attribution, /new URL\\(link\\.href\\)/, "WhatsApp links should be parsed safely before attribution is added");
 assert.doesNotMatch(attribution, /localStorage|sessionStorage|document\\.cookie/, "Enquiry attribution must not persist tracking data in browser storage");
 assert.match(html, /form-fallback-actions/, "A direct contact fallback must remain available if the third-party callback form fails");
+
+assert.equal((html.match(/<h1\\b/gi) || []).length, 1, "Homepage should have one primary semantic heading");
+assert.match(html, /<h1 class="typing-container">Finance for your/, "The hero message should be the primary page heading");
+for (const phrase of ["new car finance", "used car finance", "vehicle refinance", "commercial vehicle finance", "motor insurance assistance"]) {
+  assert.ok(html.toLowerCase().includes(phrase), `Service enquiry copy should cover: ${phrase}`);
+}
+assert.equal((html.match(/class="service-tile" href="https:\\/\\/wa\\.me\\/917600211085[^"]*" target="_blank" rel="noopener noreferrer"/g) || []).length, 5, "Each service shortcut should open a service-specific WhatsApp enquiry safely");
