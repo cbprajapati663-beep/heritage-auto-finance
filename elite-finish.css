@@ -1,0 +1,157 @@
+/* Heritage Auto Finance — Elite finish layer, October 2026.
+   Additive presentation-only enhancements; no existing business logic is replaced. */
+:root {
+  --haf-elite-gold: #e1c27a;
+  --haf-elite-gold-soft: rgba(225,194,122,.15);
+  --haf-elite-purple: #a28bd0;
+  --haf-elite-border: rgba(225,194,122,.22);
+}
+body {
+  background-image:
+    radial-gradient(ellipse at 4% 18%, rgba(120,82,158,.12), transparent 31rem),
+    radial-gradient(ellipse at 94% 48%, rgba(225,194,122,.055), transparent 28rem);
+  background-attachment: scroll;
+}
+.section-title {
+  text-wrap: balance;
+  letter-spacing: -.025em;
+}
+.section-subtitle {
+  max-width: 760px;
+  margin-inline: auto;
+  line-height: 1.75;
+  text-wrap: pretty;
+}
+.hero-banner {
+  overflow: clip;
+}
+.hero-banner .main-poster {
+  border: 1px solid var(--haf-elite-border);
+  border-radius: clamp(14px, 2vw, 26px);
+  box-shadow: 0 22px 65px rgba(0,0,0,.34), 0 0 0 1px rgba(255,255,255,.025) inset;
+}
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+.hero-cta {
+  min-height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border-radius: 999px;
+  padding: 13px 22px;
+  font-weight: 700;
+  text-decoration: none;
+}
+.hero-cta-primary {
+  background: linear-gradient(135deg, #f2dda4, #c39b4b);
+  color: #171019;
+  box-shadow: 0 8px 28px rgba(195,155,75,.18);
+}
+.hero-cta-secondary {
+  border: 1px solid rgba(225,194,122,.5);
+  background: rgba(255,255,255,.025);
+}
+.hero-cta:hover { transform: translateY(-2px); }
+.trust-strip > div, .stat-item, .journey-step, .detail-box, .review-card,
+.calc-card, .form-container, .enquiry-path, .service-tile {
+  border-color: var(--haf-elite-border);
+}
+.service-tile, .enquiry-path, .journey-step, .detail-box, .review-card {
+  border-radius: 18px;
+}
+.service-tile, .enquiry-path {
+  background-image: linear-gradient(145deg, rgba(255,255,255,.035), rgba(255,255,255,.008));
+}
+.service-tile:focus-visible, .enquiry-path:focus-visible {
+  outline: 2px solid var(--haf-elite-gold);
+  outline-offset: 4px;
+}
+.detail-box h3, .journey-step h3, .review-card h4 {
+  text-wrap: balance;
+}
+.detail-box li, .journey-step p, .review-card p {
+  line-height: 1.75;
+}
+.poster-grid .poster-item {
+  overflow: hidden;
+  background: #100d15;
+  border: 1px solid rgba(225,194,122,.18);
+  border-radius: 16px;
+}
+.poster-grid .poster-item img {
+  display: block;
+  width: 100%;
+  transition: transform .35s ease, filter .35s ease;
+}
+.poster-grid .poster-item:hover img {
+  transform: scale(1.025);
+  filter: saturate(1.04);
+}
+.calc-card {
+  background: linear-gradient(145deg, rgba(30,24,38,.96), rgba(14,11,18,.98));
+  box-shadow: 0 18px 50px rgba(0,0,0,.22);
+  border-radius: 22px;
+}
+.calc-card input[type="range"] { accent-color: var(--haf-elite-gold); }
+.emi-result {
+  border: 1px solid rgba(225,194,122,.22);
+  border-radius: 16px;
+  background: linear-gradient(135deg, rgba(225,194,122,.09), rgba(162,139,208,.06));
+}
+.emi-whatsapp-cta {
+  border-radius: 999px;
+  font-weight: 700;
+}
+.faq-item {
+  border: 1px solid rgba(225,194,122,.16);
+  border-radius: 14px;
+  margin-block: 10px;
+  overflow: clip;
+}
+.faq-item.active {
+  border-color: rgba(225,194,122,.45);
+  background: rgba(225,194,122,.035);
+}
+.form-container {
+  border: 1px solid var(--haf-elite-border);
+  border-radius: 22px;
+  background: linear-gradient(145deg, rgba(31,24,39,.97), rgba(13,10,17,.98));
+  box-shadow: 0 22px 65px rgba(0,0,0,.25);
+}
+.form-container input, .form-container select, .form-container textarea {
+  border-radius: 12px;
+}
+.heritage-proof-strip {
+  border-block: 1px solid rgba(225,194,122,.18);
+  background: linear-gradient(100deg, rgba(225,194,122,.055), rgba(162,139,208,.055));
+}
+footer {
+  border-top: 1px solid rgba(225,194,122,.22);
+  background: linear-gradient(180deg, rgba(17,12,22,.7), #08060b);
+}
+.footer-legal a { text-underline-offset: 4px; }
+.mobile-quick-actions {
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(225,194,122,.2);
+  box-shadow: 0 -8px 30px rgba(0,0,0,.18);
+}
+@media (max-width: 640px) {
+  .hero-actions { align-items: stretch; flex-direction: column; }
+  .hero-cta { width: 100%; box-sizing: border-box; }
+  .hero-banner .main-poster { border-radius: 14px; }
+  .section-subtitle { padding-inline: 8px; }
+  .calc-card, .form-container { border-radius: 17px; }
+}
+@media (hover: none) {
+  .poster-grid .poster-item:hover img { transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .poster-grid .poster-item img { transition: none; }
+}
