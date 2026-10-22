@@ -218,3 +218,18 @@ footer {
   .hero-banner .typing-container { margin-block: 18px 12px; }
   .service-tile { min-height: 84px; }
 }
+
+
+/* Next-level performance, mobile ergonomics and keyboard comfort. */
+@media (max-width: 760px) {
+  .mobile-quick-actions {
+    padding-bottom: max(10px, env(safe-area-inset-bottom));
+  }
+  body { padding-bottom: env(safe-area-inset-bottom); }
+  .float-wa { bottom: calc(82px + env(safe-area-inset-bottom)); }
+  .back-to-top { bottom: calc(142px + env(safe-area-inset-bottom)); }
+}
+@media (hover: none) {
+  .hero-cta:hover, .service-tile:hover, .site-share-button:hover { transform: none; }
+}
+:where(a, button, input, select, textarea) { touch-action: manipulation; }
