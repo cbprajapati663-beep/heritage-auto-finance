@@ -174,3 +174,23 @@ footer {
 .form-fallback-actions a:first-of-type { background: linear-gradient(135deg,#f2dda4,#c39b4b); color: #171019; border-color: transparent; }
 .form-fallback-actions a:focus-visible { outline: 2px solid #f2d99b; outline-offset: 3px; }
 @media (max-width: 480px) { .form-fallback-actions a { width: 100%; box-sizing: border-box; } }
+
+/* Native share action for quick customer referrals. */
+.site-share-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;
+  margin: 8px 0 12px;
+  padding: 11px 18px;
+  border: 1px solid rgba(225,194,122,.52);
+  border-radius: 999px;
+  color: #f2dda4;
+  background: rgba(225,194,122,.07);
+  font: inherit;
+  font-weight: 750;
+  cursor: pointer;
+}
+.site-share-button:hover { background: rgba(225,194,122,.14); }
+.site-share-button:focus-visible { outline: 2px solid #f2d99b; outline-offset: 4px; }
