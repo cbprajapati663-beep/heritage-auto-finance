@@ -147,3 +147,9 @@ for (const phrase of ["new car finance", "used car finance", "vehicle refinance"
   assert.ok(html.toLowerCase().includes(phrase), "Service enquiry copy should cover: " + phrase);
 }
 assert.equal((html.match(/class="service-tile" href="https:\/\/wa\.me\/917600211085[^"]*" target="_blank" rel="noopener noreferrer"/g) || []).length, 5, "Each service shortcut should open a service-specific WhatsApp enquiry safely");
+
+
+assert.match(html, /fonts\.googleapis\.com/, "Font origin should be preconnected for faster rendering");
+assert.match(html, /fonts\.gstatic\.com/, "Font asset origin should be preconnected");
+assert.match(readFileSync("elite-finish.css", "utf8"), /env\(safe-area-inset-bottom\)/, "Mobile controls should respect device safe areas");
+assert.match(readFileSync("elite-finish.css", "utf8"), /touch-action:\s*manipulation/, "Interactive controls should avoid delayed touch handling");
