@@ -153,3 +153,6 @@ assert.match(html, /fonts\.googleapis\.com/, "Font origin should be preconnected
 assert.match(html, /fonts\.gstatic\.com/, "Font asset origin should be preconnected");
 assert.match(readFileSync("elite-finish.css", "utf8"), /env\(safe-area-inset-bottom\)/, "Mobile controls should respect device safe areas");
 assert.match(readFileSync("elite-finish.css", "utf8"), /touch-action:\s*manipulation/, "Interactive controls should avoid delayed touch handling");
+
+assert.match(html, /fonts\.googleapis\.com\/css2\?family=Playfair\+Display/, "Google Fonts stylesheet should be discoverable directly from the document head");
+assert.doesNotMatch(css, /^@import\s+url\(['"]https:\/\/fonts\.googleapis\.com/m, "Main stylesheet should not hide font loading behind CSS @import");
