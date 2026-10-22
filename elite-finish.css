@@ -155,3 +155,22 @@ footer {
 @media (prefers-reduced-motion: reduce) {
   .poster-grid .poster-item img { transition: none; }
 }
+
+/* Helpful contact fallback when the third-party callback form is blocked. */
+.form-fallback-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 18px 0 4px;
+  padding: 15px;
+  border: 1px solid rgba(225,194,122,.2);
+  border-radius: 14px;
+  background: rgba(225,194,122,.035);
+}
+.form-fallback-actions p { flex-basis: 100%; margin: 0; color: #c5bdce; font-size: .9rem; text-align: center; }
+.form-fallback-actions a { display: inline-flex; min-height: 42px; align-items: center; justify-content: center; padding: 10px 16px; border-radius: 999px; border: 1px solid rgba(225,194,122,.42); text-decoration: none; font-weight: 700; }
+.form-fallback-actions a:first-of-type { background: linear-gradient(135deg,#f2dda4,#c39b4b); color: #171019; border-color: transparent; }
+.form-fallback-actions a:focus-visible { outline: 2px solid #f2d99b; outline-offset: 3px; }
+@media (max-width: 480px) { .form-fallback-actions a { width: 100%; box-sizing: border-box; } }
