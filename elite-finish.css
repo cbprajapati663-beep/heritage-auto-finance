@@ -194,3 +194,27 @@ footer {
 }
 .site-share-button:hover { background: rgba(225,194,122,.14); }
 .site-share-button:focus-visible { outline: 2px solid #f2d99b; outline-offset: 4px; }
+
+
+/* Conversion and accessibility polish: clear service actions and semantic hero heading. */
+.hero-banner .typing-container {
+  margin-block: 22px 16px;
+  max-width: 760px;
+}
+.service-tile {
+  min-height: 92px;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.service-tile strong { line-height: 1.35; }
+.service-tile small { line-height: 1.5; }
+.service-tile b {
+  flex: 0 0 auto;
+  transition: transform .2s ease, color .2s ease;
+}
+.service-tile:hover b { transform: translate(2px,-2px); color: var(--haf-elite-gold); }
+.service-tile:active { transform: scale(.99); }
+@media (max-width: 640px) {
+  .hero-banner .typing-container { margin-block: 18px 12px; }
+  .service-tile { min-height: 84px; }
+}
