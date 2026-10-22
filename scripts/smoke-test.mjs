@@ -131,3 +131,12 @@ for (const url of sitemapLocations) {
 }
 assert.match(notFound, /name="viewport"/, "Custom 404 page should be responsive on mobile");
 assert.match(notFound, /rel="noopener noreferrer"/, "External 404 links should use safe target attributes");
+
+
+const attribution = readFileSync("lead-tracking.js", "utf8");
+assert.match(html, /src="lead-tracking\\.js(?:\\?v=[^"]*)?" defer/i, "Homepage must load the enquiry attribution module");
+assert.match(attribution, /utm_source[\\s\\S]*utm_medium[\\s\\S]*utm_campaign[\\s\\S]*utm_content/, "Enquiry attribution should support standard UTM campaign fields");
+assert.match(attribution, /heritage:enquiry/, "WhatsApp enquiry clicks should emit the documented attribution event");
+assert.match(attribution, /new URL\\(link\\.href\\)/, "WhatsApp links should be parsed safely before attribution is added");
+assert.doesNotMatch(attribution, /localStorage|sessionStorage|document\\.cookie/, "Enquiry attribution must not persist tracking data in browser storage");
+assert.match(html, /form-fallback-actions/, "A direct contact fallback must remain available if the third-party callback form fails");
