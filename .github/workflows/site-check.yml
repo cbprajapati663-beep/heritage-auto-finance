@@ -22,5 +22,7 @@ jobs:
           node-version: 20
       - name: Check JavaScript syntax
         run: node --check app.js
+      - name: Check enquiry attribution script syntax
+        run: node --check lead-tracking.js
       - name: Run website smoke tests
         run: node scripts/smoke-test.mjs
