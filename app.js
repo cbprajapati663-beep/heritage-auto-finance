@@ -182,6 +182,41 @@
   }
 
   function init() {
+    const shareButton = document.getElementById("siteShareButton");
+    if (shareButton) {
+      const defaultShareLabel = shareButton.textContent.trim();
+      shareButton.addEventListener("click", async () => {
+        const shareData = {
+          title: "Heritage Auto Finance",
+          text: "Vehicle finance and motor insurance assistance in Mehsana and North Gujarat.",
+          url: "https://heritageautofinance.netlify.app/"
+        };
+        try {
+          if (navigator.share) {
+            await navigator.share(shareData);
+          } else if (navigator.clipboard && window.isSecureContext) {
+            await navigator.clipboard.writeText(shareData.url);
+            shareButton.textContent = "✓ Link copied";
+            window.setTimeout(() => { shareButton.textContent = defaultShareLabel; }, 2200);
+          } else {
+            window.prompt("Copy the Heritage Auto Finance website link:", shareData.url);
+          }
+        } catch (error) {
+          if (error && error.name !== "AbortError") {
+            if (navigator.clipboard && window.isSecureContext) {
+              try {
+                await navigator.clipboard.writeText(shareData.url);
+                shareButton.textContent = "✓ Link copied";
+                window.setTimeout(() => { shareButton.textContent = defaultShareLabel; }, 2200);
+              } catch (_) { window.prompt("Copy the Heritage Auto Finance website link:", shareData.url); }
+            } else {
+              window.prompt("Copy the Heritage Auto Finance website link:", shareData.url);
+            }
+          }
+        }
+      });
+    }
+
     const progressBar = document.getElementById("scrollProgress");
     const updateScrollProgress = () => {
       if (!progressBar) return;
