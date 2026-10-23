@@ -69,7 +69,9 @@ for (const match of html.matchAll(/href="#([^"]+)"/g)) {
 assert.match(css, /@media\s*\(max-width:\s*768px\)/, "Mobile layout rules should exist");
 assert.match(css, /@media\s*\(prefers-reduced-motion:\s*reduce\)/, "Reduced-motion preferences should be respected");
 assert.equal((css.match(/\/\* Premium conversion-focused polish \*\//g) || []).length, 1, "Premium CSS rules should not be duplicated");
-assert.match(css, /\.hs-form-frame\s*\{[^}]*overflow:\s*visible/s, "Embedded lead form must not be clipped");
+assert.doesNotMatch(html, /hubspot|hsforms|hs-form|247419056|972bc938/i, "Homepage must not load or embed HubSpot forms or tracking");
+assert.doesNotMatch(css + premium, /hubspot|hs-form-frame/i, "Unused HubSpot form styling should be removed");
+assert.match(html, /id="directWhatsAppEnquiry"/, "WhatsApp enquiry form should remain as the primary lead form");
 assert.match(html, /id="emiWhatsApp"[^>]+href="https:\/\/wa\.me\/917600211085/i, "EMI estimate should offer a WhatsApp follow-up");
 assert.match(html, /class="enquiry-path-grid"/, "Service-specific enquiry paths should be visible");
 assert.match(html, /This simplified illustration multiplies monthly income by 30\. It is not a lender eligibility calculation/i, "Affordability illustration must explain its simplified formula and limits");
