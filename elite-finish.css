@@ -1234,3 +1234,25 @@ nav .nav-logo{flex:0 1 auto;min-width:0}
     line-height: 1.45 !important;
   }
 }
+
+
+/* Final mobile callback-card tightening: reduce excess vertical height while keeping all contact options usable. */
+@media (max-width: 600px) {
+  #contact.lead-form-section { padding: 18px 10px !important; margin-top: 14px !important; }
+  #contact .form-container { padding: 14px 12px !important; }
+  #contact .form-container h3 { font-size: 1.28rem !important; margin-bottom: 6px !important; }
+  #contact .form-container > p:not(.form-privacy-note) { margin-bottom: 8px !important; }
+  #contact .direct-wa-enquiry { margin-top: 7px !important; padding: 10px !important; }
+  #contact .direct-wa-enquiry h4 { font-size: .92rem !important; margin-bottom: 4px !important; }
+  #contact .direct-wa-enquiry > p { margin-bottom: 7px !important; font-size: .74rem !important; line-height: 1.35 !important; }
+  #contact .direct-wa-form { gap: 4px !important; }
+  #contact .direct-wa-form label { margin-top: 1px !important; font-size: .76rem !important; }
+  #contact .direct-wa-form input,
+  #contact .direct-wa-form select { min-height: 36px !important; padding: 7px 9px !important; font-size: .82rem !important; }
+  #contact .direct-wa-form textarea { min-height: 48px !important; height: 48px !important; padding: 7px 9px !important; font-size: .82rem !important; }
+  #contact .direct-wa-form button { min-height: 40px !important; margin-top: 3px !important; padding: 8px 10px !important; }
+  #contact .form-fallback-actions { margin-top: 7px !important; padding: 8px !important; gap: 6px !important; }
+  #contact .form-fallback-actions p { font-size: .7rem !important; margin-bottom: 3px !important; }
+  #contact .form-fallback-actions a { min-height: 34px !important; padding: 7px 10px !important; font-size: .74rem !important; }
+  #contact .form-privacy-note { margin-top: 7px !important; font-size: .66rem !important; line-height: 1.35 !important; }
+}
