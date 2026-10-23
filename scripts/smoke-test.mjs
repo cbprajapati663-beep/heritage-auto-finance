@@ -108,9 +108,9 @@ assert.ok(existsSync("robots.txt"), "Robots instructions must exist");
 assert.ok(existsSync("sitemap.xml"), "XML sitemap must exist");
 const robots = readFileSync("robots.txt", "utf8");
 const sitemap = readFileSync("sitemap.xml", "utf8");
-assert.match(robots, /Sitemap:\s*https:\\/\\/cbprajapati663-beep\\.github\\.io\\/heritage-auto-finance\\/sitemap\.xml/i, "Robots file must advertise the production sitemap");
+assert.ok(robots.includes("Sitemap: https://cbprajapati663-beep.github.io/heritage-auto-finance/sitemap.xml"), "Robots file must advertise the published sitemap");
 assert.match(sitemap, /<urlset[\s>]/i, "Sitemap must contain a URL set");
-assert.match(sitemap, /https:\\/\\/cbprajapati663-beep\\.github\\.io\\/heritage-auto-finance\\//i, "Sitemap must list the production homepage");
+assert.ok(sitemap.includes("https://cbprajapati663-beep.github.io/heritage-auto-finance/"), "Sitemap must list the published homepage");
 assert.match(sitemap, /privacy-policy\.html/i, "Sitemap must include the privacy policy");
 assert.match(sitemap, /terms\.html/i, "Sitemap must include the terms page");
 
