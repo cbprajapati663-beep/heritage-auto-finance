@@ -1050,3 +1050,68 @@ nav .nav-links a[aria-current="location"]::after {
   .hero-banner .typing-container{font-size:clamp(1.8rem,7.8vw,2.2rem)!important}
   .hero-banner .hero-trust-points>*{font-size:.75rem}
 }
+
+
+/* Final mobile UX pass: clearer navigation, thumb-friendly links, and safer floating actions. */
+nav .nav-links a{
+  min-height:36px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:8px 10px;
+  border-radius:999px;
+}
+nav .nav-links a:hover,
+nav .nav-links a:focus-visible{
+  background:rgba(246,200,95,.08);
+}
+nav .nav-logo{flex:0 1 auto;min-width:0}
+.float-wa{
+  width:58px;
+  height:58px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  line-height:1;
+  border:2px solid rgba(255,255,255,.8);
+  box-shadow:0 8px 26px rgba(37,211,102,.38),0 0 0 5px rgba(37,211,102,.08);
+}
+@media(max-width:760px){
+  nav{
+    padding:10px 14px!important;
+    gap:8px!important;
+    row-gap:10px!important;
+  }
+  nav .nav-logo{height:44px!important;max-width:48vw}
+  nav .nav-links{
+    display:grid!important;
+    grid-template-columns:repeat(4,minmax(0,1fr));
+    width:100%;
+    gap:5px!important;
+  }
+  nav .nav-links a{
+    min-width:0;
+    min-height:38px;
+    padding:7px 3px;
+    font-size:clamp(.62rem,2.6vw,.74rem)!important;
+    letter-spacing:.02em!important;
+    white-space:nowrap;
+  }
+  .float-wa{
+    right:14px!important;
+    bottom:calc(14px + env(safe-area-inset-bottom,0px))!important;
+    width:54px!important;
+    height:54px!important;
+    font-size:28px!important;
+    z-index:1002;
+  }
+  .back-to-top{bottom:calc(78px + env(safe-area-inset-bottom,0px))!important}
+  main,section[id]{scroll-margin-top:120px!important}
+}
+@media(max-width:360px){
+  nav .nav-links a{font-size:.59rem!important;padding-inline:1px}
+  nav .nav-logo{height:40px!important}
+}
+@media(prefers-reduced-motion:reduce){
+  .float-wa{animation:none!important}
+}
