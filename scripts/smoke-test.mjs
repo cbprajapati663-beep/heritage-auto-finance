@@ -148,7 +148,8 @@ assert.match(attribution, /utm_source[\s\S]*utm_medium[\s\S]*utm_campaign[\s\S]*
 assert.match(attribution, /heritage:enquiry/, "WhatsApp enquiry clicks should emit the documented attribution event");
 assert.match(attribution, /new URL\(link\.href\)/, "WhatsApp links should be parsed safely before attribution is added");
 assert.doesNotMatch(attribution, /localStorage|sessionStorage|document\.cookie/, "Enquiry attribution must not persist tracking data in browser storage");
-assert.match(html, /form-fallback-actions/, "A direct contact fallback must remain available if the third-party callback form fails");
+assert.match(html, /id="directWhatsAppEnquiry"/, "The direct WhatsApp enquiry form must remain available without third-party embeds");
+assert.match(html, /class="heritage-proof-strip"/, "A direct contact strip should remain available below the enquiry form");
 
 assert.equal((html.match(/<h1\b/gi) || []).length, 1, "Homepage should have one primary semantic heading");
 assert.match(html, /<h1 class="typing-container">Finance for your/, "The hero message should be the primary page heading");
