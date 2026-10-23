@@ -6,9 +6,9 @@
   let textIndex = 0;
   let charIndex = 0;
   let typingTimer = null;
-  const typingSpeed = 95;
-  const erasingSpeed = 45;
-  const pauseAfterWord = 1600;
+  const typingSpeed = 125;
+  const erasingSpeed = 65;
+  const pauseAfterWord = 2400;
 
   const formatINR = value => "₹ " + Math.round(Number(value) || 0).toLocaleString("en-IN");
 
