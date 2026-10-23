@@ -1135,3 +1135,21 @@ nav .nav-logo{flex:0 1 auto;min-width:0}
   .direct-wa-enquiry{scroll-margin-top:120px}
   .direct-wa-form button{width:100%;min-height:50px}
 }
+
+
+/* Fix: ensure the hero callback CTA remains visibly readable on mobile and desktop. */
+.hero-banner .hero-actions .hero-cta-primary,
+.hero-banner .hero-actions a.hero-cta-primary:link,
+.hero-banner .hero-actions a.hero-cta-primary:visited{
+  color:#17101c!important;
+  -webkit-text-fill-color:#17101c!important;
+  background:linear-gradient(115deg,#ffe7a5,#f6c85f)!important;
+  border:1px solid rgba(255,231,165,.95)!important;
+  opacity:1!important;
+  visibility:visible!important;
+  text-indent:0!important;
+  font-size:clamp(.88rem,2.7vw,1rem)!important;
+  letter-spacing:0!important;
+  text-shadow:none!important;
+}
+.hero-banner .hero-actions .hero-cta-primary span{color:#17101c!important;-webkit-text-fill-color:#17101c!important}
