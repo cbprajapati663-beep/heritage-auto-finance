@@ -1325,3 +1325,41 @@ nav .nav-logo{flex:0 1 auto;min-width:0}
 @media(max-width:700px){
  .hero-banner > .hero-actions > a.hero-cta-primary { width: min(100%,260px) !important; }
 }
+
+
+/* Restore the original premium callback button; only correct its unreadable font color. */
+.hero-banner > .hero-actions > a.hero-cta-primary,
+.hero-banner > .hero-actions > a.hero-cta-primary:link,
+.hero-banner > .hero-actions > a.hero-cta-primary:visited,
+.hero-banner > .hero-actions > a.hero-cta-primary:hover,
+.hero-banner > .hero-actions > a.hero-cta-primary:active {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: auto !important;
+  max-width: 100% !important;
+  min-height: 48px !important;
+  padding: 13px 24px !important;
+  border-radius: 999px !important;
+  background: linear-gradient(120deg,#ffe5a0,#f4b41a 55%,#d99409) !important;
+  color: #17101c !important;
+  -webkit-text-fill-color: #17101c !important;
+  font-size: .92rem !important;
+  font-weight: 800 !important;
+  letter-spacing: .2px !important;
+  line-height: 1.25 !important;
+  text-align: center !important;
+  text-indent: 0 !important;
+  text-shadow: none !important;
+  text-decoration: none !important;
+  white-space: normal !important;
+  border: 1px solid rgba(255,231,165,.95) !important;
+  box-shadow: 0 8px 28px rgba(244,180,26,.22) !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+.hero-banner > .hero-actions > a.hero-cta-primary::before,
+.hero-banner > .hero-actions > a.hero-cta-primary::after {
+  content: none !important;
+  display: none !important;
+}
