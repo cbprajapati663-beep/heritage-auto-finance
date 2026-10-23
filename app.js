@@ -14,7 +14,8 @@
 
   function typeNext() {
     const target = document.querySelector(".typed-text");
-    if (!target || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    if (!target || window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
+        window.matchMedia("(max-width: 700px)").matches) {
       if (target) target.textContent = textArray[0];
       return;
     }
