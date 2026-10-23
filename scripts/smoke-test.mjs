@@ -135,7 +135,8 @@ assert.equal(new Set(sitemapLocations).size, sitemapLocations.length, "Sitemap U
 for (const url of sitemapLocations) {
   assert.ok(url.startsWith("https://cbprajapati663-beep.github.io/heritage-auto-finance/"), "Sitemap entries must use the canonical GitHub Pages host");
   const pathname = new URL(url).pathname;
-  const localPage = pathname === "/" ? "index.html" : pathname.slice(1);
+  const siteBase = "/heritage-auto-finance/";
+  const localPage = pathname === "/" || pathname === siteBase ? "index.html" : pathname.startsWith(siteBase) ? pathname.slice(siteBase.length) : pathname.slice(1);
   assert.ok(existsSync(localPage), `Sitemap entry must point to a tracked page: ${url}`);
 }
 assert.match(notFound, /name="viewport"/, "Custom 404 page should be responsive on mobile");
