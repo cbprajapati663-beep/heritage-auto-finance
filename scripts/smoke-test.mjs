@@ -48,6 +48,7 @@ assert.match(html, /src="app\.js(?:\?v=[^"]*)?"/i, "HTML must load the external 
 assert.ok(existsSync("styles.css"), "styles.css must exist");
 assert.ok(existsSync("app.js"), "app.js must exist");
 assert.match(js, /function initPosterPreview\(\)/, "Poster gallery should support a full-screen preview");
+assert.match(js, /window\.matchMedia\("\(max-width: 700px\)"\)\.matches/, "Mobile hero should show a complete heading instead of a mid-word typing frame");
 assert.match(js, /dialog\.showModal\(\)/, "Poster preview should open as an accessible dialog");
 assert.match(premium + readFileSync("next-level.css", "utf8"), /poster-preview-dialog/, "Poster preview should have responsive styling");
 
