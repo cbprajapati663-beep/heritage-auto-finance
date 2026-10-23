@@ -1585,3 +1585,77 @@ img { backface-visibility: hidden; }
   html { scroll-behavior: auto; }
   .hero-banner::before,.hero-banner::after { animation: none !important; }
 }
+
+
+/* Conversion polish pass: clear field states, touch-friendly forms, and restrained feedback. */
+.direct-wa-form {
+  display: grid;
+  gap: 10px;
+}
+.direct-wa-form label {
+  color: rgba(255,244,218,.88);
+  font-size: .9rem;
+  font-weight: 600;
+  letter-spacing: .01em;
+  margin-top: 3px;
+}
+.direct-wa-form input,
+.direct-wa-form select,
+.direct-wa-form textarea {
+  width: 100%;
+  min-height: 48px;
+  box-sizing: border-box;
+  padding: 12px 14px;
+  border: 1px solid rgba(225,194,122,.24);
+  background: rgba(8,6,12,.7);
+  color: #fff8e9;
+  transition: border-color .2s ease, box-shadow .2s ease, background .2s ease;
+}
+.direct-wa-form textarea { min-height: 72px; resize: vertical; }
+.direct-wa-form input::placeholder,
+.direct-wa-form textarea::placeholder { color: rgba(235,226,244,.55); }
+.direct-wa-form input:focus,
+.direct-wa-form select:focus,
+.direct-wa-form textarea:focus {
+  border-color: rgba(242,213,145,.92);
+  background: rgba(17,12,23,.98);
+  box-shadow: 0 0 0 4px rgba(225,194,122,.1);
+  outline: none;
+}
+.direct-wa-form input:invalid:not(:placeholder-shown) {
+  border-color: rgba(255,133,133,.75);
+}
+.direct-wa-form button[type="submit"] {
+  min-height: 50px;
+  border: 1px solid rgba(255,255,255,.22);
+  border-radius: 999px;
+  background: linear-gradient(115deg,#f6e6b5,#d7b56d 55%,#b68a3e);
+  color: #171019;
+  font-weight: 800;
+  box-shadow: 0 8px 24px rgba(195,155,75,.16), inset 0 1px rgba(255,255,255,.48);
+  touch-action: manipulation;
+  transition: transform .2s ease, box-shadow .2s ease, filter .2s ease;
+}
+.direct-wa-form button[type="submit"]:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(195,155,75,.25), inset 0 1px rgba(255,255,255,.5);
+  filter: brightness(1.035);
+}
+.direct-wa-form button[type="submit"]:active { transform: translateY(0) scale(.99); }
+.direct-wa-status:empty { display: none; }
+.direct-wa-status:not(:empty) {
+  padding: 10px 12px;
+  border: 1px solid rgba(225,194,122,.2);
+  border-radius: 10px;
+  background: rgba(225,194,122,.055);
+  line-height: 1.5;
+}
+@media (max-width: 640px) {
+  .direct-wa-form { gap: 8px; }
+  .direct-wa-form input, .direct-wa-form select, .direct-wa-form textarea { font-size: 16px; }
+  .direct-wa-form button[type="submit"] { width: 100%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .direct-wa-form input, .direct-wa-form select, .direct-wa-form textarea,
+  .direct-wa-form button[type="submit"] { transition: none !important; }
+}
