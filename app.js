@@ -328,13 +328,25 @@
         const data = new FormData(directWaForm);
         const name = String(data.get("name") || "").trim();
         const phone = String(data.get("phone") || "").trim();
+        const phoneDigits = phone.replace(/\\D/g, "");
         const enquiryType = String(data.get("enquiryType") || "").trim();
+        const phoneInput = document.getElementById("waEnquiryPhone");
+        const status = document.getElementById("waEnquiryStatus");
+        if (phoneDigits.length < 10 || phoneDigits.length > 15) {
+          if (phoneInput) {
+            phoneInput.setCustomValidity("Please enter a valid phone number with 10 to 15 digits.");
+            phoneInput.reportValidity();
+            phoneInput.addEventListener("input", () => phoneInput.setCustomValidity(""), { once: true });
+          }
+          if (status) status.textContent = "Please check your mobile number and try again.";
+          return;
+        }
+        if (phoneInput) phoneInput.setCustomValidity("");
         const message = String(data.get("message") || "").trim();
         const lines = ["Hello Heritage Auto Finance, I would like a callback.", "Name: " + name, "Mobile: " + phone, "Enquiry: " + enquiryType];
         if (message) lines.push("Message: " + message);
         lines.push("Please contact me about this enquiry.");
         const url = "https://wa.me/917600211085?text=" + encodeURIComponent(lines.join("\n"));
-        const status = document.getElementById("waEnquiryStatus");
         if (status) status.textContent = "WhatsApp is opening with your details. Review the message and press Send to submit.";
         window.open(url, "_blank", "noopener,noreferrer");
       });
