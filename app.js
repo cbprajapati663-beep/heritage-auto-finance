@@ -348,8 +348,12 @@
         lines.push("Please contact me about this enquiry.");
         const url = "https://wa.me/917600211085?text=" + encodeURIComponent(lines.join("\n"));
         if (status) status.textContent = "Opening WhatsApp. Review your details and press Send there to submit.";
-        const waWindow = window.open(url, "_blank", "noopener,noreferrer");
-        if (!waWindow) {
+        // Avoid "noopener" in the feature string: some browsers return null
+        // even when the tab opens, causing an incorrect same-tab fallback.
+        const waWindow = window.open(url, "_blank");
+        if (waWindow) {
+          try { waWindow.opener = null; } catch (error) { /* Cross-origin restrictions may apply. */ }
+        } else {
           if (status) status.textContent = "Your browser blocked the new tab. Opening WhatsApp in this tab instead…";
           window.location.assign(url);
         }
