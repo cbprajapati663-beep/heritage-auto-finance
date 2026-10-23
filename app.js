@@ -317,6 +317,29 @@
       navTargets.forEach(target => navObserver.observe(target));
     }
 
+
+    // WhatsApp route: the visitor reviews and sends the prefilled enquiry themselves.
+    const directWaForm = document.getElementById("directWhatsAppEnquiry");
+    if (directWaForm && !directWaForm.dataset.bound) {
+      directWaForm.dataset.bound = "true";
+      directWaForm.addEventListener("submit", event => {
+        event.preventDefault();
+        if (!directWaForm.reportValidity()) return;
+        const data = new FormData(directWaForm);
+        const name = String(data.get("name") || "").trim();
+        const phone = String(data.get("phone") || "").trim();
+        const enquiryType = String(data.get("enquiryType") || "").trim();
+        const message = String(data.get("message") || "").trim();
+        const lines = ["Hello Heritage Auto Finance, I would like a callback.", "Name: " + name, "Mobile: " + phone, "Enquiry: " + enquiryType];
+        if (message) lines.push("Message: " + message);
+        lines.push("Please contact me about this enquiry.");
+        const url = "https://wa.me/917600211085?text=" + encodeURIComponent(lines.join("\n"));
+        const status = document.getElementById("waEnquiryStatus");
+        if (status) status.textContent = "WhatsApp is opening with your details. Review the message and press Send to submit.";
+        window.open(url, "_blank", "noopener,noreferrer");
+      });
+    }
+
     if (textArray.length) typeNext();
   }
 
