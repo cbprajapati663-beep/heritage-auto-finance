@@ -1137,16 +1137,17 @@ nav .nav-logo{flex:0 1 auto;min-width:0}
 }
 
 
-/* Minimal fix only: keep the original callback button design and make its label readable. */
+/* Text-only contrast correction: preserve the original CTA shape/background; use readable warm ivory text. */
 .hero-banner .hero-cta-primary,
 .hero-banner .hero-cta-primary:link,
 .hero-banner .hero-cta-primary:visited,
 .hero-banner .hero-cta-primary:hover,
 .hero-banner .hero-cta-primary:active {
-  color: #17101c !important;
-  -webkit-text-fill-color: #17101c !important;
-  text-shadow: none !important;
+  color: #fff3cf !important;
+  -webkit-text-fill-color: #fff3cf !important;
+  text-shadow: 0 1px 2px rgba(0,0,0,.35) !important;
 }
+
 
 
 /* Compact the callback section on phones without changing the premium visual style. */
