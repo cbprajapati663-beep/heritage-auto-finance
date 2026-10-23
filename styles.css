@@ -221,8 +221,6 @@
             box-shadow: 0 0 25px rgba(244, 180, 26, 0.7);
             transform: translateY(-2px);
         }
-/* HubSpot form: allow the full embedded form to render and scroll naturally. */
-.hs-form-frame { width: 100%; min-height: 260px; overflow: visible; }
 
         /* Text Details Section */
         .details-container {
@@ -526,7 +524,6 @@ nav { gap: 18px; }
 .poster-grid { grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); }
 .poster-item { min-width: 0; }
 .poster-item img { display: block; }
-.hs-form-frame { max-width: 100%; }
 .calculator-note { color: #bdb6c8; font-size: .85rem; line-height: 1.6; margin: 16px 0 0; }
 button, a, input { -webkit-tap-highlight-color: transparent; }
 a:focus-visible, button:focus-visible, input:focus-visible { outline: 3px solid #f4b41a; outline-offset: 3px; }
