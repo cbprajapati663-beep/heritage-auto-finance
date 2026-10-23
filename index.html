@@ -376,7 +376,21 @@
     </div>
 
     <!-- Interactive Scripts -->
-    <script src="app.js?v=20261023-wapopupfix1" defer></script>
+    <script src="app.js?v=20261023-whatsapp-only2" defer></script>
     <script src="lead-tracking.js?v=20261022-1" defer></script>
+    <script>
+      // Defensive cleanup: the site uses its own WhatsApp enquiry form, never a third-party embedded lead form.
+      document.addEventListener("DOMContentLoaded", function () {
+        document.querySelectorAll(
+          '.hs-form-frame, [class*="hs-form"], iframe[src*="hsforms.net"], iframe[src*="hubspot"], script[src*="hsforms.net"], script[src*="hs-scripts.com"]'
+        ).forEach(function (node) { node.remove(); });
+        document.querySelectorAll("body *").forEach(function (node) {
+          if (node.children.length === 0 && /create your own free forms to generate leads from your website/i.test(node.textContent || "")) {
+            const container = node.closest(".hs-form-frame, .hs-form, [class*='hs-form'], section, div");
+            if (container && !container.querySelector("#directWhatsAppEnquiry")) container.remove();
+          }
+        });
+      });
+    </script>
 </body>
 </html>
