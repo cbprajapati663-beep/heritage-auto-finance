@@ -347,8 +347,12 @@
         if (message) lines.push("Message: " + message);
         lines.push("Please contact me about this enquiry.");
         const url = "https://wa.me/917600211085?text=" + encodeURIComponent(lines.join("\n"));
-        if (status) status.textContent = "WhatsApp is opening with your details. Review the message and press Send to submit.";
-        window.open(url, "_blank", "noopener,noreferrer");
+        if (status) status.textContent = "Opening WhatsApp. Review your details and press Send there to submit.";
+        const waWindow = window.open(url, "_blank", "noopener,noreferrer");
+        if (!waWindow) {
+          if (status) status.textContent = "Your browser blocked the new tab. Opening WhatsApp in this tab instead…";
+          window.location.assign(url);
+        }
       });
     }
 
