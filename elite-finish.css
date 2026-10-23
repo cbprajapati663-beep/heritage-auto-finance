@@ -1299,3 +1299,78 @@ nav .nav-logo{flex:0 1 auto;min-width:0}
   #contact .form-fallback-actions { display: none !important; }
   #contact .form-privacy-note { font-size: .64rem !important; line-height: 1.35 !important; margin-top: 7px !important; }
 }
+
+
+/* Heritage premium callback v2: focused layout, cleaner inputs, better mobile rhythm. */
+#contact.lead-form-section {
+  scroll-margin-top: 90px;
+}
+#contact .form-container {
+  width: min(100% - 28px, 540px) !important;
+  margin-inline: auto !important;
+  border: 1px solid rgba(246,200,95,.24) !important;
+  background: linear-gradient(145deg, rgba(31,22,39,.97), rgba(13,9,20,.98)) !important;
+}
+#contact .form-container h3 {
+  text-wrap: balance;
+}
+#contact .direct-wa-enquiry {
+  border: 1px solid rgba(246,200,95,.2) !important;
+  background: linear-gradient(155deg, rgba(37,25,43,.92), rgba(20,12,28,.96)) !important;
+}
+#contact .direct-wa-form input,
+#contact .direct-wa-form select,
+#contact .direct-wa-form textarea {
+  width: 100% !important;
+  box-sizing: border-box !important;
+  border: 1px solid rgba(215,187,232,.18) !important;
+  background: #100b18 !important;
+  color: #fff7e7 !important;
+  outline: none !important;
+  transition: border-color .18s ease, box-shadow .18s ease !important;
+}
+#contact .direct-wa-form input:focus,
+#contact .direct-wa-form select:focus,
+#contact .direct-wa-form textarea:focus {
+  border-color: #e8bd55 !important;
+  box-shadow: 0 0 0 3px rgba(232,189,85,.13) !important;
+}
+#contact .direct-wa-form input::placeholder,
+#contact .direct-wa-form textarea::placeholder {
+  color: #a89cad !important;
+  opacity: 1 !important;
+}
+#contact .direct-wa-form button {
+  width: 100% !important;
+  border: 0 !important;
+  border-radius: 999px !important;
+  background: linear-gradient(105deg,#ffe7a5,#f4c75f 58%,#e4a8ff) !important;
+  color: #24152b !important;
+  -webkit-text-fill-color: #24152b !important;
+  font-weight: 800 !important;
+  box-shadow: 0 7px 20px rgba(216,161,69,.16) !important;
+}
+@media (max-width: 600px) {
+  #contact.lead-form-section { padding: 12px 8px !important; }
+  #contact .form-container {
+    width: 100% !important;
+    max-width: 410px !important;
+    padding: 12px 10px !important;
+    border-radius: 15px !important;
+  }
+  #contact .form-container h3 { font-size: 1.2rem !important; }
+  #contact .form-container > p:not(.form-privacy-note) { margin-bottom: 7px !important; }
+  #contact .direct-wa-enquiry { padding: 9px !important; }
+  #contact .direct-wa-enquiry > p { max-width: 34ch; margin-inline: auto !important; }
+  #contact .direct-wa-form { display: grid !important; gap: 4px !important; }
+  #contact .direct-wa-form input,
+  #contact .direct-wa-form select { height: 35px !important; min-height: 35px !important; }
+  #contact .direct-wa-form textarea { height: 44px !important; min-height: 44px !important; resize: vertical !important; }
+  #contact .direct-wa-form button { min-height: 40px !important; }
+  #contact .form-privacy-note { max-width: 58ch; }
+}
+@media (prefers-reduced-motion: reduce) {
+  #contact .direct-wa-form input,
+  #contact .direct-wa-form select,
+  #contact .direct-wa-form textarea { transition: none !important; }
+}
