@@ -265,13 +265,15 @@ footer {
 
 /* Subtle 3D depth accents — CSS-only, lightweight, and brand-safe. */
 .hero-banner {
+  position: relative;
+  isolation: isolate;
   perspective: 1100px;
   transform-style: preserve-3d;
 }
 .hero-banner::after {
   content: "";
   position: absolute;
-  z-index: -1;
+  z-index: 0;
   top: 15%;
   right: clamp(18px, 6vw, 90px);
   width: clamp(100px, 16vw, 190px);
@@ -283,6 +285,10 @@ footer {
   transform: rotateX(66deg) rotateZ(-24deg) translateZ(18px);
   pointer-events: none;
   animation: haf-orbit-float 11s ease-in-out infinite alternate;
+}
+.hero-banner > * {
+  position: relative;
+  z-index: 1;
 }
 @keyframes haf-orbit-float {
   from { transform: rotateX(66deg) rotateZ(-24deg) translate3d(0, 0, 18px); }
