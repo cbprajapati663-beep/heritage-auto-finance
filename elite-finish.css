@@ -1200,3 +1200,53 @@ nav .nav-logo{flex:0 1 auto;min-width:0}
 @media(max-width:700px){
   .hero-banner .hero-actions .hero-cta-primary{width:100%!important}
 }
+
+
+/* Definitive CTA fix: use a block-level gold link with explicit visible text. */
+.hero-banner .hero-actions a.hero-cta-primary,
+.hero-banner .hero-actions a.hero-cta-primary:link,
+.hero-banner .hero-actions a.hero-cta-primary:visited,
+.hero-banner .hero-actions a.hero-cta-primary:hover,
+.hero-banner .hero-actions a.hero-cta-primary:active{
+  display:flex!important;
+  flex-direction:row!important;
+  align-items:center!important;
+  justify-content:center!important;
+  gap:8px!important;
+  box-sizing:border-box!important;
+  width:100%!important;
+  min-width:0!important;
+  max-width:100%!important;
+  min-height:52px!important;
+  padding:14px 18px!important;
+  background-color:#ffe7a5!important;
+  background-image:none!important;
+  color:#1b1020!important;
+  -webkit-text-fill-color:#1b1020!important;
+  font-family:inherit!important;
+  font-size:15px!important;
+  font-weight:800!important;
+  line-height:1.35!important;
+  letter-spacing:0!important;
+  text-align:center!important;
+  text-indent:0!important;
+  text-shadow:none!important;
+  white-space:normal!important;
+  overflow:visible!important;
+  opacity:1!important;
+  visibility:visible!important;
+  border:2px solid #ffe7a5!important;
+  border-radius:12px!important;
+  box-shadow:0 5px 18px rgba(246,200,95,.25)!important;
+  clip:auto!important;
+  clip-path:none!important;
+  transform:none!important;
+}
+.hero-banner .hero-actions a.hero-cta-primary span{
+  display:inline!important;
+  color:#1b1020!important;
+  -webkit-text-fill-color:#1b1020!important;
+  font-size:15px!important;
+  opacity:1!important;
+  visibility:visible!important;
+}
