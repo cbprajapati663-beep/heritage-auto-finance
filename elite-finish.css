@@ -527,3 +527,47 @@ html { scroll-behavior: smooth; scroll-padding-top: 88px; }
 @media (prefers-reduced-motion: reduce) {
   .hero-banner .hero-trust-points > * { backdrop-filter: none; }
 }
+
+
+/* Cinematic 3D layer: restrained automotive motion, not a heavy WebGL dependency. */
+.hero-banner { overflow: hidden; }
+.hero-banner::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  inset: -35% -18%;
+  pointer-events: none;
+  background: conic-gradient(from 210deg at 70% 38%, transparent 0 18%, rgba(143,67,187,.11) 23%, transparent 30% 58%, rgba(246,200,95,.075) 64%, transparent 72%);
+  transform: translate3d(0,0,-1px) rotate(-7deg);
+  animation: haf-cinematic-sweep 18s ease-in-out infinite alternate;
+}
+.hero-banner > .haf-3d-orbit { transform-style: preserve-3d; }
+.hero-banner > .main-poster {
+  transform: perspective(1400px) rotateX(.35deg) translateZ(0);
+  transform-origin: center top;
+  transition: transform .55s cubic-bezier(.2,.7,.2,1), box-shadow .55s ease;
+}
+@media (hover:hover) and (pointer:fine) {
+  .hero-banner:hover > .main-poster {
+    transform: perspective(1400px) rotateX(1deg) translateY(-2px) translateZ(8px);
+    box-shadow: 0 30px 80px rgba(0,0,0,.4), 0 0 34px rgba(143,67,187,.12);
+  }
+  .poster-grid .poster-item:hover { transform: perspective(900px) rotateY(-1deg) translateY(-3px); }
+}
+.service-rail { perspective: 1000px; }
+.service-tile { transform-style: preserve-3d; }
+.service-tile b { text-shadow: 0 2px 12px rgba(246,200,95,.18); }
+.stats-bar .stat-item h3 { text-shadow: 0 0 24px rgba(246,200,95,.1); }
+@keyframes haf-cinematic-sweep {
+  from { transform: translate3d(-1%,0,-1px) rotate(-7deg); opacity: .55; }
+  to { transform: translate3d(1.5%,1%,-1px) rotate(-3deg); opacity: 1; }
+}
+@media (max-width: 700px) {
+  .hero-banner::before { inset: -20% -35%; opacity: .6; animation-duration: 24s; }
+  .hero-banner > .main-poster { transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-banner::before { animation: none !important; }
+  .hero-banner > .main-poster { transition: none !important; transform: none !important; }
+  .poster-grid .poster-item { transition: none !important; }
+}
