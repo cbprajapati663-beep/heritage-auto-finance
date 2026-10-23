@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://heritageautofinance.netlify.app/sitemap.xml
+Sitemap: https://cbprajapati663-beep.github.io/heritage-auto-finance/sitemap.xml
