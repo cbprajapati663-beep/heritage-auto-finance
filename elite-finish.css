@@ -473,3 +473,57 @@ html { scroll-behavior: smooth; scroll-padding-top: 88px; }
   html { scroll-behavior: auto; }
   .hero-banner > .hero-actions .hero-cta-primary::after { display: none; }
 }
+
+
+/* Conversion-focused refinement: clear interaction states and stronger content rhythm. */
+.hero-banner .hero-supporting { max-width: 64ch; text-wrap: pretty; }
+.hero-banner .hero-trust-points > * {
+  border: 1px solid rgba(246,200,95,.18);
+  border-radius: 999px;
+  padding: 7px 11px;
+  background: rgba(10,7,15,.34);
+  backdrop-filter: blur(8px);
+}
+.section-title::after {
+  content: "";
+  display: block;
+  width: 54px;
+  height: 2px;
+  margin: 14px auto 0;
+  border-radius: 99px;
+  background: linear-gradient(90deg, #8f43bb, #f6c85f);
+  opacity: .85;
+}
+.service-rail-heading h2 { text-wrap: balance; }
+.service-tile, .enquiry-path, .journey-step, .detail-box, .review-card, .calc-card, .poster-grid .poster-item {
+  -webkit-tap-highlight-color: transparent;
+}
+.poster-preview-dialog {
+  max-width: min(94vw, 1100px);
+  max-height: 92dvh;
+  padding: clamp(12px, 2vw, 24px);
+  border: 1px solid rgba(246,200,95,.38);
+  border-radius: 20px;
+  background: rgba(12,8,17,.97);
+  color: #fff;
+  box-shadow: 0 28px 90px rgba(0,0,0,.62), 0 0 40px rgba(143,67,187,.12);
+}
+.poster-preview-dialog::backdrop { background: rgba(5,3,8,.82); backdrop-filter: blur(8px); }
+.poster-preview-dialog figure { margin: 0; display: grid; justify-items: center; gap: 10px; }
+.poster-preview-dialog figure img { display: block; max-width: 100%; max-height: 76dvh; object-fit: contain; border-radius: 10px; }
+.poster-preview-dialog figcaption { color: #e8d9b1; font-size: .9rem; text-align: center; }
+.poster-preview-dialog button { min-width: 42px; min-height: 42px; border: 1px solid rgba(246,200,95,.42); border-radius: 999px; background: #17101e; color: #ffe7a0; font: inherit; font-size: 1.4rem; cursor: pointer; }
+.poster-preview-dialog button:disabled { opacity: .4; cursor: not-allowed; }
+.poster-preview-dialog .poster-preview-close { position: sticky; float: right; top: 0; }
+.poster-preview-dialog .poster-preview-prev, .poster-preview-dialog .poster-preview-next { position: absolute; top: 50%; transform: translateY(-50%); }
+.poster-preview-dialog .poster-preview-prev { left: 8px; }
+.poster-preview-dialog .poster-preview-next { right: 8px; }
+@media (max-width: 600px) {
+  .poster-preview-dialog { width: calc(100vw - 24px); box-sizing: border-box; border-radius: 15px; }
+  .poster-preview-dialog .poster-preview-prev { left: 4px; }
+  .poster-preview-dialog .poster-preview-next { right: 4px; }
+  .hero-banner .hero-trust-points > * { font-size: .78rem; padding: 6px 9px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-banner .hero-trust-points > * { backdrop-filter: none; }
+}
