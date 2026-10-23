@@ -2242,3 +2242,49 @@ a { text-decoration-thickness: from-font; }
   .service-tile:hover, .journey-step:hover, .detail-box:hover, .review-card:hover,
   .poster-grid .poster-item:hover { transform: none !important; }
 }
+
+
+/* SIGNATURE 6.0 — cinematic premium finish with restrained, accessible motion. */
+:root {
+  --haf-6-gold: #f7e5b4;
+  --haf-6-violet: rgba(133, 91, 180, .18);
+}
+body {
+  background-attachment: fixed;
+  background-color: #090510;
+}
+.hero-banner .main-poster {
+  transition: transform .35s ease, box-shadow .35s ease, filter .35s ease;
+}
+@media (hover: hover) and (pointer: fine) {
+  .hero-banner .main-poster:hover {
+    transform: translateY(-2px) scale(1.006);
+    filter: saturate(1.035);
+    box-shadow: 0 34px 86px rgba(0,0,0,.42), 0 0 0 1px rgba(247,229,180,.2), 0 0 62px rgba(133,91,180,.16);
+  }
+}
+.section-title {
+  text-wrap: balance;
+}
+.service-tile :where(h2, h3, h4), .detail-box :where(h2, h3, h4) {
+  text-wrap: balance;
+}
+:where(.service-tile, .journey-step, .detail-box, .review-card, .poster-grid .poster-item) {
+  overflow-wrap: anywhere;
+}
+:where(.hero-cta-primary, .emi-whatsapp-cta, .direct-wa-enquiry button, .mobile-quick-actions a) {
+  -webkit-tap-highlight-color: transparent;
+}
+:where(.hero-cta-primary, .emi-whatsapp-cta, .direct-wa-enquiry button):focus-visible {
+  outline-color: var(--haf-6-gold);
+  outline-offset: 4px;
+}
+@media (max-width: 700px) {
+  body { background-attachment: scroll; }
+  .hero-banner .main-poster { transition: none; }
+  .section-title { text-wrap: pretty; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-banner .main-poster { transition: none !important; }
+  .hero-banner .main-poster:hover { transform: none !important; filter: none !important; }
+}
