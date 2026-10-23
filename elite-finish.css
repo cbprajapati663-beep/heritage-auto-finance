@@ -1459,3 +1459,59 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   html { scroll-behavior: auto; }
   #contact .direct-wa-form button { transition: none !important; }
 }
+
+/* HERITAGE MOTION LAB — lightweight 3D depth and motion. */
+.hero-banner { perspective:1100px; transform-style:preserve-3d; isolation:isolate; }
+.hero-banner::before,.hero-banner::after {
+ content:""; position:absolute; z-index:-1; width:clamp(180px,32vw,380px); aspect-ratio:1;
+ border-radius:50%; pointer-events:none;
+}
+.hero-banner::before {
+ top:6%; right:-9%;
+ background:radial-gradient(circle,rgba(191,121,255,.16),rgba(191,121,255,0) 68%);
+ animation:hafGlowFloat 9s ease-in-out infinite alternate;
+}
+.hero-banner::after {
+ bottom:5%; left:-12%;
+ background:radial-gradient(circle,rgba(244,199,95,.12),rgba(244,199,95,0) 70%);
+ animation:hafGlowFloat 12s ease-in-out infinite alternate-reverse;
+}
+.haf-3d-orbit,.haf-3d-orbit-secondary {
+ position:absolute; z-index:-1; pointer-events:none; border:1px solid rgba(244,199,95,.22);
+ border-radius:50%; transform-style:preserve-3d;
+ box-shadow:0 0 28px rgba(244,199,95,.06),inset 0 0 24px rgba(201,140,255,.045);
+}
+.haf-3d-orbit {
+ width:clamp(210px,43vw,510px); height:clamp(210px,43vw,510px); right:-7%; top:7%;
+ transform:rotateX(67deg) rotateZ(-18deg); animation:hafOrbitTurn 28s linear infinite;
+}
+.haf-3d-orbit-secondary {
+ width:clamp(170px,33vw,390px); height:clamp(170px,33vw,390px); right:2%; top:13%;
+ border-color:rgba(201,140,255,.2); transform:rotateX(70deg) rotateZ(24deg);
+ animation:hafOrbitTurnReverse 34s linear infinite;
+}
+.main-poster {
+ transform:perspective(1000px) rotateX(1deg) rotateY(-1deg) translateZ(0);
+ transform-origin:center; backface-visibility:hidden;
+ transition:transform .45s cubic-bezier(.2,.7,.2,1),filter .45s ease;
+ filter:drop-shadow(0 22px 34px rgba(0,0,0,.24));
+}
+@media (hover:hover) and (pointer:fine) {
+ .main-poster:hover { transform:perspective(1000px) rotateX(0) rotateY(0) translateY(-5px) translateZ(12px); filter:drop-shadow(0 30px 42px rgba(0,0,0,.34)); }
+ .service-tile,.enquiry-path,.calc-card,.review-card { transform:translateZ(0); transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease; }
+ .service-tile:hover,.enquiry-path:hover,.calc-card:hover,.review-card:hover { transform:translateY(-4px) perspective(900px) rotateX(1deg); box-shadow:0 16px 34px rgba(0,0,0,.22),0 0 0 1px rgba(244,199,95,.12); }
+}
+@keyframes hafGlowFloat { from { transform:translate3d(0,-8px,0) scale(.96);opacity:.7; } to { transform:translate3d(-12px,14px,0) scale(1.06);opacity:1; } }
+@keyframes hafOrbitTurn { from { rotate:0deg; } to { rotate:360deg; } }
+@keyframes hafOrbitTurnReverse { from { rotate:360deg; } to { rotate:0deg; } }
+@media(max-width:700px) {
+ .haf-3d-orbit { right:-25%;top:8%;opacity:.65; }
+ .haf-3d-orbit-secondary { right:-14%;top:14%;opacity:.55; }
+ .hero-banner::before { right:-28%;top:5%; }
+ .hero-banner::after { left:-30%;bottom:8%; }
+ .main-poster { transform:none; }
+}
+@media(prefers-reduced-motion:reduce) {
+ .hero-banner::before,.hero-banner::after,.haf-3d-orbit,.haf-3d-orbit-secondary { animation:none!important; }
+ .main-poster,.service-tile,.enquiry-path,.calc-card,.review-card { transition:none!important;transform:none!important; }
+}
