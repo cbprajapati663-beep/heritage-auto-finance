@@ -13,8 +13,8 @@ assert.match(html, /class="skip-link" href="#main-content"/, "Skip navigation sh
 assert.match(html, /<main id="main-content" tabindex="-1">/, "Main landmark should receive keyboard focus after skip navigation");
 
 assert.match(html, /name="description"/i, "SEO description should exist");
-assert.match(html, /rel="canonical" href="https:\/\/heritageautofinance\.netlify\.app\//i, "Canonical URL should use the production Netlify domain");
-assert.match(html, /property="og:url" content="https:\/\/heritageautofinance\.netlify\.app\//i, "Social preview URL should use the production domain");
+assert.match(html, /rel="canonical" href="https:\\/\\/cbprajapati663-beep\\.github\\.io\\/heritage-auto-finance\\//i, "Canonical URL should use the published GitHub Pages domain");
+assert.match(html, /property="og:url" content="https:\\/\\/cbprajapati663-beep\\.github\\.io\\/heritage-auto-finance\\//i, "Social preview URL should use the published GitHub Pages domain");
 assert.match(html, /hero-cta-primary/, "Primary callback CTA should exist");
 assert.match(html, /hero-trust-points/, "Service highlights should exist");
 assert.equal((html.match(/class="main-poster"/g) || []).length, 1, "Hero should show only one main poster");
@@ -40,8 +40,8 @@ assert.match(html, /Do not submit Aadhaar, PAN, bank account details/i, "Initial
 assert.match(html, /terms\.html/, "Terms must be linked from the homepage");
 assert.ok(existsSync("privacy-policy.html"), "Privacy policy page must exist");
 assert.ok(existsSync("terms.html"), "Terms page must exist");
-assert.match(readFileSync("privacy-policy.html", "utf8"), /rel="canonical" href="https:\/\/heritageautofinance\.netlify\.app\/privacy-policy\.html"/i, "Privacy policy canonical must use the production domain");
-assert.match(readFileSync("terms.html", "utf8"), /rel="canonical" href="https:\/\/heritageautofinance\.netlify\.app\/terms\.html"/i, "Terms canonical must use the production domain");
+assert.match(readFileSync("privacy-policy.html", "utf8"), /rel="canonical" href="https:\\/\\/cbprajapati663-beep\\.github\\.io\\/heritage-auto-finance\\/privacy-policy\.html"/i, "Privacy policy canonical must use the published GitHub Pages domain");
+assert.match(readFileSync("terms.html", "utf8"), /rel="canonical" href="https:\\/\\/cbprajapati663-beep\\.github\\.io\\/heritage-auto-finance\\/terms\.html"/i, "Terms canonical must use the published GitHub Pages domain");
 
 assert.match(premium, /\.legal-page/, "Legal pages must use the shared premium layout");
 assert.match(html, /src="app\.js(?:\?v=[^"]*)?"/i, "HTML must load the external JavaScript, including an optional cache version");
@@ -108,9 +108,9 @@ assert.ok(existsSync("robots.txt"), "Robots instructions must exist");
 assert.ok(existsSync("sitemap.xml"), "XML sitemap must exist");
 const robots = readFileSync("robots.txt", "utf8");
 const sitemap = readFileSync("sitemap.xml", "utf8");
-assert.match(robots, /Sitemap:\s*https:\/\/heritageautofinance\.netlify\.app\/sitemap\.xml/i, "Robots file must advertise the production sitemap");
+assert.match(robots, /Sitemap:\s*https:\\/\\/cbprajapati663-beep\\.github\\.io\\/heritage-auto-finance\\/sitemap\.xml/i, "Robots file must advertise the production sitemap");
 assert.match(sitemap, /<urlset[\s>]/i, "Sitemap must contain a URL set");
-assert.match(sitemap, /https:\/\/heritageautofinance\.netlify\.app\//i, "Sitemap must list the production homepage");
+assert.match(sitemap, /https:\\/\\/cbprajapati663-beep\\.github\\.io\\/heritage-auto-finance\\//i, "Sitemap must list the production homepage");
 assert.match(sitemap, /privacy-policy\.html/i, "Sitemap must include the privacy policy");
 assert.match(sitemap, /terms\.html/i, "Sitemap must include the terms page");
 
@@ -133,7 +133,7 @@ const sitemapLocations = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map(match
 assert.ok(sitemapLocations.length >= 3, "Sitemap should list the homepage and legal pages");
 assert.equal(new Set(sitemapLocations).size, sitemapLocations.length, "Sitemap URLs should not be duplicated");
 for (const url of sitemapLocations) {
-  assert.match(url, /^https:\/\/heritageautofinance\.netlify\.app\//, "Sitemap entries must use the canonical production host");
+  assert.match(url, /^https:\\/\\/cbprajapati663-beep\\.github\\.io\\/heritage-auto-finance\\//, "Sitemap entries must use the canonical production host");
   const pathname = new URL(url).pathname;
   const localPage = pathname === "/" ? "index.html" : pathname.slice(1);
   assert.ok(existsSync(localPage), `Sitemap entry must point to a tracked page: ${url}`);
