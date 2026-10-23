@@ -10,6 +10,7 @@ assert.match(html, /<title>[^<]+<\/title>/i, "Page title should exist");
 assert.equal((html.match(/<main\b/gi) || []).length, 1, "Homepage should expose one main landmark");
 assert.equal((html.match(/<\/main>/gi) || []).length, 1, "Main landmark should be properly closed");
 assert.match(html, /class="skip-link" href="#main-content"/, "Skip navigation should jump to the main landmark");
+assert.match(html, /<main id="main-content" tabindex="-1">/, "Main landmark should receive keyboard focus after skip navigation");
 
 assert.match(html, /name="description"/i, "SEO description should exist");
 assert.match(html, /rel="canonical" href="https:\/\/heritageautofinance\.netlify\.app\//i, "Canonical URL should use the production Netlify domain");
