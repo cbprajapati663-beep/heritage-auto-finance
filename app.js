@@ -268,6 +268,36 @@
     calculateEligibility();
     initReveal();
 
+
+
+    // Desktop-only pointer lighting: subtle, accessible depth without a heavy 3D library.
+    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches &&
+        window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+      const hero = document.querySelector(".hero-banner");
+      if (hero) {
+        hero.addEventListener("pointermove", event => {
+          const rect = hero.getBoundingClientRect();
+          hero.style.setProperty("--haf-pointer-x", ((event.clientX - rect.left) / rect.width * 100) + "%");
+          hero.style.setProperty("--haf-pointer-y", ((event.clientY - rect.top) / rect.height * 100) + "%");
+        }, { passive: true });
+        hero.addEventListener("pointerleave", () => {
+          hero.style.setProperty("--haf-pointer-x", "50%");
+          hero.style.setProperty("--haf-pointer-y", "40%");
+        }, { passive: true });
+      }
+      document.querySelectorAll(".poster-grid .poster-item").forEach(card => {
+        card.addEventListener("pointermove", event => {
+          const rect = card.getBoundingClientRect();
+          const x = (event.clientX - rect.left) / rect.width;
+          const y = (event.clientY - rect.top) / rect.height;
+          card.style.setProperty("--haf-card-x", (x * 100) + "%");
+          card.style.setProperty("--haf-card-y", (y * 100) + "%");
+          card.style.transform = "perspective(900px) rotateX(" + ((.5 - y) * 4).toFixed(2) + "deg) rotateY(" + ((x - .5) * 5).toFixed(2) + "deg) translateY(-2px)";
+        }, { passive: true });
+        card.addEventListener("pointerleave", () => { card.style.transform = ""; }, { passive: true });
+      });
+    }
+
     if (textArray.length) typeNext();
   }
 
