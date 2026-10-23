@@ -1021,3 +1021,32 @@ nav .nav-links a[aria-current="location"]::after {
 .direct-wa-form button:hover{filter:brightness(1.06);transform:translateY(-1px)}
 .direct-wa-status{min-height:1.2em;margin:0;color:#f6d98d;font-size:.85rem}
 @media(prefers-reduced-motion:reduce){.direct-wa-form button{transition:none!important}}
+
+
+/* Mobile refinement pass: keep the headline readable, CTAs legible, and orbit clear of the poster. */
+.hero-banner{min-width:0;overflow:hidden}
+.hero-banner .typing-container{max-width:100%;overflow-wrap:normal;word-break:normal;line-height:1.12}
+.hero-banner .typed-text{display:inline-block;max-width:100%;overflow-wrap:normal;word-break:normal}
+.hero-banner .hero-actions{position:relative;z-index:5;display:flex;flex-wrap:wrap;gap:12px}
+.hero-banner .hero-cta{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:12px 18px;box-sizing:border-box;text-align:center;font-weight:750;line-height:1.25;text-decoration:none}
+.hero-banner .hero-cta-primary{color:#17101c!important;background:linear-gradient(115deg,#ffe7a5,#f6c85f)!important;text-shadow:none!important;box-shadow:0 8px 24px rgba(246,200,95,.18)}
+.hero-banner .hero-cta-secondary{color:#fff!important;background:linear-gradient(135deg,rgba(143,67,187,.22),rgba(18,12,29,.96))!important;border:1px solid rgba(196,145,255,.6)!important}
+.hero-banner .main-poster{position:relative;z-index:2;max-width:100%;height:auto;object-fit:contain}
+.hero-banner>.haf-3d-orbit,.hero-banner>.haf-3d-orbit-secondary{z-index:1;pointer-events:none}
+@media(max-width:700px){
+  .hero-banner{padding:clamp(18px,5vw,28px)!important;gap:16px}
+  .hero-banner .typing-container{font-size:clamp(2rem,8.2vw,3rem)!important;line-height:1.08!important;letter-spacing:-.035em;min-height:2.15em}
+  .hero-banner .typed-text{font-size:inherit;line-height:inherit}
+  .hero-banner .hero-supporting{font-size:.96rem;line-height:1.65;max-width:42rem}
+  .hero-banner .hero-actions{display:grid;grid-template-columns:1fr;gap:10px;width:100%}
+  .hero-banner .hero-cta{width:100%;min-height:48px;padding:13px 16px;border-radius:12px}
+  .hero-banner .main-poster{width:min(100%,390px);margin-inline:auto}
+  .hero-banner>.haf-3d-orbit{opacity:.45;transform:scale(.72);transform-origin:top right}
+  .hero-banner>.haf-3d-orbit-secondary{opacity:.4;top:10px!important;right:10px!important;width:58px!important}
+  .hero-banner .hero-trust-points{position:relative;z-index:2;gap:8px}
+  .hero-banner .hero-trust-points>*{line-height:1.35}
+}
+@media(max-width:380px){
+  .hero-banner .typing-container{font-size:clamp(1.8rem,7.8vw,2.2rem)!important}
+  .hero-banner .hero-trust-points>*{font-size:.75rem}
+}
