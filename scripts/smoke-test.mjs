@@ -159,6 +159,9 @@ assert.match(html, /fonts\.googleapis\.com/, "Font origin should be preconnected
 assert.match(html, /fonts\.gstatic\.com/, "Font asset origin should be preconnected");
 assert.match(readFileSync("elite-finish.css", "utf8"), /env\(safe-area-inset-bottom\)/, "Mobile controls should respect device safe areas");
 assert.match(readFileSync("elite-finish.css", "utf8"), /touch-action:\s*manipulation/, "Interactive controls should avoid delayed touch handling");
+assert.match(readFileSync("elite-finish.css", "utf8"), /@keyframes haf-orbit-float/, "CSS-only 3D hero accent should be present");
+assert.match(readFileSync("elite-finish.css", "utf8"), /prefers-reduced-motion:\s*reduce[\s\S]*?\.hero-banner::after\s*\{\s*animation:\s*none/, "3D animation must respect reduced-motion preferences");
+assert.match(readFileSync("elite-finish.css", "utf8"), /perspective:\s*900px/, "Service cards should have a subtle 3D hover depth effect");
 assert.match(readFileSync("elite-finish.css", "utf8"), /\.skip-link:focus, \.skip-link:focus-visible/, "Skip link should become visible on keyboard focus");
 assert.match(readFileSync("elite-finish.css", "utf8"), /transform: translateY\(calc\(-100% - 20px\)\)/, "Skip link should stay hidden until keyboard focus");
 
