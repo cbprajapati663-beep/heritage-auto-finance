@@ -1115,3 +1115,23 @@ nav .nav-logo{flex:0 1 auto;min-width:0}
 @media(prefers-reduced-motion:reduce){
   .float-wa{animation:none!important}
 }
+
+
+/* Enquiry quality pass: make validation and submission feedback easier to notice. */
+.direct-wa-form input:invalid:not(:placeholder-shown){
+  border-color:rgba(255,117,117,.8)!important;
+  box-shadow:0 0 0 2px rgba(255,117,117,.09);
+}
+.direct-wa-form input:valid:not(:placeholder-shown){
+  border-color:rgba(72,207,137,.48);
+}
+.direct-wa-form button{
+  transition:filter .2s ease,transform .2s ease,box-shadow .2s ease;
+  box-shadow:0 8px 22px rgba(143,67,187,.2);
+}
+.direct-wa-form button:active{transform:translateY(1px)}
+.direct-wa-status{overflow-wrap:anywhere;line-height:1.55}
+@media(max-width:700px){
+  .direct-wa-enquiry{scroll-margin-top:120px}
+  .direct-wa-form button{width:100%;min-height:50px}
+}
