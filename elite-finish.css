@@ -830,3 +830,82 @@ html { scroll-behavior: smooth; scroll-padding-top: 88px; }
   .hero-banner,
   .hero-banner > .hero-actions .hero-cta-primary { animation: none !important; }
 }
+
+
+/* Executive-grade finish: depth hierarchy, scroll-friendly sections, and refined micro-interactions. */
+:root {
+  --haf-gold-halo: rgba(246,200,95,.16);
+  --haf-purple-halo: rgba(143,67,187,.16);
+}
+.hero-banner > .hero-trust-points > * {
+  border: 1px solid rgba(246,200,95,.18);
+  box-shadow: inset 0 1px rgba(255,255,255,.035);
+}
+.stats-bar {
+  position: relative;
+  isolation: isolate;
+}
+.stats-bar::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: linear-gradient(100deg, transparent, rgba(143,67,187,.075), rgba(246,200,95,.055), transparent);
+  background-size: 220% 100%;
+  animation: haf-stat-glow 16s ease-in-out infinite;
+}
+.stats-bar .stat-item h3 {
+  background: linear-gradient(110deg, #fff1c5 10%, #f6c85f 45%, #d5a6ff 80%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+.service-tile {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(246,200,95,.16);
+  box-shadow: inset 0 1px rgba(255,255,255,.035), 0 14px 34px rgba(0,0,0,.12);
+}
+.service-tile::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  background: linear-gradient(115deg, transparent 20%, rgba(255,255,255,.055) 48%, transparent 70%);
+  transform: translateX(-65%);
+  transition: opacity .3s ease, transform .6s ease;
+}
+@media (hover:hover) and (pointer:fine) {
+  .service-tile:hover::after {
+    opacity: 1;
+    transform: translateX(65%);
+  }
+}
+.poster-grid .poster-item {
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(0,0,0,.18), inset 0 1px rgba(255,255,255,.04);
+}
+.poster-grid .poster-item img {
+  transform-origin: center;
+}
+section[id] {
+  scroll-margin-top: clamp(78px, 8vw, 110px);
+}
+:where(.hero-banner, .service-tile, .poster-grid .poster-item, .review-card) {
+  -webkit-tap-highlight-color: transparent;
+}
+@keyframes haf-stat-glow {
+  0%, 100% { background-position: 100% 0; opacity: .55; }
+  50% { background-position: 0 0; opacity: 1; }
+}
+@media (max-width: 700px) {
+  .stats-bar::before { animation-duration: 22s; }
+  .service-tile { box-shadow: inset 0 1px rgba(255,255,255,.025), 0 8px 22px rgba(0,0,0,.12); }
+  .poster-grid .poster-item { box-shadow: 0 8px 20px rgba(0,0,0,.16); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .stats-bar::before { animation: none !important; }
+  .service-tile::after { transition: none !important; }
+}
