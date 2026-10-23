@@ -2178,3 +2178,67 @@ footer a:hover { color: var(--haf-ultra-gold); }
   .nav-links a, .back-to-top, .float-wa, footer a,
   .form-container :where(input, select, textarea) { transition: none !important; }
 }
+
+
+/* ULTRA NEXT — Signature 5.0: dimensional polish and conversion-focused clarity. */
+:root {
+  --haf-5-gold: #f4dfaa;
+  --haf-5-line: rgba(244, 223, 170, .22);
+}
+.hero-banner::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: -5% -3% auto;
+  height: 72%;
+  border-radius: 50%;
+  pointer-events: none;
+  background: radial-gradient(ellipse at center, rgba(132, 83, 177, .17), transparent 68%);
+  filter: blur(14px);
+}
+.service-tile, .journey-step, .detail-box, .review-card, .poster-grid .poster-item {
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+}
+@media (hover: hover) and (pointer: fine) {
+  .service-tile:hover, .journey-step:hover, .detail-box:hover, .review-card:hover,
+  .poster-grid .poster-item:hover {
+    transform: translateY(-4px) perspective(900px) rotateX(.6deg);
+  }
+  .nav-links a { position: relative; }
+  .nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 100%;
+    bottom: -5px;
+    height: 1px;
+    background: linear-gradient(90deg, var(--haf-5-gold), transparent);
+    transition: right .22s ease;
+  }
+  .nav-links a:hover::after, .nav-links a:focus-visible::after { right: 0; }
+}
+:where(.hero-cta-primary, .emi-whatsapp-cta, .direct-wa-enquiry button, .mobile-action-whatsapp) {
+  box-shadow: 0 8px 24px rgba(0,0,0,.16), inset 0 1px rgba(255,255,255,.16);
+}
+:where(.hero-cta-primary, .emi-whatsapp-cta, .direct-wa-enquiry button):active {
+  transform: translateY(1px) scale(.99);
+}
+:where(.form-container, .calc-card, .stats-bar, .trust-strip > div, .heritage-proof-strip) {
+  border-color: var(--haf-5-line);
+}
+img { height: auto; }
+a { text-decoration-thickness: from-font; }
+@media (max-width: 700px) {
+  .hero-banner::before { inset: 0 -8%; height: 55%; filter: blur(22px); }
+  .mobile-quick-actions a { min-height: 44px; }
+  .service-tile, .journey-step, .detail-box, .review-card, .poster-grid .poster-item {
+    transform: none;
+    backface-visibility: visible;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .nav-links a::after { transition: none !important; }
+  .service-tile:hover, .journey-step:hover, .detail-box:hover, .review-card:hover,
+  .poster-grid .poster-item:hover { transform: none !important; }
+}
