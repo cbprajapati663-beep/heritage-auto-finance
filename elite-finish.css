@@ -1006,3 +1006,18 @@ nav .nav-links a[aria-current="location"]::after {
 @media (prefers-reduced-motion: reduce) {
   .hero-banner > .haf-3d-orbit-secondary { animation: none !important; }
 }
+
+/* Direct WhatsApp enquiry form — clear, mobile-first and keyboard accessible. */
+.direct-wa-enquiry{margin-top:24px;padding:clamp(16px,3vw,24px);border:1px solid rgba(246,200,95,.24);border-radius:18px;background:linear-gradient(145deg,rgba(246,200,95,.045),rgba(143,67,187,.07))}
+.direct-wa-enquiry h4{margin:0 0 8px;color:#f6d98d;font-size:1.12rem}
+.direct-wa-enquiry>p{margin:0 0 16px;color:#d2cbd9;line-height:1.6;font-size:.9rem}
+.direct-wa-form{display:grid;gap:9px}
+.direct-wa-form label{margin-top:5px;color:#f4edf9;font-size:.9rem;font-weight:600}
+.direct-wa-form input,.direct-wa-form select,.direct-wa-form textarea{box-sizing:border-box;width:100%;min-height:46px;padding:12px 13px;color:#fff;background:rgba(8,6,13,.88);border:1px solid rgba(246,200,95,.28);border-radius:10px;font:inherit}
+.direct-wa-form select option{color:#171019;background:#fff}
+.direct-wa-form textarea{min-height:88px;resize:vertical}
+.direct-wa-form input:focus-visible,.direct-wa-form select:focus-visible,.direct-wa-form textarea:focus-visible,.direct-wa-form button:focus-visible{outline:2px solid #f6c85f;outline-offset:3px}
+.direct-wa-form button{min-height:48px;margin-top:8px;padding:12px 18px;border:0;border-radius:999px;color:#160f1b;background:linear-gradient(115deg,#f6d98d,#d5a6ff);font:inherit;font-weight:750;cursor:pointer}
+.direct-wa-form button:hover{filter:brightness(1.06);transform:translateY(-1px)}
+.direct-wa-status{min-height:1.2em;margin:0;color:#f6d98d;font-size:.85rem}
+@media(prefers-reduced-motion:reduce){.direct-wa-form button{transition:none!important}}
