@@ -938,3 +938,30 @@ section[id] {
   .poster-grid .poster-item { transform: none !important; transition: none !important; }
   .poster-grid .poster-item::after { display: none; }
 }
+
+
+/* Navigation feedback: highlight the section currently in view. */
+nav .nav-links a {
+  position: relative;
+  transition: color .22s ease, background-color .22s ease;
+}
+nav .nav-links a[aria-current="location"] {
+  color: #f6d98d !important;
+}
+nav .nav-links a[aria-current="location"]::after {
+  content: "";
+  position: absolute;
+  left: 14%;
+  right: 14%;
+  bottom: -5px;
+  height: 2px;
+  border-radius: 99px;
+  background: linear-gradient(90deg, #f6c85f, #b98be8);
+  box-shadow: 0 0 12px rgba(246,200,95,.25);
+}
+@media (max-width: 700px) {
+  nav .nav-links a[aria-current="location"]::after { bottom: -3px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  nav .nav-links a { transition: none !important; }
+}
