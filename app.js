@@ -298,6 +298,25 @@
       });
     }
 
+
+
+    // Active section indicator for the main navigation, with graceful fallback.
+    const navLinks = Array.from(document.querySelectorAll('nav .nav-links a[href^="#"]'));
+    const navTargets = navLinks.map(link => document.querySelector(link.getAttribute("href"))).filter(Boolean);
+    if ("IntersectionObserver" in window && navTargets.length) {
+      const navObserver = new IntersectionObserver(entries => {
+        const visible = entries.filter(entry => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (!visible) return;
+        navLinks.forEach(link => {
+          const active = link.getAttribute("href") === "#" + visible.target.id;
+          if (active) link.setAttribute("aria-current", "location");
+          else link.removeAttribute("aria-current");
+        });
+      }, { rootMargin: "-22% 0px -62% 0px", threshold: [0, .15, .35, .6] });
+      navTargets.forEach(target => navObserver.observe(target));
+    }
+
     if (textArray.length) typeNext();
   }
 
