@@ -625,3 +625,70 @@ html { scroll-behavior: smooth; scroll-padding-top: 88px; }
 @media (prefers-reduced-motion: reduce) {
   .hero-banner > .haf-3d-orbit { animation: none !important; }
 }
+
+
+/* Signature motion system: animated orbit, light reflections, and tactile depth. */
+.hero-banner { overflow: hidden; }
+.hero-banner > .haf-3d-orbit {
+  transform-origin: 50% 50%;
+  will-change: transform, filter;
+  animation: haf-signature-orbit 7s cubic-bezier(.45,0,.55,1) infinite alternate !important;
+}
+.hero-banner > .haf-3d-orbit::before { animation: haf-inner-orbit 9s linear infinite; }
+.hero-banner > .haf-3d-orbit::after { animation: haf-inner-orbit 6s linear infinite reverse; }
+.hero-banner::after {
+  filter: saturate(1.12);
+}
+.hero-banner > .secure-badge {
+  box-shadow: 0 0 0 1px rgba(246,200,95,.08), 0 0 24px rgba(246,200,95,.09);
+}
+.hero-banner > .hero-actions .hero-cta-primary {
+  box-shadow: 0 10px 28px rgba(246,200,95,.12), inset 0 1px rgba(255,255,255,.16);
+}
+.hero-banner > .hero-actions .hero-cta-primary::after {
+  content: "";
+  position: absolute;
+  top: -30%;
+  bottom: -30%;
+  left: -45%;
+  width: 30%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.32), transparent);
+  transform: skewX(-22deg);
+  animation: haf-cta-glint 5.8s ease-in-out infinite;
+  pointer-events: none;
+}
+.service-tile, .poster-grid .poster-item, .review-card {
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+}
+@keyframes haf-signature-orbit {
+  0% { transform: perspective(650px) rotateX(62deg) rotateZ(-28deg) translate3d(0,0,0) scale(.96); filter: drop-shadow(0 0 9px rgba(246,200,95,.35)); }
+  50% { filter: drop-shadow(0 0 20px rgba(198,126,255,.52)); }
+  100% { transform: perspective(650px) rotateX(62deg) rotateZ(28deg) translate3d(-4px,9px,0) scale(1.05); filter: drop-shadow(0 0 16px rgba(246,200,95,.6)); }
+}
+@keyframes haf-inner-orbit {
+  from { rotate: 0deg; }
+  to { rotate: 360deg; }
+}
+@keyframes haf-cta-glint {
+  0%, 68% { left: -45%; opacity: 0; }
+  72% { opacity: 1; }
+  88%, 100% { left: 130%; opacity: 0; }
+}
+@media (max-width: 700px) {
+  .hero-banner > .haf-3d-orbit {
+    width: clamp(88px, 25vw, 116px) !important;
+    top: 10px !important;
+    right: 10px !important;
+  }
+  .hero-banner > .hero-actions .hero-cta-primary::after { animation-duration: 7s; }
+  .hero-banner > .main-poster { box-shadow: 0 20px 44px rgba(0,0,0,.42), 0 0 0 1px rgba(246,200,95,.28) !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-banner > .haf-3d-orbit,
+  .hero-banner > .haf-3d-orbit::before,
+  .hero-banner > .haf-3d-orbit::after,
+  .hero-banner > .hero-actions .hero-cta-primary::after {
+    animation: none !important;
+  }
+}
