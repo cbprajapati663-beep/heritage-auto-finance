@@ -2014,3 +2014,62 @@ button { -webkit-tap-highlight-color: rgba(225,194,122,.12); }
   .lead-form-assurances span { justify-content: flex-start; border-radius: 12px; }
   .direct-wa-enquiry { border-radius: 15px; }
 }
+
+
+/* Signature 3.0 — restrained premium interaction, clearer focus and tactile feedback. */
+:root {
+  --haf-signature-ring: rgba(235, 207, 137, .48);
+  --haf-signature-surface: rgba(255, 255, 255, .035);
+}
+:where(a, button, input, select, textarea, summary, [role="button"]):focus-visible {
+  outline: 2px solid var(--haf-signature-ring);
+  outline-offset: 4px;
+}
+:where(button, .hero-cta, .emi-whatsapp-cta, .site-share-button, .service-tile) {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+.service-tile, .journey-step, .detail-box, .review-card, .calc-card, .form-container {
+  transition: border-color .24s ease, box-shadow .24s ease, background-color .24s ease, transform .24s ease;
+}
+.service-tile:hover, .journey-step:hover, .detail-box:hover, .review-card:hover {
+  border-color: rgba(235, 207, 137, .42);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, .19), inset 0 1px rgba(255,255,255,.035);
+}
+.hero-cta-primary, .emi-whatsapp-cta, .direct-wa-enquiry button {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+.hero-cta-primary::after, .emi-whatsapp-cta::after, .direct-wa-enquiry button::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(110deg, transparent 25%, rgba(255,255,255,.23) 48%, transparent 68%);
+  transform: translateX(-130%);
+  transition: transform .65s ease;
+  pointer-events: none;
+}
+.hero-cta-primary:hover::after, .emi-whatsapp-cta:hover::after, .direct-wa-enquiry button:hover::after {
+  transform: translateX(130%);
+}
+.form-container :where(input, select, textarea):focus-visible {
+  border-color: rgba(235, 207, 137, .75);
+  box-shadow: 0 0 0 3px rgba(235, 207, 137, .12);
+}
+.lead-form-assurances span { transition: background-color .2s ease, border-color .2s ease; }
+.lead-form-assurances span:hover {
+  background: rgba(225,194,122,.08);
+  border-color: rgba(225,194,122,.3);
+}
+::selection { background: rgba(225,194,122,.28); color: #fffaf0; }
+@media (hover: none) {
+  .service-tile:hover, .journey-step:hover, .detail-box:hover, .review-card:hover { transform: none; }
+  .hero-cta-primary::after, .emi-whatsapp-cta::after, .direct-wa-enquiry button::after { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .service-tile, .journey-step, .detail-box, .review-card, .calc-card, .form-container,
+  .lead-form-assurances span, .hero-cta-primary::after, .emi-whatsapp-cta::after,
+  .direct-wa-enquiry button::after { transition: none !important; }
+}
