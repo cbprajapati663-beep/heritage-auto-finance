@@ -159,6 +159,8 @@ assert.match(html, /fonts\.googleapis\.com/, "Font origin should be preconnected
 assert.match(html, /fonts\.gstatic\.com/, "Font asset origin should be preconnected");
 assert.match(readFileSync("elite-finish.css", "utf8"), /env\(safe-area-inset-bottom\)/, "Mobile controls should respect device safe areas");
 assert.match(readFileSync("elite-finish.css", "utf8"), /touch-action:\s*manipulation/, "Interactive controls should avoid delayed touch handling");
+assert.match(html, /class="haf-3d-orbit" aria-hidden="true"/, "Hero should include a dedicated decorative 3D orbit element");
+assert.match(readFileSync("elite-finish.css", "utf8"), /\.hero-banner\s*>\s*\.haf-3d-orbit\s*\{[^}]*animation:\s*haf-orbit-float/s, "Dedicated 3D ring should animate independently of hero pseudo-elements");
 assert.match(readFileSync("elite-finish.css", "utf8"), /@keyframes haf-orbit-float/, "CSS-only 3D hero accent should be present");
 assert.match(readFileSync("elite-finish.css", "utf8"), /\.hero-banner\s*\{[^}]*isolation:\s*isolate/s, "Hero should establish a local stacking context for the visible 3D ring");
 assert.match(readFileSync("elite-finish.css", "utf8"), /\.hero-banner::after\s*\{[^}]*z-index:\s*0/s, "3D ring should sit above the hero background");
