@@ -909,3 +909,32 @@ section[id] {
   .stats-bar::before { animation: none !important; }
   .service-tile::after { transition: none !important; }
 }
+
+
+/* Interactive depth: pointer-following hero glow and restrained poster tilt. */
+.hero-banner::before {
+  background:
+    radial-gradient(420px circle at var(--haf-pointer-x, 50%) var(--haf-pointer-y, 40%), rgba(246,200,95,.17), transparent 68%),
+    conic-gradient(from 210deg at 70% 38%, transparent 0 18%, rgba(143,67,187,.10) 23%, transparent 30% 58%, rgba(246,200,95,.06) 64%, transparent 72%) !important;
+  transition: background-position .12s linear;
+}
+.poster-grid .poster-item {
+  transition: transform .22s ease, box-shadow .3s ease !important;
+  transform-style: preserve-3d;
+}
+.poster-grid .poster-item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  background: radial-gradient(220px circle at var(--haf-card-x, 50%) var(--haf-card-y, 50%), rgba(246,200,95,.13), transparent 72%);
+  transition: opacity .25s ease;
+}
+@media (hover:hover) and (pointer:fine) {
+  .poster-grid .poster-item:hover::after { opacity: 1; }
+}
+@media (max-width: 700px), (prefers-reduced-motion: reduce) {
+  .poster-grid .poster-item { transform: none !important; transition: none !important; }
+  .poster-grid .poster-item::after { display: none; }
+}
