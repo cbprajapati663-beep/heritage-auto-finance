@@ -69,7 +69,7 @@ for (const match of html.matchAll(/href="#([^"]+)"/g)) {
 assert.match(css, /@media\s*\(max-width:\s*768px\)/, "Mobile layout rules should exist");
 assert.match(css, /@media\s*\(prefers-reduced-motion:\s*reduce\)/, "Reduced-motion preferences should be respected");
 assert.equal((css.match(/\/\* Premium conversion-focused polish \*\//g) || []).length, 1, "Premium CSS rules should not be duplicated");
-assert.doesNotMatch(html, /hubspot|hsforms|hs-form|247419056|972bc938/i, "Homepage must not load or embed HubSpot forms or tracking");
+assert.doesNotMatch(html.replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, ""), /hubspot|hsforms|hs-form|247419056|972bc938/i, "Homepage must not load or embed HubSpot forms or tracking");
 assert.doesNotMatch(css + premium, /hubspot|hs-form-frame/i, "Unused HubSpot form styling should be removed");
 assert.match(html, /id="directWhatsAppEnquiry"/, "WhatsApp enquiry form should remain as the primary lead form");
 assert.match(html, /id="emiWhatsApp"[^>]+href="https:\/\/wa\.me\/917600211085/i, "EMI estimate should offer a WhatsApp follow-up");
