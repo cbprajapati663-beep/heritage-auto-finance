@@ -1147,3 +1147,89 @@ nav .nav-logo{flex:0 1 auto;min-width:0}
   -webkit-text-fill-color: #17101c !important;
   text-shadow: none !important;
 }
+
+
+/* Compact the callback section on phones without changing the premium visual style. */
+@media (max-width: 600px) {
+  #contact.lead-form-section {
+    margin-top: 22px !important;
+    padding: 26px 12px !important;
+    background-attachment: scroll !important;
+  }
+  #contact .form-container {
+    width: 100% !important;
+    max-width: 460px !important;
+    padding: 18px 14px !important;
+    border-radius: 16px !important;
+    box-shadow: 0 0 28px rgba(244,180,26,.16) !important;
+  }
+  #contact .form-container h3 {
+    margin: 0 0 8px !important;
+    font-size: clamp(1.35rem, 5.4vw, 1.65rem) !important;
+    line-height: 1.2 !important;
+  }
+  #contact .form-container > p:not(.form-privacy-note) {
+    margin: 0 0 12px !important;
+    font-size: .8rem !important;
+    line-height: 1.45 !important;
+  }
+  #contact .direct-wa-enquiry {
+    margin-top: 10px !important;
+    padding: 13px 12px !important;
+    border-radius: 14px !important;
+  }
+  #contact .direct-wa-enquiry h4 {
+    margin: 0 0 6px !important;
+    font-size: .98rem !important;
+    line-height: 1.35 !important;
+  }
+  #contact .direct-wa-enquiry > p {
+    margin: 0 0 10px !important;
+    font-size: .78rem !important;
+    line-height: 1.45 !important;
+  }
+  #contact .direct-wa-form { gap: 6px !important; }
+  #contact .direct-wa-form label {
+    margin-top: 2px !important;
+    font-size: .8rem !important;
+    line-height: 1.25 !important;
+  }
+  #contact .direct-wa-form input,
+  #contact .direct-wa-form select {
+    min-height: 40px !important;
+    padding: 9px 10px !important;
+    font-size: .86rem !important;
+    border-radius: 9px !important;
+  }
+  #contact .direct-wa-form textarea {
+    min-height: 62px !important;
+    padding: 9px 10px !important;
+    font-size: .86rem !important;
+    border-radius: 9px !important;
+  }
+  #contact .direct-wa-form button {
+    min-height: 44px !important;
+    margin-top: 4px !important;
+    padding: 10px 12px !important;
+    font-size: .88rem !important;
+  }
+  #contact .form-fallback-actions {
+    margin-top: 10px !important;
+    padding: 10px !important;
+    gap: 8px !important;
+  }
+  #contact .form-fallback-actions p {
+    margin: 0 0 6px !important;
+    font-size: .74rem !important;
+    line-height: 1.4 !important;
+  }
+  #contact .form-fallback-actions a {
+    padding: 9px 12px !important;
+    font-size: .8rem !important;
+  }
+  #contact .form-privacy-note {
+    margin: 10px 0 0 !important;
+    font-size: .7rem !important;
+    line-height: 1.45 !important;
+  }
+}
