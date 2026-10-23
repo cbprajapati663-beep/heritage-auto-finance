@@ -1277,3 +1277,25 @@ nav .nav-logo{flex:0 1 auto;min-width:0}
   #contact .form-fallback-actions { display: none !important; }
   #contact .form-privacy-note { font-size: .62rem !important; line-height: 1.3 !important; margin: 6px 0 0 !important; }
 }
+
+
+/* Next-level callback experience: compact, clear, and consistent on narrow screens. */
+#contact .form-container { max-width: 560px; }
+#contact .form-container > p:not(.form-privacy-note) { margin-bottom: 14px !important; }
+#contact .direct-wa-enquiry { margin-top: 10px !important; }
+@media (max-width: 700px) {
+  #contact.lead-form-section { padding: 16px 10px !important; }
+  #contact .form-container { max-width: 440px !important; padding: 14px 12px !important; }
+  #contact .form-container h3 { font-size: 1.25rem !important; line-height: 1.2 !important; margin-bottom: 6px !important; }
+  #contact .form-container > p:not(.form-privacy-note) { font-size: .76rem !important; line-height: 1.4 !important; margin: 0 0 8px !important; }
+  #contact .direct-wa-enquiry { margin: 7px 0 0 !important; padding: 10px !important; }
+  #contact .direct-wa-enquiry h4 { font-size: .9rem !important; line-height: 1.25 !important; margin: 0 0 5px !important; }
+  #contact .direct-wa-enquiry > p { font-size: .72rem !important; line-height: 1.35 !important; margin: 0 0 7px !important; }
+  #contact .direct-wa-form { gap: 4px !important; }
+  #contact .direct-wa-form label { font-size: .74rem !important; line-height: 1.2 !important; margin: 0 !important; }
+  #contact .direct-wa-form input, #contact .direct-wa-form select { height: 36px !important; min-height: 36px !important; padding: 6px 9px !important; font-size: .8rem !important; }
+  #contact .direct-wa-form textarea { height: 46px !important; min-height: 46px !important; padding: 6px 9px !important; font-size: .8rem !important; }
+  #contact .direct-wa-form button { height: 40px !important; min-height: 40px !important; margin-top: 3px !important; padding: 8px 10px !important; }
+  #contact .form-fallback-actions { display: none !important; }
+  #contact .form-privacy-note { font-size: .64rem !important; line-height: 1.35 !important; margin-top: 7px !important; }
+}
