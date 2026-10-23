@@ -424,3 +424,52 @@ footer {
     transition: none !important;
   }
 }
+
+
+/* Next-to-next-level finish: premium micro-interactions, reading comfort and mobile clarity. */
+#scrollProgress {
+  height: 3px !important;
+  background: linear-gradient(90deg, #8f43bb 0%, #f6c85f 58%, #fff0b8 100%) !important;
+  box-shadow: 0 0 12px rgba(246,200,95,.42);
+  transform-origin: left center;
+}
+html { scroll-behavior: smooth; scroll-padding-top: 88px; }
+::selection { color: #171019; background: rgba(246,200,95,.82); }
+.hero-banner > .hero-actions .hero-cta-primary {
+  position: relative;
+  isolation: isolate;
+  box-shadow: 0 10px 28px rgba(195,155,75,.2), inset 0 1px 0 rgba(255,255,255,.4) !important;
+}
+.hero-banner > .hero-actions .hero-cta-primary::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(110deg, transparent 20%, rgba(255,255,255,.38) 48%, transparent 72%);
+  transform: translateX(-130%);
+  transition: transform .65s ease;
+}
+@media (hover:hover) and (pointer:fine) {
+  .hero-banner > .hero-actions .hero-cta-primary:hover::after { transform: translateX(130%); }
+}
+.faq-item { transition: border-color .2s ease, background-color .2s ease; }
+.faq-item:focus-visible { outline: 2px solid #ffe7a0; outline-offset: 3px; }
+.poster-grid .poster-item img { cursor: zoom-in; }
+.form-container input:focus, .form-container select:focus, .form-container textarea:focus {
+  border-color: rgba(246,200,95,.78) !important;
+  box-shadow: 0 0 0 3px rgba(246,200,95,.12) !important;
+}
+.mobile-quick-actions a { min-height: 46px; }
+@media (max-width: 700px) {
+  html { scroll-padding-top: 72px; }
+  .hero-banner > .haf-3d-orbit { right: 5%; top: 3.5%; width: clamp(78px, 23vw, 94px); }
+  .hero-banner .hero-supporting { max-width: 38ch; margin-inline: auto; }
+  .hero-trust-points { gap: 8px; }
+  .hero-trust-points > * { line-height: 1.35; }
+  .poster-grid .poster-item { border-radius: 14px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .hero-banner > .hero-actions .hero-cta-primary::after { display: none; }
+}
