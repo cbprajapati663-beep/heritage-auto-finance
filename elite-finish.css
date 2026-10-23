@@ -571,3 +571,57 @@ html { scroll-behavior: smooth; scroll-padding-top: 88px; }
   .hero-banner > .main-poster { transition: none !important; transform: none !important; }
   .poster-grid .poster-item { transition: none !important; }
 }
+
+
+/* Visibility fix: make the hero's 3D orbit unmistakable on mobile and desktop. */
+.hero-banner > .haf-3d-orbit {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  z-index: 8 !important;
+  top: 16px !important;
+  right: 18px !important;
+  width: clamp(112px, 17vw, 205px) !important;
+  aspect-ratio: 1 !important;
+  border: 3px solid #f6c85f !important;
+  border-radius: 50% !important;
+  background: radial-gradient(circle at 32% 28%, rgba(255,239,179,.38), rgba(143,67,187,.24) 43%, rgba(8,7,17,.04) 72%) !important;
+  box-shadow: 0 0 0 5px rgba(246,200,95,.10), inset 0 0 28px rgba(246,200,95,.28), 0 0 24px rgba(246,200,95,.62), 0 0 58px rgba(143,67,187,.48) !important;
+  transform: perspective(650px) rotateX(62deg) rotateZ(-22deg) !important;
+  animation: haf-orbit-visible 5.5s ease-in-out infinite alternate !important;
+}
+.hero-banner > .haf-3d-orbit::before {
+  content: "" !important;
+  position: absolute !important;
+  inset: 13% !important;
+  border: 2px solid rgba(198,126,255,.95) !important;
+  border-radius: 50% !important;
+  box-shadow: 0 0 18px rgba(198,126,255,.65) !important;
+  transform: rotateY(58deg) rotateZ(30deg) !important;
+}
+.hero-banner > .haf-3d-orbit::after {
+  inset: 29% !important;
+  border: 2px solid rgba(255,235,171,.95) !important;
+  box-shadow: 0 0 18px rgba(246,200,95,.6) !important;
+  transform: rotateY(-58deg) rotateZ(-35deg) !important;
+}
+@keyframes haf-orbit-visible {
+  from { transform: perspective(650px) rotateX(62deg) rotateZ(-22deg) translateY(0) scale(.98); }
+  to { transform: perspective(650px) rotateX(62deg) rotateZ(18deg) translateY(8px) scale(1.04); }
+}
+@media (max-width: 700px) {
+  .hero-banner > .haf-3d-orbit {
+    top: 12px !important;
+    right: 12px !important;
+    width: clamp(96px, 27vw, 124px) !important;
+  }
+  .hero-banner > .secure-badge,
+  .hero-banner > .typing-container,
+  .hero-banner > .hero-supporting,
+  .hero-banner > .hero-actions,
+  .hero-banner > .hero-trust-points,
+  .hero-banner > .main-poster { position: relative; z-index: 2; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-banner > .haf-3d-orbit { animation: none !important; }
+}
