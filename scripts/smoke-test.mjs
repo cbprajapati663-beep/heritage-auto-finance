@@ -15,6 +15,7 @@ assert.match(html, /hero-trust-points/, "Service highlights should exist");
 assert.equal((html.match(/class="main-poster"/g) || []).length, 1, "Hero should show only one main poster");
 assert.equal((html.match(/loading="lazy" decoding="async"/g) || []).length, 8, "Poster images should load lazily to reduce initial page work");
 assert.match(html, /fetchpriority="high"/, "Hero poster should be prioritized");
+assert.match(html, /<link rel="preload" as="image" href="03\.png" fetchpriority="high">/, "Hero poster should be preloaded for faster initial rendering");
 assert.match(html, /documentation guidance dete hain/i, "Commercial finance copy must describe assistance accurately");
 assert.match(html, /Hum used car finance ke liye enquiry aur documentation guidance dete hain/i, "Used-car FAQ must describe assistance rather than imply direct lending");
 assert.doesNotMatch(html, /Humari used car finance scheme ke tahat/i, "Avoid implying Heritage runs its own lending scheme");
