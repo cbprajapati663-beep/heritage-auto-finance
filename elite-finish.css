@@ -1250,3 +1250,36 @@ nav .nav-logo{flex:0 1 auto;min-width:0}
   opacity:1!important;
   visibility:visible!important;
 }
+
+
+/* Final mobile CTA polish: compact centered buttons, no detached arrow badge. */
+.hero-banner > .hero-actions {
+  justify-items: center !important;
+}
+.hero-banner > .hero-actions > a.hero-cta-primary {
+  display: inline-flex !important;
+  width: min(100%, 260px) !important;
+  max-width: 260px !important;
+  min-height: 50px !important;
+  padding: 13px 20px !important;
+  box-sizing: border-box !important;
+  justify-self: center !important;
+  border-radius: 12px !important;
+  background: linear-gradient(115deg, #ffe7a5, #f6c85f) !important;
+  color: #21152a !important;
+  -webkit-text-fill-color: #21152a !important;
+  font-size: 14px !important;
+  font-weight: 800 !important;
+  line-height: 1.25 !important;
+  letter-spacing: 0 !important;
+  text-align: center !important;
+  text-decoration: none !important;
+  white-space: nowrap !important;
+  box-shadow: 0 8px 22px rgba(246,200,95,.2) !important;
+}
+.hero-banner > .hero-actions > a.hero-cta-secondary {
+  justify-self: center !important;
+  width: min(100%, 220px) !important;
+  max-width: 220px !important;
+  min-height: 46px !important;
+}
