@@ -1283,3 +1283,45 @@ nav .nav-logo{flex:0 1 auto;min-width:0}
   max-width: 220px !important;
   min-height: 46px !important;
 }
+
+
+/* Clean final callback CTA: remove pseudo-element arrow/shine artifacts and center label. */
+.hero-banner > .hero-actions > a.hero-cta-primary::before,
+.hero-banner > .hero-actions > a.hero-cta-primary::after {
+  content: none !important;
+  display: none !important;
+  background: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  animation: none !important;
+  transform: none !important;
+}
+.hero-banner > .hero-actions > a.hero-cta-primary {
+  position: relative !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: auto !important;
+  min-width: 0 !important;
+  max-width: 260px !important;
+  min-height: 48px !important;
+  padding: 13px 24px !important;
+  margin: 0 auto !important;
+  background: linear-gradient(115deg,#ffe7a5,#f6c85f) !important;
+  border: 1px solid rgba(255,231,165,.95) !important;
+  border-radius: 999px !important;
+  color: #21152a !important;
+  -webkit-text-fill-color: #21152a !important;
+  font-size: 14px !important;
+  font-weight: 800 !important;
+  line-height: 1.25 !important;
+  letter-spacing: 0 !important;
+  text-align: center !important;
+  text-decoration: none !important;
+  white-space: nowrap !important;
+  text-shadow: none !important;
+  box-shadow: 0 8px 22px rgba(246,200,95,.2) !important;
+}
+@media(max-width:700px){
+ .hero-banner > .hero-actions > a.hero-cta-primary { width: min(100%,260px) !important; }
+}
