@@ -357,3 +357,28 @@ footer {
 @media (prefers-reduced-motion: reduce) {
   .hero-banner > .haf-3d-orbit { animation: none !important; }
 }
+
+
+/* 3D ring polish: animate only transforms and keep the orbit visible over the poster edge. */
+.hero-banner > .haf-3d-orbit {
+  z-index: 3;
+  right: 1.5%;
+  top: 5%;
+  mix-blend-mode: screen;
+  will-change: transform;
+}
+@keyframes haf-orbit-float {
+  from { transform: rotateX(66deg) rotateZ(-24deg) translate3d(0,0,18px); }
+  to { transform: rotateX(66deg) rotateZ(-12deg) translate3d(-8px,10px,34px); }
+}
+@media (max-width: 700px) {
+  .hero-banner > .haf-3d-orbit {
+    top: 4%;
+    right: 4%;
+    width: 94px;
+    opacity: .9;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-banner > .haf-3d-orbit { animation: none !important; will-change: auto; }
+}
