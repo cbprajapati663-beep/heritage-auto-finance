@@ -1806,3 +1806,132 @@ nav {
   .nav-links a::after, .service-tile::before, .poster-item img { transition: none !important; }
   .poster-item:hover img { transform: none; }
 }
+
+
+/* Signature 2.0 — editorial polish, premium surfaces, and stronger conversion cues. */
+:root {
+  color-scheme: dark;
+  --haf-surface: rgba(18, 12, 27, .72);
+  --haf-surface-raised: rgba(27, 19, 39, .88);
+  --haf-line: rgba(225, 194, 122, .22);
+  --haf-shadow-deep: 0 24px 70px rgba(0,0,0,.28);
+}
+::selection { color: #160f1e; background: #e1c27a; }
+body {
+  background-image:
+    radial-gradient(ellipse at 8% 14%, rgba(112,73,153,.10), transparent 34rem),
+    radial-gradient(ellipse at 94% 44%, rgba(225,194,122,.055), transparent 30rem);
+  background-attachment: fixed;
+}
+.section-title::after {
+  content: "";
+  display: block;
+  width: 56px;
+  height: 2px;
+  margin: 14px auto 0;
+  border-radius: 99px;
+  background: linear-gradient(90deg, transparent, var(--haf-gold-bright), var(--haf-violet), transparent);
+  box-shadow: 0 0 18px rgba(225,194,122,.22);
+}
+.service-rail-heading > span {
+  color: var(--haf-gold);
+  letter-spacing: .2em;
+  font-size: .72rem;
+  font-weight: 700;
+}
+.service-rail-heading h2 {
+  text-wrap: balance;
+  letter-spacing: -.035em;
+}
+.stats-bar {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(225,194,122,.16);
+  background: linear-gradient(110deg, rgba(225,194,122,.075), rgba(162,139,208,.055), rgba(255,255,255,.015));
+  box-shadow: var(--haf-shadow-deep), inset 0 1px rgba(255,255,255,.035);
+}
+.stats-bar::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 -45%;
+  width: 35%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.045), transparent);
+  transform: skewX(-18deg);
+  animation: hafStatsShimmer 9s ease-in-out infinite;
+  pointer-events: none;
+}
+.stat-item h3 {
+  background: linear-gradient(135deg, #fff1c9, #d6b66e 58%, #b49adf);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: none;
+}
+.hero-actions { gap: 14px; }
+.hero-cta {
+  min-height: 50px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 13px 22px;
+  font-weight: 700;
+  letter-spacing: .01em;
+}
+.hero-cta-secondary {
+  border: 1px solid rgba(225,194,122,.35);
+  background: rgba(14,9,21,.5);
+  box-shadow: inset 0 1px rgba(255,255,255,.035);
+}
+.hero-cta-secondary:hover {
+  border-color: rgba(247,232,184,.7);
+  background: rgba(225,194,122,.08);
+  transform: translateY(-2px);
+}
+.filter-tabs { gap: 10px; }
+.tab-btn {
+  border: 1px solid rgba(225,194,122,.2);
+  transition: color .2s ease, background .2s ease, border-color .2s ease, transform .2s ease;
+}
+.tab-btn:hover { transform: translateY(-1px); border-color: rgba(225,194,122,.45); }
+.tab-btn.active {
+  border-color: rgba(247,232,184,.55);
+  box-shadow: 0 6px 22px rgba(225,194,122,.09), inset 0 1px rgba(255,255,255,.16);
+}
+.tools-wrapper {
+  position: relative;
+  isolation: isolate;
+}
+.tools-wrapper::before {
+  content: "";
+  position: absolute;
+  inset: 8% -2%;
+  z-index: -1;
+  border-radius: 36px;
+  background: radial-gradient(ellipse, rgba(112,73,153,.11), transparent 70%);
+  pointer-events: none;
+}
+.calc-card {
+  background: linear-gradient(145deg, rgba(30,20,43,.92), rgba(12,8,18,.92));
+  box-shadow: 0 24px 60px rgba(0,0,0,.24), inset 0 1px rgba(255,255,255,.045);
+}
+.calc-card h3 { text-wrap: balance; }
+input[type="range"] { accent-color: var(--haf-gold); cursor: pointer; }
+a { -webkit-tap-highlight-color: rgba(225,194,122,.12); }
+button { -webkit-tap-highlight-color: rgba(225,194,122,.12); }
+@keyframes hafStatsShimmer {
+  0%, 68%, 100% { left: -45%; opacity: 0; }
+  74% { opacity: .8; }
+  90% { left: 120%; opacity: 0; }
+}
+@media (max-width: 700px) {
+  body { background-attachment: scroll; }
+  .section-title::after { margin-top: 11px; }
+  .hero-actions { display: grid; grid-template-columns: 1fr; width: 100%; }
+  .hero-cta { width: 100%; box-sizing: border-box; }
+  .filter-tabs { display: flex; flex-wrap: wrap; justify-content: center; }
+  .tab-btn { min-height: 42px; }
+  .stats-bar::before { animation-duration: 12s; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .stats-bar::before { animation: none !important; }
+}
