@@ -1515,3 +1515,73 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
  .hero-banner::before,.hero-banner::after,.haf-3d-orbit,.haf-3d-orbit-secondary { animation:none!important; }
  .main-poster,.service-tile,.enquiry-path,.calc-card,.review-card { transition:none!important;transform:none!important; }
 }
+
+
+/* Signature motion pass — restrained 3D depth, clear focus, no layout changes. */
+:root { --haf-motion-ease: cubic-bezier(.2,.75,.25,1); }
+html { scroll-behavior: smooth; }
+.hero-banner { isolation: isolate; perspective: 1200px; }
+.hero-banner::before,
+.hero-banner::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+  border-radius: 50%;
+  filter: blur(2px);
+}
+.hero-banner::before {
+  width: clamp(180px, 32vw, 430px);
+  aspect-ratio: 1;
+  right: -8%;
+  top: -10%;
+  border: 1px solid rgba(225,194,122,.19);
+  box-shadow: 0 0 0 22px rgba(225,194,122,.018), 0 0 0 54px rgba(162,139,208,.025), inset 0 0 45px rgba(225,194,122,.04);
+  animation: hafSignatureFloat 11s var(--haf-motion-ease) infinite alternate;
+}
+.hero-banner::after {
+  width: clamp(120px, 22vw, 280px);
+  aspect-ratio: 1;
+  left: -7%;
+  bottom: -16%;
+  border: 1px solid rgba(162,139,208,.16);
+  box-shadow: 0 0 0 24px rgba(162,139,208,.018), inset 0 0 40px rgba(162,139,208,.035);
+  animation: hafSignatureFloat 14s var(--haf-motion-ease) infinite alternate-reverse;
+}
+.hero-cta, .emi-whatsapp-cta, .mobile-quick-actions a, .float-wa {
+  transition: transform .24s var(--haf-motion-ease), box-shadow .24s ease, filter .24s ease;
+}
+.hero-cta-primary {
+  color: #171019 !important;
+  -webkit-text-fill-color: #171019 !important;
+  background: linear-gradient(120deg,#f7e8b8 0%,#d7b56d 48%,#b98b3e 100%);
+  box-shadow: 0 9px 24px rgba(195,155,75,.19), inset 0 1px rgba(255,255,255,.48);
+}
+.hero-cta-primary:hover {
+  box-shadow: 0 13px 30px rgba(195,155,75,.28), inset 0 1px rgba(255,255,255,.55);
+  filter: brightness(1.04);
+}
+:where(.service-tile,.enquiry-path,.journey-step,.detail-box,.review-card,.calc-card,.form-container,.poster-item) {
+  transform-style: preserve-3d;
+  transition: transform .3s var(--haf-motion-ease), border-color .25s ease, box-shadow .3s ease;
+}
+:where(a,button,input,select,textarea,summary):focus-visible {
+  outline: 2px solid #f0d895;
+  outline-offset: 4px;
+  box-shadow: 0 0 0 5px rgba(225,194,122,.12);
+}
+img { backface-visibility: hidden; }
+@keyframes hafSignatureFloat {
+  from { transform: translate3d(0,-8px,0) rotate(-5deg); }
+  to { transform: translate3d(8px,12px,0) rotate(7deg); }
+}
+@media (max-width: 700px) {
+  .hero-banner { perspective: none; }
+  .hero-banner::before { right: -30%; top: 3%; opacity: .48; }
+  .hero-banner::after { left: -30%; bottom: 2%; opacity: .4; }
+  :where(.service-tile,.enquiry-path,.journey-step,.detail-box,.review-card,.calc-card,.form-container) { transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .hero-banner::before,.hero-banner::after { animation: none !important; }
+}
