@@ -2466,3 +2466,51 @@ nav {
   #portfolio .poster-item:hover { transform: none !important; }
   #portfolio .poster-item img { transform: none !important; transition: none !important; }
 }
+
+
+/* SIGNATURE 10.0 — animation override fix: use individual transform properties so legacy transform rules cannot cancel motion. */
+#portfolio .poster-item {
+  transform: none;
+  translate: 0 0;
+  rotate: 0 0 0deg;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  animation: hafPosterLevitate 4.8s ease-in-out infinite !important;
+  animation-delay: 0s;
+  will-change: translate, rotate;
+}
+#portfolio .poster-item:nth-child(4n + 2) { animation-delay: -1.2s !important; }
+#portfolio .poster-item:nth-child(4n + 3) { animation-delay: -2.4s !important; }
+#portfolio .poster-item:nth-child(4n) { animation-delay: -3.6s !important; }
+#portfolio .poster-item img {
+  transform: translateZ(18px);
+  transition: translate .28s ease, rotate .28s ease, filter .28s ease;
+}
+@keyframes hafPosterLevitate {
+  0%, 100% { translate: 0 0; rotate: 0 0 0deg; }
+  50% { translate: 0 -7px; rotate: 0 1 1deg; }
+}
+@media (hover: hover) and (pointer: fine) {
+  #portfolio .poster-item:hover {
+    animation-play-state: paused !important;
+    translate: 0 -10px;
+    rotate: 0 1 2deg;
+    transform: none !important;
+    border-color: rgba(246,226,172,.78);
+    box-shadow: 0 24px 48px rgba(0,0,0,.44), 0 0 0 1px rgba(246,226,172,.12), 0 0 30px rgba(132,83,177,.2);
+  }
+  #portfolio .poster-item:hover img {
+    translate: 0 0;
+    rotate: 0 0 0deg;
+    filter: brightness(1.06) saturate(1.04);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  #portfolio .poster-item {
+    animation: none !important;
+    translate: none !important;
+    rotate: none !important;
+    will-change: auto;
+  }
+  #portfolio .poster-item img { transform: none !important; transition: none !important; }
+}
