@@ -2879,3 +2879,19 @@ nav .nav-logo {
   border: 0;
   box-shadow: none;
 }
+
+
+/* Logo seamless integration: use the same dark canvas behind the opaque logo artwork. */
+nav {
+  background-color: rgba(9, 5, 16, .98) !important;
+}
+nav .nav-logo {
+  background: transparent !important;
+  mix-blend-mode: screen !important;
+  filter: drop-shadow(0 2px 8px rgba(240, 216, 154, .08));
+  border-radius: 0 !important;
+  outline: 0 !important;
+}
+@media (max-width: 700px) {
+  nav { background-color: rgba(9, 5, 16, .99) !important; }
+}
