@@ -4099,3 +4099,192 @@ nav .nav-links a[href="#contact"]:focus-visible {
   .hero-banner > .haf-desktop-3d-scene .haf-scene-ring-violet { animation-duration: 38s !important; }
   .haf-floating-apply { transition: none !important; }
 }
+
+
+/* HERO SIGNATURE — bespoke showroom scene replaces the flat campaign poster. */
+.hero-banner {
+  overflow: hidden;
+  padding-bottom: clamp(24px, 3.8vw, 48px);
+}
+.hero-banner > .haf-desktop-3d-scene {
+  z-index: -1 !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: .82 !important;
+  right: clamp(14px, 5vw, 76px) !important;
+  top: clamp(8px, 2vw, 28px) !important;
+  width: clamp(170px, 24vw, 280px) !important;
+  height: clamp(170px, 24vw, 280px) !important;
+  animation: hafDesktopSceneFloat 8s ease-in-out infinite alternate !important;
+  animation-play-state: running !important;
+}
+.hero-banner > .haf-desktop-3d-scene .haf-scene-ring {
+  opacity: .62 !important;
+  border-color: rgba(244, 213, 143, .72) !important;
+  box-shadow: 0 0 22px rgba(240, 196, 92, .16) !important;
+  animation: hafDesktopRingRotate 18s linear infinite !important;
+  animation-play-state: running !important;
+}
+.hero-banner > .haf-desktop-3d-scene .haf-scene-ring-violet {
+  opacity: .38 !important;
+  border-color: rgba(184, 135, 235, .58) !important;
+  animation: hafDesktopRingRotate 24s linear infinite reverse !important;
+  animation-play-state: running !important;
+}
+.hero-banner > .haf-desktop-3d-scene .haf-scene-core {
+  opacity: .72 !important;
+  animation: hafDesktopCorePulse 3.8s ease-in-out infinite alternate !important;
+  animation-play-state: running !important;
+}
+@keyframes hafDesktopSceneFloat {
+  from { translate: 0 -5px; }
+  to { translate: 0 9px; }
+}
+@keyframes hafDesktopRingRotate {
+  from { rotate: 0deg; }
+  to { rotate: 360deg; }
+}
+@keyframes hafDesktopCorePulse {
+  from { scale: .9; opacity: .5; }
+  to { scale: 1.08; opacity: .86; }
+}
+.hero-showcase {
+  position: relative;
+  isolation: isolate;
+  width: min(100%, 1180px);
+  margin: clamp(22px, 3.5vw, 42px) auto 0;
+  border: 1px solid rgba(240, 216, 154, .24);
+  border-radius: clamp(18px, 2.2vw, 30px);
+  overflow: hidden;
+  background: #090610;
+  box-shadow: 0 26px 72px rgba(0,0,0,.36), 0 0 0 1px rgba(255,255,255,.025), 0 0 48px rgba(119,76,158,.12);
+  transform: perspective(1400px) rotateX(0deg);
+  transform-style: preserve-3d;
+  transition: transform .45s ease, box-shadow .45s ease, border-color .45s ease;
+}
+.hero-showcase::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(90deg, rgba(8,5,14,.08), transparent 24%, transparent 78%, rgba(8,5,14,.12)),
+    linear-gradient(0deg, rgba(8,5,14,.58), transparent 27%, transparent 82%, rgba(8,5,14,.10));
+}
+.hero-showcase-art {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  object-position: center;
+  mix-blend-mode: normal;
+  filter: saturate(1.08) contrast(1.025);
+  transform: scale(1.005);
+  transition: transform .8s cubic-bezier(.2,.7,.2,1), filter .6s ease;
+}
+@media (hover: hover) and (pointer: fine) {
+  .hero-showcase:hover {
+    transform: perspective(1400px) rotateX(.35deg) translateY(-3px);
+    border-color: rgba(240,216,154,.42);
+    box-shadow: 0 34px 86px rgba(0,0,0,.42), 0 0 54px rgba(119,76,158,.18);
+  }
+  .hero-showcase:hover .hero-showcase-art { transform: scale(1.025); filter: saturate(1.14) contrast(1.04); }
+}
+.hero-showcase-chip {
+  position: absolute;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  max-width: min(40%, 290px);
+  padding: 12px 15px;
+  border: 1px solid rgba(245,224,177,.28);
+  border-radius: 15px;
+  background: rgba(13,9,21,.76);
+  color: #fff8e8;
+  text-align: left;
+  box-shadow: 0 12px 34px rgba(0,0,0,.28), inset 0 1px rgba(255,255,255,.06);
+  -webkit-backdrop-filter: blur(14px) saturate(130%);
+  backdrop-filter: blur(14px) saturate(130%);
+  animation: hafShowcaseChipFloat 6s ease-in-out infinite alternate;
+}
+.hero-showcase-chip-left { left: clamp(12px, 3vw, 38px); top: 13%; }
+.hero-showcase-chip-right { right: clamp(12px, 3vw, 38px); bottom: 17%; animation-delay: -2.4s; }
+.hero-showcase-chip strong, .hero-showcase-chip small { display: block; }
+.hero-showcase-chip strong { font-size: clamp(.66rem, .9vw, .86rem); line-height: 1.3; letter-spacing: .01em; }
+.hero-showcase-chip small { margin-top: 4px; color: rgba(255,248,232,.68); font-size: clamp(.58rem, .72vw, .72rem); line-height: 1.3; }
+.hero-showcase-chip-icon {
+  display: grid;
+  place-items: center;
+  flex: 0 0 30px;
+  width: 30px;
+  height: 30px;
+  border-radius: 10px;
+  background: linear-gradient(145deg, #f7e5b4, #b98b3c);
+  color: #17101d;
+  font-size: 1rem;
+}
+.hero-showcase-live-dot {
+  flex: 0 0 8px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #8de2b0;
+  box-shadow: 0 0 0 5px rgba(141,226,176,.10), 0 0 14px rgba(141,226,176,.4);
+}
+.hero-showcase-caption {
+  position: absolute;
+  z-index: 2;
+  left: 50%;
+  bottom: clamp(12px, 2.2vw, 28px);
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: max-content;
+  max-width: 90%;
+  text-align: center;
+  transform: translateX(-50%);
+  text-shadow: 0 2px 12px rgba(0,0,0,.85);
+}
+.hero-showcase-caption span { color: #f3dba1; font-size: clamp(.55rem, .8vw, .7rem); font-weight: 800; letter-spacing: .22em; }
+.hero-showcase-caption b { color: #fff8e8; font-family: Georgia, 'Times New Roman', serif; font-size: clamp(.95rem, 2vw, 1.55rem); font-weight: 500; letter-spacing: .015em; }
+@keyframes hafShowcaseChipFloat { from { translate: 0 0; } to { translate: 0 -7px; } }
+@media (max-width: 700px) {
+  .hero-banner { overflow: hidden; }
+  .hero-banner > .haf-desktop-3d-scene {
+    opacity: .52 !important;
+    right: 0 !important;
+    top: 0 !important;
+    width: 155px !important;
+    height: 155px !important;
+  }
+  .hero-showcase { margin-top: 22px; border-radius: 17px; }
+  .hero-showcase-art { aspect-ratio: 4 / 3; object-fit: cover; object-position: 54% center; }
+  .hero-showcase-chip {
+    max-width: 48%;
+    gap: 7px;
+    padding: 8px 9px;
+    border-radius: 11px;
+  }
+  .hero-showcase-chip-left { top: 9%; left: 9px; }
+  .hero-showcase-chip-right { right: 9px; bottom: 19%; }
+  .hero-showcase-chip-icon { flex-basis: 24px; width: 24px; height: 24px; border-radius: 8px; font-size: .8rem; }
+  .hero-showcase-chip strong { font-size: .62rem; }
+  .hero-showcase-chip small { font-size: .54rem; }
+  .hero-showcase-caption { bottom: 10px; }
+  .hero-showcase-caption span { font-size: .5rem; letter-spacing: .16em; }
+  .hero-showcase-caption b { font-size: .95rem; }
+}
+@media (max-width: 380px) {
+  .hero-showcase-chip small { display: none; }
+  .hero-showcase-chip { max-width: 46%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-banner > .haf-desktop-3d-scene,
+  .hero-banner > .haf-desktop-3d-scene .haf-scene-ring,
+  .hero-banner > .haf-desktop-3d-scene .haf-scene-ring-violet,
+  .hero-banner > .haf-desktop-3d-scene .haf-scene-core,
+  .hero-showcase-chip { animation: none !important; }
+  .hero-showcase, .hero-showcase-art { transition: none !important; }
+}
