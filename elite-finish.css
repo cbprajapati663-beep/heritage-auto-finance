@@ -7039,3 +7039,19 @@ input, select, textarea {
     line-height: normal !important;
   }
 }
+
+
+/* Mobile final trim: fill the artwork frame edge-to-edge to eliminate letterbox bands. */
+@media screen and (max-width: 700px) {
+  main#main-content > .hero-banner > .hero-showcase {
+    display: block !important;
+    aspect-ratio: 16 / 9 !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    background: #130d20 !important;
+  }
+  main#main-content > .hero-banner > .hero-showcase > .hero-showcase-art {
+    object-fit: cover !important;
+    object-position: center center !important;
+  }
+}
