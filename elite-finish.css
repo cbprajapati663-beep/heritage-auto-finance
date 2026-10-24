@@ -3059,3 +3059,81 @@ nav .nav-logo {
     animation: none !important;
   }
 }
+
+
+/* DESKTOP HERO MOTION FIX — keep both orbital layers visible behind hero content. */
+.hero-banner {
+  position: relative !important;
+  isolation: isolate !important;
+}
+.hero-banner > .haf-3d-orbit,
+.hero-banner > .haf-3d-orbit-secondary {
+  display: block !important;
+  visibility: visible !important;
+  pointer-events: none !important;
+  z-index: 1 !important;
+  opacity: .72 !important;
+  transform-style: preserve-3d !important;
+}
+.hero-banner > .haf-3d-orbit {
+  width: clamp(150px, 19vw, 250px) !important;
+  height: clamp(150px, 19vw, 250px) !important;
+  top: 16px !important;
+  right: clamp(16px, 4vw, 58px) !important;
+  border: 1px solid rgba(244, 199, 95, .42) !important;
+  animation: hafDesktopOrbitA 13s linear infinite !important;
+}
+.hero-banner > .haf-3d-orbit-secondary {
+  width: clamp(112px, 14vw, 184px) !important;
+  height: clamp(112px, 14vw, 184px) !important;
+  top: 42px !important;
+  right: clamp(34px, 6vw, 82px) !important;
+  border: 1px solid rgba(201, 140, 255, .42) !important;
+  animation: hafDesktopOrbitB 9s linear infinite !important;
+}
+.hero-banner > .haf-3d-orbit::before,
+.hero-banner > .haf-3d-orbit::after,
+.hero-banner > .haf-3d-orbit-secondary::before,
+.hero-banner > .haf-3d-orbit-secondary::after {
+  content: "";
+  display: block !important;
+  position: absolute;
+  inset: 13%;
+  border: 1px solid rgba(244, 199, 95, .25);
+  border-radius: 50%;
+  transform: rotateX(64deg) rotateY(24deg);
+}
+.hero-banner > .haf-3d-orbit::after,
+.hero-banner > .haf-3d-orbit-secondary::after {
+  inset: 23%;
+  border-color: rgba(201, 140, 255, .28);
+  transform: rotateX(68deg) rotateY(-32deg);
+}
+.hero-banner > .secure-badge,
+.hero-banner > .typing-container,
+.hero-banner > .hero-supporting,
+.hero-banner > .hero-actions,
+.hero-banner > .hero-trust-points,
+.hero-banner > .main-poster { position: relative; z-index: 2; }
+@keyframes hafDesktopOrbitA {
+  from { transform: perspective(900px) rotateX(62deg) rotateZ(0deg); }
+  to { transform: perspective(900px) rotateX(62deg) rotateZ(360deg); }
+}
+@keyframes hafDesktopOrbitB {
+  from { transform: perspective(900px) rotateX(68deg) rotateZ(360deg); }
+  to { transform: perspective(900px) rotateX(68deg) rotateZ(0deg); }
+}
+/* Logo black pixels blend into the dark header; keep gold artwork crisp. */
+nav .nav-logo {
+  background: transparent !important;
+  mix-blend-mode: screen !important;
+  filter: brightness(1.12) contrast(1.12) drop-shadow(0 0 8px rgba(240,216,154,.12)) !important;
+}
+@media (max-width: 700px) {
+  .hero-banner > .haf-3d-orbit { width: 104px !important; height: 104px !important; top: 8px !important; right: 8px !important; }
+  .hero-banner > .haf-3d-orbit-secondary { width: 76px !important; height: 76px !important; top: 23px !important; right: 22px !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-banner > .haf-3d-orbit,
+  .hero-banner > .haf-3d-orbit-secondary { animation: none !important; }
+}
