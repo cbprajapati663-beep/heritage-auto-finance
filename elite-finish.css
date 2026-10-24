@@ -5649,3 +5649,44 @@ nav .nav-logo {
 @media (max-width: 380px) {
   .hero-banner > .hero-showcase > .hero-art-overlay { width: min(64%, 220px) !important; }
 }
+
+
+/* Refined campaign overlay: lighter glass, compact labels and improved balance. */
+.hero-banner > .hero-showcase > .hero-art-overlay {
+  left: clamp(12px, 1.6vw, 22px) !important;
+  width: min(40%, 286px) !important;
+  padding: clamp(12px, 1.35vw, 18px) !important;
+  gap: clamp(6px, .8vw, 10px) !important;
+  background: linear-gradient(135deg, rgba(9,7,14,.78), rgba(15,10,22,.58)) !important;
+  border-color: rgba(239,203,120,.35) !important;
+  box-shadow: 0 12px 28px rgba(0,0,0,.2), inset 0 1px rgba(255,255,255,.05) !important;
+  -webkit-backdrop-filter: blur(7px) !important;
+  backdrop-filter: blur(7px) !important;
+}
+.hero-banner > .hero-showcase > .hero-art-overlay .hero-art-services {
+  gap: 4px !important;
+  flex-wrap: nowrap !important;
+}
+.hero-banner > .hero-showcase > .hero-art-overlay .hero-art-services span {
+  padding: 4px 6px !important;
+  font-size: clamp(.48rem, .58vw, .59rem) !important;
+  letter-spacing: -.01em !important;
+}
+.hero-banner > .hero-showcase > .hero-art-overlay .hero-art-signature {
+  padding-top: 5px !important;
+}
+@media (max-width: 900px) and (min-width: 701px) {
+  .hero-banner > .hero-showcase > .hero-art-overlay { width: min(44%, 260px) !important; }
+  .hero-banner > .hero-showcase > .hero-art-overlay .hero-art-services { flex-wrap: wrap !important; }
+}
+@media (max-width: 700px) {
+  .hero-banner > .hero-showcase > .hero-art-overlay {
+    left: 10px !important;
+    bottom: 10px !important;
+    width: min(58%, 238px) !important;
+    padding: 10px !important;
+    gap: 6px !important;
+    background: linear-gradient(135deg, rgba(9,7,14,.84), rgba(15,10,22,.68)) !important;
+  }
+  .hero-banner > .hero-showcase > .hero-art-overlay .hero-art-services { flex-wrap: wrap !important; }
+}
