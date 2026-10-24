@@ -18,10 +18,10 @@ assert.ok(html.includes('property="og:url" content="https://cbprajapati663-beep.
 assert.match(html, /hero-cta-primary/, "Primary callback CTA should exist");
 assert.match(html, /hero-trust-points/, "Service highlights should exist");
 assert.equal((html.match(/class="hero-showcase"/g) || []).length, 1, "Hero should show one bespoke showroom showcase");
-assert.match(html, /src="hero-showroom\.svg"[^>]+class="hero-showcase-art"/, "Hero should use the bespoke showroom illustration instead of the old campaign poster");
+assert.match(html, /src="hero-showcase-art\.png(?:\?v=[^"]*)?"[^>]+class="hero-showcase-art"/, "Hero should use the approved campaign artwork");
 assert.equal((html.match(/loading="lazy" decoding="async"/g) || []).length, 8, "Poster images should load lazily to reduce initial page work");
 assert.match(html, /fetchpriority="high"/, "Hero poster should be prioritized");
-assert.match(html, /<link rel="preload" as="image" href="hero-showroom\.svg" fetchpriority="high">/, "Hero showcase art should be preloaded for faster initial rendering");
+assert.match(html, /<link rel="preload" as="image" href="hero-showcase-art\.png(?:\?v=[^"]*)?" fetchpriority="high">/, "Hero campaign art should be preloaded for faster initial rendering");
 assert.match(html, /documentation guidance dete hain/i, "Commercial finance copy must describe assistance accurately");
 assert.match(html, /Hum used car finance ke liye enquiry aur documentation guidance dete hain/i, "Used-car FAQ must describe assistance rather than imply direct lending");
 assert.doesNotMatch(html, /Humari used car finance scheme ke tahat/i, "Avoid implying Heritage runs its own lending scheme");
