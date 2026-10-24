@@ -3634,3 +3634,87 @@ nav .nav-logo {
   from { transform: rotateX(48deg) rotateY(32deg) rotateZ(360deg); }
   to { transform: rotateX(48deg) rotateY(32deg) rotateZ(0deg); }
 }
+
+
+/* HERO MOTION RELIABILITY PATCH — keep every decorative desktop layer independently animated. */
+@media screen and (min-width: 701px) {
+  .hero-banner {
+    overflow: visible !important;
+    perspective: 1100px !important;
+  }
+  .hero-banner > .haf-desktop-3d-scene {
+    animation: hafMotionSceneDrift 9s ease-in-out infinite alternate !important;
+    animation-play-state: running !important;
+    will-change: transform, opacity !important;
+  }
+  .hero-banner > .haf-desktop-3d-scene .haf-scene-ring {
+    animation: hafMotionGoldOrbit 7.2s linear infinite !important;
+    animation-play-state: running !important;
+    will-change: transform !important;
+  }
+  .hero-banner > .haf-desktop-3d-scene .haf-scene-ring-violet {
+    animation: hafMotionVioletOrbit 5.1s linear infinite !important;
+    animation-play-state: running !important;
+    will-change: transform !important;
+  }
+  .hero-banner > .haf-desktop-3d-scene .haf-scene-core {
+    animation: hafMotionCorePulse 2.4s ease-in-out infinite alternate !important;
+    animation-play-state: running !important;
+    will-change: transform, opacity !important;
+  }
+  .hero-banner > .haf-3d-orbit {
+    animation: hafMotionOrbitA 8.4s linear infinite !important;
+    animation-play-state: running !important;
+    will-change: transform !important;
+  }
+  .hero-banner > .haf-3d-orbit-secondary {
+    animation: hafMotionOrbitB 6.3s linear infinite !important;
+    animation-play-state: running !important;
+    will-change: transform !important;
+  }
+  .hero-banner::before {
+    animation: hafMotionHeroGlow 8s ease-in-out infinite alternate !important;
+    will-change: opacity, transform !important;
+  }
+}
+@keyframes hafMotionSceneDrift {
+  from { transform: translate3d(0, -4px, 0) rotateY(-5deg); }
+  to { transform: translate3d(0, 7px, 0) rotateY(5deg); }
+}
+@keyframes hafMotionGoldOrbit {
+  from { transform: rotateX(58deg) rotateY(-24deg) rotateZ(0deg) scale(.94); }
+  50% { transform: rotateX(68deg) rotateY(22deg) rotateZ(180deg) scale(1.04); }
+  to { transform: rotateX(58deg) rotateY(-24deg) rotateZ(360deg) scale(.94); }
+}
+@keyframes hafMotionVioletOrbit {
+  from { transform: rotateX(70deg) rotateY(26deg) rotateZ(360deg) scale(.96); }
+  to { transform: rotateX(52deg) rotateY(-28deg) rotateZ(0deg) scale(1.03); }
+}
+@keyframes hafMotionCorePulse {
+  from { transform: translate3d(0,0,0) scale(.72); opacity: .68; }
+  to { transform: translate3d(12px,15px,20px) scale(1.24); opacity: 1; }
+}
+@keyframes hafMotionOrbitA {
+  from { transform: rotateX(62deg) rotateY(-18deg) rotateZ(0deg); }
+  to { transform: rotateX(62deg) rotateY(-18deg) rotateZ(360deg); }
+}
+@keyframes hafMotionOrbitB {
+  from { transform: rotateX(48deg) rotateY(32deg) rotateZ(360deg); }
+  to { transform: rotateX(48deg) rotateY(32deg) rotateZ(0deg); }
+}
+@keyframes hafMotionHeroGlow {
+  from { opacity: .65; transform: translate3d(-.4%,0,0) scale(.98); }
+  to { opacity: 1; transform: translate3d(.4%,.5%,0) scale(1.03); }
+}
+@media screen and (min-width: 701px) and (prefers-reduced-motion: reduce) {
+  .hero-banner > .haf-desktop-3d-scene,
+  .hero-banner > .haf-desktop-3d-scene .haf-scene-ring,
+  .hero-banner > .haf-desktop-3d-scene .haf-scene-ring-violet,
+  .hero-banner > .haf-desktop-3d-scene .haf-scene-core,
+  .hero-banner > .haf-3d-orbit,
+  .hero-banner > .haf-3d-orbit-secondary,
+  .hero-banner::before {
+    animation: none !important;
+    will-change: auto !important;
+  }
+}
