@@ -4767,3 +4767,81 @@ nav .nav-logo {
     box-shadow: 0 16px 36px rgba(0,0,0,.3), 0 0 0 1px rgba(232,207,255,.14);
   }
 }
+
+
+/* FINAL FIX — desktop hero 3D visibility + logo background blending (24 Oct 2026). */
+nav .nav-logo {
+  background: transparent !important;
+  mix-blend-mode: screen !important;
+  isolation: auto !important;
+  object-fit: contain !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+  filter: drop-shadow(0 2px 8px rgba(240,216,154,.13)) !important;
+}
+@media screen and (min-width: 701px) {
+  .hero-banner {
+    position: relative !important;
+    isolation: isolate !important;
+  }
+  .hero-banner > .haf-desktop-3d-scene {
+    display: block !important;
+    visibility: visible !important;
+    position: absolute !important;
+    width: clamp(190px, 20vw, 290px) !important;
+    height: clamp(190px, 20vw, 290px) !important;
+    right: clamp(10px, 1.8vw, 28px) !important;
+    top: 2% !important;
+    z-index: 4 !important;
+    opacity: .82 !important;
+    pointer-events: none !important;
+    overflow: visible !important;
+    transform-style: preserve-3d !important;
+    will-change: transform !important;
+    filter: drop-shadow(0 0 18px rgba(240,216,154,.22)) !important;
+  }
+  .hero-banner > .haf-desktop-3d-scene .haf-scene-ring {
+    display: block !important;
+    visibility: visible !important;
+    border: 2px solid rgba(255,225,157,.92) !important;
+    box-shadow: 0 0 22px rgba(240,196,92,.3), inset 0 0 18px rgba(240,196,92,.12) !important;
+    animation: hafDesktopFallbackOrbit 11s linear infinite !important;
+    animation-play-state: running !important;
+  }
+  .hero-banner > .haf-desktop-3d-scene .haf-scene-ring-violet {
+    border-color: rgba(207,169,255,.9) !important;
+    box-shadow: 0 0 26px rgba(153,100,214,.3), inset 0 0 14px rgba(153,100,214,.1) !important;
+    animation-duration: 16s !important;
+    animation-direction: reverse !important;
+  }
+  .hero-banner > .haf-desktop-3d-scene .haf-scene-core {
+    opacity: 1 !important;
+    animation: hafDesktopFallbackPulse 3.2s ease-in-out infinite alternate !important;
+  }
+}
+@media screen and (min-width: 701px) and (max-width: 1100px) {
+  .hero-banner > .haf-desktop-3d-scene {
+    width: 180px !important;
+    height: 180px !important;
+    right: 8px !important;
+    top: 4% !important;
+    opacity: .7 !important;
+  }
+}
+@media screen and (max-width: 700px) {
+  .hero-banner > .haf-desktop-3d-scene {
+    display: block !important;
+    visibility: visible !important;
+    z-index: 1 !important;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-banner > .haf-desktop-3d-scene,
+  .hero-banner > .haf-desktop-3d-scene .haf-scene-ring,
+  .hero-banner > .haf-desktop-3d-scene .haf-scene-ring-violet,
+  .hero-banner > .haf-desktop-3d-scene .haf-scene-core {
+    animation: none !important;
+  }
+}
