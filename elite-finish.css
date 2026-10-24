@@ -2514,3 +2514,79 @@ nav {
   }
   #portfolio .poster-item img { transform: none !important; transition: none !important; }
 }
+
+
+/* SIGNATURE 11.0 — cinematic gallery polish, clear depth layers, and restrained gold light. */
+#portfolio {
+  position: relative;
+  isolation: isolate;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(130,77,171,.16), transparent 58%),
+    linear-gradient(180deg, rgba(18,11,28,.38), rgba(8,7,14,.08));
+}
+#portfolio::before {
+  content: "";
+  position: absolute;
+  inset: 10% 4% auto;
+  height: 220px;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(ellipse at center, rgba(243,204,117,.075), transparent 70%);
+  filter: blur(22px);
+}
+#portfolio .poster-grid { perspective: 1400px; perspective-origin: 50% 42%; }
+#portfolio .poster-item {
+  position: relative;
+  transform-origin: center center;
+  backface-visibility: hidden;
+  border-color: rgba(246,226,172,.28);
+  box-shadow: 0 18px 38px rgba(0,0,0,.32), inset 0 1px rgba(255,255,255,.055);
+  transition: border-color .3s ease, box-shadow .3s ease, background .3s ease;
+}
+#portfolio .poster-item::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  opacity: .5;
+  background: linear-gradient(125deg, rgba(255,255,255,.12), transparent 24%, transparent 70%, rgba(246,226,172,.07));
+  mix-blend-mode: screen;
+}
+#portfolio .poster-item::after {
+  content: "HERITAGE • PREMIUM FINANCE";
+  position: absolute;
+  left: 50%;
+  bottom: 10px;
+  z-index: 3;
+  transform: translate(-50%, 5px);
+  max-width: calc(100% - 16px);
+  padding: 6px 9px;
+  border: 1px solid rgba(246,226,172,.38);
+  border-radius: 999px;
+  background: rgba(8,6,13,.88);
+  color: #f6e2ac;
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: .09em;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .25s ease, transform .25s ease;
+}
+@media (hover: hover) and (pointer: fine) {
+  #portfolio .poster-item:hover::after { opacity: 1; transform: translate(-50%, 0); }
+  #portfolio .poster-item:hover::before { opacity: .9; }
+  #portfolio .poster-item:hover {
+    border-color: rgba(246,226,172,.82);
+    background: linear-gradient(145deg, rgba(45,27,61,.98), rgba(9,7,15,.98));
+    box-shadow: 0 28px 55px rgba(0,0,0,.46), 0 0 0 1px rgba(246,226,172,.12), 0 0 32px rgba(132,83,177,.2);
+  }
+}
+@media (max-width: 700px) {
+  #portfolio::before { inset: 8% 0 auto; height: 150px; }
+  #portfolio .poster-item::after { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  #portfolio .poster-item::before, #portfolio .poster-item::after { transition: none !important; }
+}
