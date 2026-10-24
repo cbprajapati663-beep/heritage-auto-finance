@@ -3578,3 +3578,59 @@ nav .nav-logo {
   .haf-desktop-3d-scene .haf-scene-ring,
   .haf-desktop-3d-scene .haf-scene-core { animation: none !important; }
 }
+
+
+/* DESKTOP MOTION HOTFIX — ensure the visible hero 3D rings keep rotating.
+   Unique keyframes and final cascade override prevent older desktop/reduced-motion
+   declarations from accidentally leaving the scene looking frozen. */
+@media screen and (min-width: 701px) {
+  .hero-banner > .haf-desktop-3d-scene,
+  .hero-banner > .haf-3d-orbit,
+  .hero-banner > .haf-3d-orbit-secondary {
+    animation-play-state: running !important;
+  }
+  .hero-banner > .haf-desktop-3d-scene .haf-scene-ring {
+    animation: hafDesktopLiveSpin 8s linear infinite !important;
+    animation-play-state: running !important;
+    animation-delay: 0s !important;
+  }
+  .hero-banner > .haf-desktop-3d-scene .haf-scene-ring-violet {
+    animation: hafDesktopLiveSpinReverse 5.6s linear infinite !important;
+    animation-play-state: running !important;
+    animation-delay: 0s !important;
+  }
+  .hero-banner > .haf-desktop-3d-scene .haf-scene-core {
+    animation: hafDesktopLiveFloat 2.8s ease-in-out infinite alternate !important;
+    animation-play-state: running !important;
+    animation-delay: 0s !important;
+  }
+  .hero-banner > .haf-3d-orbit {
+    animation: hafDesktopLiveOrbitA 8s linear infinite !important;
+    animation-play-state: running !important;
+  }
+  .hero-banner > .haf-3d-orbit-secondary {
+    animation: hafDesktopLiveOrbitB 6s linear infinite !important;
+    animation-play-state: running !important;
+  }
+}
+@keyframes hafDesktopLiveSpin {
+  from { transform: rotateX(58deg) rotateY(-24deg) rotateZ(0deg) scale(.94); }
+  50% { transform: rotateX(68deg) rotateY(22deg) rotateZ(180deg) scale(1.04); }
+  to { transform: rotateX(58deg) rotateY(-24deg) rotateZ(360deg) scale(.94); }
+}
+@keyframes hafDesktopLiveSpinReverse {
+  from { transform: rotateX(70deg) rotateY(26deg) rotateZ(360deg) scale(.96); }
+  to { transform: rotateX(52deg) rotateY(-28deg) rotateZ(0deg) scale(1.03); }
+}
+@keyframes hafDesktopLiveFloat {
+  from { transform: translate3d(0,0,0) scale(.78); opacity: .72; }
+  to { transform: translate3d(12px,16px,22px) scale(1.22); opacity: 1; }
+}
+@keyframes hafDesktopLiveOrbitA {
+  from { transform: rotateX(62deg) rotateY(-18deg) rotateZ(0deg); }
+  to { transform: rotateX(62deg) rotateY(-18deg) rotateZ(360deg); }
+}
+@keyframes hafDesktopLiveOrbitB {
+  from { transform: rotateX(48deg) rotateY(32deg) rotateZ(360deg); }
+  to { transform: rotateX(48deg) rotateY(32deg) rotateZ(0deg); }
+}
