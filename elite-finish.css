@@ -5363,3 +5363,33 @@ nav .nav-logo {
 @media (prefers-reduced-motion: reduce) {
   .hero-showcase, .hero-showcase * { scroll-behavior: auto !important; }
 }
+
+
+/* Final uploaded hero artwork: use the approved campaign image as the actual showcase image. */
+.hero-banner .hero-showcase {
+  background-image: linear-gradient(90deg, rgba(8,6,13,.12), rgba(8,6,13,.02) 58%, rgba(8,6,13,.10)) !important;
+  background-color: #09070d !important;
+  min-height: 0 !important;
+  aspect-ratio: 16 / 9;
+}
+.hero-banner .hero-showcase > .hero-showcase-art {
+  position: absolute !important;
+  inset: 0 !important;
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center center !important;
+  opacity: 1 !important;
+  mix-blend-mode: normal !important;
+  filter: none !important;
+  z-index: 0 !important;
+}
+.hero-banner .hero-showcase::before,
+.hero-banner .hero-showcase::after { z-index: 2 !important; }
+.hero-banner .hero-showcase > .hero-showcase-chip,
+.hero-banner .hero-showcase > .hero-showcase-caption { z-index: 3 !important; }
+@media (max-width: 700px) {
+  .hero-banner .hero-showcase { aspect-ratio: 4 / 3; min-height: 0 !important; }
+  .hero-banner .hero-showcase > .hero-showcase-art { object-position: center center !important; }
+}
