@@ -2895,3 +2895,101 @@ nav .nav-logo {
 @media (max-width: 700px) {
   nav { background-color: rgba(9, 5, 16, .99) !important; }
 }
+
+
+/* SIGNATURE 18 — whole-site refinement: hierarchy, rhythm, polish and responsive comfort. */
+:root {
+  --haf-s18-gold: #f3dda3;
+  --haf-s18-border: rgba(243, 221, 163, .2);
+  --haf-s18-panel: rgba(20, 14, 29, .72);
+}
+html { scroll-behavior: smooth; }
+body {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+:where(h1, h2, h3, h4) {
+  text-wrap: balance;
+  letter-spacing: -.018em;
+}
+:where(p, li) { text-wrap: pretty; }
+:where(section, .section) { isolation: isolate; }
+:where(.service-tile, .journey-step, .detail-box, .review-card, .calc-card, .form-container, .stats-bar) {
+  border: 1px solid var(--haf-s18-border);
+  border-radius: 18px;
+}
+:where(.service-tile, .journey-step, .detail-box, .review-card, .calc-card, .form-container) {
+  box-shadow: 0 16px 42px rgba(0,0,0,.19), inset 0 1px rgba(255,255,255,.035);
+}
+:where(.service-tile, .journey-step, .detail-box, .review-card) {
+  overflow: hidden;
+}
+:where(.service-tile, .journey-step, .detail-box, .review-card) :where(h3, h4) {
+  color: #f7e8c3;
+}
+:where(.service-tile, .journey-step, .detail-box, .review-card) :where(p, li) {
+  line-height: 1.72;
+}
+:where(.hero-cta-primary, .emi-whatsapp-cta, .direct-wa-enquiry button, .mobile-action-whatsapp) {
+  border: 1px solid rgba(255,255,255,.13);
+  border-radius: 999px;
+  font-weight: 600;
+  letter-spacing: .01em;
+  transition: transform .2s ease, box-shadow .2s ease, filter .2s ease;
+}
+@media (hover: hover) and (pointer: fine) {
+  :where(.hero-cta-primary, .emi-whatsapp-cta, .direct-wa-enquiry button, .mobile-action-whatsapp):hover {
+    filter: brightness(1.055);
+    box-shadow: 0 12px 30px rgba(0,0,0,.24), 0 0 22px rgba(243,221,163,.09);
+  }
+}
+:where(input, select, textarea) {
+  border-radius: 12px;
+  max-width: 100%;
+}
+:where(button, input, select, textarea, a) { -webkit-tap-highlight-color: transparent; }
+:where(a, button, input, select, textarea, [tabindex]):focus-visible {
+  outline: 2px solid var(--haf-s18-gold);
+  outline-offset: 3px;
+}
+:where(.trust-strip, .heritage-proof-strip, .lead-form-assurances) {
+  gap: 12px;
+}
+:where(.trust-strip > div, .heritage-proof-strip > div, .lead-form-assurances span) {
+  border-color: rgba(243,221,163,.16);
+}
+:where(.poster-grid .poster-item, .hero-banner .main-poster) {
+  overflow: hidden;
+}
+.poster-grid .poster-item img {
+  display: block;
+  transition: transform .35s ease, filter .35s ease;
+}
+@media (hover: hover) and (pointer: fine) {
+  .poster-grid .poster-item:hover img { transform: scale(1.025); filter: saturate(1.04); }
+}
+footer {
+  border-top: 1px solid rgba(243,221,163,.16);
+}
+footer :where(p, li) { line-height: 1.75; }
+.site-disclaimer { text-wrap: pretty; }
+@media (max-width: 700px) {
+  body { line-height: 1.65; }
+  :where(.service-tile, .journey-step, .detail-box, .review-card, .calc-card, .form-container, .stats-bar) {
+    border-radius: 15px;
+  }
+  :where(.service-tile, .journey-step, .detail-box, .review-card) {
+    box-shadow: 0 9px 25px rgba(0,0,0,.17);
+  }
+  :where(.hero-cta-primary, .emi-whatsapp-cta, .direct-wa-enquiry button, .mobile-action-whatsapp) {
+    min-height: 46px;
+  }
+  .poster-grid .poster-item img { transition: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .poster-grid .poster-item img,
+  :where(.hero-cta-primary, .emi-whatsapp-cta, .direct-wa-enquiry button, .mobile-action-whatsapp) {
+    transition: none !important;
+  }
+}
