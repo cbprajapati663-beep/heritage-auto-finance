@@ -14,9 +14,19 @@
 
   function typeNext() {
     const target = document.querySelector(".typed-text");
-    if (!target || window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
-        window.matchMedia("(max-width: 700px)").matches) {
+    if (!target || window.matchMedia("(max-width: 700px)").matches) {
       if (target) target.textContent = textArray[0];
+      return;
+    }
+    // Respect reduced-motion preferences: rotate complete phrases slowly instead of freezing on one phrase.
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      target.textContent = textArray[textIndex];
+      charIndex = textArray[textIndex].length;
+      typingTimer = window.setTimeout(() => {
+        textIndex = (textIndex + 1) % textArray.length;
+        charIndex = 0;
+        typeNext();
+      }, 4200);
       return;
     }
     const word = textArray[textIndex];
@@ -227,6 +237,14 @@
     };
     window.addEventListener("scroll", updateScrollProgress, { passive: true });
     updateScrollProgress();
+
+    // Keep an Apply Now action available after the visitor scrolls past the hero.
+    const floatingApply = document.getElementById("hafFloatingApply");
+    if (floatingApply) {
+      const updateFloatingApply = () => floatingApply.classList.toggle("is-visible", window.scrollY > 520);
+      window.addEventListener("scroll", updateFloatingApply, { passive: true });
+      updateFloatingApply();
+    }
 
     const backToTop = document.getElementById("backToTop");
     if (backToTop) {
