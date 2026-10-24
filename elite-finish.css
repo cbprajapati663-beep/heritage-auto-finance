@@ -2799,3 +2799,71 @@ nav {
     transition: none !important;
   }
 }
+
+
+/* SIGNATURE 17.0 — full-site refinement: clearer hierarchy, consistent surfaces, and responsive polish. */
+:root {
+  --haf-17-gold: #f6dfa2;
+  --haf-17-line: rgba(246,223,162,.2);
+  --haf-17-panel: rgba(17,12,27,.78);
+}
+html { scroll-behavior: smooth; scroll-padding-top: 92px; }
+body {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+:where(#services, #portfolio, #tools, #contact) {
+  scroll-margin-top: 90px;
+}
+:where(#services, #portfolio, #tools, #contact) > h2,
+:where(#services, #portfolio, #tools, #contact) .section-title {
+  text-wrap: balance;
+}
+:where(.service-tile, .journey-step, .detail-box, .review-card, .poster-item, .calc-card, .form-container) {
+  border-color: var(--haf-17-line);
+}
+:where(.service-tile, .journey-step, .detail-box, .review-card, .calc-card, .form-container) {
+  background-image: linear-gradient(145deg, rgba(255,255,255,.025), transparent 55%);
+  box-shadow: 0 16px 38px rgba(0,0,0,.2), inset 0 1px rgba(255,255,255,.035);
+}
+:where(.service-tile, .journey-step, .detail-box, .review-card) {
+  transition: transform .26s ease, box-shadow .26s ease, border-color .26s ease;
+}
+@media (hover: hover) and (pointer: fine) {
+  :where(.service-tile, .journey-step, .detail-box, .review-card):hover {
+    transform: translateY(-5px);
+    border-color: rgba(246,223,162,.48);
+    box-shadow: 0 24px 48px rgba(0,0,0,.32), 0 0 26px rgba(146,94,190,.1);
+  }
+}
+:where(input, select, textarea) {
+  border-color: rgba(246,223,162,.22);
+  transition: border-color .18s ease, box-shadow .18s ease, background .18s ease;
+}
+:where(input, select, textarea):focus {
+  border-color: rgba(246,223,162,.72) !important;
+  box-shadow: 0 0 0 3px rgba(246,223,162,.09), 0 0 22px rgba(146,94,190,.08);
+}
+:where(.hero-cta-primary, .emi-whatsapp-cta, .direct-wa-enquiry button, .mobile-action-whatsapp) {
+  min-height: 46px;
+}
+img { max-width: 100%; }
+@media (min-width: 1200px) {
+  :where(#services, #portfolio, #tools, #contact) {
+    max-width: 100%;
+  }
+  #services, #portfolio {
+    padding-left: clamp(28px, 3vw, 56px);
+    padding-right: clamp(28px, 3vw, 56px);
+  }
+}
+@media (max-width: 700px) {
+  html { scroll-padding-top: 72px; }
+  :where(#services, #portfolio, #tools, #contact) { scroll-margin-top: 70px; }
+  :where(.service-tile, .journey-step, .detail-box, .review-card) { transition: none; }
+  :where(input, select, textarea) { font-size: 16px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  :where(.service-tile, .journey-step, .detail-box, .review-card) { transition: none !important; }
+}
