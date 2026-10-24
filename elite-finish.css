@@ -6018,3 +6018,57 @@ nav .nav-logo {
 @media (prefers-reduced-motion: reduce) {
   .hero-banner > .hero-showcase > .hero-art-overlay h2 em { animation: none !important; }
 }
+
+
+/* Performance pass: reduce costly paint effects on phones without changing the visual theme. */
+@media (max-width: 700px) {
+  html { scroll-behavior: auto; }
+  body { background-attachment: scroll !important; }
+  .hero-banner .main-poster,
+  .hero-showcase,
+  .hero-showcase-art,
+  .service-tile,
+  .poster-grid .poster-item,
+  .calc-card {
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+  }
+  .hero-showcase-art {
+    transform: none !important;
+    filter: none !important;
+  }
+  .hero-showcase-chip,
+  .hero-showcase-live-dot,
+  .hero-showcase-chip-icon,
+  .hero-art-overlay,
+  .hero-art-overlay h2 em {
+    animation: none !important;
+  }
+  .hero-banner .main-poster,
+  .calc-card,
+  .service-tile {
+    box-shadow: 0 8px 22px rgba(0,0,0,.22) !important;
+  }
+  .service-tile,
+  .enquiry-path,
+  .journey-step,
+  .detail-box,
+  .review-card,
+  .poster-grid .poster-item img,
+  .hero-cta {
+    transition-duration: .16s !important;
+  }
+}
+@media (max-width: 700px) and (prefers-reduced-motion: no-preference) {
+  .hero-art-overlay {
+    animation: hafHeroCopyFloat 7s ease-in-out infinite !important;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}
