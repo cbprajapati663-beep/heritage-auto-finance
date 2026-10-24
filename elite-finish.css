@@ -6170,3 +6170,44 @@ main, section, header, footer, nav, .hero-banner, .stats-bar, .service-rail { mi
 @media (prefers-reduced-motion: reduce) {
   .hero-banner .typing-container .typed-text { contain: none; }
 }
+
+
+/* Definitive anti-layout-shift fix for the animated hero headline. */
+.hero-banner .typing-container {
+  display: block !important;
+  min-height: 2.35em !important;
+  line-height: 1.08 !important;
+  overflow: visible !important;
+}
+.hero-banner .typing-container .typed-text {
+  display: block !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  min-height: 1.2em !important;
+  height: 1.2em !important;
+  line-height: 1.08 !important;
+  white-space: nowrap !important;
+  overflow: visible !important;
+  contain: layout style !important;
+  transition: opacity .16s ease, transform .16s ease !important;
+}
+.hero-banner .typing-container .typed-text.phrase-changing {
+  opacity: .2 !important;
+  transform: translateY(2px) !important;
+}
+@media (max-width: 700px) {
+  .hero-banner .typing-container {
+    min-height: 2.3em !important;
+    line-height: 1.08 !important;
+  }
+  .hero-banner .typing-container .typed-text {
+    display: block !important;
+    height: auto !important;
+    min-height: 1.2em !important;
+    white-space: normal !important;
+    overflow-wrap: normal !important;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-banner .typing-container .typed-text { transition: none !important; }
+}
