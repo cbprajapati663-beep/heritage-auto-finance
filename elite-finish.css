@@ -4510,3 +4510,78 @@ nav .nav-links a[href="#contact"]:focus-visible {
     animation: none !important;
   }
 }
+
+
+/* HERO DESKTOP 3D VISIBILITY — final stacking and contrast correction.
+   The scene intentionally sits above the showroom artwork, not behind its stacking context. */
+@media screen and (min-width: 701px) {
+  .hero-banner {
+    position: relative !important;
+    isolation: isolate !important;
+    overflow: hidden;
+  }
+  .hero-banner > .haf-desktop-3d-scene {
+    position: absolute !important;
+    display: block !important;
+    visibility: visible !important;
+    right: clamp(18px, 3.2vw, 54px) !important;
+    top: clamp(12px, 2.5vw, 38px) !important;
+    width: clamp(260px, 30vw, 440px) !important;
+    height: clamp(260px, 30vw, 440px) !important;
+    z-index: 3 !important;
+    opacity: .94 !important;
+    pointer-events: none !important;
+    transform-style: preserve-3d !important;
+    filter: drop-shadow(0 0 16px rgba(240,216,154,.18)) !important;
+  }
+  .hero-banner > .haf-desktop-3d-scene .haf-scene-ring {
+    border-width: 2px !important;
+    border-color: rgba(247, 222, 158, .86) !important;
+    box-shadow: 0 0 24px rgba(240,196,92,.22), inset 0 0 16px rgba(240,196,92,.08) !important;
+    opacity: .88 !important;
+  }
+  .hero-banner > .haf-desktop-3d-scene .haf-scene-ring-violet {
+    border-width: 2px !important;
+    border-color: rgba(194,153,245,.72) !important;
+    box-shadow: 0 0 22px rgba(153,100,214,.18) !important;
+    opacity: .72 !important;
+  }
+  .hero-banner > .haf-desktop-3d-scene .haf-scene-core {
+    opacity: .96 !important;
+    filter: drop-shadow(0 0 18px rgba(240,216,154,.5)) !important;
+  }
+}
+@media screen and (min-width: 701px) and (prefers-reduced-motion: no-preference) {
+  .hero-banner > .haf-desktop-3d-scene {
+    animation: hafHeroSceneDriftFinal 7s ease-in-out infinite alternate !important;
+    animation-play-state: running !important;
+  }
+  .hero-banner > .haf-desktop-3d-scene .haf-scene-ring {
+    animation: hafHeroInnerOrbitFinal 10s linear infinite !important;
+    animation-play-state: running !important;
+  }
+  .hero-banner > .haf-desktop-3d-scene .haf-scene-ring-violet {
+    animation: hafHeroVioletOrbitFinal 13s linear infinite reverse !important;
+    animation-play-state: running !important;
+  }
+  .hero-banner > .haf-desktop-3d-scene .haf-scene-core {
+    animation: hafHeroCoreTravelFinal 4s ease-in-out infinite alternate !important;
+    animation-play-state: running !important;
+  }
+}
+@media screen and (min-width: 701px) and (prefers-reduced-motion: reduce) {
+  .hero-banner > .haf-desktop-3d-scene,
+  .hero-banner > .haf-desktop-3d-scene .haf-scene-ring,
+  .hero-banner > .haf-desktop-3d-scene .haf-scene-ring-violet,
+  .hero-banner > .haf-desktop-3d-scene .haf-scene-core {
+    animation: none !important;
+  }
+}
+@media screen and (max-width: 700px) {
+  .hero-banner > .haf-desktop-3d-scene {
+    z-index: 0 !important;
+    width: 145px !important;
+    height: 145px !important;
+    opacity: .42 !important;
+  }
+}
