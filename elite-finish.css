@@ -2288,3 +2288,53 @@ body {
   .hero-banner .main-poster { transition: none !important; }
   .hero-banner .main-poster:hover { transform: none !important; filter: none !important; }
 }
+
+
+/* SIGNATURE 7.0 — refined premium system, practical clarity, and resilient mobile UI. */
+:root {
+  --haf-7-gold: #f6e2ac;
+  --haf-7-glass: rgba(16, 11, 24, .78);
+  --haf-7-border: rgba(246, 226, 172, .2);
+}
+:where(.service-tile, .journey-step, .detail-box, .review-card, .poster-grid .poster-item) {
+  border-color: var(--haf-7-border);
+  box-shadow: 0 12px 34px rgba(0,0,0,.18), inset 0 1px rgba(255,255,255,.025);
+}
+:where(.form-container, .calc-card) {
+  isolation: isolate;
+  border-color: var(--haf-7-border);
+  box-shadow: 0 22px 58px rgba(0,0,0,.2), inset 0 1px rgba(255,255,255,.035);
+}
+nav {
+  background-color: var(--haf-7-glass);
+  border-bottom-color: rgba(246,226,172,.2);
+}
+:where(.hero-cta-primary, .emi-whatsapp-cta, .direct-wa-enquiry button, .mobile-action-whatsapp) {
+  font-weight: 600;
+  letter-spacing: .012em;
+}
+:where(.hero-cta-primary, .emi-whatsapp-cta, .direct-wa-enquiry button, .mobile-quick-actions a):focus-visible {
+  outline: 2px solid var(--haf-7-gold);
+  outline-offset: 3px;
+}
+:where(.service-tile, .journey-step, .detail-box, .review-card) {
+  overflow: hidden;
+}
+@media (hover: hover) and (pointer: fine) {
+  .service-tile:hover, .journey-step:hover, .detail-box:hover, .review-card:hover {
+    border-color: rgba(246,226,172,.44);
+    box-shadow: 0 22px 50px rgba(0,0,0,.25), 0 0 0 1px rgba(246,226,172,.06);
+  }
+}
+@media (max-width: 700px) {
+  nav { background-color: rgba(12,8,18,.94); }
+  :where(.form-container, .calc-card) { box-shadow: 0 14px 36px rgba(0,0,0,.18); }
+  .mobile-quick-actions { padding-bottom: max(8px, env(safe-area-inset-bottom)); }
+}
+@supports not ((backdrop-filter: blur(1px))) {
+  nav { background-color: rgba(12,8,18,.96); }
+  .trust-strip > div, .heritage-proof-strip { background-color: rgba(18,13,25,.94); }
+}
+@media (prefers-reduced-motion: reduce) {
+  * { scroll-behavior: auto !important; }
+}
