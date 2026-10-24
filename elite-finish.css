@@ -3185,3 +3185,83 @@ nav .nav-logo {
     animation: none !important;
   }
 }
+
+
+/* DESKTOP HERO 3D FIX v2 — visible elliptical motion, not a symmetric spinning circle. */
+@media (min-width: 701px) {
+  .hero-banner {
+    overflow: visible !important;
+  }
+  .hero-banner > .haf-3d-orbit,
+  .hero-banner > .haf-3d-orbit-secondary {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    border-radius: 50% !important;
+    transform-origin: center center !important;
+    will-change: transform !important;
+    animation-timing-function: linear !important;
+    animation-iteration-count: infinite !important;
+    animation-direction: normal !important;
+  }
+  .hero-banner > .haf-3d-orbit {
+    border: 2px solid rgba(255, 214, 115, .88) !important;
+    transform-style: preserve-3d !important;
+    box-shadow: 0 0 20px rgba(255, 196, 75, .23), inset 0 0 18px rgba(255, 196, 75, .10) !important;
+    animation: hafDesktopOrbitVisibleA 7s linear infinite !important;
+  }
+  .hero-banner > .haf-3d-orbit-secondary {
+    border: 2px solid rgba(205, 150, 255, .9) !important;
+    box-shadow: 0 0 24px rgba(173, 112, 255, .24), inset 0 0 18px rgba(173, 112, 255, .10) !important;
+    animation: hafDesktopOrbitVisibleB 5.5s linear infinite !important;
+  }
+  .hero-banner > .haf-3d-orbit::before,
+  .hero-banner > .haf-3d-orbit-secondary::before {
+    content: "" !important;
+    position: absolute !important;
+    display: block !important;
+    width: 12px !important;
+    height: 12px !important;
+    inset: auto auto 12% 12% !important;
+    border: 0 !important;
+    border-radius: 50% !important;
+    background: #fff0bd !important;
+    box-shadow: 0 0 9px 3px rgba(255, 202, 87, .8), 0 0 22px 7px rgba(255, 202, 87, .28) !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+  .hero-banner > .haf-3d-orbit-secondary::before {
+    width: 9px !important;
+    height: 9px !important;
+    background: #f2dcff !important;
+    box-shadow: 0 0 9px 3px rgba(199, 143, 255, .9), 0 0 20px 6px rgba(199, 143, 255, .32) !important;
+  }
+  .hero-banner > .haf-3d-orbit::after,
+  .hero-banner > .haf-3d-orbit-secondary::after {
+    content: "" !important;
+    position: absolute !important;
+    display: block !important;
+    inset: 14% !important;
+    border: 1px solid rgba(255, 239, 194, .42) !important;
+    border-radius: 50% !important;
+    transform: rotateX(68deg) rotateY(28deg) !important;
+    opacity: .95 !important;
+  }
+}
+@keyframes hafDesktopOrbitVisibleA {
+  0% { transform: perspective(850px) rotateX(66deg) rotateY(-18deg) rotateZ(0deg) scale(.96); }
+  50% { transform: perspective(850px) rotateX(54deg) rotateY(18deg) rotateZ(180deg) scale(1.04); }
+  100% { transform: perspective(850px) rotateX(66deg) rotateY(-18deg) rotateZ(360deg) scale(.96); }
+}
+@keyframes hafDesktopOrbitVisibleB {
+  0% { transform: perspective(780px) rotateX(58deg) rotateY(24deg) rotateZ(360deg) scale(1.02); }
+  50% { transform: perspective(780px) rotateX(72deg) rotateY(-20deg) rotateZ(180deg) scale(.94); }
+  100% { transform: perspective(780px) rotateX(58deg) rotateY(24deg) rotateZ(0deg) scale(1.02); }
+}
+@media (min-width: 701px) and (prefers-reduced-motion: reduce) {
+  .hero-banner > .haf-3d-orbit,
+  .hero-banner > .haf-3d-orbit-secondary {
+    animation: none !important;
+    transform: perspective(850px) rotateX(60deg) rotateY(15deg) !important;
+  }
+}
