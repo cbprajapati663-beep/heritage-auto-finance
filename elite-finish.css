@@ -2388,3 +2388,81 @@ nav {
     padding-right: 16px;
   }
 }
+
+
+/* SIGNATURE 9.0 — poster gallery normalization + visible 3D motion + wider portfolio canvas. */
+#portfolio {
+  width: 100%;
+  box-sizing: border-box;
+}
+#portfolio .poster-grid {
+  width: min(100%, 1480px) !important;
+  max-width: 1480px !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  align-items: stretch !important;
+  gap: clamp(14px, 1.7vw, 24px) !important;
+  margin-inline: auto !important;
+}
+#portfolio .poster-item {
+  width: 100%;
+  min-width: 0;
+  height: 100%;
+  min-height: 0;
+  aspect-ratio: 4 / 5;
+  box-sizing: border-box;
+  display: grid !important;
+  place-items: center;
+  padding: 8px !important;
+  overflow: hidden;
+  transform-style: preserve-3d;
+  perspective: 900px;
+  background: linear-gradient(145deg, rgba(31,20,46,.96), rgba(9,7,15,.98));
+  animation: hafPosterFloat 5.5s ease-in-out infinite;
+  will-change: transform;
+}
+#portfolio .poster-item:nth-child(4n + 2) { animation-delay: -.8s; }
+#portfolio .poster-item:nth-child(4n + 3) { animation-delay: -1.6s; }
+#portfolio .poster-item:nth-child(4n) { animation-delay: -2.4s; }
+#portfolio .poster-item img {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  aspect-ratio: auto !important;
+  object-fit: contain !important;
+  object-position: center !important;
+  border-radius: 9px;
+  transform: translateZ(14px);
+}
+@keyframes hafPosterFloat {
+  0%, 100% { transform: perspective(900px) translateY(0) rotateX(0deg) rotateY(0deg); }
+  50% { transform: perspective(900px) translateY(-5px) rotateX(.8deg) rotateY(-.7deg); }
+}
+@media (hover: hover) and (pointer: fine) {
+  #portfolio .poster-item:hover {
+    z-index: 2;
+    animation-play-state: paused;
+    transform: perspective(900px) translateY(-7px) rotateX(1.2deg) rotateY(-1.2deg) !important;
+  }
+  #portfolio .poster-item:hover img { transform: translateZ(20px) scale(1.015); }
+}
+@media (min-width: 1200px) {
+  #portfolio { padding-left: clamp(28px, 3vw, 52px) !important; padding-right: clamp(28px, 3vw, 52px) !important; }
+}
+@media (max-width: 1050px) {
+  #portfolio .poster-grid { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; }
+}
+@media (max-width: 700px) {
+  #portfolio .poster-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; gap: 10px !important; }
+  #portfolio .poster-item { aspect-ratio: 4 / 5; padding: 5px !important; animation-duration: 7s; }
+}
+@media (max-width: 380px) {
+  #portfolio .poster-grid { grid-template-columns: 1fr !important; }
+  #portfolio .poster-item { aspect-ratio: 4 / 5; }
+}
+@media (prefers-reduced-motion: reduce) {
+  #portfolio .poster-item { animation: none !important; }
+  #portfolio .poster-item:hover { transform: none !important; }
+  #portfolio .poster-item img { transform: none !important; transition: none !important; }
+}
