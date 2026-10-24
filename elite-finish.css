@@ -6137,3 +6137,36 @@ main, section, header, footer, nav, .hero-banner, .stats-bar, .service-rail { mi
   .nav-logo { max-width: 94px !important; }
   .nav-links { gap: 5px 7px !important; }
 }
+
+
+/* Stop the rotating hero headline from reflowing the whole page.
+   Reserve a stable text slot for the longest rotating phrase and cursor. */
+.hero-banner .typing-container {
+  min-height: 2.25em;
+  line-height: 1.08;
+  text-wrap: balance;
+}
+.hero-banner .typing-container .typed-text {
+  display: inline-block;
+  width: 21ch;
+  min-width: 21ch;
+  min-height: 1.12em;
+  vertical-align: baseline;
+  white-space: nowrap;
+  overflow: visible;
+  contain: layout;
+}
+@media (max-width: 700px) {
+  .hero-banner .typing-container { min-height: 0; }
+  .hero-banner .typing-container .typed-text {
+    display: inline;
+    width: auto;
+    min-width: 0;
+    min-height: 0;
+    white-space: normal;
+    contain: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-banner .typing-container .typed-text { contain: none; }
+}
