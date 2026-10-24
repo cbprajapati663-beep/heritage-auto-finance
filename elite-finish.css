@@ -3265,3 +3265,134 @@ nav .nav-logo {
     transform: perspective(850px) rotateX(60deg) rotateY(15deg) !important;
   }
 }
+
+
+/* GALAXY DESKTOP EDITION — immersive page-wide nebula, stars and layered depth. */
+html {
+  background: #07040f;
+}
+body {
+  position: relative;
+  isolation: isolate;
+  background-color: transparent !important;
+  background-image:
+    radial-gradient(ellipse at 12% 8%, rgba(107, 63, 160, .28), transparent 34rem),
+    radial-gradient(ellipse at 88% 18%, rgba(41, 68, 139, .22), transparent 38rem),
+    radial-gradient(ellipse at 52% 52%, rgba(74, 38, 120, .17), transparent 42rem),
+    radial-gradient(ellipse at 14% 84%, rgba(47, 64, 132, .18), transparent 34rem),
+    radial-gradient(ellipse at 90% 92%, rgba(133, 78, 156, .16), transparent 38rem) !important;
+  background-attachment: fixed !important;
+}
+body::before {
+  content: "";
+  position: fixed;
+  inset: -10%;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    radial-gradient(1.5px 1.5px at 8% 14%, rgba(255,255,255,.9) 45%, transparent 70%),
+    radial-gradient(1px 1px at 18% 76%, rgba(238,221,255,.85) 45%, transparent 70%),
+    radial-gradient(2px 2px at 27% 31%, rgba(255,224,156,.9) 45%, transparent 70%),
+    radial-gradient(1px 1px at 39% 88%, rgba(255,255,255,.8) 45%, transparent 70%),
+    radial-gradient(1.5px 1.5px at 47% 18%, rgba(218,193,255,.9) 45%, transparent 70%),
+    radial-gradient(1px 1px at 58% 63%, rgba(255,255,255,.8) 45%, transparent 70%),
+    radial-gradient(2px 2px at 69% 28%, rgba(255,226,171,.85) 45%, transparent 70%),
+    radial-gradient(1px 1px at 78% 82%, rgba(230,214,255,.9) 45%, transparent 70%),
+    radial-gradient(1.5px 1.5px at 91% 45%, rgba(255,255,255,.9) 45%, transparent 70%),
+    radial-gradient(ellipse at 50% 40%, rgba(95,52,151,.10), transparent 55%);
+  background-size: 100% 100%;
+  opacity: .82;
+  animation: hafGalaxyDrift 44s linear infinite alternate;
+  will-change: transform;
+}
+@keyframes hafGalaxyDrift {
+  from { transform: translate3d(-.4%, -.3%, 0) scale(1); }
+  to { transform: translate3d(.4%, .3%, 0) scale(1.025); }
+}
+/* Give every desktop section a translucent cosmic surface instead of flat black blocks. */
+@media (min-width: 701px) {
+  nav {
+    background: rgba(9, 5, 20, .72) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(145%);
+    backdrop-filter: blur(20px) saturate(145%);
+    border-bottom-color: rgba(205, 164, 255, .22) !important;
+  }
+  main > section,
+  main > .stats-bar,
+  main > .service-rail,
+  main > .detail-section,
+  main > .contact-section,
+  main > .tools-section {
+    position: relative;
+    isolation: isolate;
+  }
+  main > section::before,
+  main > .stats-bar::before,
+  main > .service-rail::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    border-radius: inherit;
+    background:
+      radial-gradient(ellipse at 0% 0%, rgba(119, 73, 174, .10), transparent 55%),
+      radial-gradient(ellipse at 100% 100%, rgba(58, 80, 156, .08), transparent 58%);
+  }
+  .hero-banner {
+    background:
+      radial-gradient(ellipse at 78% 28%, rgba(111, 65, 169, .18), transparent 38%),
+      radial-gradient(ellipse at 18% 90%, rgba(46, 70, 151, .13), transparent 45%);
+    border: 1px solid rgba(204, 165, 255, .12);
+    box-shadow: 0 26px 80px rgba(0,0,0,.16), inset 0 1px rgba(255,255,255,.035);
+  }
+  .service-tile, .journey-step, .detail-box, .review-card, .calc-card, .form-container, .poster-grid .poster-item {
+    background-image: linear-gradient(145deg, rgba(154,117,199,.065), rgba(255,255,255,.012) 55%, rgba(61,79,153,.045));
+    border-color: rgba(196,166,239,.17);
+  }
+  .stats-bar {
+    background: linear-gradient(110deg, rgba(91,54,135,.20), rgba(16,12,33,.72), rgba(48,61,122,.17));
+  }
+  .section-title::after {
+    background: linear-gradient(90deg, transparent, #e8d2ff 24%, #f1d48a 52%, #bca1ff 78%, transparent);
+    box-shadow: 0 0 22px rgba(172,131,255,.3);
+  }
+  .hero-banner > .haf-3d-orbit {
+    border-color: rgba(255,220,137,.9) !important;
+    box-shadow: 0 0 24px rgba(255,203,91,.23), inset 0 0 22px rgba(255,203,91,.1) !important;
+  }
+  .hero-banner > .haf-3d-orbit-secondary {
+    border-color: rgba(205,155,255,.95) !important;
+    box-shadow: 0 0 28px rgba(165,107,255,.28), inset 0 0 22px rgba(165,107,255,.11) !important;
+  }
+  .hero-banner > .haf-3d-orbit::before,
+  .hero-banner > .haf-3d-orbit-secondary::before {
+    box-shadow: 0 0 12px 4px rgba(214,182,255,.82), 0 0 28px 9px rgba(145,101,236,.3) !important;
+  }
+  footer {
+    background: linear-gradient(180deg, rgba(10,6,22,.55), rgba(7,4,15,.92));
+    border-top-color: rgba(188,153,242,.24);
+  }
+}
+/* Seamless logo: remove the visual black tile by blending black pixels into the header. */
+nav .nav-logo {
+  mix-blend-mode: screen !important;
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  object-fit: contain !important;
+  filter: brightness(1.08) contrast(1.08) drop-shadow(0 0 9px rgba(244,216,157,.13)) !important;
+}
+@media (max-width: 700px) {
+  body {
+    background-attachment: scroll !important;
+    background-image:
+      radial-gradient(ellipse at 12% 8%, rgba(107,63,160,.16), transparent 28rem),
+      radial-gradient(ellipse at 88% 24%, rgba(41,68,139,.13), transparent 28rem) !important;
+  }
+  body::before { opacity: .48; animation-duration: 70s; }
+}
+@media (prefers-reduced-motion: reduce) {
+  body::before { animation: none !important; }
+}
