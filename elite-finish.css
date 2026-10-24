@@ -2659,3 +2659,22 @@ nav {
   #portfolio .poster-item { animation: none !important; transform: none !important; will-change: auto; }
   #portfolio .poster-item img { transform: none !important; transition: none !important; }
 }
+
+
+/* SIGNATURE 13.0 — final visible-motion override for the requested desktop experience. */
+@media (hover: hover) and (pointer: fine) {
+  #portfolio .poster-item {
+    animation: hafPosterFloatVisible 3.6s ease-in-out infinite !important;
+    animation-play-state: running !important;
+    transform-origin: center center;
+  }
+  #portfolio .poster-item:nth-child(4n + 2) { animation-delay: -.9s !important; }
+  #portfolio .poster-item:nth-child(4n + 3) { animation-delay: -1.8s !important; }
+  #portfolio .poster-item:nth-child(4n) { animation-delay: -2.7s !important; }
+  .haf-cursor-dot, .haf-cursor-ring { display: block !important; }
+  .haf-cursor-dot.is-visible, .haf-cursor-ring.is-visible { opacity: 1 !important; }
+}
+@media (hover: none), (pointer: coarse) {
+  .haf-cursor-dot, .haf-cursor-ring { display: none !important; }
+  #portfolio .poster-item { animation: none !important; }
+}
