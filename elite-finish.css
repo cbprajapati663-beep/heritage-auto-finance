@@ -5508,3 +5508,43 @@ nav .nav-logo {
     object-position: 56% center !important;
   }
 }
+
+
+/* Final premium polish: restrained gold glow, depth and calmer heading rhythm. */
+.hero-banner.reveal.active {
+  box-shadow: 0 26px 80px rgba(0,0,0,.26), 0 0 0 1px rgba(225,194,122,.035) inset !important;
+}
+.hero-banner > .hero-showcase {
+  box-shadow: 0 24px 58px rgba(0,0,0,.34), 0 0 0 1px rgba(255,255,255,.035) inset, 0 0 30px rgba(225,194,122,.085) !important;
+  transition: box-shadow .3s ease, border-color .3s ease !important;
+  border-color: rgba(225,194,122,.58) !important;
+}
+@media (hover:hover) and (pointer:fine) {
+  .hero-banner > .hero-showcase:hover {
+    box-shadow: 0 28px 70px rgba(0,0,0,.4), 0 0 36px rgba(225,194,122,.13) !important;
+    border-color: rgba(242,217,155,.82) !important;
+  }
+}
+.hero-banner > h1 {
+  text-wrap: balance !important;
+  letter-spacing: -.035em !important;
+}
+.hero-banner > .hero-supporting {
+  line-height: 1.8 !important;
+}
+.hero-banner > .hero-actions a,
+.hero-banner > .hero-actions button {
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease !important;
+}
+@media (hover:hover) and (pointer:fine) {
+  .hero-banner > .hero-actions a:hover,
+  .hero-banner > .hero-actions button:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 9px 24px rgba(225,194,122,.11) !important;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-banner > .hero-showcase,
+  .hero-banner > .hero-actions a,
+  .hero-banner > .hero-actions button { transition: none !important; }
+}
