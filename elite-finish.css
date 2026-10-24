@@ -6616,3 +6616,145 @@ input, select, textarea {
     grid-template-columns: minmax(0, 1fr) !important;
   }
 }
+
+
+/* Mobile hero clipping/overlap repair — desktop styles remain untouched. */
+@media screen and (max-width: 700px) {
+  body { overflow-x: clip !important; }
+  nav {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 10050 !important;
+    min-height: 66px !important;
+    height: auto !important;
+  }
+  main#main-content {
+    display: block !important;
+    position: relative !important;
+    overflow: visible !important;
+    padding-top: 12px !important;
+  }
+  .trust-strip {
+    position: relative !important;
+    z-index: 1 !important;
+    margin-top: 0 !important;
+  }
+  .hero-banner {
+    position: relative !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    justify-content: flex-start !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    overflow: visible !important;
+    padding: 22px 16px !important;
+    margin-top: 12px !important;
+    margin-bottom: 18px !important;
+    gap: 14px !important;
+  }
+  .hero-banner > .secure-badge { order: 1 !important; }
+  .hero-banner > .typing-container {
+    order: 2 !important;
+    display: block !important;
+    position: relative !important;
+    inset: auto !important;
+    height: auto !important;
+    min-height: 2.45em !important;
+    max-height: none !important;
+    width: 100% !important;
+    overflow: visible !important;
+    margin: 0 !important;
+    line-height: 1.14 !important;
+    font-size: clamp(1.7rem, 7vw, 2.25rem) !important;
+    white-space: normal !important;
+  }
+  .hero-banner > .typing-container .typed-text {
+    display: inline !important;
+    width: auto !important;
+    min-width: 0 !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    white-space: normal !important;
+    overflow: visible !important;
+    overflow-wrap: break-word !important;
+  }
+  .hero-banner > .hero-supporting {
+    order: 3 !important;
+    display: block !important;
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    line-height: 1.6 !important;
+    margin: 0 !important;
+  }
+  .hero-banner > .hero-actions {
+    order: 4 !important;
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    margin: 0 !important;
+  }
+  .hero-banner > .hero-trust-points {
+    order: 5 !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    margin: 0 !important;
+    gap: 8px !important;
+  }
+  .hero-banner > .hero-showcase {
+    order: 6 !important;
+    position: relative !important;
+    inset: auto !important;
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    aspect-ratio: 1.25 / 1 !important;
+    overflow: hidden !important;
+    margin: 6px 0 0 !important;
+    transform: none !important;
+  }
+  .hero-banner > .hero-showcase .hero-showcase-art {
+    display: block !important;
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center !important;
+  }
+  .hero-banner .hero-art-overlay {
+    left: 4% !important;
+    top: 7% !important;
+    max-width: 62% !important;
+    width: 62% !important;
+    height: auto !important;
+    transform: none !important;
+    overflow-wrap: break-word !important;
+  }
+  .hero-banner .hero-showcase-chip,
+  .hero-banner .hero-showcase-caption {
+    display: none !important;
+  }
+  .stats-bar {
+    position: relative !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    overflow: visible !important;
+    margin-top: 16px !important;
+    margin-bottom: 24px !important;
+  }
+  #portfolio {
+    overflow: hidden !important;
+  }
+}
