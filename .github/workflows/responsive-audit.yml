@@ -30,20 +30,26 @@ jobs:
           import { mkdir } from 'node:fs/promises';
 
           const browser = await chromium.launch({ headless: true });
-          const viewports = [
-            { name: 'mobile-360', width: 360, height: 800, mobile: true },
-            { name: 'mobile-390', width: 390, height: 844, mobile: true },
-            { name: 'mobile-430', width: 430, height: 932, mobile: true },
-            { name: 'desktop-1366', width: 1366, height: 900, mobile: false },
+          // Dense width sweep, not just named device presets: catches issues at
+          // intermediate widths and around CSS breakpoints.
+          const widths = [
+            320, 344, 360, 375, 390, 414, 430, 480, 540, 600, 640, 700,
+            701, 720, 768, 800, 820, 834, 900, 960, 1000, 1024, 1050, 1100,
+            1101, 1199, 1200, 1280, 1366, 1440, 1600, 1920,
           ];
+          const screenshotWidths = new Set([320, 390, 768, 1024, 1366, 1920]);
           const failures = [];
+          const results = [];
           await mkdir('responsive-audit', { recursive: true });
 
-          for (const viewport of viewports) {
+          for (const width of widths) {
+            const mobileOrTablet = width <= 1024;
+            const height = width <= 430 ? 850 : width <= 1024 ? 1000 : 900;
+            const name = `width-${width}`;
             const page = await browser.newPage({
-              viewport: { width: viewport.width, height: viewport.height },
-              isMobile: viewport.mobile,
-              deviceScaleFactor: viewport.mobile ? 1 : 1,
+              viewport: { width, height },
+              isMobile: width <= 600,
+              deviceScaleFactor: 1,
             });
             const pageErrors = [];
             page.on('pageerror', error => pageErrors.push(error.message));
@@ -51,35 +57,77 @@ jobs:
               waitUntil: 'networkidle',
               timeout: 30000,
             });
-            await page.screenshot({
-              path: `responsive-audit/${viewport.name}.png`,
-              fullPage: true,
-              animations: 'disabled',
-            });
             const metrics = await page.evaluate(() => {
               const hero = document.querySelector('.hero-showcase-art');
               const frame = document.querySelector('.hero-showcase');
+              const banner = document.querySelector('.hero-banner');
+              const heroCopy = document.querySelector('.typing-container');
+              const heroArt = frame?.getBoundingClientRect();
+              const heroCopyRect = heroCopy?.getBoundingClientRect();
+              const bannerStyle = banner ? getComputedStyle(banner) : null;
+              const nav = document.querySelector('body > nav');
+              const main = document.querySelector('main#main-content');
+              const overflowingElements = [...document.querySelectorAll('body *')]
+                .filter(el => {
+                  const rect = el.getBoundingClientRect();
+                  const style = getComputedStyle(el);
+                  return style.display !== 'none' && style.visibility !== 'hidden' &&
+                    rect.width > 0 && (rect.left < -2 || rect.right > document.documentElement.clientWidth + 2);
+                })
+                .slice(0, 8)
+                .map(el => ({ tag: el.tagName, className: String(el.className?.baseVal ?? el.className ?? '').slice(0, 90) }));
               return {
                 viewportWidth: document.documentElement.clientWidth,
                 documentWidth: document.documentElement.scrollWidth,
                 horizontalOverflow: document.documentElement.scrollWidth > document.documentElement.clientWidth + 1,
+                overflowingElements,
                 heroFound: Boolean(hero),
                 heroLoaded: Boolean(hero && hero.complete && hero.naturalWidth > 0),
-                heroFrame: frame ? {
-                  width: Math.round(frame.getBoundingClientRect().width),
-                  height: Math.round(frame.getBoundingClientRect().height),
-                } : null,
+                heroFrame: heroArt ? { width: Math.round(heroArt.width), height: Math.round(heroArt.height) } : null,
+                heroLayout: bannerStyle?.flexDirection ?? 'unknown',
+                heroCopyAndArtOverlap: Boolean(heroCopyRect && heroArt &&
+                  heroCopyRect.left < heroArt.right && heroCopyRect.right > heroArt.left &&
+                  heroCopyRect.top < heroArt.bottom && heroCopyRect.bottom > heroArt.top),
+                navFound: Boolean(nav),
+                mainFound: Boolean(main),
+                visibleImagesBroken: [...document.images].filter(img => {
+                  const r = img.getBoundingClientRect();
+                  return r.width > 0 && (!img.complete || img.naturalWidth === 0);
+                }).map(img => img.getAttribute('src')).slice(0, 10),
               };
             });
-            console.log(JSON.stringify({ viewport: viewport.name, status: response?.status(), ...metrics, pageErrors }));
-            if (!response || response.status() >= 400) failures.push(`${viewport.name}: page response failed`);
-            if (metrics.horizontalOverflow) failures.push(`${viewport.name}: horizontal overflow (${metrics.documentWidth}px > ${metrics.viewportWidth}px)`);
-            if (!metrics.heroFound || !metrics.heroLoaded) failures.push(`${viewport.name}: hero artwork did not load`);
-            if (pageErrors.length) failures.push(`${viewport.name}: browser JavaScript errors: ${pageErrors.join('; ')}`);
+            const result = { viewport: name, status: response?.status(), ...metrics, pageErrors };
+            results.push(result);
+            console.log(JSON.stringify(result));
+
+            if (!response || response.status() >= 400) failures.push(`${name}: page response failed`);
+            if (metrics.horizontalOverflow) failures.push(`${name}: horizontal overflow (${metrics.documentWidth}px > ${metrics.viewportWidth}px)`);
+            if (!metrics.heroFound || !metrics.heroLoaded) failures.push(`${name}: hero artwork did not load`);
+            if (!metrics.navFound || !metrics.mainFound) failures.push(`${name}: key page landmark missing`);
+            if (metrics.visibleImagesBroken.length) failures.push(`${name}: visible images failed: ${metrics.visibleImagesBroken.join(', ')}`);
+            if (pageErrors.length) failures.push(`${name}: browser JavaScript errors: ${pageErrors.join('; ')}`);
+
+            // Per requirement, phone and tablet widths should retain the stacked
+            // mobile/tablet hero composition; desktop starts above 1024px.
+            if (mobileOrTablet && metrics.heroLayout !== 'column') {
+              failures.push(`${name}: expected mobile/tablet stacked hero, got flex-direction ${metrics.heroLayout}`);
+            }
+            if (screenshotWidths.has(width)) {
+              await page.screenshot({
+                path: `responsive-audit/${name}.png`,
+                fullPage: true,
+                animations: 'disabled',
+              });
+            }
             await page.close();
           }
 
           await browser.close();
+          console.log(JSON.stringify({ summary: {
+            widthsTested: results.length,
+            passedWidths: results.length - new Set(failures.map(f => f.split(':')[0])).size,
+            failures,
+          }}));
           if (failures.length) {
             console.error('Responsive audit failures:\\n' + failures.join('\\n'));
             process.exit(1);
