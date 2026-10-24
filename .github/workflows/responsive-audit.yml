@@ -57,7 +57,7 @@ jobs:
               waitUntil: 'networkidle',
               timeout: 30000,
             });
-            const metrics = await page.evaluate(() => {
+            await page.evaluate(async () => {\n              for (const img of document.querySelectorAll('img[loading="lazy"]')) img.loading = 'eager';\n              await Promise.all([...document.images].map(img => img.decode().catch(() => {})));\n            });\n            const metrics = await page.evaluate(() => {
               const hero = document.querySelector('.hero-showcase-art');
               const frame = document.querySelector('.hero-showcase');
               const banner = document.querySelector('.hero-banner');
@@ -104,7 +104,7 @@ jobs:
             if (metrics.horizontalOverflow) failures.push(`${name}: horizontal overflow (${metrics.documentWidth}px > ${metrics.viewportWidth}px)`);
             if (!metrics.heroFound || !metrics.heroLoaded) failures.push(`${name}: hero artwork did not load`);
             if (!metrics.navFound || !metrics.mainFound) failures.push(`${name}: key page landmark missing`);
-            if (metrics.visibleImagesBroken.length) failures.push(`${name}: visible images failed: ${metrics.visibleImagesBroken.join(', ')}`);
+            if (metrics.visibleImagesBroken.length) failures.push(`${name}: images failed: ${metrics.visibleImagesBroken.join(', ')}`);
             if (pageErrors.length) failures.push(`${name}: browser JavaScript errors: ${pageErrors.join('; ')}`);
 
             // Per requirement, phone and tablet widths should retain the stacked
