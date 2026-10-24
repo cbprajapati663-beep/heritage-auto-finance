@@ -5197,3 +5197,89 @@ nav .nav-logo {
   .hero-banner > .haf-desktop-3d-scene .haf-scene-core,
   .hero-banner > .hero-showcase .hero-showcase-art { animation: none !important; transition: none !important; }
 }
+
+
+/* FINAL TARGETED REPAIR — desktop hero animation visibility + seamless logo canvas. */
+@media screen and (min-width: 701px) {
+  .hero-banner > .haf-desktop-3d-scene {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: absolute !important;
+    top: 18px !important;
+    right: 22px !important;
+    left: auto !important;
+    bottom: auto !important;
+    width: clamp(190px, 22vw, 310px) !important;
+    height: clamp(190px, 22vw, 310px) !important;
+    aspect-ratio: 1 / 1 !important;
+    z-index: 20 !important;
+    pointer-events: none !important;
+    overflow: visible !important;
+    transform: none !important;
+    transform-style: preserve-3d !important;
+    perspective: 1100px !important;
+    filter: drop-shadow(0 0 20px rgba(240,216,154,.34)) !important;
+  }
+  .hero-banner > .haf-desktop-3d-scene .haf-scene-ring,
+  .hero-banner > .haf-desktop-3d-scene .haf-scene-ring-violet {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: absolute !important;
+    border-radius: 50% !important;
+    background: transparent !important;
+    transform-style: preserve-3d !important;
+    animation-play-state: running !important;
+  }
+  .hero-banner > .haf-desktop-3d-scene .haf-scene-ring {
+    inset: 4% !important;
+    border: 2px solid rgba(255,226,164,.98) !important;
+    box-shadow: 0 0 26px rgba(240,196,92,.42), inset 0 0 20px rgba(240,196,92,.16) !important;
+    animation: hafSceneSpin 7s linear infinite !important;
+  }
+  .hero-banner > .haf-desktop-3d-scene .haf-scene-ring-violet {
+    inset: 16% !important;
+    border: 2px solid rgba(213,167,255,.98) !important;
+    box-shadow: 0 0 24px rgba(178,112,255,.42), inset 0 0 18px rgba(178,112,255,.15) !important;
+    animation: hafSceneSpinReverse 5.2s linear infinite !important;
+  }
+  .hero-banner > .haf-desktop-3d-scene .haf-scene-core {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    animation: hafSceneCoreFloat 3s ease-in-out infinite alternate !important;
+  }
+}
+@media screen and (min-width: 701px) and (max-width: 1100px) {
+  .hero-banner > .haf-desktop-3d-scene {
+    width: 190px !important;
+    height: 190px !important;
+    top: 14px !important;
+    right: 14px !important;
+  }
+}
+/* Screen blending suppresses opaque black pixels in the source logo without adding a badge/tile. */
+nav .nav-logo {
+  display: block !important;
+  background: transparent !important;
+  mix-blend-mode: screen !important;
+  isolation: auto !important;
+  border: 0 !important;
+  outline: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  object-fit: contain !important;
+  filter: brightness(1.12) contrast(1.06) drop-shadow(0 2px 9px rgba(244,196,94,.18)) !important;
+}
+@media screen and (max-width: 700px) {
+  .hero-banner > .haf-desktop-3d-scene { display: none !important; }
+  nav .nav-logo { mix-blend-mode: screen !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-banner > .haf-desktop-3d-scene .haf-scene-ring,
+  .hero-banner > .haf-desktop-3d-scene .haf-scene-ring-violet,
+  .hero-banner > .haf-desktop-3d-scene .haf-scene-core {
+    animation-duration: 24s !important;
+  }
+}
