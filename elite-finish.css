@@ -6436,3 +6436,17 @@ input, select, textarea {
     scroll-behavior: auto !important;
   }
 }
+
+
+/* Prevent duplicate Apply Now CTA on phones: keep the header CTA and hide
+   the scroll-triggered floating CTA on narrow viewports. */
+@media screen and (max-width: 700px) {
+  html body #hafFloatingApply,
+  html body a#hafFloatingApply.haf-floating-apply,
+  html body a#hafFloatingApply.haf-floating-apply.is-visible {
+    display: none !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    opacity: 0 !important;
+  }
+}
