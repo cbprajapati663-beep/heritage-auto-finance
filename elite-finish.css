@@ -2678,3 +2678,31 @@ nav {
   .haf-cursor-dot, .haf-cursor-ring { display: none !important; }
   #portfolio .poster-item { animation: none !important; }
 }
+
+
+/* SIGNATURE 14.0 — flashlight-style cursor glow; deliberately no ring. */
+@media (hover: hover) and (pointer: fine) {
+  .haf-cursor-dot, .haf-cursor-ring { display: none !important; }
+  .haf-cursor-glow {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 280px;
+    height: 280px;
+    z-index: 99998;
+    border-radius: 50%;
+    pointer-events: none;
+    opacity: 0;
+    transform: translate3d(-500px,-500px,0);
+    background: radial-gradient(circle, rgba(246,226,172,.17) 0%, rgba(190,137,224,.105) 24%, rgba(132,83,177,.055) 43%, transparent 72%);
+    filter: blur(7px);
+    mix-blend-mode: screen;
+    transition: opacity .2s ease;
+    will-change: transform;
+  }
+  .haf-cursor-glow.is-visible { opacity: 1; }
+  a, button, [role="button"] { cursor: pointer; }
+}
+@media (hover: none), (pointer: coarse) {
+  .haf-cursor-glow { display: none !important; }
+}
