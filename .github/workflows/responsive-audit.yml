@@ -57,7 +57,11 @@ jobs:
               waitUntil: 'networkidle',
               timeout: 30000,
             });
-            await page.evaluate(async () => {\n              for (const img of document.querySelectorAll('img[loading="lazy"]')) img.loading = 'eager';\n              await Promise.all([...document.images].map(img => img.decode().catch(() => {})));\n            });\n            const metrics = await page.evaluate(() => {
+            await page.evaluate(async () => {
+              for (const img of document.querySelectorAll('img[loading="lazy"]')) img.loading = 'eager';
+              await Promise.all([...document.images].map(img => img.decode().catch(() => {})));
+            });
+            const metrics = await page.evaluate(() => {
               const hero = document.querySelector('.hero-showcase-art');
               const frame = document.querySelector('.hero-showcase');
               const banner = document.querySelector('.hero-banner');
