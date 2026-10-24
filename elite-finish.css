@@ -5548,3 +5548,104 @@ nav .nav-logo {
   .hero-banner > .hero-actions a,
   .hero-banner > .hero-actions button { transition: none !important; }
 }
+
+
+/* Premium copy overlay inside the hero campaign image */
+.hero-banner > .hero-showcase > .hero-art-overlay {
+  position: absolute !important;
+  z-index: 4 !important;
+  left: clamp(14px, 2.2vw, 28px) !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  width: min(43%, 310px) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  gap: clamp(7px, 1vw, 13px) !important;
+  padding: clamp(14px, 1.8vw, 24px) !important;
+  border: 1px solid rgba(239,203,120,.28) !important;
+  border-radius: 16px !important;
+  background: linear-gradient(135deg, rgba(9,7,14,.91), rgba(15,10,22,.76)) !important;
+  box-shadow: 0 16px 38px rgba(0,0,0,.28), inset 0 1px rgba(255,255,255,.04) !important;
+  -webkit-backdrop-filter: blur(9px) !important;
+  backdrop-filter: blur(9px) !important;
+  text-align: left !important;
+  pointer-events: none !important;
+}
+.hero-banner > .hero-showcase > .hero-art-overlay .hero-art-eyebrow {
+  color: #f1d38b !important;
+  font-size: clamp(.52rem, .7vw, .67rem) !important;
+  line-height: 1.35 !important;
+  font-weight: 800 !important;
+  letter-spacing: .14em !important;
+}
+.hero-banner > .hero-showcase > .hero-art-overlay h2 {
+  margin: 0 !important;
+  color: #fffaf0 !important;
+  font-size: clamp(1.05rem, 2vw, 2rem) !important;
+  font-weight: 750 !important;
+  line-height: 1.08 !important;
+  letter-spacing: -.035em !important;
+  text-wrap: balance !important;
+}
+.hero-banner > .hero-showcase > .hero-art-overlay h2 em {
+  color: #f2c65e !important;
+  font-style: normal !important;
+}
+.hero-banner > .hero-showcase > .hero-art-overlay p {
+  margin: 0 !important;
+  color: rgba(255,250,240,.86) !important;
+  font-size: clamp(.62rem, .85vw, .82rem) !important;
+  line-height: 1.45 !important;
+}
+.hero-banner > .hero-showcase > .hero-art-overlay .hero-art-services {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 5px !important;
+}
+.hero-banner > .hero-showcase > .hero-art-overlay .hero-art-services span {
+  padding: 5px 7px !important;
+  border: 1px solid rgba(239,203,120,.3) !important;
+  border-radius: 999px !important;
+  color: #f8e8c2 !important;
+  background: rgba(255,255,255,.045) !important;
+  font-size: clamp(.52rem, .66vw, .65rem) !important;
+  font-weight: 700 !important;
+  line-height: 1.2 !important;
+  white-space: nowrap !important;
+}
+.hero-banner > .hero-showcase > .hero-art-overlay .hero-art-signature {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 2px !important;
+  padding-top: 7px !important;
+  border-top: 1px solid rgba(239,203,120,.32) !important;
+  color: #e8c77e !important;
+  font-size: .63rem !important;
+  letter-spacing: .16em !important;
+  font-weight: 800 !important;
+}
+.hero-banner > .hero-showcase > .hero-art-overlay .hero-art-signature b {
+  color: rgba(255,250,240,.76) !important;
+  font-size: .5rem !important;
+  letter-spacing: .22em !important;
+}
+@media (max-width: 700px) {
+  .hero-banner > .hero-showcase > .hero-art-overlay {
+    left: 10px !important;
+    top: auto !important;
+    bottom: 10px !important;
+    transform: none !important;
+    width: min(58%, 250px) !important;
+    padding: 11px !important;
+    gap: 7px !important;
+    border-radius: 12px !important;
+  }
+  .hero-banner > .hero-showcase > .hero-art-overlay h2 { font-size: clamp(1rem, 4.5vw, 1.45rem) !important; }
+  .hero-banner > .hero-showcase > .hero-art-overlay p { font-size: .66rem !important; }
+  .hero-banner > .hero-showcase > .hero-art-overlay .hero-art-services span { font-size: .55rem !important; padding: 4px 6px !important; }
+  .hero-banner > .hero-showcase > .hero-art-overlay .hero-art-signature { font-size: .56rem !important; }
+}
+@media (max-width: 380px) {
+  .hero-banner > .hero-showcase > .hero-art-overlay { width: min(64%, 220px) !important; }
+}
