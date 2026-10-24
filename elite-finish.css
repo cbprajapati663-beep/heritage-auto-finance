@@ -5393,3 +5393,22 @@ nav .nav-logo {
   .hero-banner .hero-showcase { aspect-ratio: 4 / 3; min-height: 0 !important; }
   .hero-banner .hero-showcase > .hero-showcase-art { object-position: center center !important; }
 }
+
+
+/* Emergency visibility fix for the uploaded hero campaign artwork. */
+.hero-showcase { position: relative !important; display: block !important; width: 100% !important; overflow: hidden !important; }
+.hero-showcase > img.hero-showcase-art {
+  display: block !important;
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
+  object-fit: cover !important;
+  object-position: center center !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  mix-blend-mode: normal !important;
+  filter: none !important;
+  z-index: 0 !important;
+}
