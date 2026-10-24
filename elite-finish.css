@@ -4599,3 +4599,102 @@ nav .nav-logo {
   box-shadow: none !important;
   filter: drop-shadow(0 2px 7px rgba(240,216,154,.10)) !important;
 }
+
+
+/* HERO DESKTOP REPAIR — 24 Oct 2026: force visible, layered 3D orbit on laptop/desktop. */
+@media screen and (min-width: 701px) {
+  .hero-banner {
+    position: relative !important;
+    isolation: isolate !important;
+    overflow: hidden !important;
+    perspective: 1200px !important;
+  }
+  .hero-banner > .haf-desktop-3d-scene {
+    display: block !important;
+    visibility: visible !important;
+    position: absolute !important;
+    width: clamp(250px, 31vw, 460px) !important;
+    height: clamp(250px, 31vw, 460px) !important;
+    right: clamp(12px, 2.2vw, 36px) !important;
+    top: clamp(16px, 4vh, 52px) !important;
+    opacity: 1 !important;
+    z-index: 5 !important;
+    pointer-events: none !important;
+    overflow: visible !important;
+    transform: translateZ(0) !important;
+    transform-style: preserve-3d !important;
+    will-change: transform !important;
+    contain: none !important;
+    filter: drop-shadow(0 0 20px rgba(240,216,154,.24)) !important;
+  }
+  .hero-banner > .haf-desktop-3d-scene .haf-scene-ring,
+  .hero-banner > .haf-desktop-3d-scene .haf-scene-ring-violet {
+    display: block !important;
+    visibility: visible !important;
+    position: absolute !important;
+    inset: 10% !important;
+    width: 80% !important;
+    height: 80% !important;
+    border: 2px solid rgba(247,222,158,.9) !important;
+    border-radius: 50% !important;
+    opacity: .92 !important;
+    transform-style: preserve-3d !important;
+    box-shadow: 0 0 26px rgba(240,196,92,.24), inset 0 0 22px rgba(240,196,92,.09) !important;
+    animation: hafDesktopFallbackOrbit 11s linear infinite !important;
+    animation-play-state: running !important;
+  }
+  .hero-banner > .haf-desktop-3d-scene .haf-scene-ring-violet {
+    inset: 2% !important;
+    width: 96% !important;
+    height: 96% !important;
+    border-color: rgba(194,153,245,.82) !important;
+    box-shadow: 0 0 28px rgba(153,100,214,.24), inset 0 0 18px rgba(153,100,214,.08) !important;
+    animation-duration: 16s !important;
+    animation-direction: reverse !important;
+  }
+  .hero-banner > .haf-desktop-3d-scene .haf-scene-core {
+    display: block !important;
+    visibility: visible !important;
+    position: absolute !important;
+    left: 50% !important;
+    top: 50% !important;
+    width: 22% !important;
+    height: 22% !important;
+    border-radius: 50% !important;
+    opacity: 1 !important;
+    transform: translate(-50%,-50%) !important;
+    background: radial-gradient(circle at 32% 28%, #fff4ce 0, #f0d89a 18%, #9d6bc5 48%, rgba(67,36,94,.18) 74%, transparent 76%) !important;
+    box-shadow: 0 0 32px rgba(240,216,154,.42), 0 0 70px rgba(153,100,214,.26) !important;
+    animation: hafDesktopFallbackPulse 3.2s ease-in-out infinite alternate !important;
+  }
+  .hero-banner > .haf-3d-orbit,
+  .hero-banner > .haf-3d-orbit-secondary {
+    display: block !important;
+    visibility: visible !important;
+    pointer-events: none !important;
+    opacity: .6 !important;
+  }
+}
+@keyframes hafDesktopFallbackOrbit {
+  0% { transform: rotateX(62deg) rotateZ(0deg) scale(.98); }
+  50% { transform: rotateX(62deg) rotateZ(180deg) scale(1.02); }
+  100% { transform: rotateX(62deg) rotateZ(360deg) scale(.98); }
+}
+@keyframes hafDesktopFallbackPulse {
+  from { scale: .88; filter: brightness(.96); }
+  to { scale: 1.08; filter: brightness(1.16); }
+}
+@media screen and (min-width: 701px) and (prefers-reduced-motion: reduce) {
+  .hero-banner > .haf-desktop-3d-scene .haf-scene-ring,
+  .hero-banner > .haf-desktop-3d-scene .haf-scene-ring-violet,
+  .hero-banner > .haf-desktop-3d-scene .haf-scene-core {
+    animation-duration: 24s !important;
+  }
+}
+@media screen and (max-width: 700px) {
+  .hero-banner > .haf-desktop-3d-scene {
+    display: block !important;
+    visibility: visible !important;
+    z-index: 1 !important;
+  }
+}
