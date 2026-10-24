@@ -2867,3 +2867,12 @@ img { max-width: 100%; }
   html { scroll-behavior: auto; }
   :where(.service-tile, .journey-step, .detail-box, .review-card) { transition: none !important; }
 }
+
+
+/* Official logo blend fix: remove the visible black rectangle against the dark header. */
+nav .nav-logo {
+  background: transparent !important;
+  mix-blend-mode: screen;
+  object-fit: contain;
+  isolation: isolate;
+}
