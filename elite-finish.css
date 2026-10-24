@@ -5479,3 +5479,19 @@ nav .nav-logo {
     background: #0b0810 !important;
   }
 }
+
+/* Campaign image polish: crop letterbox bars baked into the uploaded artwork. */
+.hero-banner > .hero-showcase { aspect-ratio: 16 / 9 !important; }
+.hero-banner > .hero-showcase > img.hero-showcase-art {
+  object-fit: cover !important;
+  object-position: center center !important;
+  transform: scale(1.2) !important;
+  transform-origin: center center !important;
+}
+@media (max-width: 700px) {
+  .hero-banner > .hero-showcase > img.hero-showcase-art {
+    transform: scale(1.12) !important;
+    object-fit: cover !important;
+    object-position: center center !important;
+  }
+}
