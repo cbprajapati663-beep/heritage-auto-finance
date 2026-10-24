@@ -5495,3 +5495,16 @@ nav .nav-logo {
     object-position: center center !important;
   }
 }
+
+/* Balance hero crop: preserve the full family/car subjects while trimming only most letterboxing. */
+.hero-banner > .hero-showcase > img.hero-showcase-art {
+  transform: scale(1.07) !important;
+  object-fit: cover !important;
+  object-position: 56% center !important;
+}
+@media (max-width: 700px) {
+  .hero-banner > .hero-showcase > img.hero-showcase-art {
+    transform: scale(1.03) !important;
+    object-position: 56% center !important;
+  }
+}
