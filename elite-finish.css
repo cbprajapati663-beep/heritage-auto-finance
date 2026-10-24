@@ -3848,3 +3848,91 @@ nav .nav-logo {
     animation-duration: 18s !important;
   }
 }
+
+
+/* HERO DESKTOP FREEZE FIX — final cascade, explicit names + infinite iterations.
+   Keeps the 3D scene alive even when earlier theme layers request reduced motion. */
+@media screen and (min-width: 701px) {
+  .hero-banner > .haf-desktop-3d-scene {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    animation-name: hafHeroSceneDriftFinal !important;
+    animation-duration: 6s !important;
+    animation-timing-function: ease-in-out !important;
+    animation-iteration-count: infinite !important;
+    animation-direction: alternate !important;
+    animation-play-state: running !important;
+  }
+  .hero-banner > .haf-desktop-3d-scene .haf-scene-ring {
+    animation: hafHeroInnerOrbitFinal 4.8s linear infinite !important;
+    animation-play-state: running !important;
+  }
+  .hero-banner > .haf-desktop-3d-scene .haf-scene-ring-violet {
+    animation: hafHeroVioletOrbitFinal 5.3s linear infinite !important;
+    animation-play-state: running !important;
+  }
+  .hero-banner > .haf-desktop-3d-scene .haf-scene-core {
+    animation: hafHeroCoreTravelFinal 2.2s ease-in-out infinite alternate !important;
+    animation-play-state: running !important;
+  }
+  .hero-banner > .haf-desktop-3d-scene .haf-scene-ring::before {
+    animation: hafHeroInnerOrbitFinal 5.1s linear infinite !important;
+    animation-play-state: running !important;
+  }
+  .hero-banner > .haf-desktop-3d-scene .haf-scene-ring::after {
+    animation: hafHeroOuterOrbitFinal 6.2s linear infinite reverse !important;
+    animation-play-state: running !important;
+  }
+  .hero-banner > .haf-desktop-3d-scene .haf-scene-ring-violet::before {
+    animation: hafHeroVioletOrbitFinal 5.3s linear infinite !important;
+    animation-play-state: running !important;
+  }
+  .hero-banner > .haf-3d-orbit {
+    animation: hafHeroOrbitDriftFinal 7s linear infinite !important;
+    animation-play-state: running !important;
+  }
+  .hero-banner > .haf-3d-orbit-secondary {
+    animation: hafHeroOrbitDriftReverseFinal 5.7s linear infinite !important;
+    animation-play-state: running !important;
+  }
+}
+/* On reduced-motion desktops, use slow, continuous movement rather than a frozen frame. */
+@media screen and (min-width: 701px) and (prefers-reduced-motion: reduce) {
+  .hero-banner > .haf-desktop-3d-scene {
+    animation: hafHeroSceneDriftFinal 18s ease-in-out infinite alternate !important;
+    animation-play-state: running !important;
+  }
+  .hero-banner > .haf-desktop-3d-scene .haf-scene-ring {
+    animation: hafHeroInnerOrbitFinal 18s linear infinite !important;
+    animation-play-state: running !important;
+  }
+  .hero-banner > .haf-desktop-3d-scene .haf-scene-ring-violet {
+    animation: hafHeroVioletOrbitFinal 18s linear infinite !important;
+    animation-play-state: running !important;
+  }
+  .hero-banner > .haf-desktop-3d-scene .haf-scene-core {
+    animation: hafHeroCoreTravelFinal 18s ease-in-out infinite alternate !important;
+    animation-play-state: running !important;
+  }
+  .hero-banner > .haf-desktop-3d-scene .haf-scene-ring::before {
+    animation: hafHeroInnerOrbitFinal 18s linear infinite !important;
+    animation-play-state: running !important;
+  }
+  .hero-banner > .haf-desktop-3d-scene .haf-scene-ring::after {
+    animation: hafHeroOuterOrbitFinal 18s linear infinite reverse !important;
+    animation-play-state: running !important;
+  }
+  .hero-banner > .haf-desktop-3d-scene .haf-scene-ring-violet::before {
+    animation: hafHeroVioletOrbitFinal 18s linear infinite !important;
+    animation-play-state: running !important;
+  }
+  .hero-banner > .haf-3d-orbit {
+    animation: hafHeroOrbitDriftFinal 18s linear infinite !important;
+    animation-play-state: running !important;
+  }
+  .hero-banner > .haf-3d-orbit-secondary {
+    animation: hafHeroOrbitDriftReverseFinal 18s linear infinite !important;
+    animation-play-state: running !important;
+  }
+}
