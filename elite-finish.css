@@ -2869,10 +2869,13 @@ img { max-width: 100%; }
 }
 
 
-/* Official logo blend fix: remove the visible black rectangle against the dark header. */
+/* Official logo blend fix: blend the logo's black canvas into the dark header. */
 nav .nav-logo {
+  display: block;
   background: transparent !important;
   mix-blend-mode: screen;
   object-fit: contain;
-  isolation: isolate;
+  isolation: auto;
+  border: 0;
+  box-shadow: none;
 }
