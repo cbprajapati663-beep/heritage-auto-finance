@@ -5412,3 +5412,25 @@ nav .nav-logo {
   filter: none !important;
   z-index: 0 !important;
 }
+
+
+/* Hero art correction: remove legacy orbital graphics that obscure the real campaign photo. */
+.hero-banner > .hero-showcase::before,
+.hero-banner > .hero-showcase::after {
+  content: none !important;
+  display: none !important;
+  animation: none !important;
+}
+.hero-banner > .hero-showcase > .hero-showcase-chip,
+.hero-banner > .hero-showcase > .hero-showcase-caption {
+  display: none !important;
+}
+.hero-banner > .hero-showcase > img.hero-showcase-art {
+  opacity: 1 !important;
+  filter: none !important;
+  mix-blend-mode: normal !important;
+  transform: none !important;
+  animation: none !important;
+  object-fit: contain !important;
+  background: #09070d !important;
+}
