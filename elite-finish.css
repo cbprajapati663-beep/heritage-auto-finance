@@ -5862,3 +5862,80 @@ nav .nav-logo {
   .hero-banner > .hero-showcase > .hero-art-overlay .hero-art-services { gap: 5px 8px !important; max-width: 220px !important; }
   .hero-banner > .hero-showcase > .hero-art-overlay .hero-art-services span { font-size: .56rem !important; }
 }
+
+
+/* Hero direct-on-photo type: larger, dimensional gold lettering with subtle motion. */
+.hero-banner > .hero-showcase > .hero-art-overlay {
+  width: min(49%, 340px) !important;
+  gap: 11px !important;
+  animation: hafHeroCopyFloat 6s ease-in-out infinite !important;
+}
+.hero-banner > .hero-showcase > .hero-art-overlay .hero-art-eyebrow {
+  font-size: clamp(.62rem, .78vw, .76rem) !important;
+  letter-spacing: .17em !important;
+  color: #ffe6a0 !important;
+  text-shadow: 0 1px 0 #8a5a14, 0 3px 12px rgba(0,0,0,.95) !important;
+}
+.hero-banner > .hero-showcase > .hero-art-overlay h2 {
+  font-size: clamp(1.55rem, 2.8vw, 2.55rem) !important;
+  line-height: 1.02 !important;
+  letter-spacing: -.045em !important;
+  text-shadow: 0 1px 0 #a76a19, 0 2px 0 rgba(120,73,20,.9), 0 5px 0 rgba(42,22,10,.65), 0 9px 22px rgba(0,0,0,.9) !important;
+}
+.hero-banner > .hero-showcase > .hero-art-overlay h2 em {
+  color: #ffd36a !important;
+  -webkit-text-fill-color: #ffd36a !important;
+  text-shadow: 0 1px 0 #a76a19, 0 2px 0 rgba(120,73,20,.9), 0 5px 0 rgba(42,22,10,.65), 0 0 18px rgba(255,194,73,.3), 0 9px 22px rgba(0,0,0,.9) !important;
+}
+.hero-banner > .hero-showcase > .hero-art-overlay p {
+  font-size: clamp(.78rem, 1vw, .94rem) !important;
+  line-height: 1.45 !important;
+  color: #fffaf0 !important;
+  text-shadow: 0 2px 9px rgba(0,0,0,.98) !important;
+}
+.hero-banner > .hero-showcase > .hero-art-overlay .hero-art-services {
+  max-width: 310px !important;
+  gap: 8px 12px !important;
+}
+.hero-banner > .hero-showcase > .hero-art-overlay .hero-art-services span {
+  font-size: clamp(.68rem, .82vw, .8rem) !important;
+  font-weight: 800 !important;
+  color: #fff0c7 !important;
+  text-shadow: 0 2px 9px rgba(0,0,0,.98) !important;
+}
+.hero-banner > .hero-showcase > .hero-art-overlay .hero-art-signature {
+  padding-top: 8px !important;
+  border-top: 1px solid rgba(255,207,95,.9) !important;
+  font-size: clamp(.82rem, 1vw, .98rem) !important;
+  letter-spacing: .2em !important;
+  color: #ffd36a !important;
+  text-shadow: 0 2px 10px rgba(0,0,0,.98), 0 0 14px rgba(255,196,73,.28) !important;
+}
+.hero-banner > .hero-showcase > .hero-art-overlay .hero-art-signature b {
+  font-size: clamp(.66rem, .78vw, .76rem) !important;
+  letter-spacing: .26em !important;
+  color: #fffaf0 !important;
+}
+@keyframes hafHeroCopyFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+@media (max-width: 900px) and (min-width: 701px) {
+  .hero-banner > .hero-showcase > .hero-art-overlay { width: min(49%, 300px) !important; }
+  .hero-banner > .hero-showcase > .hero-art-overlay h2 { font-size: clamp(1.4rem, 2.6vw, 2rem) !important; }
+}
+@media (max-width: 700px) {
+  .hero-banner > .hero-showcase > .hero-art-overlay {
+    width: min(64%, 255px) !important;
+    gap: 7px !important;
+    animation-duration: 7s !important;
+  }
+  .hero-banner > .hero-showcase > .hero-art-overlay h2 { font-size: clamp(1.25rem, 5.4vw, 1.75rem) !important; }
+  .hero-banner > .hero-showcase > .hero-art-overlay p { font-size: .72rem !important; }
+  .hero-banner > .hero-showcase > .hero-art-overlay .hero-art-services { max-width: 235px !important; gap: 6px 9px !important; }
+  .hero-banner > .hero-showcase > .hero-art-overlay .hero-art-services span { font-size: .62rem !important; }
+  .hero-banner > .hero-showcase > .hero-art-overlay .hero-art-signature { font-size: .72rem !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-banner > .hero-showcase > .hero-art-overlay { animation: none !important; }
+}
