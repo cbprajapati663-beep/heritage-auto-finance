@@ -5690,3 +5690,38 @@ nav .nav-logo {
   }
   .hero-banner > .hero-showcase > .hero-art-overlay .hero-art-services { flex-wrap: wrap !important; }
 }
+
+
+/* Final typography polish for the in-photo campaign panel */
+.hero-banner > .hero-showcase > .hero-art-overlay h2 {
+  font-size: clamp(1.12rem, 2.05vw, 1.9rem) !important;
+  line-height: 1.06 !important;
+  letter-spacing: -.04em !important;
+}
+.hero-banner > .hero-showcase > .hero-art-overlay .hero-art-services {
+  flex-wrap: wrap !important;
+  gap: 6px !important;
+  max-width: 100% !important;
+}
+.hero-banner > .hero-showcase > .hero-art-overlay .hero-art-services span {
+  padding: 5px 8px !important;
+  font-size: clamp(.52rem, .62vw, .61rem) !important;
+  line-height: 1.25 !important;
+}
+.hero-banner > .hero-showcase > .hero-art-overlay .hero-art-signature {
+  width: 100% !important;
+  gap: 3px !important;
+  padding-top: 7px !important;
+  font-size: .68rem !important;
+  letter-spacing: .18em !important;
+}
+.hero-banner > .hero-showcase > .hero-art-overlay .hero-art-signature b {
+  font-size: .56rem !important;
+  letter-spacing: .24em !important;
+}
+@media (max-width: 700px) {
+  .hero-banner > .hero-showcase > .hero-art-overlay h2 { font-size: clamp(1.05rem, 4.7vw, 1.4rem) !important; }
+  .hero-banner > .hero-showcase > .hero-art-overlay .hero-art-services { gap: 5px !important; }
+  .hero-banner > .hero-showcase > .hero-art-overlay .hero-art-services span { padding: 4px 6px !important; }
+  .hero-banner > .hero-showcase > .hero-art-overlay .hero-art-signature { font-size: .6rem !important; }
+}
