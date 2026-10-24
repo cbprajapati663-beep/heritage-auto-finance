@@ -70,7 +70,7 @@
     <link rel="stylesheet" href="premium.css">
     <link rel="stylesheet" href="next-level.css?v=20261014-1205">
     <link rel="stylesheet" href="elite-upgrade.css?v=20261022-elite1">
-    <link rel="stylesheet" href="elite-finish.css?v=20261024-signature13-visiblefix">
+    <link rel="stylesheet" href="elite-finish.css?v=20261024-signature14-flashlight">
 </head>
 <body>
     <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -393,42 +393,31 @@
     </script>
 
     <script>
-      // Desktop-only decorative pointer accent. Native cursor remains available; no touch interception.
+      // Desktop flashlight glow follows the real mouse pointer. No ring; native cursor remains visible.
       (function () {
         const finePointer = window.matchMedia && window.matchMedia("(hover: hover) and (pointer: fine)").matches;
         if (!finePointer) return;
-        const dot = document.createElement("span");
-        const ring = document.createElement("span");
-        dot.className = "haf-cursor-dot";
-        ring.className = "haf-cursor-ring";
-        dot.setAttribute("aria-hidden", "true");
-        ring.setAttribute("aria-hidden", "true");
-        document.body.append(dot, ring);
-        let x = -100, y = -100, rx = -100, ry = -100, raf = 0;
+        const glow = document.createElement("span");
+        glow.className = "haf-cursor-glow";
+        glow.setAttribute("aria-hidden", "true");
+        document.body.appendChild(glow);
+        let x = -500, y = -500, raf = 0;
         function render() {
-          rx += (x - rx) * 0.28;
-          ry += (y - ry) * 0.28;
-          dot.style.transform = "translate3d(" + (x - 3.5) + "px," + (y - 3.5) + "px,0)";
-          ring.style.transform = "translate3d(" + (rx - 15) + "px," + (ry - 15) + "px,0)";
-          raf = requestAnimationFrame(render);
+          glow.style.transform = "translate3d(" + (x - 140) + "px," + (y - 140) + "px,0)";
+          raf = 0;
         }
         document.addEventListener("pointermove", function (event) {
           if (event.pointerType !== "mouse") return;
-          x = event.clientX; y = event.clientY;
-          dot.classList.add("is-visible");
-          ring.classList.add("is-visible");
-          if (!raf) render();
-        }, { passive: true });
-        document.addEventListener("pointerover", function (event) {
-          if (event.target && event.target.closest && event.target.closest("a,button,[role='button'],.poster-item")) ring.classList.add("is-hovering");
-          else ring.classList.remove("is-hovering");
+          x = event.clientX;
+          y = event.clientY;
+          glow.classList.add("is-visible");
+          if (!raf) raf = requestAnimationFrame(render);
         }, { passive: true });
         document.addEventListener("pointerleave", function () {
-          dot.classList.remove("is-visible");
-          ring.classList.remove("is-visible");
+          glow.classList.remove("is-visible");
         });
       })();
-    </script>
+    </script>ipt>
 
 </body>
 </html>
