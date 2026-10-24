@@ -70,7 +70,7 @@
     <link rel="stylesheet" href="premium.css">
     <link rel="stylesheet" href="next-level.css?v=20261014-1205">
     <link rel="stylesheet" href="elite-upgrade.css?v=20261022-elite1">
-    <link rel="stylesheet" href="elite-finish.css?v=20261024-signature12-pointer3d">
+    <link rel="stylesheet" href="elite-finish.css?v=20261024-signature13-visiblefix">
 </head>
 <body>
     <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -396,8 +396,7 @@
       // Desktop-only decorative pointer accent. Native cursor remains available; no touch interception.
       (function () {
         const finePointer = window.matchMedia && window.matchMedia("(hover: hover) and (pointer: fine)").matches;
-        const reducedMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-        if (!finePointer || reducedMotion) return;
+        if (!finePointer) return;
         const dot = document.createElement("span");
         const ring = document.createElement("span");
         dot.className = "haf-cursor-dot";
