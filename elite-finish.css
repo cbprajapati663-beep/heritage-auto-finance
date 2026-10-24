@@ -3137,3 +3137,51 @@ nav .nav-logo {
   .hero-banner > .haf-3d-orbit,
   .hero-banner > .haf-3d-orbit-secondary { animation: none !important; }
 }
+
+
+/* DESKTOP 3D ORBIT VISIBILITY — place the animated rings above the hero poster.
+   Previous layers sat behind .main-poster (z-index 2), making them invisible on PC. */
+@media (min-width: 701px) {
+  .hero-banner > .haf-3d-orbit,
+  .hero-banner > .haf-3d-orbit-secondary {
+    display: block !important;
+    visibility: visible !important;
+    opacity: .92 !important;
+    z-index: 5 !important;
+    pointer-events: none !important;
+    transform-style: preserve-3d !important;
+    mix-blend-mode: screen;
+    will-change: transform;
+  }
+  .hero-banner > .haf-3d-orbit {
+    width: clamp(150px, 16vw, 220px) !important;
+    height: clamp(150px, 16vw, 220px) !important;
+    top: 8% !important;
+    right: clamp(24px, 6vw, 88px) !important;
+    animation: hafDesktopOrbitA 13s linear infinite !important;
+    border-color: rgba(255, 218, 124, .78) !important;
+    box-shadow: 0 0 18px rgba(244,199,95,.16), inset 0 0 18px rgba(244,199,95,.07);
+  }
+  .hero-banner > .haf-3d-orbit-secondary {
+    width: clamp(112px, 12vw, 166px) !important;
+    height: clamp(112px, 12vw, 166px) !important;
+    top: calc(8% + 27px) !important;
+    right: calc(clamp(24px, 6vw, 88px) + 27px) !important;
+    animation: hafDesktopOrbitB 9s linear infinite !important;
+    border-color: rgba(210, 158, 255, .76) !important;
+    box-shadow: 0 0 22px rgba(166,105,226,.18), inset 0 0 16px rgba(166,105,226,.06);
+  }
+  .hero-banner > .haf-3d-orbit::before,
+  .hero-banner > .haf-3d-orbit::after,
+  .hero-banner > .haf-3d-orbit-secondary::before,
+  .hero-banner > .haf-3d-orbit-secondary::after {
+    opacity: 1 !important;
+    border-width: 1.5px !important;
+  }
+}
+@media (min-width: 701px) and (prefers-reduced-motion: reduce) {
+  .hero-banner > .haf-3d-orbit,
+  .hero-banner > .haf-3d-orbit-secondary {
+    animation: none !important;
+  }
+}
