@@ -7055,3 +7055,98 @@ input, select, textarea {
     object-position: center center !important;
   }
 }
+
+
+/* Tablet layout alignment: keep phone/tablet hero composition stacked.
+   Desktop's side-by-side hero begins above 1024px; preserve desktop styles. */
+@media screen and (min-width: 701px) and (max-width: 1024px) {
+  main#main-content > .hero-banner {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    width: calc(100% - 32px) !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    margin: 16px auto 24px !important;
+    padding: 24px !important;
+    gap: 14px !important;
+    overflow: visible !important;
+    text-align: left !important;
+  }
+  main#main-content > .hero-banner > .secure-badge,
+  main#main-content > .hero-banner > .typing-container,
+  main#main-content > .hero-banner > .hero-supporting,
+  main#main-content > .hero-banner > .hero-actions,
+  main#main-content > .hero-banner > .hero-trust-points,
+  main#main-content > .hero-banner > .hero-showcase {
+    position: relative !important;
+    inset: auto !important;
+    float: none !important;
+    clear: both !important;
+    align-self: stretch !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    transform: none !important;
+  }
+  main#main-content > .hero-banner > .secure-badge { order: 1 !important; }
+  main#main-content > .hero-banner > .typing-container {
+    order: 2 !important;
+    display: block !important;
+    height: auto !important;
+    min-height: 2.45em !important;
+    max-height: none !important;
+    margin: 0 !important;
+    overflow: visible !important;
+    font-size: clamp(2rem, 4.2vw, 3rem) !important;
+    line-height: 1.14 !important;
+  }
+  main#main-content > .hero-banner > .hero-supporting {
+    order: 3 !important;
+    height: auto !important;
+    max-height: none !important;
+    margin: 0 !important;
+    overflow: visible !important;
+    line-height: 1.6 !important;
+  }
+  main#main-content > .hero-banner > .hero-actions {
+    order: 4 !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    height: auto !important;
+    max-height: none !important;
+    margin: 0 !important;
+    gap: 10px !important;
+  }
+  main#main-content > .hero-banner > .hero-trust-points {
+    order: 5 !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    height: auto !important;
+    max-height: none !important;
+    margin: 0 !important;
+    gap: 8px !important;
+    overflow: visible !important;
+  }
+  main#main-content > .hero-banner > .hero-showcase {
+    order: 6 !important;
+    display: block !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    aspect-ratio: 16 / 9 !important;
+    margin: 4px 0 0 !important;
+    overflow: hidden !important;
+    border-radius: 18px !important;
+    background: #130d20 !important;
+  }
+  main#main-content > .hero-banner > .hero-showcase > .hero-showcase-art {
+    position: absolute !important;
+    inset: 0 !important;
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center center !important;
+  }
+}
