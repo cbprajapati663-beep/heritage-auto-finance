@@ -4,50 +4,30 @@
 
   const textArray = ["Dream Car!", "Commercial Fleet!", "Family Protection!", "Business Growth!"];
   let textIndex = 0;
-  let charIndex = 0;
   let typingTimer = null;
-  const typingSpeed = 125;
-  const erasingSpeed = 65;
-  const pauseAfterWord = 2400;
 
   const formatINR = value => "₹ " + Math.round(Number(value) || 0).toLocaleString("en-IN");
 
+  // Swap complete phrases only. Never type/delete individual characters:
+  // character-by-character updates can trigger layout shifts on narrow screens.
   function typeNext() {
     const target = document.querySelector(".typed-text");
-    if (!target || window.matchMedia("(max-width: 700px)").matches) {
-      if (target) target.textContent = textArray[0];
-      return;
-    }
-    // Respect reduced-motion preferences: rotate complete phrases slowly instead of freezing on one phrase.
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      target.textContent = textArray[textIndex];
-      charIndex = textArray[textIndex].length;
-      typingTimer = window.setTimeout(() => {
-        textIndex = (textIndex + 1) % textArray.length;
-        charIndex = 0;
-        typeNext();
-      }, 4200);
-      return;
-    }
-    const word = textArray[textIndex];
-    if (charIndex < word.length) {
-      target.textContent = word.slice(0, ++charIndex);
-      typingTimer = window.setTimeout(typeNext, typingSpeed);
-    } else {
-      typingTimer = window.setTimeout(eraseNext, pauseAfterWord);
-    }
-  }
-
-  function eraseNext() {
-    const target = document.querySelector(".typed-text");
     if (!target) return;
-    if (charIndex > 0) {
-      target.textContent = textArray[textIndex].slice(0, --charIndex);
-      typingTimer = window.setTimeout(eraseNext, erasingSpeed);
-    } else {
-      textIndex = (textIndex + 1) % textArray.length;
-      typingTimer = window.setTimeout(typeNext, 250);
+
+    target.textContent = textArray[0];
+    if (window.matchMedia("(max-width: 700px), (prefers-reduced-motion: reduce)").matches) {
+      return;
     }
+
+    if (typingTimer) window.clearInterval(typingTimer);
+    typingTimer = window.setInterval(() => {
+      textIndex = (textIndex + 1) % textArray.length;
+      target.classList.add("phrase-changing");
+      window.setTimeout(() => {
+        target.textContent = textArray[textIndex];
+        target.classList.remove("phrase-changing");
+      }, 160);
+    }, 4200);
   }
 
   function filterPosters(category, evt) {
