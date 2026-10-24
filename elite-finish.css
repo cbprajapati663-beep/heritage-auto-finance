@@ -6211,3 +6211,37 @@ main, section, header, footer, nav, .hero-banner, .stats-bar, .service-rail { mi
 @media (prefers-reduced-motion: reduce) {
   .hero-banner .typing-container .typed-text { transition: none !important; }
 }
+
+
+/* Keep the blinking typewriter caret immediately after the current letters,
+   rather than at the far edge of the reserved headline slot. */
+.hero-banner .typing-container .typed-text {
+  width: max-content !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+  border-right: 0 !important;
+  padding-right: 0 !important;
+  position: relative !important;
+}
+.hero-banner .typing-container .typed-text::after {
+  content: "";
+  display: inline-block;
+  height: .92em;
+  margin-left: 2px;
+  border-right: 3px solid #f4b41a;
+  vertical-align: -.08em;
+  animation: blinkCursor .7s steps(1, end) infinite;
+}
+@media (max-width: 700px) {
+  .hero-banner .typing-container .typed-text {
+    width: auto !important;
+    max-width: 100% !important;
+    white-space: normal !important;
+  }
+  .hero-banner .typing-container .typed-text::after {
+    vertical-align: -.04em;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-banner .typing-container .typed-text::after { animation: none; }
+}
