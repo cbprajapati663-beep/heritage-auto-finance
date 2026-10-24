@@ -4288,3 +4288,225 @@ nav .nav-links a[href="#contact"]:focus-visible {
   .hero-showcase-chip { animation: none !important; }
   .hero-showcase, .hero-showcase-art { transition: none !important; }
 }
+
+
+/* HERO REBUILD — responsive desktop composition, full-width use, and visible 3D scene. */
+.hero-banner {
+  width: 100% !important;
+  max-width: 1680px !important;
+  margin: 0 auto !important;
+  padding: clamp(34px, 4.5vw, 72px) clamp(20px, 4.2vw, 72px) clamp(32px, 4vw, 58px) !important;
+  display: grid !important;
+  grid-template-columns: minmax(0, .92fr) minmax(0, 1.08fr);
+  grid-template-rows: auto auto auto auto 1fr;
+  column-gap: clamp(28px, 4vw, 72px);
+  row-gap: 0;
+  align-items: center;
+  text-align: left !important;
+  overflow: hidden;
+  isolation: isolate;
+  position: relative;
+  min-height: clamp(600px, calc(100svh - 90px), 860px);
+}
+.hero-banner > .secure-badge {
+  grid-column: 1;
+  grid-row: 1;
+  justify-self: start;
+  margin: 0 0 22px;
+  max-width: 100%;
+}
+.hero-banner > .typing-container {
+  grid-column: 1;
+  grid-row: 2;
+  align-self: end;
+  margin: 0 0 18px;
+  max-width: 12ch;
+  font-size: clamp(2.8rem, 4.6vw, 5.25rem) !important;
+  line-height: 1.08;
+  letter-spacing: -.035em;
+  text-wrap: balance;
+}
+.hero-banner > .hero-supporting {
+  grid-column: 1;
+  grid-row: 3;
+  margin: 0 0 4px !important;
+  padding: 0 !important;
+  max-width: 56ch !important;
+  font-size: clamp(1rem, 1.25vw, 1.18rem) !important;
+  line-height: 1.8;
+  text-align: left;
+}
+.hero-banner > .hero-actions {
+  grid-column: 1;
+  grid-row: 4;
+  justify-content: flex-start;
+  margin: 24px 0 18px;
+  padding: 0;
+  width: 100%;
+}
+.hero-banner > .hero-actions .hero-cta {
+  width: auto;
+  min-width: 168px;
+}
+.hero-banner > .hero-trust-points {
+  grid-column: 1;
+  grid-row: 5;
+  align-self: start;
+  justify-content: flex-start;
+  margin: 8px 0 0;
+  padding: 0;
+  gap: 8px;
+}
+.hero-banner > .hero-trust-points span {
+  font-size: clamp(.7rem, .85vw, .8rem);
+  padding: 8px 11px;
+}
+.hero-banner > .hero-showcase {
+  grid-column: 2;
+  grid-row: 1 / 6;
+  align-self: center;
+  justify-self: stretch;
+  width: 100%;
+  max-width: none;
+  min-width: 0;
+  margin: 0;
+  z-index: 2;
+  border-radius: clamp(18px, 2vw, 30px);
+}
+.hero-banner > .hero-showcase .hero-showcase-art {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  object-position: center;
+}
+.hero-banner > .haf-desktop-3d-scene {
+  z-index: 0 !important;
+  right: 2.5% !important;
+  top: 4% !important;
+  width: clamp(220px, 25vw, 390px) !important;
+  height: clamp(220px, 25vw, 390px) !important;
+  opacity: .8 !important;
+  pointer-events: none !important;
+  display: block !important;
+  visibility: visible !important;
+  animation: hafDesktopSceneFloat 8s ease-in-out infinite alternate !important;
+  animation-play-state: running !important;
+}
+.hero-banner > .haf-desktop-3d-scene .haf-scene-ring {
+  opacity: .72 !important;
+  animation: hafDesktopRingRotate 18s linear infinite !important;
+  animation-play-state: running !important;
+}
+.hero-banner > .haf-desktop-3d-scene .haf-scene-ring-violet {
+  opacity: .48 !important;
+  animation: hafDesktopRingRotate 24s linear infinite reverse !important;
+  animation-play-state: running !important;
+}
+.hero-banner > .haf-desktop-3d-scene .haf-scene-core {
+  opacity: .82 !important;
+  animation: hafDesktopCorePulse 3.8s ease-in-out infinite alternate !important;
+  animation-play-state: running !important;
+}
+.hero-banner::before {
+  inset: 4% 0 3% 0 !important;
+  background:
+    radial-gradient(ellipse at 75% 40%, rgba(132,83,177,.17), transparent 45%),
+    radial-gradient(ellipse at 15% 55%, rgba(240,216,154,.07), transparent 48%) !important;
+}
+@media (min-width: 1500px) {
+  .hero-banner { column-gap: clamp(56px, 5vw, 100px); }
+  .hero-banner > .hero-showcase .hero-showcase-art { aspect-ratio: 16 / 10; }
+}
+@media (max-width: 1000px) and (min-width: 701px) {
+  .hero-banner {
+    grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+    column-gap: 24px;
+    padding: 34px 24px 38px !important;
+    min-height: 570px;
+  }
+  .hero-banner > .typing-container { font-size: clamp(2.25rem, 4.4vw, 3.4rem) !important; }
+  .hero-banner > .hero-actions { gap: 10px; }
+  .hero-banner > .hero-actions .hero-cta { min-width: 0; padding: 12px 16px; font-size: .84rem; }
+  .hero-banner > .hero-trust-points span { font-size: .68rem; padding: 7px 9px; }
+  .hero-showcase-chip { max-width: 47%; padding: 9px 10px; }
+}
+@media (max-width: 700px) {
+  .hero-banner {
+    display: flex !important;
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center !important;
+    width: 100% !important;
+    max-width: none !important;
+    min-height: 0;
+    margin: 0 auto !important;
+    padding: 28px 16px 32px !important;
+    gap: 0;
+  }
+  .hero-banner > .secure-badge {
+    align-self: center;
+    margin: 0 auto 18px;
+    font-size: .72rem;
+    line-height: 1.4;
+    padding: 7px 12px;
+  }
+  .hero-banner > .typing-container {
+    max-width: 100%;
+    margin: 0 auto 12px;
+    font-size: clamp(2rem, 8.5vw, 3.2rem) !important;
+    line-height: 1.1;
+    text-align: center;
+  }
+  .hero-banner > .hero-supporting {
+    max-width: 42rem !important;
+    margin: 0 auto !important;
+    padding: 0 2px !important;
+    text-align: center;
+    font-size: .96rem !important;
+    line-height: 1.65;
+  }
+  .hero-banner > .hero-actions {
+    justify-content: center;
+    margin: 20px auto 12px;
+    padding: 0;
+    gap: 10px;
+  }
+  .hero-banner > .hero-actions .hero-cta {
+    width: 100%;
+    max-width: 340px;
+  }
+  .hero-banner > .hero-trust-points {
+    justify-content: center;
+    margin: 12px auto 20px;
+    gap: 7px;
+  }
+  .hero-banner > .hero-trust-points span { font-size: .7rem; padding: 7px 9px; }
+  .hero-banner > .hero-showcase {
+    width: 100%;
+    max-width: 620px;
+    margin: 0 auto;
+    border-radius: 16px;
+  }
+  .hero-banner > .hero-showcase .hero-showcase-art {
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    object-position: 54% center;
+  }
+  .hero-banner > .haf-desktop-3d-scene {
+    z-index: 0 !important;
+    right: -10px !important;
+    top: 0 !important;
+    width: 145px !important;
+    height: 145px !important;
+    opacity: .38 !important;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-banner > .haf-desktop-3d-scene,
+  .hero-banner > .haf-desktop-3d-scene .haf-scene-ring,
+  .hero-banner > .haf-desktop-3d-scene .haf-scene-ring-violet,
+  .hero-banner > .haf-desktop-3d-scene .haf-scene-core {
+    animation: none !important;
+  }
+}
