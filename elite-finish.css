@@ -4845,3 +4845,70 @@ nav .nav-logo {
     animation: none !important;
   }
 }
+
+
+/* DESKTOP 3D VISIBILITY HOTFIX — keep the animated orbit above hero artwork on wide screens. */
+@media screen and (min-width: 701px) {
+  .hero-banner > .haf-desktop-3d-scene {
+    display: block !important;
+    visibility: visible !important;
+    position: absolute !important;
+    inset: 14px 18px auto auto !important;
+    width: clamp(190px, 20vw, 300px) !important;
+    height: clamp(190px, 20vw, 300px) !important;
+    z-index: 6 !important;
+    opacity: .88 !important;
+    pointer-events: none !important;
+    overflow: visible !important;
+    transform-style: preserve-3d !important;
+    filter: drop-shadow(0 0 18px rgba(240,216,154,.25)) !important;
+  }
+  .hero-banner > .haf-desktop-3d-scene .haf-scene-ring,
+  .hero-banner > .haf-desktop-3d-scene .haf-scene-ring-violet,
+  .hero-banner > .haf-desktop-3d-scene .haf-scene-core {
+    display: block !important;
+    visibility: visible !important;
+  }
+  .hero-banner > .haf-desktop-3d-scene .haf-scene-ring {
+    border: 2px solid rgba(255,226,164,.92) !important;
+    box-shadow: 0 0 22px rgba(240,196,92,.28), inset 0 0 18px rgba(240,196,92,.12) !important;
+  }
+  .hero-banner > .haf-desktop-3d-scene .haf-scene-ring-violet {
+    border-color: rgba(207,169,255,.9) !important;
+    box-shadow: 0 0 24px rgba(153,100,214,.28), inset 0 0 14px rgba(153,100,214,.1) !important;
+  }
+}
+@media screen and (min-width: 701px) and (prefers-reduced-motion: no-preference) {
+  .hero-banner > .haf-desktop-3d-scene .haf-scene-ring {
+    animation: hafDesktopFallbackOrbit 11s linear infinite !important;
+    animation-play-state: running !important;
+  }
+  .hero-banner > .haf-desktop-3d-scene .haf-scene-ring-violet {
+    animation: hafDesktopFallbackOrbit 16s linear infinite reverse !important;
+    animation-play-state: running !important;
+  }
+  .hero-banner > .haf-desktop-3d-scene .haf-scene-core {
+    animation: hafDesktopFallbackPulse 3.2s ease-in-out infinite alternate !important;
+    animation-play-state: running !important;
+  }
+}
+@media screen and (min-width: 701px) and (max-width: 1100px) {
+  .hero-banner > .haf-desktop-3d-scene {
+    width: 175px !important;
+    height: 175px !important;
+    right: 12px !important;
+    top: 14px !important;
+    opacity: .78 !important;
+  }
+}
+/* Blend away a dark logo canvas against the header without adding a tile. */
+nav .nav-logo {
+  background: transparent !important;
+  mix-blend-mode: screen !important;
+  isolation: auto !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  object-fit: contain !important;
+  filter: brightness(1.08) contrast(1.04) drop-shadow(0 2px 8px rgba(240,216,154,.16)) !important;
+}
