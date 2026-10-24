@@ -5725,3 +5725,83 @@ nav .nav-logo {
   .hero-banner > .hero-showcase > .hero-art-overlay .hero-art-services span { padding: 4px 6px !important; }
   .hero-banner > .hero-showcase > .hero-art-overlay .hero-art-signature { font-size: .6rem !important; }
 }
+
+
+/* Direct-on-photo typography: remove the card and let the copy sit naturally over the image. */
+.hero-banner > .hero-showcase > .hero-art-overlay {
+  left: clamp(18px, 2.2vw, 32px) !important;
+  width: min(45%, 320px) !important;
+  padding: 0 !important;
+  gap: 11px !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+.hero-banner > .hero-showcase > .hero-art-overlay .hero-art-eyebrow,
+.hero-banner > .hero-showcase > .hero-art-overlay h2,
+.hero-banner > .hero-showcase > .hero-art-overlay p,
+.hero-banner > .hero-showcase > .hero-art-overlay .hero-art-signature {
+  text-shadow: 0 2px 12px rgba(0,0,0,.95), 0 1px 3px rgba(0,0,0,.9) !important;
+}
+.hero-banner > .hero-showcase > .hero-art-overlay h2 {
+  font-size: clamp(1.25rem, 2.25vw, 2.1rem) !important;
+  line-height: 1.06 !important;
+}
+.hero-banner > .hero-showcase > .hero-art-overlay p {
+  max-width: 235px !important;
+}
+.hero-banner > .hero-showcase > .hero-art-overlay .hero-art-services {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 7px 12px !important;
+  max-width: 270px !important;
+}
+.hero-banner > .hero-showcase > .hero-art-overlay .hero-art-services span {
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  color: #fff1cf !important;
+  font-size: clamp(.62rem, .76vw, .76rem) !important;
+  font-weight: 750 !important;
+  text-shadow: 0 2px 9px rgba(0,0,0,.98) !important;
+}
+.hero-banner > .hero-showcase > .hero-art-overlay .hero-art-services span + span::before {
+  content: "•" !important;
+  color: #f2c65e !important;
+  margin-right: 8px !important;
+}
+.hero-banner > .hero-showcase > .hero-art-overlay .hero-art-signature {
+  width: max-content !important;
+  border-top: 1px solid rgba(242,198,94,.8) !important;
+  padding-top: 8px !important;
+  color: #f2c65e !important;
+}
+.hero-banner > .hero-showcase > .hero-art-overlay .hero-art-signature b {
+  color: #fffaf0 !important;
+}
+@media (max-width: 900px) and (min-width: 701px) {
+  .hero-banner > .hero-showcase > .hero-art-overlay { width: min(48%, 280px) !important; }
+}
+@media (max-width: 700px) {
+  .hero-banner > .hero-showcase > .hero-art-overlay {
+    left: 14px !important;
+    bottom: 14px !important;
+    top: auto !important;
+    transform: none !important;
+    width: min(62%, 250px) !important;
+    padding: 0 !important;
+    gap: 7px !important;
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+  }
+  .hero-banner > .hero-showcase > .hero-art-overlay h2 { font-size: clamp(1.1rem, 5vw, 1.55rem) !important; }
+  .hero-banner > .hero-showcase > .hero-art-overlay p { font-size: .68rem !important; }
+  .hero-banner > .hero-showcase > .hero-art-overlay .hero-art-services { gap: 5px 8px !important; }
+  .hero-banner > .hero-showcase > .hero-art-overlay .hero-art-services span { font-size: .58rem !important; }
+}
