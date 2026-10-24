@@ -2338,3 +2338,53 @@ nav {
 @media (prefers-reduced-motion: reduce) {
   * { scroll-behavior: auto !important; }
 }
+
+
+/* SIGNATURE 8.0 — balanced wide-screen layout: reduce unused side space without stretching text. */
+@media (min-width: 1200px) {
+  #services, #portfolio, .tools-wrapper, .testimonials-container, .faq-section, .lead-form-section {
+    padding-left: clamp(36px, 4vw, 72px);
+    padding-right: clamp(36px, 4vw, 72px);
+  }
+  .service-journey, .details-container, .poster-grid {
+    width: 100%;
+    max-width: 1480px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .service-journey { gap: 18px; }
+  .details-container { gap: 18px; }
+  .faq-section .faq-item, .faq-section .faq-list, .faq-section .faq-container {
+    width: min(100%, 1180px);
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .tools-wrapper .calc-card { max-width: 1120px; }
+  .testimonials-container .review-grid, .testimonials-container .reviews-grid {
+    max-width: 1480px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+@media (min-width: 1500px) {
+  #services, #portfolio, .tools-wrapper, .testimonials-container, .faq-section, .lead-form-section {
+    padding-left: clamp(56px, 5vw, 100px);
+    padding-right: clamp(56px, 5vw, 100px);
+  }
+  .hero-banner {
+    padding-left: clamp(48px, 5.5vw, 104px);
+    padding-right: clamp(48px, 5.5vw, 104px);
+  }
+}
+@media (min-width: 1001px) and (max-width: 1199px) {
+  #services, #portfolio, .tools-wrapper, .testimonials-container, .faq-section, .lead-form-section {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+@media (max-width: 700px) {
+  #services, #portfolio, .tools-wrapper, .testimonials-container, .faq-section, .lead-form-section {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
