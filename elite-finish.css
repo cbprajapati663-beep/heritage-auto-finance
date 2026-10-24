@@ -4585,3 +4585,17 @@ nav .nav-links a[href="#contact"]:focus-visible {
     opacity: .42 !important;
   }
 }
+
+
+/* FINAL BRAND + HERO POLISH — logo canvas blending and desktop 3D visibility. */
+nav .nav-logo {
+  display: block;
+  background: transparent !important;
+  mix-blend-mode: screen !important;
+  isolation: auto !important;
+  object-fit: contain;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  filter: drop-shadow(0 2px 7px rgba(240,216,154,.10)) !important;
+}
