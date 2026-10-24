@@ -4698,3 +4698,72 @@ nav .nav-logo {
     z-index: 1 !important;
   }
 }
+
+
+/* HERO FINISH FIX — 24 Oct 2026: keep the desktop orbit elegant, visible and out of the vehicle artwork. */
+@media screen and (min-width: 701px) {
+  .hero-banner {
+    overflow: hidden !important;
+    border: 1px solid rgba(196, 158, 235, .34);
+    border-radius: clamp(22px, 2.4vw, 34px);
+    background:
+      radial-gradient(ellipse at 82% 18%, rgba(119, 73, 164, .15), transparent 38%),
+      linear-gradient(135deg, rgba(15, 11, 27, .97), rgba(18, 14, 35, .94) 56%, rgba(14, 10, 24, .98));
+    box-shadow: 0 24px 70px rgba(0,0,0,.22), inset 0 1px rgba(255,255,255,.045);
+  }
+  .hero-banner > .haf-desktop-3d-scene {
+    width: clamp(170px, 17vw, 250px) !important;
+    height: clamp(170px, 17vw, 250px) !important;
+    right: 1.5% !important;
+    top: -5% !important;
+    z-index: 1 !important;
+    opacity: .54 !important;
+    filter: drop-shadow(0 0 12px rgba(240,216,154,.15)) !important;
+  }
+  .hero-banner > .hero-showcase {
+    position: relative !important;
+    z-index: 2 !important;
+    align-self: center;
+    box-shadow: 0 24px 60px rgba(0,0,0,.34), 0 0 0 1px rgba(232,207,255,.16);
+  }
+  .hero-banner > .hero-showcase .hero-showcase-art {
+    display: block;
+    border-radius: inherit;
+  }
+  .hero-banner > .hero-trust-points span {
+    border: 1px solid rgba(240,216,154,.18);
+    background: rgba(255,255,255,.035);
+  }
+}
+@media screen and (min-width: 701px) and (max-width: 1100px) {
+  .hero-banner > .haf-desktop-3d-scene {
+    width: 155px !important;
+    height: 155px !important;
+    right: 1% !important;
+    top: -2% !important;
+    opacity: .38 !important;
+  }
+}
+@media screen and (max-width: 700px) {
+  .hero-banner {
+    border: 1px solid rgba(196,158,235,.28);
+    border-radius: 22px;
+    background:
+      radial-gradient(ellipse at 80% 10%, rgba(119,73,164,.15), transparent 42%),
+      linear-gradient(145deg, rgba(15,11,27,.98), rgba(18,14,35,.96));
+    box-shadow: 0 18px 44px rgba(0,0,0,.22);
+  }
+  .hero-banner > .haf-desktop-3d-scene {
+    width: 118px !important;
+    height: 118px !important;
+    right: 0 !important;
+    top: 0 !important;
+    opacity: .22 !important;
+    z-index: 0 !important;
+  }
+  .hero-banner > .hero-showcase {
+    position: relative !important;
+    z-index: 2 !important;
+    box-shadow: 0 16px 36px rgba(0,0,0,.3), 0 0 0 1px rgba(232,207,255,.14);
+  }
+}
