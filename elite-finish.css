@@ -6974,3 +6974,43 @@ input, select, textarea {
   }
   .stats-bar .stat-item:last-child:nth-child(odd) { grid-column: 1 / -1; }
 }
+
+
+/* Mobile-only artwork fit: show the complete campaign image without cropping the family/car at the right edge. */
+@media screen and (max-width: 700px) {
+  main#main-content > .hero-banner > .hero-showcase {
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    aspect-ratio: 16 / 9 !important;
+    overflow: hidden !important;
+    border-radius: 18px !important;
+    background: #130d20 !important;
+  }
+  main#main-content > .hero-banner > .hero-showcase > .hero-showcase-art {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    object-position: center center !important;
+  }
+  main#main-content > .hero-banner .hero-art-overlay {
+    left: 4% !important;
+    top: 6% !important;
+    width: 60% !important;
+    max-width: 60% !important;
+    max-height: 88% !important;
+    overflow: hidden !important;
+  }
+  main#main-content > .hero-banner .hero-art-overlay h2 {
+    font-size: clamp(1rem, 4.8vw, 1.65rem) !important;
+    line-height: 1.02 !important;
+  }
+  main#main-content > .hero-banner .hero-art-overlay p {
+    font-size: clamp(.65rem, 2.7vw, .9rem) !important;
+    line-height: 1.25 !important;
+  }
+  main#main-content > .hero-banner .hero-art-services { gap: 3px 7px !important; flex-wrap: wrap !important; }
+  main#main-content > .hero-banner .hero-art-services span { font-size: clamp(.55rem, 2.2vw, .72rem) !important; }
+}
