@@ -5283,3 +5283,83 @@ nav .nav-logo {
     animation-duration: 24s !important;
   }
 }
+
+
+/* HERO CAMPAIGN UPGRADE — premium vehicle photography with layered brand artwork. */
+.hero-showcase {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  min-height: clamp(300px, 42vw, 560px);
+  border: 1px solid rgba(225,194,122,.42) !important;
+  border-radius: clamp(18px, 2.4vw, 30px) !important;
+  background-color: #09070d !important;
+  background-image: linear-gradient(90deg, rgba(8,6,13,.76), rgba(8,6,13,.18) 58%, rgba(8,6,13,.32)), url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=2000&q=88');
+  background-size: cover;
+  background-position: center 58%;
+  box-shadow: 0 28px 75px rgba(0,0,0,.42), 0 0 0 1px rgba(255,255,255,.035) inset, 0 0 42px rgba(225,194,122,.08);
+  transform: translateZ(0);
+}
+.hero-showcase::before {
+  content: "YOUR NEXT DRIVE STARTS HERE";
+  position: absolute;
+  z-index: 3;
+  top: clamp(16px, 3vw, 30px);
+  left: clamp(16px, 3vw, 32px);
+  padding: 10px 14px;
+  border: 1px solid rgba(242,217,155,.58);
+  border-radius: 999px;
+  color: #ffedbd;
+  background: rgba(9,7,13,.72);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  font-size: clamp(.62rem, 1.1vw, .78rem);
+  font-weight: 800;
+  letter-spacing: .16em;
+  box-shadow: 0 8px 24px rgba(0,0,0,.22);
+}
+.hero-showcase::after {
+  content: "NEW CAR  ·  USED CAR  ·  REFINANCE";
+  position: absolute;
+  z-index: 3;
+  left: clamp(16px, 3vw, 32px);
+  bottom: clamp(68px, 8vw, 104px);
+  color: #f8e8c2;
+  font-size: clamp(.65rem, 1.15vw, .86rem);
+  font-weight: 750;
+  letter-spacing: .12em;
+  text-shadow: 0 2px 16px rgba(0,0,0,.9);
+}
+.hero-showcase .hero-showcase-art {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: .24;
+  mix-blend-mode: screen;
+  filter: saturate(.8) contrast(1.08);
+}
+.hero-showcase .hero-showcase-chip {
+  background: rgba(10,8,14,.76) !important;
+  border: 1px solid rgba(242,217,155,.34) !important;
+  box-shadow: 0 12px 36px rgba(0,0,0,.28);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+}
+.hero-showcase .hero-showcase-caption {
+  background: linear-gradient(90deg, rgba(8,6,13,.88), rgba(8,6,13,.18)) !important;
+  border-top: 1px solid rgba(242,217,155,.25);
+}
+@media (max-width: 700px) {
+  .hero-showcase {
+    min-height: 330px;
+    background-position: 56% center;
+  }
+  .hero-showcase::before { letter-spacing: .1em; }
+  .hero-showcase::after { max-width: calc(100% - 32px); letter-spacing: .07em; }
+  .hero-showcase .hero-showcase-art { opacity: .18; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-showcase, .hero-showcase * { scroll-behavior: auto !important; }
+}
