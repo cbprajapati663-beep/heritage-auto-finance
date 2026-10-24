@@ -5939,3 +5939,82 @@ nav .nav-logo {
 @media (prefers-reduced-motion: reduce) {
   .hero-banner > .hero-showcase > .hero-art-overlay { animation: none !important; }
 }
+
+
+/* Mobile-first hero readability + tasteful premium 3D motion */
+.hero-banner > .hero-showcase > .hero-art-overlay {
+  width: min(54%, 360px) !important;
+  gap: 12px !important;
+}
+.hero-banner > .hero-showcase > .hero-art-overlay .hero-art-eyebrow {
+  font-size: clamp(.68rem, .85vw, .82rem) !important;
+  letter-spacing: .16em !important;
+}
+.hero-banner > .hero-showcase > .hero-art-overlay h2 {
+  font-size: clamp(1.7rem, 3vw, 2.8rem) !important;
+  line-height: 1.02 !important;
+  text-shadow: 0 1px 0 #bd8427, 0 2px 0 #8b5a1c, 0 4px 0 rgba(55,30,12,.9), 0 8px 18px rgba(0,0,0,.95) !important;
+}
+.hero-banner > .hero-showcase > .hero-art-overlay h2 em {
+  text-shadow: 0 1px 0 #bd8427, 0 2px 0 #8b5a1c, 0 4px 0 rgba(55,30,12,.9), 0 0 18px rgba(255,196,73,.34), 0 8px 18px rgba(0,0,0,.95) !important;
+}
+.hero-banner > .hero-showcase > .hero-art-overlay p {
+  font-size: clamp(.84rem, 1.1vw, 1rem) !important;
+}
+.hero-banner > .hero-showcase > .hero-art-overlay .hero-art-services {
+  max-width: 330px !important;
+  gap: 9px 13px !important;
+}
+.hero-banner > .hero-showcase > .hero-art-overlay .hero-art-services span {
+  font-size: clamp(.72rem, .9vw, .86rem) !important;
+}
+.hero-banner > .hero-showcase > .hero-art-overlay .hero-art-signature {
+  font-size: clamp(.92rem, 1.15vw, 1.08rem) !important;
+  letter-spacing: .22em !important;
+  text-shadow: 0 2px 12px rgba(0,0,0,.98), 0 0 16px rgba(255,195,66,.38) !important;
+}
+.hero-banner > .hero-showcase > .hero-art-overlay .hero-art-signature b {
+  font-size: clamp(.72rem, .9vw, .86rem) !important;
+  letter-spacing: .28em !important;
+}
+@keyframes hafHeroGoldShimmer {
+  0%, 100% { filter: drop-shadow(0 0 0 rgba(255,202,91,0)); }
+  50% { filter: drop-shadow(0 0 7px rgba(255,202,91,.42)); }
+}
+.hero-banner > .hero-showcase > .hero-art-overlay h2 em {
+  animation: hafHeroGoldShimmer 4.5s ease-in-out infinite !important;
+}
+@media (max-width: 700px) {
+  .hero-banner > .hero-showcase > .hero-art-overlay {
+    width: min(72%, 285px) !important;
+    gap: 8px !important;
+  }
+  .hero-banner > .hero-showcase > .hero-art-overlay .hero-art-eyebrow {
+    font-size: clamp(.6rem, 2.5vw, .72rem) !important;
+  }
+  .hero-banner > .hero-showcase > .hero-art-overlay h2 {
+    font-size: clamp(1.38rem, 6vw, 1.9rem) !important;
+    line-height: 1.02 !important;
+  }
+  .hero-banner > .hero-showcase > .hero-art-overlay p {
+    font-size: clamp(.72rem, 3vw, .83rem) !important;
+  }
+  .hero-banner > .hero-showcase > .hero-art-overlay .hero-art-services {
+    max-width: 270px !important;
+    gap: 6px 9px !important;
+  }
+  .hero-banner > .hero-showcase > .hero-art-overlay .hero-art-services span {
+    font-size: clamp(.6rem, 2.5vw, .7rem) !important;
+  }
+  .hero-banner > .hero-showcase > .hero-art-overlay .hero-art-signature {
+    font-size: .78rem !important;
+    letter-spacing: .2em !important;
+  }
+  .hero-banner > .hero-showcase > .hero-art-overlay .hero-art-signature b {
+    font-size: .62rem !important;
+    letter-spacing: .23em !important;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-banner > .hero-showcase > .hero-art-overlay h2 em { animation: none !important; }
+}
