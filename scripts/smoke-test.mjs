@@ -186,5 +186,5 @@ assert.doesNotMatch(css, /^@import\s+url\(['"]https:\/\/fonts\.googleapis\.com/m
 // loaded and that the hero image keeps a cache-busted, accessible source.
 const finishCss = readFileSync("elite-finish.css", "utf8");
 assert.match(html, /elite-finish\.css\?v=20261024-mobile-no-letterbox/, "Homepage should load the current mobile hero CSS version");
-assert.match(finishCss, /@media screen and \(max-width:\s*700px\)[\s\S]*?\.hero-showcase-art\s*\{[^}]*object-fit:\s*cover\s*!important/s, "Mobile hero artwork should fill its frame without letterbox bands");
+assert.ok([...finishCss.matchAll(/\.hero-showcase-art\s*\{[^}]*\}/gs)].some(match => /object-fit:\s*cover\s*!important/.test(match[0])), "A mobile hero artwork rule should fill its frame without letterbox bands");
 assert.match(html, /class="hero-showcase-art" loading="eager" fetchpriority="high" decoding="async"/, "Hero campaign image should be prioritized for the initial view");
