@@ -5805,3 +5805,60 @@ nav .nav-logo {
   .hero-banner > .hero-showcase > .hero-art-overlay .hero-art-services { gap: 5px 8px !important; }
   .hero-banner > .hero-showcase > .hero-art-overlay .hero-art-services span { font-size: .58rem !important; }
 }
+
+
+/* Final direct-on-photo alignment: keep copy clear of the main car/family subjects. */
+.hero-banner > .hero-showcase > .hero-art-overlay {
+  left: clamp(16px, 2vw, 28px) !important;
+  top: 13% !important;
+  bottom: auto !important;
+  transform: none !important;
+  width: min(43%, 300px) !important;
+  gap: 9px !important;
+}
+.hero-banner > .hero-showcase > .hero-art-overlay h2 {
+  font-size: clamp(1.22rem, 2.15vw, 2rem) !important;
+  line-height: 1.04 !important;
+}
+.hero-banner > .hero-showcase > .hero-art-overlay p {
+  max-width: 225px !important;
+}
+.hero-banner > .hero-showcase > .hero-art-overlay .hero-art-services {
+  flex-wrap: wrap !important;
+  gap: 7px 10px !important;
+  max-width: 255px !important;
+}
+.hero-banner > .hero-showcase > .hero-art-overlay .hero-art-services span {
+  font-size: clamp(.58rem, .68vw, .7rem) !important;
+  line-height: 1.25 !important;
+}
+.hero-banner > .hero-showcase > .hero-art-overlay .hero-art-signature {
+  margin-top: 1px !important;
+  padding-top: 6px !important;
+  font-size: .68rem !important;
+  letter-spacing: .18em !important;
+}
+.hero-banner > .hero-showcase > .hero-art-overlay .hero-art-signature b {
+  font-size: .56rem !important;
+  letter-spacing: .22em !important;
+}
+@media (max-width: 900px) and (min-width: 701px) {
+  .hero-banner > .hero-showcase > .hero-art-overlay {
+    left: 14px !important;
+    top: 12% !important;
+    width: min(46%, 270px) !important;
+  }
+}
+@media (max-width: 700px) {
+  .hero-banner > .hero-showcase > .hero-art-overlay {
+    left: 12px !important;
+    top: 10% !important;
+    bottom: auto !important;
+    width: min(60%, 238px) !important;
+    gap: 7px !important;
+  }
+  .hero-banner > .hero-showcase > .hero-art-overlay h2 { font-size: clamp(1.08rem, 4.8vw, 1.5rem) !important; }
+  .hero-banner > .hero-showcase > .hero-art-overlay p { font-size: .65rem !important; }
+  .hero-banner > .hero-showcase > .hero-art-overlay .hero-art-services { gap: 5px 8px !important; max-width: 220px !important; }
+  .hero-banner > .hero-showcase > .hero-art-overlay .hero-art-services span { font-size: .56rem !important; }
+}
