@@ -3768,3 +3768,83 @@ nav .nav-logo {
     animation: hafMotionOrbitB 20s linear infinite !important;
   }
 }
+
+
+/* FINAL HERO MOTION FIX — animate every visible layer, not just the main rings. */
+@media screen and (min-width: 701px) {
+  .hero-banner > .haf-desktop-3d-scene {
+    animation: hafHeroSceneDriftFinal 6s ease-in-out infinite alternate !important;
+    animation-play-state: running !important;
+    transform-origin: 50% 50% !important;
+  }
+  .hero-banner > .haf-desktop-3d-scene .haf-scene-ring::before {
+    animation: hafHeroInnerOrbitFinal 4.8s linear infinite !important;
+    transform-origin: 50% 50% !important;
+  }
+  .hero-banner > .haf-desktop-3d-scene .haf-scene-ring::after {
+    animation: hafHeroOuterOrbitFinal 6.2s linear infinite reverse !important;
+    transform-origin: 50% 50% !important;
+  }
+  .hero-banner > .haf-desktop-3d-scene .haf-scene-ring-violet::before {
+    animation: hafHeroVioletOrbitFinal 5.3s linear infinite !important;
+    transform-origin: 50% 50% !important;
+  }
+  .hero-banner > .haf-desktop-3d-scene .haf-scene-core {
+    animation: hafHeroCoreTravelFinal 2.2s ease-in-out infinite alternate !important;
+    animation-play-state: running !important;
+    will-change: transform, opacity, filter !important;
+  }
+  .hero-banner > .haf-3d-orbit {
+    animation: hafHeroOrbitDriftFinal 7s linear infinite !important;
+    animation-play-state: running !important;
+  }
+  .hero-banner > .haf-3d-orbit-secondary {
+    animation: hafHeroOrbitDriftReverseFinal 5.7s linear infinite !important;
+    animation-play-state: running !important;
+  }
+}
+@keyframes hafHeroSceneDriftFinal {
+  0% { transform: translate3d(0,-7px,0) rotateY(-7deg) rotateX(2deg) scale(.98); }
+  50% { transform: translate3d(5px,2px,10px) rotateY(2deg) rotateX(-2deg) scale(1.015); }
+  100% { transform: translate3d(-3px,8px,0) rotateY(7deg) rotateX(2deg) scale(1); }
+}
+@keyframes hafHeroInnerOrbitFinal {
+  from { transform: rotateX(66deg) rotateY(28deg) rotateZ(0deg) scale(.94); }
+  to { transform: rotateX(48deg) rotateY(-28deg) rotateZ(360deg) scale(1.08); }
+}
+@keyframes hafHeroOuterOrbitFinal {
+  from { transform: rotateX(70deg) rotateY(-36deg) rotateZ(0deg) scale(1); }
+  to { transform: rotateX(48deg) rotateY(34deg) rotateZ(360deg) scale(.9); }
+}
+@keyframes hafHeroVioletOrbitFinal {
+  from { transform: rotateX(48deg) rotateY(-42deg) rotateZ(0deg) scale(.92); }
+  to { transform: rotateX(68deg) rotateY(42deg) rotateZ(360deg) scale(1.08); }
+}
+@keyframes hafHeroCoreTravelFinal {
+  0% { transform: translate3d(-5px,-4px,0) scale(.72); opacity:.62; filter:brightness(.92); }
+  50% { transform: translate3d(20px,10px,24px) scale(1.35); opacity:1; filter:brightness(1.35); }
+  100% { transform: translate3d(8px,24px,10px) scale(.9); opacity:.82; filter:brightness(1.08); }
+}
+@keyframes hafHeroOrbitDriftFinal {
+  from { transform: rotateX(62deg) rotateY(-18deg) rotateZ(0deg) translate3d(-4px,0,0); }
+  to { transform: rotateX(52deg) rotateY(22deg) rotateZ(360deg) translate3d(7px,5px,12px); }
+}
+@keyframes hafHeroOrbitDriftReverseFinal {
+  from { transform: rotateX(48deg) rotateY(32deg) rotateZ(360deg) translate3d(5px,0,0); }
+  to { transform: rotateX(64deg) rotateY(-24deg) rotateZ(0deg) translate3d(-7px,-5px,10px); }
+}
+@media screen and (min-width: 701px) and (prefers-reduced-motion: reduce) {
+  .hero-banner > .haf-desktop-3d-scene {
+    animation-duration: 18s !important;
+  }
+  .hero-banner > .haf-desktop-3d-scene .haf-scene-ring,
+  .hero-banner > .haf-desktop-3d-scene .haf-scene-ring-violet,
+  .hero-banner > .haf-desktop-3d-scene .haf-scene-core,
+  .hero-banner > .haf-desktop-3d-scene .haf-scene-ring::before,
+  .hero-banner > .haf-desktop-3d-scene .haf-scene-ring::after,
+  .hero-banner > .haf-desktop-3d-scene .haf-scene-ring-violet::before,
+  .hero-banner > .haf-3d-orbit,
+  .hero-banner > .haf-3d-orbit-secondary {
+    animation-duration: 18s !important;
+  }
+}
