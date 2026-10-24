@@ -2590,3 +2590,72 @@ nav {
 @media (prefers-reduced-motion: reduce) {
   #portfolio .poster-item::before, #portfolio .poster-item::after { transition: none !important; }
 }
+
+
+/* SIGNATURE 12.0 — make animation obvious, reliable, and add a visible desktop pointer accent. */
+/* Use transform-based keyframes for broad browser compatibility; keep motion small and continuous. */
+#portfolio .poster-item {
+  animation: hafPosterFloatVisible 3.6s ease-in-out infinite !important;
+  transform: translate3d(0,0,0);
+  will-change: transform;
+}
+#portfolio .poster-item:nth-child(4n + 2) { animation-delay: -.9s !important; }
+#portfolio .poster-item:nth-child(4n + 3) { animation-delay: -1.8s !important; }
+#portfolio .poster-item:nth-child(4n) { animation-delay: -2.7s !important; }
+@keyframes hafPosterFloatVisible {
+  0%, 100% { transform: perspective(1000px) translate3d(0,0,0) rotateX(0deg) rotateY(0deg); }
+  50% { transform: perspective(1000px) translate3d(0,-9px,0) rotateX(1.5deg) rotateY(-1.5deg); }
+}
+#portfolio .poster-item img {
+  transform: translateZ(12px);
+  transition: transform .28s ease, filter .28s ease;
+}
+@media (hover: hover) and (pointer: fine) {
+  #portfolio .poster-item:hover {
+    animation-play-state: paused !important;
+    transform: perspective(1000px) translate3d(0,-11px,16px) rotateX(2deg) rotateY(-2deg) !important;
+  }
+  #portfolio .poster-item:hover img {
+    transform: translateZ(24px) scale(1.025);
+    filter: brightness(1.08) saturate(1.06);
+  }
+}
+/* Small gold pointer dot with a trailing ring; the native cursor remains enabled as a fallback. */
+@media (hover: hover) and (pointer: fine) {
+  html.haf-pointer-ready, html.haf-pointer-ready body { cursor: auto; }
+  .haf-cursor-dot, .haf-cursor-ring {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99999;
+    pointer-events: none;
+    border-radius: 50%;
+    opacity: 0;
+    transform: translate3d(-100px,-100px,0);
+    transition: opacity .16s ease, width .16s ease, height .16s ease, border-color .16s ease, background .16s ease;
+  }
+  .haf-cursor-dot {
+    width: 7px;
+    height: 7px;
+    background: #f6e2ac;
+    box-shadow: 0 0 12px rgba(246,226,172,.6);
+  }
+  .haf-cursor-ring {
+    width: 30px;
+    height: 30px;
+    border: 1px solid rgba(246,226,172,.8);
+    background: rgba(132,83,177,.08);
+  }
+  .haf-cursor-dot.is-visible, .haf-cursor-ring.is-visible { opacity: 1; }
+  .haf-cursor-ring.is-hovering {
+    width: 42px;
+    height: 42px;
+    border-color: rgba(246,226,172,1);
+    background: rgba(132,83,177,.16);
+  }
+}
+@media (hover: none), (pointer: coarse), (prefers-reduced-motion: reduce) {
+  .haf-cursor-dot, .haf-cursor-ring { display: none !important; }
+  #portfolio .poster-item { animation: none !important; transform: none !important; will-change: auto; }
+  #portfolio .poster-item img { transform: none !important; transition: none !important; }
+}
