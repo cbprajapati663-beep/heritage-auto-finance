@@ -7014,3 +7014,28 @@ input, select, textarea {
   main#main-content > .hero-banner .hero-art-services { gap: 3px 7px !important; flex-wrap: wrap !important; }
   main#main-content > .hero-banner .hero-art-services span { font-size: clamp(.55rem, 2.2vw, .72rem) !important; }
 }
+
+
+/* Mobile-only: remove empty dark bands above/below the hero artwork. */
+@media screen and (max-width: 700px) {
+  main#main-content > .hero-banner {
+    gap: 10px !important;
+    padding-top: 14px !important;
+    padding-bottom: 14px !important;
+  }
+  main#main-content > .hero-banner > .hero-showcase {
+    aspect-ratio: 16 / 9 !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    padding: 0 !important;
+    line-height: 0 !important;
+    background: transparent !important;
+  }
+  main#main-content > .hero-banner > .hero-showcase > .hero-showcase-art {
+    display: block !important;
+    object-fit: contain !important;
+  }
+  main#main-content > .hero-banner .hero-art-overlay {
+    line-height: normal !important;
+  }
+}
