@@ -49,8 +49,9 @@ assert.match(html, /src="app\.js(?:\?v=[^"]*)?"/i, "HTML must load the external 
 assert.ok(existsSync("styles.css"), "styles.css must exist");
 assert.ok(existsSync("app.js"), "app.js must exist");
 assert.match(js, /function initPosterPreview\(\)/, "Poster gallery should support a full-screen preview");
-assert.match(js, /window\.matchMedia\("\(max-width: 700px\), \(prefers-reduced-motion: reduce\)"\)\.matches/, "Mobile and reduced-motion users should see a complete, non-typing hero heading");
-assert.doesNotMatch(js, /target\.textContent\s*=\s*word\.slice/, "Hero heading must not animate one character at a time");
+assert.match(js, /window\.matchMedia\("\(max-width: 700px\)"\)\.matches/, "Mobile hero should show a complete heading instead of a mid-word typing frame");
+assert.match(js, /function eraseNext\(\)/, "Original desktop typewriter animation should remain enabled");
+assert.match(readFileSync("elite-finish.css", "utf8"), /\.hero-banner \.typing-container \.typed-text[\s\S]*?height:\s*1\.2em\s*!important/, "Hero animation slot should reserve a stable line height");
 assert.match(js, /dialog\.showModal\(\)/, "Poster preview should open as an accessible dialog");
 assert.match(premium + readFileSync("next-level.css", "utf8"), /poster-preview-dialog/, "Poster preview should have responsive styling");
 
