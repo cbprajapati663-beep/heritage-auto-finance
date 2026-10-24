@@ -17,7 +17,7 @@
   function typeNext() {
     const target = document.querySelector(".typed-text");
     if (!target) return;
-    if (window.matchMedia("(max-width: 700px)").matches) {
+    if (window.matchMedia("(max-width: 1024px)").matches) {
       target.textContent = textArray[0];
       return;
     }
