@@ -5449,3 +5449,33 @@ nav .nav-logo {
 .hero-banner>h1 .typed-text{color:#f2c65e!important;-webkit-text-fill-color:#f2c65e!important}
 @media(max-width:900px){.hero-banner.reveal.active{gap:16px 20px!important;padding:24px!important}.hero-banner>h1{font-size:clamp(2.2rem,5.5vw,3.5rem)!important}}
 @media(max-width:700px){.hero-banner.reveal.active{display:flex!important;flex-direction:column!important;align-items:stretch!important;gap:18px!important;padding:22px 18px!important;border-radius:20px!important}.hero-banner>.secure-badge,.hero-banner>h1,.hero-banner>.hero-supporting,.hero-banner>.hero-actions,.hero-banner>.hero-trust-points{width:100%!important;text-align:left!important}.hero-banner>h1{font-size:clamp(2.35rem,10vw,3.2rem)!important;line-height:1.02!important}.hero-banner>.hero-actions{justify-content:flex-start!important;flex-wrap:wrap!important}.hero-banner>.hero-trust-points{justify-content:flex-start!important}.hero-banner>.hero-showcase{width:100%!important;height:auto!important;min-height:0!important;max-height:none!important;aspect-ratio:4/3!important;grid-column:auto!important;grid-row:auto!important}.hero-banner>.hero-showcase>img.hero-showcase-art{object-position:58% center!important}}
+
+
+/* Final hero crop fix: keep the campaign's full landscape composition visible. */
+@media (min-width: 701px) {
+  .hero-banner > .hero-showcase {
+    aspect-ratio: 16 / 9 !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    align-self: center !important;
+    grid-row: 1 / span 5 !important;
+  }
+  .hero-banner > .hero-showcase > img.hero-showcase-art {
+    object-fit: contain !important;
+    object-position: center center !important;
+    background: #0b0810 !important;
+  }
+}
+@media (max-width: 700px) {
+  .hero-banner > .hero-showcase {
+    aspect-ratio: 4 / 3 !important;
+    height: auto !important;
+    max-height: none !important;
+  }
+  .hero-banner > .hero-showcase > img.hero-showcase-art {
+    object-fit: contain !important;
+    object-position: center center !important;
+    background: #0b0810 !important;
+  }
+}
