@@ -2737,3 +2737,65 @@ nav {
 @media (prefers-reduced-motion: reduce) {
   .haf-cursor-glow { transition: none !important; }
 }
+
+
+/* SIGNATURE 16.0 — premium micro-interactions and a smoother flashlight halo. */
+:root {
+  --haf-signature-gold: #f6dfa2;
+  --haf-signature-purple: rgba(146,94,190,.18);
+}
+@media (hover: hover) and (pointer: fine) {
+  .haf-cursor-glow {
+    width: 360px;
+    height: 360px;
+    background: radial-gradient(circle,
+      rgba(255,240,195,.22) 0%,
+      rgba(246,196,95,.13) 17%,
+      rgba(171,119,210,.09) 35%,
+      rgba(132,83,177,.035) 55%,
+      transparent 73%);
+    filter: blur(6px);
+    mix-blend-mode: screen;
+  }
+  :where(.hero-cta-primary, .emi-whatsapp-cta, .direct-wa-enquiry button, .mobile-action-whatsapp) {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+  }
+  :where(.hero-cta-primary, .emi-whatsapp-cta, .direct-wa-enquiry button, .mobile-action-whatsapp)::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0;
+    background: linear-gradient(110deg, transparent 20%, rgba(255,255,255,.16) 48%, transparent 72%);
+    transform: translateX(-115%);
+    transition: transform .55s ease, opacity .2s ease;
+    z-index: -1;
+  }
+  :where(.hero-cta-primary, .emi-whatsapp-cta, .direct-wa-enquiry button, .mobile-action-whatsapp):hover::after {
+    opacity: 1;
+    transform: translateX(115%);
+  }
+  #portfolio .poster-item {
+    transition: box-shadow .3s ease, border-color .3s ease, background .3s ease;
+  }
+  #portfolio .poster-item:hover {
+    box-shadow: 0 28px 58px rgba(0,0,0,.46), 0 0 36px rgba(146,94,190,.2), 0 0 1px 1px rgba(246,223,162,.35);
+  }
+}
+:where(a, button, input, select, textarea, [tabindex]):focus-visible {
+  outline: 2px solid var(--haf-signature-gold);
+  outline-offset: 3px;
+}
+@media (max-width: 700px) {
+  .haf-cursor-glow { display: none !important; }
+  :where(.hero-cta-primary, .emi-whatsapp-cta, .direct-wa-enquiry button, .mobile-action-whatsapp)::after {
+    display: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  :where(.hero-cta-primary, .emi-whatsapp-cta, .direct-wa-enquiry button, .mobile-action-whatsapp)::after {
+    transition: none !important;
+  }
+}
