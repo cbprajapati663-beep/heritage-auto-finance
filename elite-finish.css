@@ -2993,3 +2993,69 @@ footer :where(p, li) { line-height: 1.75; }
     transition: none !important;
   }
 }
+
+
+/* FINAL FIX — desktop 3D orbit visibility + seamless official logo integration. */
+/* Keep the orbit visible on desktop as well as mobile; no hover prerequisite. */
+.hero-banner {
+  position: relative !important;
+  isolation: isolate !important;
+  overflow: hidden;
+}
+.hero-banner > .haf-3d-orbit {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  position: absolute !important;
+  z-index: 9 !important;
+  top: 18px !important;
+  right: 22px !important;
+  width: clamp(112px, 14vw, 190px) !important;
+  height: auto !important;
+  aspect-ratio: 1 / 1 !important;
+  pointer-events: none !important;
+  transform-style: preserve-3d !important;
+}
+@media (min-width: 701px) {
+  .hero-banner > .haf-3d-orbit {
+    animation: haf-signature-orbit 7s cubic-bezier(.45,0,.55,1) infinite alternate !important;
+  }
+  .hero-banner > .haf-3d-orbit::before,
+  .hero-banner > .haf-3d-orbit::after {
+    display: block !important;
+  }
+}
+@media (max-width: 700px) {
+  .hero-banner > .haf-3d-orbit {
+    width: clamp(88px, 25vw, 116px) !important;
+    top: 10px !important;
+    right: 10px !important;
+  }
+}
+/* Match the logo canvas to the header so it no longer looks like a pasted black tile. */
+nav {
+  isolation: isolate;
+  background: #090510 !important;
+  background-color: #090510 !important;
+}
+nav .nav-logo {
+  display: block;
+  background: transparent !important;
+  mix-blend-mode: screen !important;
+  object-fit: contain !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+  filter: brightness(1.08) contrast(1.06) drop-shadow(0 2px 9px rgba(240,216,154,.10)) !important;
+}
+@media (max-width: 700px) {
+  nav { background: #090510 !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-banner > .haf-3d-orbit,
+  .hero-banner > .haf-3d-orbit::before,
+  .hero-banner > .haf-3d-orbit::after {
+    animation: none !important;
+  }
+}
