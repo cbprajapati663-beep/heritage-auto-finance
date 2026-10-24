@@ -3718,3 +3718,53 @@ nav .nav-logo {
     will-change: auto !important;
   }
 }
+
+
+/* FINAL DESKTOP MOTION RECOVERY — prevent the hero orbit from appearing frozen. */
+@media screen and (min-width: 701px) {
+  .hero-banner > .haf-desktop-3d-scene {
+    animation: hafMotionSceneDrift 12s ease-in-out infinite alternate !important;
+    animation-play-state: running !important;
+  }
+  .hero-banner > .haf-desktop-3d-scene .haf-scene-ring {
+    animation: hafMotionGoldOrbit 9s linear infinite !important;
+    animation-play-state: running !important;
+  }
+  .hero-banner > .haf-desktop-3d-scene .haf-scene-ring-violet {
+    animation: hafMotionVioletOrbit 7s linear infinite !important;
+    animation-play-state: running !important;
+  }
+  .hero-banner > .haf-desktop-3d-scene .haf-scene-core {
+    animation: hafMotionCorePulse 3.4s ease-in-out infinite alternate !important;
+    animation-play-state: running !important;
+  }
+  .hero-banner > .haf-3d-orbit {
+    animation: hafMotionOrbitA 10s linear infinite !important;
+    animation-play-state: running !important;
+  }
+  .hero-banner > .haf-3d-orbit-secondary {
+    animation: hafMotionOrbitB 8s linear infinite !important;
+    animation-play-state: running !important;
+  }
+}
+/* If reduced motion is requested, keep the desktop rings gently moving instead of freezing. */
+@media screen and (min-width: 701px) and (prefers-reduced-motion: reduce) {
+  .hero-banner > .haf-desktop-3d-scene {
+    animation: hafMotionSceneDrift 24s ease-in-out infinite alternate !important;
+  }
+  .hero-banner > .haf-desktop-3d-scene .haf-scene-ring {
+    animation: hafMotionGoldOrbit 22s linear infinite !important;
+  }
+  .hero-banner > .haf-desktop-3d-scene .haf-scene-ring-violet {
+    animation: hafMotionVioletOrbit 18s linear infinite !important;
+  }
+  .hero-banner > .haf-desktop-3d-scene .haf-scene-core {
+    animation: hafMotionCorePulse 12s ease-in-out infinite alternate !important;
+  }
+  .hero-banner > .haf-3d-orbit {
+    animation: hafMotionOrbitA 24s linear infinite !important;
+  }
+  .hero-banner > .haf-3d-orbit-secondary {
+    animation: hafMotionOrbitB 20s linear infinite !important;
+  }
+}
