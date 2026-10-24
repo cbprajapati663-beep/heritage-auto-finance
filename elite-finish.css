@@ -4912,3 +4912,89 @@ nav .nav-logo {
   object-fit: contain !important;
   filter: brightness(1.08) contrast(1.04) drop-shadow(0 2px 8px rgba(240,216,154,.16)) !important;
 }
+
+
+/* HERO SHOWROOM COMPLETION FIX — 24 Oct 2026.
+   Keep the desktop hero balanced, remove the oversized empty lower area, and keep the showroom artwork crisp. */
+@media screen and (min-width: 1101px) {
+  .hero-banner {
+    display: grid !important;
+    grid-template-columns: minmax(0, .92fr) minmax(0, 1.08fr) !important;
+    align-items: center !important;
+    align-content: center !important;
+    column-gap: clamp(28px, 3.4vw, 58px) !important;
+    row-gap: 16px !important;
+    min-height: 0 !important;
+    height: auto !important;
+    padding: clamp(38px, 4vw, 64px) clamp(30px, 4vw, 64px) !important;
+  }
+  .hero-banner > .hero-showcase {
+    grid-column: 2 !important;
+    grid-row: 1 / span 5 !important;
+    width: 100% !important;
+    max-width: none !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    align-self: center !important;
+    aspect-ratio: 16 / 10 !important;
+    overflow: hidden !important;
+    border-radius: 22px !important;
+    background: linear-gradient(145deg, #171022, #0b0912) !important;
+  }
+  .hero-banner > .hero-showcase .hero-showcase-art {
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 0 !important;
+    aspect-ratio: 16 / 10 !important;
+    object-fit: cover !important;
+    object-position: center center !important;
+    display: block !important;
+  }
+  .hero-banner > .haf-desktop-3d-scene {
+    right: 1% !important;
+    top: 0 !important;
+    width: clamp(150px, 15vw, 230px) !important;
+    height: clamp(150px, 15vw, 230px) !important;
+    opacity: .42 !important;
+    z-index: 3 !important;
+  }
+}
+@media screen and (min-width: 701px) and (max-width: 1100px) {
+  .hero-banner {
+    min-height: 0 !important;
+    height: auto !important;
+    align-content: center !important;
+    padding-bottom: 34px !important;
+  }
+  .hero-banner > .hero-showcase {
+    align-self: center !important;
+    height: auto !important;
+    min-height: 0 !important;
+    aspect-ratio: 16 / 10 !important;
+    overflow: hidden !important;
+  }
+  .hero-banner > .hero-showcase .hero-showcase-art {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    aspect-ratio: 16 / 10 !important;
+    object-fit: cover !important;
+    object-position: center !important;
+  }
+}
+@media screen and (max-width: 700px) {
+  .hero-banner { min-height: 0 !important; height: auto !important; }
+  .hero-banner > .hero-showcase {
+    height: auto !important;
+    min-height: 0 !important;
+    aspect-ratio: 4 / 3 !important;
+    overflow: hidden !important;
+  }
+  .hero-banner > .hero-showcase .hero-showcase-art {
+    width: 100% !important;
+    height: 100% !important;
+    aspect-ratio: 4 / 3 !important;
+    object-fit: cover !important;
+    object-position: center !important;
+  }
+}
