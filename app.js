@@ -376,7 +376,19 @@
       });
     }
 
-    if (textArray.length) typeNext();
+  }
+
+  // Start hero typing independently so unrelated page initialization cannot block it.
+  function startHeroTyping() {
+    const target = document.querySelector('.typed-text');
+    if (!target || target.dataset.typingStarted === 'true') return;
+    target.dataset.typingStarted = 'true';
+    typeNext();
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', startHeroTyping, { once: true });
+  } else {
+    startHeroTyping();
   }
 
   // Keep the existing inline handlers compatible with the separated script.
