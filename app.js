@@ -12,15 +12,11 @@
 
   const formatINR = value => "₹ " + Math.round(Number(value) || 0).toLocaleString("en-IN");
 
-  // Preserve the original typewriter animation on desktop. Keep the full phrase
-  // static on small screens, where the reserved headline slot prevents reflow.
+  // Keep the Dream Car typewriter animation on phones, tablets, and desktop.
+  // The headline slot reserves enough height so typing does not shift the layout.
   function typeNext() {
     const target = document.querySelector(".typed-text");
     if (!target) return;
-    if (window.matchMedia("(max-width: 1024px)").matches) {
-      target.textContent = textArray[0];
-      return;
-    }
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       target.textContent = textArray[textIndex];
       charIndex = textArray[textIndex].length;
