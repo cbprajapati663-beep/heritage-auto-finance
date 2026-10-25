@@ -17,16 +17,6 @@
   function typeNext() {
     const target = document.querySelector(".typed-text");
     if (!target) return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      target.textContent = textArray[textIndex];
-      charIndex = textArray[textIndex].length;
-      typingTimer = window.setTimeout(() => {
-        textIndex = (textIndex + 1) % textArray.length;
-        charIndex = 0;
-        typeNext();
-      }, 4200);
-      return;
-    }
     const word = textArray[textIndex];
     if (charIndex < word.length) {
       target.textContent = word.slice(0, ++charIndex);
