@@ -49,7 +49,8 @@ assert.match(html, /src="app\.js(?:\?v=[^"]*)?"/i, "HTML must load the external 
 assert.ok(existsSync("styles.css"), "styles.css must exist");
 assert.ok(existsSync("app.js"), "app.js must exist");
 assert.match(js, /function initPosterPreview\(\)/, "Poster gallery should support a full-screen preview");
-assert.match(js, /window\.matchMedia\("\(max-width: 1024px\)"\)\.matches/, "Mobile and tablet hero should show a complete heading instead of a mid-word typing frame");
+assert.doesNotMatch(js, /matchMedia\("\(max-width: 1024px\)"\)\.matches/, "Hero typewriter animation should remain enabled on mobile, tablet, and desktop");
+assert.match(js, /function startHeroTyping\(\)/, "Hero typewriter should start independently of page initialization");
 assert.match(readFileSync("elite-finish.css", "utf8"), /min-width:\s*701px\) and \(max-width:\s*1024px\)/, "Tablet hero should retain the stacked mobile/tablet composition");
 assert.match(js, /function eraseNext\(\)/, "Original desktop typewriter animation should remain enabled");
 assert.match(readFileSync("elite-finish.css", "utf8"), /\.hero-banner \.typing-container \.typed-text[\s\S]*?height:\s*1\.2em\s*!important/, "Hero animation slot should reserve a stable line height");
