@@ -69,6 +69,25 @@
     <link rel="stylesheet" href="next-level.css?v=20261014-1205">
     <link rel="stylesheet" href="elite-upgrade.css?v=20261022-elite1">
     <link rel="stylesheet" href="elite-finish.css?v=20261024-mobile-no-letterbox">
+<style id="consistent-hero-typewriter">
+/* Keep the animated phrase's inline flow and cursor identical on desktop and mobile. */
+.hero-banner .typing-container .typed-text {
+  display: inline !important;
+  width: auto !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+  height: auto !important;
+  min-height: 0 !important;
+  white-space: normal !important;
+  overflow-wrap: normal !important;
+  word-break: normal !important;
+  contain: none !important;
+  vertical-align: baseline !important;
+}
+.hero-banner .typing-container .typed-text::after {
+  vertical-align: -.04em !important;
+}
+</style>
 </head>
 <body>
     <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -388,7 +407,7 @@
     </div>
 
     <!-- Interactive Scripts -->
-    <script src="app.js?v=20261024-typewriter-reserved-space" defer></script>
+    <script src="app.js?v=20261025-typewriter-style-sync" defer></script>
     <script src="lead-tracking.js?v=20261022-1" defer></script>
     <script>
       // Defensive cleanup: the site uses its own WhatsApp enquiry form, never a third-party embedded lead form.
