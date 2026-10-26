@@ -13,8 +13,8 @@ assert.match(html, /class="skip-link" href="#main-content"/, "Skip navigation sh
 assert.match(html, /<main id="main-content" tabindex="-1">/, "Main landmark should receive keyboard focus after skip navigation");
 
 assert.match(html, /name="description"/i, "SEO description should exist");
-assert.ok(html.includes('rel="canonical" href="https://cbprajapati663-beep.github.io/heritage-auto-finance/'), "Canonical URL should use the published GitHub Pages domain");
-assert.ok(html.includes('property="og:url" content="https://cbprajapati663-beep.github.io/heritage-auto-finance/'), "Social preview URL should use the published GitHub Pages domain");
+assert.ok(html.includes('rel="canonical" href="https://heritageautofinance.in/'), "Canonical URL should use the official custom domain");
+assert.ok(html.includes('property="og:url" content="https://heritageautofinance.in/'), "Social preview URL should use the official custom domain");
 assert.match(html, /hero-cta-primary/, "Primary callback CTA should exist");
 assert.match(html, /hero-trust-points/, "Service highlights should exist");
 assert.equal((html.match(/class="hero-showcase"/g) || []).length, 1, "Hero should show one bespoke showroom showcase");
@@ -41,8 +41,8 @@ assert.match(html, /Do not submit Aadhaar, PAN, bank account details/i, "Initial
 assert.match(html, /terms\.html/, "Terms must be linked from the homepage");
 assert.ok(existsSync("privacy-policy.html"), "Privacy policy page must exist");
 assert.ok(existsSync("terms.html"), "Terms page must exist");
-assert.ok(readFileSync("privacy-policy.html", "utf8").includes('rel="canonical" href="https://cbprajapati663-beep.github.io/heritage-auto-finance/privacy-policy.html'), "Privacy policy canonical must use the published GitHub Pages domain");
-assert.ok(readFileSync("terms.html", "utf8").includes('rel="canonical" href="https://cbprajapati663-beep.github.io/heritage-auto-finance/terms.html'), "Terms canonical must use the published GitHub Pages domain");
+assert.ok(readFileSync("privacy-policy.html", "utf8").includes('rel="canonical" href="https://heritageautofinance.in/privacy-policy.html'), "Privacy policy canonical must use the official custom domain");
+assert.ok(readFileSync("terms.html", "utf8").includes('rel="canonical" href="https://heritageautofinance.in/terms.html'), "Terms canonical must use the official custom domain");
 
 assert.match(premium, /\.legal-page/, "Legal pages must use the shared premium layout");
 assert.match(html, /src="app\.js(?:\?v=[^"]*)?"/i, "HTML must load the external JavaScript, including an optional cache version");
@@ -113,9 +113,9 @@ assert.ok(existsSync("robots.txt"), "Robots instructions must exist");
 assert.ok(existsSync("sitemap.xml"), "XML sitemap must exist");
 const robots = readFileSync("robots.txt", "utf8");
 const sitemap = readFileSync("sitemap.xml", "utf8");
-assert.ok(robots.includes("Sitemap: https://cbprajapati663-beep.github.io/heritage-auto-finance/sitemap.xml"), "Robots file must advertise the published sitemap");
+assert.ok(robots.includes("Sitemap: https://heritageautofinance.in/sitemap.xml"), "Robots file must advertise the official sitemap");
 assert.match(sitemap, /<urlset[\s>]/i, "Sitemap must contain a URL set");
-assert.ok(sitemap.includes("https://cbprajapati663-beep.github.io/heritage-auto-finance/"), "Sitemap must list the published homepage");
+assert.ok(sitemap.includes("https://heritageautofinance.in/"), "Sitemap must list the official homepage");
 assert.match(sitemap, /privacy-policy\.html/i, "Sitemap must include the privacy policy");
 assert.match(sitemap, /terms\.html/i, "Sitemap must include the terms page");
 
@@ -138,10 +138,9 @@ const sitemapLocations = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map(match
 assert.ok(sitemapLocations.length >= 3, "Sitemap should list the homepage and legal pages");
 assert.equal(new Set(sitemapLocations).size, sitemapLocations.length, "Sitemap URLs should not be duplicated");
 for (const url of sitemapLocations) {
-  assert.ok(url.startsWith("https://cbprajapati663-beep.github.io/heritage-auto-finance/"), "Sitemap entries must use the canonical GitHub Pages host");
+  assert.ok(url.startsWith("https://heritageautofinance.in/"), "Sitemap entries must use the official custom domain");
   const pathname = new URL(url).pathname;
-  const siteBase = "/heritage-auto-finance/";
-  const localPage = pathname === "/" || pathname === siteBase ? "index.html" : pathname.startsWith(siteBase) ? pathname.slice(siteBase.length) : pathname.slice(1);
+  const localPage = pathname === "/" ? "index.html" : pathname.replace(/^\//, "");
   assert.ok(existsSync(localPage), `Sitemap entry must point to a tracked page: ${url}`);
 }
 assert.match(notFound, /name="viewport"/, "Custom 404 page should be responsive on mobile");
